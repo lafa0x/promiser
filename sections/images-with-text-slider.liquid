@@ -1,0 +1,170 @@
+{%- if section.settings.title != blank -%}
+  <div class="section-header grid-item push-left-one-tenth lap--push-left-padding">
+    <h2 class="section-header__title h4">{{ section.settings.title | escape }}</h2>
+  </div>
+{%- endif -%}
+
+{%- liquid
+  unless section.settings.gallery_aspect == 'natural'
+    assign aspect_ratio = section.settings.gallery_aspect
+  else 
+    assign aspect_ratio = blank
+  endunless
+-%}
+
+{%- if section.blocks.size > 0 -%}
+
+  <div class="css-slider {% if section.blocks.size > 1 %} css-slider--snapping {% endif %} images-with-text-slider" id="css-slider-{{ section.id }}" data-navigation-class="ten-tenths lap--twelve-tenths push-left-one-tenth lap--push-left-padding">
+
+    <div class="images-with-text-slider__titles css-slides-container grid push-right-half-tenth lap--push-right-padding">
+      {%- for block in section.blocks -%}
+
+        <div class="images-with-text-slider__title css-slide 
+          three-tenths lap--smart-width palm--smart-width
+          {% if forloop.first %} 
+            push-left-one-tenth lap--push-left-padding
+          {% else %} 
+            push-left-half-tenth lap--push-left-padding
+          {% endif %}
+        "
+          {{ block.shopify_attributes }}
+          data-index="{{ forloop.index0 }}"
+        >
+          {%- unless block.settings.heading == blank -%}
+            <h3 class="h3">{{ block.settings.heading | escape }}</h3>
+          {%- endunless -%}
+        </div>
+
+      {%- endfor -%}
+    </div>
+
+    <div class="images-with-text-slider__images css-slides-container grid push-right-half-tenth lap--push-right-padding">
+      {%- for block in section.blocks -%}
+        <div class="images-with-text-slider__image css-slide 
+          three-tenths lap--smart-width palm--smart-width
+          {% if forloop.first %} 
+            push-left-one-tenth lap--push-left-padding
+          {% else %} 
+            push-left-half-tenth lap--push-left-padding
+          {% endif %}
+        ">
+          {%- if block.settings.image -%}
+            {%- render 'lazy-image', image: block.settings.image, ratio: aspect_ratio, alt: block.settings.heading -%}
+          {%- else -%}
+            <span class="onboarding-svg" {% unless aspect_ratio == blank %} style="padding-top: {{ 100 | divided_by: aspect_ratio }}%" {% endunless %}>
+              {{ 'image' | placeholder_svg_tag }}
+            </span>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+
+    <div class="images-with-text-slider__descriptions css-slides-container grid push-right-half-tenth lap--push-right-padding">
+      {%- for block in section.blocks -%}
+        <div class="images-with-text-slider__description css-slide 
+          three-tenths lap--smart-width palm--smart-width
+          {% if forloop.first %} 
+            push-left-one-tenth lap--push-left-padding
+          {% else %} 
+            push-left-half-tenth lap--push-left-padding
+          {% endif %}
+        ">
+          {%- unless block.settings.description == blank -%}
+            <div class="rte">{{ block.settings.description }}</div>
+          {%- endunless -%}
+        </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Images with text slider",
+    "class": "mount-css-slider section-w-margin no-overflow",
+    "max_blocks": 12,
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Images with text slider"
+      },
+      {
+        "type": "select",
+        "id": "gallery_aspect",
+        "label": "Images aspect ratio",
+        "options": [
+          {
+            "value": "1.333",
+            "label": "Short (4:3)",
+            "group": "Cropped"
+          },
+          {
+            "value": "1",
+            "label": "Square (1:1)",
+            "group": "Cropped"
+          },
+          {
+            "value": "0.833",
+            "label": "Tall (5:6)",
+            "group": "Cropped"
+          },
+          {
+            "value": "0.666",
+            "label": "Taller (2:3)",
+            "group": "Cropped"
+          }
+        ],
+        "default": "1"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Image title"
+          },
+          {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description",
+            "default": "<p>Write about specific product features or store details.</p>"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Images with text slider",
+        "category": "Image",
+        "blocks": [
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

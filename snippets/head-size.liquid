@@ -1,0 +1,49 @@
+{% comment %}
+  We are using static CSS variables in order to make sure that we have a responsive header
+    which works well with the VH units that our theme is using.
+  So if you wish to modify the desk/mobile padding for the header, the values are below ( 20 / 14 ) 
+  The same for the maximum height of the logo, currently set at ( 80 / 40 ).
+{% endcomment %}
+{%- liquid 
+  assign headerPadding = 14
+  if logo 
+    assign maxDeskHeight = logo_height
+    assign maxMobileHeight = logo_height
+    if maxDeskHeight > logo.height
+      assign maxDeskHeight = logo.height
+    endif
+    if maxMobileHeight > logo.height
+      assign maxMobileHeight = logo.height
+    endif
+    if maxMobileHeight > 40 or maxMobileHeight < 40
+      assign maxMobileHeight = 40
+    endif
+  else
+    assign maxDeskHeight = 45
+    assign maxMobileHeight = 45
+  endif
+-%}
+<span id="header-size-settings" data-max_desk_height="{{ maxDeskHeight }}" data-max_mobile_height="{{ maxMobileHeight }}"></span>
+<script>
+  const fixVhByVars = function(){
+    const maxDeskHeight = parseInt( document.getElementById('header-size-settings').dataset.max_desk_height ),
+          maxMobileHeight = parseInt( document.getElementById('header-size-settings').dataset.max_mobile_height );
+    document.documentElement.style.setProperty('--header-padding', '{{ headerPadding }}px');
+    if ( window.innerWidth < 768 ) {
+      document.documentElement.style.setProperty('--header-logo', maxMobileHeight + 'px');
+      document.documentElement.style.setProperty('--header-size', parseInt( maxMobileHeight + ( {{ headerPadding }} * 2 ) ) + 'px');
+    } else {
+      document.documentElement.style.setProperty('--header-logo', maxDeskHeight + 'px');
+      document.documentElement.style.setProperty('--header-size', parseInt( maxDeskHeight + ( {{ headerPadding }} * 2 ) ) + 'px');
+    }
+    document.documentElement.style.setProperty('--grid-perfect-width', document.documentElement.clientWidth + 'px');
+  } 
+  window.addEventListener('resize', fixVhByVars, 200);
+  window.addEventListener('DOMContentLoaded', fixVhByVars);
+  fixVhByVars();
+  document.addEventListener('shopify:section:load', function(e){
+    if ( e.target.id == 'shopify-section-header' ) {
+      fixVhByVars();
+    }
+  });
+</script>

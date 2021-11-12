@@ -1,0 +1,25 @@
+{%- if section.settings.show_reviews -%}
+  <div class="section-w-margin">
+    <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+    <script src="{{ 'jsonp.js' | asset_url }}" async></script>
+  </div>
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Product reviews",
+    "class": "mount-product-reviews mount-css-slider",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "You need to install [Shopify's free Product Reviews app](https://apps.shopify.com/product-reviews) before enabling this option."
+      },
+      {
+        "type": "checkbox",
+        "id": "show_reviews",
+        "label": "Show reviews",
+        "default": false
+      }
+    ]
+  }
+{% endschema %}

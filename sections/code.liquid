@@ -1,0 +1,22 @@
+<div class="ten-tenths lap--full-width push-left-one-tenth lap--push-left-none">
+  {{ section.settings.code }}
+</div>
+
+{% schema %}
+  {
+    "name": "Custom HTML",
+    "class": "section-w-margin section-w-mobile-padding",
+    "settings": [
+      {
+        "type": "html",
+        "id": "code",
+        "label": "HTML",
+        "default": "<div class=\"rte\" style=\"text-align:center;\"><h2>Use HTML to format your text so it can be easily read.</h2><p>This text can be used to share information about your brand with customers.</p></div>"
+      }
+    ], 
+    "presets": [{
+      "name": "Custom HTML",
+      "category": "Advanced layout"
+    }]
+  }
+{% endschema %}

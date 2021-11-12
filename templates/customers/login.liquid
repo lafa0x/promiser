@@ -1,0 +1,101 @@
+<div class="shopify-section section-w-margin section-w-mobile-padding" id="section-login">
+
+  <div class="section-header five-tenths lap--full-width push-left-one-tenth lap--push-left-none">
+  	<h1 id="LoginRecoverTitle" class="section-header__title h1" data-password_recovery="{{ 'customer.recover_password.title' | t }}" data-login="{{ 'customer.login.title' | t }}">{{ 'customer.login.title' | t }}</h1>
+  </div>
+
+  <div class="grid five-tenths lap--full-width push-left-one-tenth lap--push-left-none">
+
+		<div id="ResetSuccess" style="display:none;">
+	    {%- liquid
+        assign success_text = 'customer.recover_password.success' | t
+        render 'form-success', text: success_text
+	    -%}
+		</div>
+
+    <div id="CustomerLoginForm">
+
+      {%- form 'customer_login', class: 'simple-grid' -%}
+
+    		<div class="simple-grid-item one-whole">{%- render 'form-errors', form: form -%}</div>
+
+        <div class="simple-grid-item one-whole">
+          <label for="CustomerEmail" class="text-size--small">{{ 'customer.login.email' | t }}</label>
+          <input type="email" name="customer[email]" id="CustomerEmail" class="input-full{% if form.errors contains 'email' %} error{% endif %}" placeholder="{{ 'customer.login.email' | t }}" autocorrect="off" autocapitalize="off" autofocus>
+        </div>
+
+        <div class="simple-grid-item one-whole">
+          {%- if form.password_needed -%}
+            <label for="CustomerPassword" class="text-size--small">{{ 'customer.login.password' | t }}</label>
+            <input type="password" value="" name="customer[password]" id="CustomerPassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}" placeholder="{{ 'customer.login.password' | t }}">
+          {%- endif -%}
+        </div>
+
+        <div class="simple-grid-item one-whole">
+
+          <input type="submit" class="button button--solid button--fit" value="{{ 'customer.login.sign_in' | t }}" style="margin-right: 25px;">
+
+          <div class="rte">
+            {%- if form.password_needed -%}
+              <p style="margin-bottom:.5em"><a href="#recover" id="RecoverPassword">{{ 'customer.login.forgot_password' | t }}</a></p>
+            {%- endif -%}
+            <p href="#">{{ 'customer.login.new_customer' | t }} {{ 'customer.login.sign_up' | t | customer_register_link }}</p>
+          </div>
+
+        </div>
+
+      {%- endform -%}
+
+    </div>
+
+    <div id="RecoverPasswordForm" style="display: none;">
+
+      {%- form 'recover_customer_password', class: 'simple-grid' -%}
+
+        {%- if form.posted_successfully? -%}
+          {%- assign resetPassword = true -%}
+        {%- endif -%}
+
+        <p class="simple-grid-item one-whole h4" style="margin-bottom:2em">{{ 'customer.recover_password.subtext' | t }}</p>
+
+    		<div class="simple-grid-item one-whole">{%- render 'form-errors', form: form -%}</div>
+
+        <div class="simple-grid-item one-whole">
+          <label for="RecoverEmail" class="text-size--small">{{ 'customer.recover_password.email' | t }}</label>
+          <input type="email" value="" name="email" id="RecoverEmail" class="input-full" placeholder="{{ 'customer.recover_password.email' | t }}" autocorrect="off" autocapitalize="off">
+        </div>
+
+        <div class="simple-grid-item one-whole">
+          <input type="submit" class="button button--solid button--fit" value="{{ 'customer.recover_password.submit' | t }}">
+        </div>
+
+        <div class="simple-grid-item one-whole push-a-bit">
+          <button type="button button--solid button--fit" id="HideRecoverPasswordLink" class="text-link">{{ 'customer.recover_password.cancel' | t }}</button>
+        </div>
+
+      {%- endform -%}
+
+    </div>
+
+    {%- if shop.checkout.guest_login -%}
+
+      {%- form 'guest_login', class: 'simple-grid' -%}
+        <div class="simple-grid-item one-whole">
+        	<input type="submit" class="button button--solid button--fit" value="{{ 'customer.login.guest_continue' | t }}">
+        </div>
+      {%- endform -%}
+
+    {%- endif -%}
+
+  </div>
+
+</div>
+
+{%- if resetPassword -%}
+  <style type="text/css">
+    #ResetSuccess { 
+      display: block !important;
+      margin-bottom: 1em;
+    }
+  </style>
+{%- endif -%}

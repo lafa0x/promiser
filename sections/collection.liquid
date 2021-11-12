@@ -1,0 +1,324 @@
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="shop-heading pb-20 section-header__title h1
+          {% if section.settings.sort_enable or section.settings.tags_enable or collection.description != blank %} with-extra-margin {% endif %}
+        ">Shop</h1>
+        <!-- <h3 class="main-text pt-10 your-promise dashboard-setting">Shop</h3> -->
+      </div>
+    </div>  
+    <div class="col-md-12">
+      <div class="custom-toggling list-handling">
+        <ul class="block-display-list">
+          <li class="active-link">
+            <a href="#" class="active-link">Tees</a>
+          </li>
+          <li>
+            <a href="#" class="non-active-link">Stars</a>
+          </li>
+          <li>
+            <a href="#" class="non-active-link">Post Cards</a>
+          </li>
+          <li>
+            <a href="#" class="non-active-link">Bottles</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  {%- if section.settings.collection_image and collection.image -%}
+
+    {%- assign collection_image = true -%}
+    <div class="collection__image five-tenths lap--full-width push-left-one-tenth lap--push-left-none">
+      {%- render 'lazy-image', image: collection.image, alt: collection.title -%}
+    </div>
+
+  {%- endif -%}
+<div class="shadow-handle">
+  <div class="container">
+    <div class="section-header {% if collection_image %} four-tenths {% else %} five-tenths {% endif %} lap--full-width push-left-one-tenth lap--push-left-none">
+
+
+      {%- unless collection.description == blank -%}
+        <div class="rte">{{ collection.description }}</div>
+      {%- endunless -%}
+
+      <div id="collection-filters" class="collection__filters" data-collection-handle="{{ collection.handle }}">
+
+        {%- if section.settings.sort_enable -%}
+
+          <div class="option">
+            <label for="sort-by" class="visually-hidden">{{ 'collections.sort_dropdown.label' | t }}</label>
+            <select name="sort-by" id="sort-by">
+              <option value="manual">{{ 'collections.sort_dropdown.sort_by_featured' | t }}</option>
+              <option value="best-selling">{{ 'collections.sort_dropdown.sort_by_best_selling' | t }}</option>
+              <option value="title-ascending">{{ 'collections.sort_dropdown.sort_by_title_asc' | t }}</option>
+              <option value="title-descending">{{ 'collections.sort_dropdown.sort_by_title_desc' | t }}</option>
+              <option value="price-ascending">{{ 'collections.sort_dropdown.sort_by_price_asc' | t }}</option>
+              <option value="price-descending">{{ 'collections.sort_dropdown.sort_by_price_desc' | t }}</option>
+              <option value="created-descending">{{ 'collections.sort_dropdown.sort_by_date_desc' | t }}</option>
+              <option value="created-ascending">{{ 'collections.sort_dropdown.sort_by_date_asc' | t }}</option>
+            </select>
+          </div>
+
+        {%- endif -%}
+
+        {%- if section.settings.tags_enable -%}
+
+          <div class="option">
+            <label for="filter-by" class="visually-hidden">{{ 'collections.filter_dropdown.label' | t }}</label>
+            <select name="filter-by" class="filter-by">
+              <option value="">{{ 'collections.filter_dropdown.filter_all' | t }}</option>
+              {% for tag in collection.all_tags %}
+                {% if current_tags contains tag %}
+                  <option value="{{ tag | handle }}" selected>{{ tag }}</option>
+                {% else %}
+                  <option value="{{ tag | handle }}">{{ tag }}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+        
+        {%- endif -%}
+
+      </div> 
+    </div>
+    <div class="main-box">
+      <div class="row mt-20">
+        <div class="col-md-3">
+          <div class="product-box">
+            <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/product-img.png?v=1636530139" class="img-custom" alt="">
+            <h4 class="product-name-area">Promise T-Shirt</h4>
+            <p class="product-pricing-area">$12.00</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="product-box">
+            <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/product-img.png?v=1636530139" class="img-custom" alt="">
+            <h4 class="product-name-area">Promise T-Shirt</h4>
+            <p class="product-pricing-area">$12.00</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="product-box">
+            <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/product-img.png?v=1636530139" class="img-custom" alt="">
+            <h4 class="product-name-area">Promise T-Shirt</h4>
+            <p class="product-pricing-area">$12.00</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="product-box">
+            <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/product-img.png?v=1636530139" class="img-custom" alt="">
+            <h4 class="product-name-area">Promise T-Shirt</h4>
+            <p class="product-pricing-area">$12.00</p>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-20">
+        <div class="col-md-3">
+          <div class="product-box">
+            <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/product-img.png?v=1636530139" class="img-custom" alt="">
+            <h4 class="product-name-area">Promise T-Shirt</h4>
+            <p class="product-pricing-area">$12.00</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="product-box">
+            <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/product-img.png?v=1636530139" class="img-custom" alt="">
+            <h4 class="product-name-area">Promise T-Shirt</h4>
+            <p class="product-pricing-area">$12.00</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="product-box">
+            <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/product-img.png?v=1636530139" class="img-custom" alt="">
+            <h4 class="product-name-area">Promise T-Shirt</h4>
+            <p class="product-pricing-area">$12.00</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="product-box">
+            <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/product-img.png?v=1636530139" class="img-custom" alt="">
+            <h4 class="product-name-area">Promise T-Shirt</h4>
+            <p class="product-pricing-area">$12.00</p>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-20">
+        <div class="col-md-3">
+          <div class="product-box">
+            <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/product-img.png?v=1636530139" class="img-custom" alt="">
+            <h4 class="product-name-area">Promise T-Shirt</h4>
+            <p class="product-pricing-area">$12.00</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="product-box">
+            <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/product-img.png?v=1636530139" class="img-custom" alt="">
+            <h4 class="product-name-area">Promise T-Shirt</h4>
+            <p class="product-pricing-area">$12.00</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="product-box">
+            <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/product-img.png?v=1636530139" class="img-custom" alt="">
+            <h4 class="product-name-area">Promise T-Shirt</h4>
+            <p class="product-pricing-area">$12.00</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="product-box">
+            <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/product-img.png?v=1636530139" class="img-custom" alt="">
+            <h4 class="product-name-area">Promise T-Shirt</h4>
+            <p class="product-pricing-area">$12.00</p>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-20">
+        <div class="col-md-3">
+          <div class="product-box">
+            <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/product-img.png?v=1636530139" class="img-custom" alt="">
+            <h4 class="product-name-area">Promise T-Shirt</h4>
+            <p class="product-pricing-area">$12.00</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="product-box">
+            <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/product-img.png?v=1636530139" class="img-custom" alt="">
+            <h4 class="product-name-area">Promise T-Shirt</h4>
+            <p class="product-pricing-area">$12.00</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="product-box">
+            <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/product-img.png?v=1636530139" class="img-custom" alt="">
+            <h4 class="product-name-area">Promise T-Shirt</h4>
+            <p class="product-pricing-area">$12.00</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="product-box">
+            <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/product-img.png?v=1636530139" class="img-custom" alt="">
+            <h4 class="product-name-area">Promise T-Shirt</h4>
+            <p class="product-pricing-area">$12.00</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- {%- liquid 
+
+  if collection.products.size > 0 
+
+    paginate collection.products by section.settings.products_number
+
+      if paginate.current_page == 1
+        render 'collection-layout', products: collection.products, limit: section.settings.products_number, layout: section.settings.layout, show_promotional_block: section.settings.show_promotional_block, promotional_block_title: section.settings.promotional_block_title, promotional_block_button_label: section.settings.promotional_block_button_label, promotional_block_button_link: section.settings.promotional_block_button_link
+      else 
+        render 'collection-layout', products: collection.products, limit: section.settings.products_number, layout: section.settings.layout, show_promotional_block: false
+      endif
+
+      if paginate.pages > 1
+        render 'pagination', paginate: paginate
+      endif
+
+    endpaginate
+
+  else 
+
+    echo '<p class="no-content-message text-size--largest push-left-one-tenth lap--push-left-none" style="margin-top:2em">'
+      echo 'collections.no_products' | t
+    echo '</p>'
+
+  endif
+
+-%} -->
+
+
+
+
+
+<script>
+</script>
+
+
+
+
+{% schema %}
+  {
+    "name": "Collection",
+    "class": "mount-collection mount-parallax mount-parallax-w-padding mount-filters section-w-mobile-padding",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "collection_image",
+        "label": "Show collection image",
+        "info": "Only if collection has one",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "sort_enable",
+        "label": "Show sorting options",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "tags_enable",
+        "label": "Show filtering options",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "layout",
+        "label": "Layout",
+        "options": [
+          {
+            "label": "Asymmetrical",
+            "value": "asymmetrical"
+          },
+          {
+            "label": "Regular Grid",
+            "value": "regular"
+          }
+        ],
+        "default": "asymmetrical"
+      },
+      {
+        "type": "range",
+        "id": "products_number",
+        "label": "Products per page",
+        "min": 6,
+        "max": 48,
+        "step": 1,
+        "default": 12
+      },
+      {
+        "type": "header",
+        "content": "Promotional Block"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_promotional_block",
+        "label": "Show Promotional Block",
+        "info": "Shows after the 4th or 5th product, depending on the layout.",
+        "default": false
+      },
+      {
+        "type": "textarea",
+        "id": "promotional_block_title",
+        "label": "Content",
+        "default": "Write a short, captivating paragraph about your products."
+      },
+      {
+        "type": "text",
+        "id": "promotional_block_button_label",
+        "label": "Button Label"
+      },
+      {
+        "type": "url",
+        "id": "promotional_block_button_link",
+        "label": "Button Link"
+      }
+    ]
+  }
+{% endschema %}

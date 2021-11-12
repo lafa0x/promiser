@@ -1,0 +1,75 @@
+{%- if section.settings.show_product_recommendations -%}
+
+  <div id="product-recommendations" data-limit="{{ section.settings.products_number }}" data-product-id="{{ product.id }}">
+
+    {%- if recommendations.products_count > 0 -%}
+
+      <div class="section-w-margin">
+
+        {%- if section.settings.title != blank -%}
+          <div class="section-header grid-item push-left-one-tenth lap--push-left-padding">
+            <h2 class="section-header__title h4">{{ section.settings.title | escape }}</h2>
+          </div>
+        {%- endif -%}
+
+        <div class="product-recommendations">
+
+            <div id="css-slider-recommended-products" 
+              class="css-slider css-slider--snapping products-slider"
+              data-navigation-class="ten-tenths lap--twelve-tenths push-left-one-tenth lap--push-left-padding"
+            >
+              <div class="css-slides-container grid">
+                {%- liquid
+                  for product in recommendations.products
+                    assign css_class = 'css-slide three-tenths lap--smart-width palm--smart-width '
+                    if forloop.first 
+                      assign css_class = css_class | append: 'push-left-one-tenth lap--push-left-padding'
+                    else 
+                      assign css_class = css_class | append: 'push-left-half-tenth lap--push-left-padding'
+                    endif
+                    render 'product-item', product: product, css_class: css_class, index: forloop.index0
+                  endfor
+                -%}
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      {%- endif -%}
+
+    </div>
+
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Product recommendations",
+    "class": "mount-product-recommendations no-overflow",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_product_recommendations",
+        "label": "Show dynamic recommendations",
+        "info": "Dynamic recommendations change and improve with time. [Learn more](https://help.shopify.com/en/themes/development/recommended-products)",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Recommended products"
+      },
+      {
+        "type": "range",
+        "id": "products_number",
+        "label": "Maximum number of products shown",
+        "min": 3,
+        "max": 6,
+        "step": 1,
+        "default": 3
+      }
+    ]
+  }
+{% endschema %}

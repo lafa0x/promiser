@@ -1,0 +1,191 @@
+<div class="shopify-section section-w-margin section-w-mobile-padding" id="section-{{ page.title | handle }}">
+<!--   <div class="section-header five-tenths lap--full-width push-left-one-tenth lap--push-left-none">
+    <h1 class="section-header__title h1">{{ page.title | escape }}</h1>
+  </div> -->
+<!--   <div class="five-tenths lap--full-width push-left-one-tenth lap--push-left-none">
+    <div class="rte">
+      {{ page.content }}
+    </div>
+  </div> -->
+  <div class="checkout-main mt-30 mb-30 mb-checkout">
+    <div class="checkout-first-section mb-30">
+      <h1 class="contact-title font-size26 mb-10">Contact Information</h1>
+         <h2 class="account-title font-size20 mb-15">Already have an account?
+          <a class="log-in ml-5 greenText fontWeightBold ">Log in</a>
+         </h2>
+         <input type="text" name="email_phone" class="email_phone" placeholder="Enter your email or phone number">
+         <label class="keep-update" >keep me up to date on news and offers
+          <input type="checkbox">
+          <span class="checkmark"></span>
+         </label>
+    </div>
+   <div class="checkout-second-section mb-30">
+      <h1 class="delivery-title font-size26 mb-10">Delivery Method</h1>
+      <div class="select-shipping width-100 display-block text-left mt-20">
+        <div class="select-sizes">
+          <div class="select-size-item display-block text-left mb-15">
+            <input type="radio" id="Ship" name="Ship" value="Ship" checked="checked">
+            <label for="Ship">Ship</label>
+          </div>
+          <div class="select-size-item display-block text-left mb-15">
+            <input type="radio" id="Pickup" name="Ship" value="Pickup">
+            <label for="Pickup">Pickup</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="checkout-third-section mb-30">
+      <h1 class="shipping-title font-size26 mb-10">Shipping Address</h1>
+         <form>
+          <input type="text" name="first_name" class="shipping_input" placeholder="First Name">
+          <input type="text" name="last_name" class="shipping_input" placeholder="Last Name">
+          <textarea name="addresss" class="shipping_teatarea">Address</textarea>
+          <input type="text" name="postal_code" class="shipping_input" placeholder="Postal Code">
+         </form>
+    </div>
+    <div class="bottom-section width-100 display-block p-20">
+      <div class="display-flex mb-20">
+        <div class="width-70">
+         <p class="greenText font-size18 m-0"> <i class="fa fa-shopping-bag" aria-hidden="true"></i> Show Order Summary <i class="fa fa-angle-down" aria-hidden="true"></i></p>
+        </div>
+        <div class="width-30">
+          <p class="lightGrey m-0 text-right font-size18">$12.00</p>
+          </div>
+      </div>
+      <div class="bottom-buyitnow display-block text-center">
+        <a class="buyitnow-click">Pay Now</a>
+      </div>
+    </div>
+  </div>
+  <div class="checkout-lg">
+     <div class="container">
+         <div class="row">
+           <div class="col-md-8">
+               <div class="items-data mt-20 mb-30">
+                  <h2 class="items-title">Items</h2>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="item-detail bb-bottom pb-30">
+                           <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/products/Iamloved_Rainbow_200x260_crop_center.png?v=1624053095" alt="" class="pro-img-holder mr-20">
+                          <div class="pro-major-are">
+                             <div class="pro-name-and-pricing">
+                                 <h4 class="pro-title-holder">Promise Box</h4>
+                                 <h3 class="pro-price-holder float-right">$12.00</h3>
+                             </div>
+                             <span class="cat-area">For You</span>
+                             <p class="pro-detail-holder">Special instructions for seller that is typed in here and can be up to 200 words. This field is empty if the user doesn’t add any descriptions in previous step.</p>
+                          </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="item-detail pt-30 pb-30">
+                           <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/products/Iamloved_Rainbow_200x260_crop_center.png?v=1624053095" alt="" class="pro-img-holder mr-20">
+                          <div class="pro-major-are">
+                             <div class="pro-name-and-pricing">
+                                 <h4 class="pro-title-holder">Promise Box</h4>
+                                 <h3 class="pro-price-holder float-right">$12.00</h3>
+                             </div>
+                             <span class="cat-area">For You</span>
+                             <p class="pro-detail-holder">Special instructions for seller that is typed in here and can be up to 200 words. This field is empty if the user doesn’t add any descriptions in previous step.</p>
+                          </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="overview-area">
+                  <div class="cart-out">
+      <p id="CartTotal" class="pb-20">Cart overview</span></p>
+     <div class="row bt-space-with pb-10">
+      <div class="col-md-6">
+        <span class="cart-total-by-new">Price</span>
+      </div>
+      <div class="col-md-6">
+        <span class="pricing-area-by-new">$12.00</span>
+      </div>
+    </div>
+    <div class="row bt-space-with pb-10 pt-10">
+      <div class="col-md-6">
+        <span class="cart-total-by-new">Discount</span>
+      </div>
+      <div class="col-md-6">
+        <span class="pricing-area-by-new">$0.00</span>
+      </div>
+    </div>
+    <div class="row pb-10 pt-10 pb-30 custom-style">
+      <div class="col-md-6">
+        <span class="cart-total-by-new">Total</span>
+      </div>
+      <div class="col-md-6">
+        <span class="pricing-area-by-new">$12.00</span>
+      </div>
+    </div>
+  <a href="#" class="just-info-by-new pt-20"><span class="just-detail-by-new"><span class="i-handling">i</span>Shipping & taxes calculated at checkout</span></a>
+    </div>
+               </div>
+            </div>
+            <div class="col-md-4">
+               <div class="checkout-main mt-30 mb-30">
+                  <div class="checkout-first-section mb-30">
+                     <h1 class="contact-title font-size26 mb-10">Contact Information</h1>
+                     <h2 class="account-title font-size20 mb-15">Already have an account?
+                      <a class="log-in ml-5 greenText fontWeightBold ">Log in</a>
+                     </h2>
+                     <input type="text" name="email_phone" class="email_phone" placeholder="Enter your email or phone number">
+                     <label class="keep-update" >keep me up to date on news and offers
+                      <input type="checkbox">
+                      <span class="checkmark"></span>
+                     </label>
+                  </div>
+                  <div class="checkout-second-section mb-30">
+                     <h1 class="delivery-title font-size26 mb-10">Delivery Method</h1>
+                     <div class="select-shipping width-100 display-block text-left mt-20">
+                       <div class="select-sizes my-custom-size">
+                         <div class="select-size-item display-block text-left mb-15 checkbox-custom-setting uncheck-set">
+                           <input type="radio" id="Ship" name="Ship" value="Ship" checked="checked">
+                           <label for="Ship">Ship</label>
+                         </div>
+                         <div class="select-size-item display-block text-left mb-15 checkbox-custom-setting uncheck-set">
+                           <input type="radio" id="Pickup" name="Ship" value="Pickup">
+                           <label for="Pickup">Pickup</label>
+                         </div>
+                       </div>
+                     </div>
+                  </div>
+                  <div class="checkout-third-section mb-30">
+                     <h1 class="shipping-title font-size26 mb-10">Shipping Address</h1>
+                     <form>
+                      <input type="text" name="first_name" class="shipping_input mb-15" placeholder="First Name">
+                      <input type="text" name="last_name" class="shipping_input mb-15" placeholder="Last Name">
+                      <textarea name="addresss" class="shipping_teatarea mb-15">Address</textarea>
+                      <input type="text" name="postal_code" class="shipping_input mb-15" placeholder="Postal Code">
+                     </form>
+                  </div>
+                  <div class="bottom-section width-100 display-block p-20">
+                     <div class="custom-handling-btn-lg">
+                       <div class="display-flex">
+                         <div class="bottom-price  width-40">
+                           <label class="display-block font-size14 mb-5 letter-spacing2">Total</label>
+                           <span class="display-block font-size18 letter-spacing2">$12.00</span>
+                         </div>
+                         <div class="bottom-addtocart width-60 text-right">
+                           <a class="addtocart-click" id="addToCart">PAYNOW</a>
+                         </div>
+                         <div class="actions width-60 text-right" style="display: none;">
+                           <i class="fa fa-trash" aria-hidden="true"></i>
+                           <span class="quantity-scared">1</span>
+                           <a href="" class="remove my-plus" title="" aria-label="">
+                             <span aria-hidden="true">{% render 'theme-symbols', icon: 'plus' %}</span>
+                           </a>
+                         </div>
+                       </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

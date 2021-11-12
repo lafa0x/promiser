@@ -1,0 +1,132 @@
+{%- if section.settings.title != blank -%}
+  <div class="section-header grid-item push-left-one-tenth lap--push-left-padding">
+    <h2 class="section-header__title h4">{{ section.settings.title | escape }}</h2>
+  </div>
+{%- endif -%}
+
+{%- if section.blocks.size > 0 -%}
+
+  {%- if section.blocks.size > 1 -%} <div class="css-slider-viewport"> {%- endif -%}
+
+  <div class="quotes-slider
+    {% if section.blocks.size > 1 %} css-slider css-slider--snapping css-slider--auto-height {% endif %}" 
+    id="css-slider-{{ section.id }}"
+    data-navigation-class="push-left-one-tenth lap--push-left-padding"
+  >
+
+    {%- for block in section.blocks -%}
+
+      <div id="block-{{ block.id }}" class="css-slide quote 
+        eight-tenths lap--ten-tenths palm--twelve-tenths
+        {% if forloop.first %}
+          push-left-one-tenth lap--push-left-padding
+        {% else %}
+          push-left-three-tenths palm--push-left-padding
+        {% endif %}
+      " {{ block.shopify_attributes }}
+        data-index="{{ forloop.index0 }}"
+      >
+
+        <span class="h2 quote__content rte">{{ block.settings.quote_content }}</span>
+
+        <div class="quote__meta">
+
+          {%- unless block.settings.quote_avatar == blank -%}
+            <div class="quote__avatar">
+              <img 
+                src="{{ block.settings.quote_avatar | img_url: '76x76', crop: 'center' }}" alt="{{ block.settings.quote_avatar.alt | escape }}"
+                srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                data-srcset="{{ block.settings.quote_avatar | img_url: '76x76', crop: 'center' }} 76w, {{ block.settings.quote_avatar | img_url: '152x152', crop: 'center' }} 152w"
+                data-sizes="76px" class="lazyload"
+                width="{{ block.settings.quote_avatar.width }}" height="{{ block.settings.quote_avatar.height }}"
+              />
+              <noscript><span class="ll-fallback" style="background-image:url({{ block.settings.quote_avatar | img_url: '76x76', crop: 'center' }})"></span></noscript> 
+            </div>
+          {%- endunless -%}
+
+          {%- unless block.settings.quote_author == blank -%}
+            <strong class="quote__author text-size--larger">{{ block.settings.quote_author | escape }}</strong>
+          {%- endunless -%}
+
+          {%- unless block.settings.quote_caption == blank -%}
+            <div class="quote__caption text-size--small">{{ block.settings.quote_caption | escape }}</div>
+          {%- endunless -%}
+
+        </div>
+
+      </div>
+
+    {%- endfor -%}
+
+  </div>
+
+  {%- if section.blocks.size > 1 -%} </div> {%- endif -%}
+
+{%- endif -%}
+
+{%- assign quote_font = settings.quote_font -%}
+<style>
+  {{ quote_font | font_face: font_display: 'swap' }}
+  .quote__content {
+    font-family: {{ quote_font.family }}, {{ quote_font.fallback_families }};
+    font-weight: {{ quote_font.weight }};
+    font-style: {{ quote_font.style }};
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Testimonials",
+    "class": "mount-testimonials mount-css-slider section-w-margin no-overflow",
+    "max_blocks": 6,
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Testimonials"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Testimonial",
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "quote_content",
+            "label": "Quote",
+            "default": "<p>Add customer reviews and testimonials to showcase your store's happy customers.</p>"
+          },
+          {
+            "type": "text",
+            "id": "quote_author",
+            "label": "Author",
+            "default": "Author"
+          },
+          {
+            "type": "text",
+            "id": "quote_caption",
+            "label": "Caption",
+            "default": "Caption"
+          },
+          {
+            "type": "image_picker",
+            "id": "quote_avatar",
+            "label": "Avatar",
+            "info": "152px x 152px image required"
+          }
+        ]
+      }
+    ],
+    "presets": [{
+      "name": "Testimonials",
+      "category": "Text",
+      "blocks": [{
+        "type": "text"
+      }, {
+        "type": "text"
+      }]
+    }]
+  }
+{% endschema %}

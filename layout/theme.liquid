@@ -1,0 +1,258 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}">
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0">
+
+  {%- if settings.favicon -%}
+    <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png" />
+  {%- endif -%}
+ 
+  {%- capture seo_title -%}
+    {%- if template contains 'search' -%}
+      {{ search.terms | replace: '*', '' | split: ' AND ' | last }} - {{ shop.name | escape }}
+    {%- else -%}
+      {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name | escape }}{% endunless %}
+    {%- endif -%}
+  {%- endcapture -%}
+
+  <title>{{ seo_title }}</title>
+
+  {%- if page_description -%}
+    <meta name="description" content="{{ page_description | escape }}">
+  {%- endif -%}
+
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  {%- render 'open-graph' -%}
+  {%- render 'microdata-schema' -%}
+
+  <link rel="preload" as="style" href="{{ 'theme.css' | asset_url }}">
+  <link rel="preload" as="script" href="{{ 'theme.js' | asset_url }}">
+
+  <link rel="preconnect" href="https://cdn.shopify.com">
+  <link rel="preconnect" href="https://fonts.shopifycdn.com">
+  <link rel="dns-prefetch" href="https://productreviews.shopifycdn.com">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  
+  {%- render 'head-variables' -%}
+
+  <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
+
+  {{ content_for_header }}
+  
+  {%- if template == 'customers/addresses' -%}
+    <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer></script>
+    <script src="{{ 'customer_area.js' | shopify_asset_url }}" defer></script>
+  {%- endif -%}
+
+  <noscript>
+    {{ 'theme-noscript.css' | asset_url | stylesheet_tag }}
+  </noscript>
+
+</head>
+<body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template.name }} template-{{ template | replace: '.', ' ' | handle }} no-touchevents image-reveal--{{ settings.image_reveal }}">
+	
+  <a href="#main" class="visually-hidden skip-to-content" tabindex="1">{{ 'general.accessibility_labels.skip_to_content' | t }}</a>
+
+  {%- section 'announcement-bar' -%}
+  {%- section 'header' -%}
+
+	<main id="main" class="page-content">
+    {%- render 'breadcrumb' -%}
+    {{ content_for_layout }}
+  </main>
+
+  {%- section 'text-columns-with-icons' -%}
+	{%- section 'footer' -%}
+  {%- section 'popup' -%}
+
+	<div class="page-overlay"></div>
+
+  <script>
+
+    window.prlxElementsPusher = function(element) {
+      let elements = element.querySelectorAll('[data-scroll-speed]');
+      if ( element.classList.contains('mount-parallax-w-padding' ) ) {
+        let i = elements.length-1;
+        while(i >= 0){
+          if ( Number(elements[i].getAttribute('data-scroll-speed')) < 0 ) {
+            elements[i].setAttribute('data-scroll-speed', '-.1');
+            break;
+          }
+          i--;
+        }
+      }
+      elements.forEach(function(element){
+        window.prlxElements.push({
+          element: element,
+          factor: Number(element.getAttribute('data-scroll-speed')),
+          parent: document.getElementById(element.getAttribute('data-scroll-parent')),
+          mirror: element.hasAttribute('data-scroll-mirror'),
+          resistance: element.hasAttribute('data-scroll-resistance')
+        });
+      });
+    }
+
+    window.prlxElements = [];
+    window.prlxRaf = true;
+    document.querySelectorAll('.mount-parallax').forEach(function(element){
+      window.prlxElementsPusher(element);
+    });
+
+    window.addEventListener('scroll', function(){
+      if ( window.prlxRaf ) {
+        window.prlxRaf = false;
+        requestAnimationFrame(window.prlxAnimation.bind(this));
+      }
+    }, {passive: true});
+
+    window.prlxAnimation = function(){
+      const windowHeight = document.documentElement.clientHeight;
+      const windowWidth = document.documentElement.clientWidth;
+      window.prlxElements.forEach(function(item, i){
+        let elementY = item.element.getBoundingClientRect().y;
+        if ( item.resistance ) {
+          let parentY = item.parent.getBoundingClientRect().y - windowHeight;
+          if ( parentY < 0 && Math.abs(parentY) < (item.parent.offsetHeight + windowHeight) ) {
+            let prlx = Math.abs(parentY) * Math.min(windowHeight, windowWidth) / (item.parent.offsetHeight + windowHeight);
+            item.element.style.transform = 'translateY(' + (prlx) + 'px)';
+          }
+        } else {
+          if ( elementY < windowHeight * 2 && elementY > (item.element.offsetHeight + windowHeight)*-1 ) {
+            let prlx = 0;
+            if ( item.parent ) {
+              prlx = (item.parent.getBoundingClientRect().y - (windowHeight - item.parent.offsetHeight)/2) * item.factor;
+              if ( windowWidth < 600 ) {
+                prlx /= 2;
+              }
+              if ( item.mirror && prlx < 0 ) {
+                prlx = 0;
+              }
+            } else {
+              prlx = Math.round(((window.scrollY + windowHeight) - (item.element.offsetTop))*item.factor / -2);
+              if ( item.padding ) {
+                if ( prlx >= 0 ) {
+                  item.element.parentElement.style.paddingBottom = prlx + 'px';
+                } else {
+                  item.element.parentElement.style.paddingBottom = '0px';
+                }
+              }
+            }
+            if ( Math.abs(prlx) < windowHeight ) {
+              item.element.style.transform = 'translateY(' + (prlx) + 'px)';
+            }
+          }
+        }
+      });
+      this.prlxRaf = true;
+    }
+
+    window.prlxAnimation();
+
+    window.addEventListener('resize', function(){
+      window.prlxAnimation();
+    });
+
+    if ( 'ontouchstart' in window || window.DocumentTouch && document instanceof DocumentTouch ) {
+      document.querySelector('body').classList.remove('no-touchevents');
+      document.querySelector('body').classList.add('touchevents');
+    } 
+   
+    window.HIGHLIGHTSettings = {
+      show_variant_image: {{ settings.show_variant_image }},
+      shop_money_format: "{{ shop.money_format | replace: '"', "'" }}",
+      routes: {
+        cart_url: "{{ routes.cart_url }}",
+        cart_add_url: "{{ routes.cart_add_url }}",
+        cart_change_url: "{{ routes.cart_change_url }}",
+        search_url: "{{ routes.search_url }}",
+        recommended_products_url: "{{ routes.product_recommendations_url }}"
+      },
+      locales: {
+        cart_add_error: "{{ 'cart.add_error' | t }}",
+        cart_general_error: "{{ 'cart.general_error' | t }}",
+        search_product_results_title: "{{ 'search.form.product_results_title' | t }}",
+        search_collection_results_title: "{{ 'search.form.collection_results_title' | t }}",
+        search_page_results_title: "{{ 'search.form.page_results_title' | t }}",
+        search_article_results_title: "{{ 'search.form.article_results_title' | t }}",
+        search_for_html: '{{ 'search.form.search_for_html' | t }}',
+        product_add_to_cart_button: "{{ 'product.page.add_to_cart_button' | t }}",
+        product_sold_out_variant: "{{ 'product.inventory.sold_out_variant' | t }}",
+        product_unavailable_variant: "{{ 'product.inventory.unavailable_variant' | t }}",
+        product_one_product: "{{ 'product.inventory.one_product' | t }}",
+        product_few_products: "{{ 'product.inventory.few_products' | t }}",
+        product_no_products: "{{ 'product.inventory.no_products' | t }}",
+        product_preorder: "{{ 'product.inventory.selling_when_out_of_stock' | t }}",
+        product_sku: "{{ 'product.page.sku' | t }}",
+        product_barcode: "{{ 'product.page.barcode' | t }}",
+        product_vendor: "{{ 'product.page.vendor_html' | t }}",
+        product_read_review: "{{ 'product.read_full_review' | t }}",
+        next: "{{ 'general.accessibility_labels.next' | t }}",
+        prev: "{{ 'general.accessibility_labels.previous' | t }}"
+      },
+      predictive_search_enabled: "{{ settings.predictive_search_enabled }}",
+      predictive_search_show_vendor: "{{ settings.predictive_search_show_vendor }}",
+      predictive_search_show_price: "{{ settings.predictive_search_show_price }}",
+      predictive_search_limit: "{{ settings.predictive_search_limit }}",
+      predictive_search_include_articles: "{{ settings.predictive_search_include_articles }}",
+      predictive_search_include_pages: "{{ settings.predictive_search_include_pages }}",
+      placeholder_image: '{{ 'product-1' | placeholder_svg_tag }}',
+      arrow_symbol: '{%- render 'theme-symbols', icon: 'arrow-right' -%}',
+      star_symbol: '{%- render 'theme-symbols', icon: 'star' -%}'
+    };
+
+    {%- if settings.predictive_search_enabled -%} 
+      window.month_names = ["{{ 'general.date_format.month_names.January' | t }}", "{{ 'general.date_format.month_names.February' | t }}", "{{ 'general.date_format.month_names.March' | t }}", "{{ 'general.date_format.month_names.April' | t }}", "{{ 'general.date_format.month_names.May' | t }}", "{{ 'general.date_format.month_names.June' | t }}", "{{ 'general.date_format.month_names.July' | t }}", "{{ 'general.date_format.month_names.August' | t }}", "{{ 'general.date_format.month_names.September' | t }}", "{{ 'general.date_format.month_names.October' | t }}", "{{ 'general.date_format.month_names.November' | t }}", "{{ 'general.date_format.month_names.December' | t }}"];
+    {%- endif -%}
+
+    if ( ! JSON.parse(document.getElementById('shopify-features').text).predictiveSearch ) {
+      window.HIGHLIGHTSettings.predictive_search_enabled = "false";
+      document.getElementById('search-open-button').setAttribute('id', '');
+    }
+    
+	</script>
+
+  <script src="{{ 'theme.js' | asset_url }}" async></script>
+  <script>
+    function onYouTubeIframeAPIReady(){
+      window.HIGHLIGHT.ProductMedia._mountYouTubeVideos();
+    }
+  </script>
+  
+  <script>
+    
+    function showButton() {
+    var x = document.getElementById("showButtonDiv");
+   	var z = document.getElementById("showButtonDivv");
+    var y = document.getElementById("hideButtonDiv");
+      
+    if (x.style.display === "none") {
+      x.style.display = "block";
+      z.style.display = "block";
+    } else {
+      x.style.display = "none";
+      z.style.display = "none";
+    }
+      
+//     if (z.style.display === "none") {
+//       z.style.display = "block";
+//     } else {
+//       z.style.display = "none";
+//     }
+    
+    if (y.style.display === "block") {
+      y.style.display = "none";
+    } else {
+      y.style.display = "block";
+    }
+  }
+    
+  </script>
+
+</body>
+</html>

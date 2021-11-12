@@ -1,0 +1,360 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Highlight",
+    "theme_author": "KrownThemes",
+    "theme_version": "1.2.3",
+    "theme_documentation_url": "https:\/\/shopify-support.krownthemes.com\/",
+    "theme_support_url": "https:\/\/krownthemes.com\/shopify-support-contact\/"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent Color"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Text Color"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background Color"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "headings_font",
+        "label": "Headings",
+        "default": "roboto_n4"
+      },
+      {
+        "type": "range",
+        "id": "headings_size",
+        "label": "Base size",
+        "min": 24,
+        "max": 42,
+        "step": 1,
+        "unit": "px",
+        "default": 36
+      },
+      {
+        "type": "font_picker",
+        "id": "body_font",
+        "label": "Body",
+        "default": "roboto_n4"
+      },
+      {
+        "type": "range",
+        "id": "body_size",
+        "label": "Base size",
+        "min": 14,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "default": 18
+      },
+      {
+        "type": "font_picker",
+        "id": "quote_font",
+        "label": "Testimonials",
+        "default": "roboto_n4"
+      }
+    ]
+  },
+  {
+    "name": "Product grid",
+    "settings": [
+      {
+        "type": "select",
+        "id": "grid_aspect",
+        "label": "Media aspect ratio",
+        "options": [
+          {
+            "value": "natural",
+            "label": "Natural",
+            "group": "Uncropped"
+          },
+          {
+            "value": "1.333",
+            "label": "Short (4:3)",
+            "group": "Cropped"
+          },
+          {
+            "value": "1",
+            "label": "Square (1:1)",
+            "group": "Cropped"
+          },
+          {
+            "value": "0.833",
+            "label": "Tall (5:6)",
+            "group": "Cropped"
+          },
+          {
+            "value": "0.666",
+            "label": "Taller (2:3)",
+            "group": "Cropped"
+          }
+        ],
+        "default": "natural",
+        "info": "When using the natural aspect ratio, make sure that you resize your thumbnails at the same size, for a clean grid design. Using one of the cropped setting, all thumbnails will be resized to the same dimension."
+      },
+      {
+        "type": "select",
+        "id": "product_animation",
+        "label": "Desktop animation style",
+        "options": [
+          {
+            "value": "product-item--zoom",
+            "label": "Subtle zoom"
+          },
+          {
+            "value": "product-item--move",
+            "label": "Slight movement"
+          }
+        ],
+        "default": "product-item--zoom"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_show_secondary",
+        "label": "Show second product media on hover",
+        "info": "Only on desktop"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_variant_image",
+        "label": "Show color variants media",
+        "default": false,
+        "info": "Show different media for color variations, if available."
+      },
+      {
+        "type": "color",
+        "id": "color_sale_price",
+        "label": "Sale price color"
+      }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon image",
+        "info": "32 x 32px .png required"
+      }
+    ]
+  },
+  {
+    "name": "Cart page",
+    "settings": [
+      {
+        "type": "select",
+        "id": "cart_action",
+        "label": "Cart type",
+        "options": [
+          {
+            "value": "no-overlay",
+            "label": "Page"
+          },
+          {
+            "value": "overlay",
+            "label": "Drawer"
+          }
+        ],
+        "default": "overlay"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_notes_enable",
+        "label": "Enable cart notes"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_additional_buttons",
+        "label": "Show additional checkout buttons"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_quantity_selector",
+        "label": "Show quantity selector",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Search",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "predictive_search_enabled",
+        "label": "Enable predictive search",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "predictive_search_show_vendor",
+        "label": "Show vendor",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "predictive_search_show_price",
+        "label": "Show price",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "predictive_search_include_articles",
+        "label": "Include articles in search results",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "predictive_search_include_pages",
+        "label": "Include pages in search results",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Embellishments",
+    "settings": [
+      {
+        "type": "select",
+        "id": "image_reveal",
+        "label": "Image reveal effect",
+        "default": "mask",
+        "options": [
+          {
+            "value": "mask",
+            "label": "Mask"
+          },
+          {
+            "value": "opacity",
+            "label": "Opacity"
+          }
+        ],
+        "info": "On mobile devices the reveal effect defaults to opacity, for performance reasons."
+      },
+      {
+        "type": "checkbox",
+        "id": "show_breadcrumb",
+        "label": "Show breadcrumb",
+        "default": false,
+        "info": "Breadcrumb navigation helps users navigating through the store and shows up only on collection, product and search pages."
+      }
+    ]
+  },
+  {
+    "name": "Social",
+    "settings": [
+      {
+        "type": "text",
+        "id": "social_facebook",
+        "label": "Facebook",
+        "info": "https:\/\/www.facebook.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram",
+        "label": "Instagram",
+        "info": "https:\/\/instagram.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter",
+        "label": "Twitter",
+        "info": "https:\/\/twitter.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube",
+        "label": "YouTube",
+        "info": "https:\/\/www.youtube.com\/user\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_vimeo",
+        "label": "Vimeo",
+        "info": "https:\/\/vimeo.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest",
+        "label": "Pinterest",
+        "info": "https:\/\/www.pinterest.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_tiktok",
+        "label": "TikTok",
+        "info": "https:\/\/www.tiktok.com\/@shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_tumblr",
+        "label": "Tumblr",
+        "info": "http:\/\/shopify.tumblr.com"
+      },
+      {
+        "type": "text",
+        "id": "social_linkedin",
+        "label": "LinkedIn",
+        "info": "https:\/\/www.linkedin.com\/company\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_reddit",
+        "label": "Reddit",
+        "info": "https:\/\/www.reddit.com\/user\/shopify\/"
+      },
+      {
+        "type": "text",
+        "id": "social_flickr",
+        "label": "Flickr",
+        "info": "https:\/\/www.flickr.com\/photos\/shopify\/"
+      },
+      {
+        "type": "text",
+        "id": "social_email",
+        "label": "Email",
+        "info": "mailto:contact@shopify.com"
+      }
+    ]
+  },
+  {
+    "name": "Tooltips",
+    "settings": [
+      {
+        "type": "text",
+        "id": "search_info",
+        "label": "Search Info"
+      }
+    ]
+  },
+  {
+    "name": "Custom Text",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "context_text",
+        "label": "Context"
+      },
+      {
+        "type": "textarea",
+        "id": "prayer_text",
+        "label": "Prayer"
+      }
+    ]
+  }
+]

@@ -1,0 +1,569 @@
+<div class="shopify-section section-w-margin section-w-mobile-padding" id="section-{{ page.title | handle }}">
+  <div class="section-header five-tenths lap--full-width push-left-one-tenth lap--push-left-none">
+<!--     <h1 class="section-header__title h1">{{ page.title | escape }}</h1> -->
+  </div>
+  <div class="five-tenths lap--full-width push-left-one-tenth lap--push-left-none">
+    <div class="rte">
+        <div id="shopify-section-163294039134ad1f2b" class="shopify-section"><div class="custom-search" style="display: block;">
+    <div class="main-filter">
+
+    <form class="filter-form" action="search" autocomplete="off">
+        <button type="submit"><img src="//cdn.shopify.com/s/files/1/0575/8815/4557/t/4/assets/search-icon.png?v=6764782664197292930
+                      //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/search-icon.png?42"></button>   <div class="search-cancel" onclick="document.getElementById('searchBox').value = ''">x</div>  <input type="text" placeholder="Search Bible Promise or Topic" name="search" class="search-a" id="searchBox" style="border: 2px solid rgb(121, 184, 187);"> <br>
+
+        <div class="form-switch">
+            <label class="switch">
+                <input type="checkbox" id="studyMode" name="study">
+                <span class="slider round"></span> 
+            </label> <span class="filter-type"> Study Mode </span>
+        </div>
+    </form>
+    </div>
+
+ <div class="study-info" id="info-about-btn">
+        <span class="info-content">i</span>
+    </div>
+
+    
+  
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  
+  jQuery(function(){
+      jQuery("#custom-search-icon").click(function() {
+        jQuery(".custom-search").toggle();
+        jQuery(".search-filter").toggle();
+        jQuery(".search-a").css("border", "2px solid #79B8BB");
+    });
+  });
+  
+  
+  // Handle form submit
+  document.querySelector('.filter-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+    const study = document.getElementById('studyMode');
+    const isStudy = study.checked;
+    const searchBox = document.getElementById('searchBox');
+    let redirect = isStudy ? '/pages/study-mode' : '/search';
+    redirect += '?search=' + searchBox.value;
+    window.location.href = redirect;
+  });
+  
+  document.getElementById('studyMode').addEventListener('change', (e) => {
+    const searchLinkContainers = document.querySelectorAll('.search-filter-link');
+    
+    for (const linkContainer of searchLinkContainers) {
+      const searchLinks = linkContainer.querySelectorAll('a');
+    
+      for (const link of searchLinks) {
+        const sides = link.href.split('?');
+        const page = e.target.checked ? '/pages/study-mode' : '/search';
+        link.href = page + '?' + sides[1];
+      }
+    }
+  });
+  
+  jQuery(function(){
+  
+  jQuery("#searchBox").keyup(function () {
+       if (jQuery(this).val()) {
+          jQuery(".search-cancel").show();
+       }
+       else {
+          jQuery(".search-cancel").hide();
+       }
+    });
+    jQuery(".search-cancel").click(function () {
+       jQuery("#searchBox").val('');
+       jQuery(this).hide();
+    });
+
+  });
+  
+  
+  $('#info-about-btn, .study-info').click(function(){
+      $('.study-info-about').toggle('slow');
+  });
+  
+  $('.study-infos').click(function(){
+      $('.study-info-about').hide('slow');
+  }); 
+  
+  
+   jQuery('.ctm-plan').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    jQuery('.ctm-main-menu').removeClass('ctm-menu-active');
+    jQuery('.ctm-plan-menu').addClass('ctm-menu-active');
+});
+  
+  jQuery('.ctm-shop').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    jQuery('.ctm-main-menu').removeClass('ctm-menu-active');
+    jQuery('.ctm-shop-menu').addClass('ctm-menu-active');
+});
+  
+   jQuery('.ctm-shop-menu .ctm-header').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    jQuery('.ctm-shop-menu').removeClass('ctm-menu-active');
+    jQuery('.ctm-main-menu').addClass('ctm-menu-active');
+});
+  
+  jQuery('.ctm-plan-menu .ctm-header').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    jQuery('.ctm-plan-menu').removeClass('ctm-menu-active');
+    jQuery('.ctm-main-menu').addClass('ctm-menu-active');
+}); 
+</script>
+</div>
+        <div class="row">
+          <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/boxes.png?v=1635338972" alt="" class="box-img-setting"/>
+            <div class="col-md-12">
+                <h3 class="main-text pt-10 your-promise">peace</h3>
+                <h5 class="main-text pt-10 choose-topic">AFFIRMATIONS</h5>
+            </div>
+        </div>  
+    </div>
+  </div>
+</div>
+<div class="col-md-12">
+  <div class="custom-toggling">
+    <ul class="block-display-list">
+      <li>
+        <a href="#" class="active-link">Playist</a>
+      </li>
+      <li >
+        <a href="#" class="non-active-link">Inbox</a>
+      </li>
+      <li class="active-link">
+        <a href="#" class="active-link">Outbox</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<section class="main-sec pb-30" style="margin-top: 0;">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="out-form-main">
+                <h4 class="outbox-form">Affirm a friend with a Promise Affirmation</h4>
+                <input type="text" name="first_name" class="form-first-name" placeholder="First Name">
+                <input type="email" name="email" class="form-first-name if-email" placeholder="Email">
+            </div>
+        </div>
+    </div>
+  <div class="search-page-content" style="position: sticky; height: auto;padding-bottom: 0;overflow-y: inherit;">
+<div class="versions carousel-wrap" style="display: block; background: transparent;">
+      <div class="owl-carousel first-selection">
+        <div class="item">
+          <a href="#" class="s-active">FBV</a>
+        </div>
+        <div class="item">
+          <a href="">KJV</a>
+        </div>
+        <div class="item">
+          <a href="">KJV</a>
+        </div>
+    </div>
+    </div>
+    <div class="slide-handler">
+<div class="search-result" style="background: transparent;padding-bottom: 0;">
+              <div class="carousel-wrap">
+                <div id="item-container" class="owl-carousel t-first-selection"> 
+                    <div class="item">
+                      <div class="second-selection">
+                        <span class="verse-reference">Luke 12:5</span>
+
+                        <svg class="icon-1" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.27995 0.000154663C6.90994 0.0193141 7.51994 0.129313 8.11093 0.330311H8.16993C8.20993 0.349311 8.23993 0.37031 8.25993 0.38931C8.48093 0.46031 8.68993 0.540309 8.88992 0.650307L9.26992 0.820306C9.41992 0.900305 9.59992 1.0493 9.69991 1.1103C9.79991 1.1693 9.90991 1.2303 9.99991 1.2993C11.1109 0.45031 12.4599 -0.00968556 13.8499 0.000154663C14.4809 0.000154663 15.1109 0.0893134 15.7099 0.290311C19.4008 1.4903 20.7308 5.54026 19.6198 9.08022C18.9898 10.8892 17.9598 12.5402 16.6108 13.8892C14.6799 15.7591 12.5609 17.4191 10.2799 18.8491L10.0299 19.0001L9.76991 18.8391C7.48094 17.4191 5.34996 15.7591 3.40098 13.8792C2.06099 12.5302 1.03001 10.8892 0.390012 9.08022C-0.739976 5.54026 0.590011 1.4903 4.32097 0.269312C4.61097 0.169313 4.90997 0.0993133 5.20996 0.0603137H5.32996C5.61096 0.0193141 5.88996 0.000154663 6.16995 0.000154663H6.27995ZM15.1899 3.16028C14.7799 3.01928 14.3299 3.24028 14.1799 3.66028C14.0399 4.08027 14.2599 4.54027 14.6799 4.68926C15.3209 4.92926 15.7499 5.56026 15.7499 6.25925V6.29025C15.7309 6.51925 15.7999 6.74024 15.9398 6.91024C16.0798 7.08024 16.2898 7.17924 16.5098 7.20024C16.9198 7.18924 17.2698 6.86024 17.2998 6.43925V6.32025C17.3298 4.91926 16.4808 3.65028 15.1899 3.16028Z" fill="#E2E1F5"></path>
+                        </svg>
+
+
+                        <svg class="icon-2" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.5542 12.7229C12.8675 12.7229 12.253 12.994 11.7831 13.4187L5.34036 9.66867C5.38554 9.46084 5.42169 9.25301 5.42169 9.03614C5.42169 8.81928 5.38554 8.61145 5.34036 8.40361L11.7108 4.68976C12.1988 5.14157 12.8404 5.42169 13.5542 5.42169C15.0542 5.42169 16.2651 4.21084 16.2651 2.71084C16.2651 1.21084 15.0542 0 13.5542 0C12.0542 0 10.8434 1.21084 10.8434 2.71084C10.8434 2.92771 10.8795 3.13554 10.9247 3.34337L4.55422 7.05723C4.06627 6.60542 3.4247 6.3253 2.71084 6.3253C1.21084 6.3253 0 7.53614 0 9.03614C0 10.5361 1.21084 11.747 2.71084 11.747C3.4247 11.747 4.06627 11.4669 4.55422 11.0151L10.988 14.7741C10.9428 14.9639 10.9157 15.1627 10.9157 15.3614C10.9157 16.8163 12.0994 18 13.5542 18C15.009 18 16.1928 16.8163 16.1928 15.3614C16.1928 13.9066 15.009 12.7229 13.5542 12.7229Z" fill="url(#paint0_linear)"></path>
+                        <defs>
+                        <linearGradient id="paint0_linear" x1="0" y1="0" x2="17.9621" y2="1.89247" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#79B8BB"></stop>
+                        <stop offset="0.989583" stop-color="#8DADA0"></stop>
+                        </linearGradient>
+                        </defs>
+                        </svg>
+
+
+
+
+                        <p class="verse-content">Let me make it clear whom you should be afraid of. You should be afraid of the one who after he has killed has the power to dispose of them in Gehenna. That's the one you should be afraid of.</p>
+                        <a href="#" class="verse-version">FBV</a> 
+                      </div>
+                    </div>
+                  
+                    <div class="item">
+                      <div class="second-selection">
+                        <span class="verse-reference">Luke 12:6</span>
+
+                        <svg class="icon-1" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.27995 0.000154663C6.90994 0.0193141 7.51994 0.129313 8.11093 0.330311H8.16993C8.20993 0.349311 8.23993 0.37031 8.25993 0.38931C8.48093 0.46031 8.68993 0.540309 8.88992 0.650307L9.26992 0.820306C9.41992 0.900305 9.59992 1.0493 9.69991 1.1103C9.79991 1.1693 9.90991 1.2303 9.99991 1.2993C11.1109 0.45031 12.4599 -0.00968556 13.8499 0.000154663C14.4809 0.000154663 15.1109 0.0893134 15.7099 0.290311C19.4008 1.4903 20.7308 5.54026 19.6198 9.08022C18.9898 10.8892 17.9598 12.5402 16.6108 13.8892C14.6799 15.7591 12.5609 17.4191 10.2799 18.8491L10.0299 19.0001L9.76991 18.8391C7.48094 17.4191 5.34996 15.7591 3.40098 13.8792C2.06099 12.5302 1.03001 10.8892 0.390012 9.08022C-0.739976 5.54026 0.590011 1.4903 4.32097 0.269312C4.61097 0.169313 4.90997 0.0993133 5.20996 0.0603137H5.32996C5.61096 0.0193141 5.88996 0.000154663 6.16995 0.000154663H6.27995ZM15.1899 3.16028C14.7799 3.01928 14.3299 3.24028 14.1799 3.66028C14.0399 4.08027 14.2599 4.54027 14.6799 4.68926C15.3209 4.92926 15.7499 5.56026 15.7499 6.25925V6.29025C15.7309 6.51925 15.7999 6.74024 15.9398 6.91024C16.0798 7.08024 16.2898 7.17924 16.5098 7.20024C16.9198 7.18924 17.2698 6.86024 17.2998 6.43925V6.32025C17.3298 4.91926 16.4808 3.65028 15.1899 3.16028Z" fill="#E2E1F5"></path>
+                        </svg>
+
+
+                        <svg class="icon-2" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.5542 12.7229C12.8675 12.7229 12.253 12.994 11.7831 13.4187L5.34036 9.66867C5.38554 9.46084 5.42169 9.25301 5.42169 9.03614C5.42169 8.81928 5.38554 8.61145 5.34036 8.40361L11.7108 4.68976C12.1988 5.14157 12.8404 5.42169 13.5542 5.42169C15.0542 5.42169 16.2651 4.21084 16.2651 2.71084C16.2651 1.21084 15.0542 0 13.5542 0C12.0542 0 10.8434 1.21084 10.8434 2.71084C10.8434 2.92771 10.8795 3.13554 10.9247 3.34337L4.55422 7.05723C4.06627 6.60542 3.4247 6.3253 2.71084 6.3253C1.21084 6.3253 0 7.53614 0 9.03614C0 10.5361 1.21084 11.747 2.71084 11.747C3.4247 11.747 4.06627 11.4669 4.55422 11.0151L10.988 14.7741C10.9428 14.9639 10.9157 15.1627 10.9157 15.3614C10.9157 16.8163 12.0994 18 13.5542 18C15.009 18 16.1928 16.8163 16.1928 15.3614C16.1928 13.9066 15.009 12.7229 13.5542 12.7229Z" fill="url(#paint0_linear)"></path>
+                        <defs>
+                        <linearGradient id="paint0_linear" x1="0" y1="0" x2="17.9621" y2="1.89247" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#79B8BB"></stop>
+                        <stop offset="0.989583" stop-color="#8DADA0"></stop>
+                        </linearGradient>
+                        </defs>
+                        </svg>
+
+
+
+
+                        <p class="verse-content">Aren't five sparrows sold for two pennies? But God doesn't forget a single one of them.</p>
+                        <a href="#" class="verse-version">FBV</a> 
+                      </div>
+                    </div>
+                  
+                    <div class="item">
+                      <div class="second-selection">
+                        <span class="verse-reference">Luke 12:7</span>
+
+                        <svg class="icon-1" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.27995 0.000154663C6.90994 0.0193141 7.51994 0.129313 8.11093 0.330311H8.16993C8.20993 0.349311 8.23993 0.37031 8.25993 0.38931C8.48093 0.46031 8.68993 0.540309 8.88992 0.650307L9.26992 0.820306C9.41992 0.900305 9.59992 1.0493 9.69991 1.1103C9.79991 1.1693 9.90991 1.2303 9.99991 1.2993C11.1109 0.45031 12.4599 -0.00968556 13.8499 0.000154663C14.4809 0.000154663 15.1109 0.0893134 15.7099 0.290311C19.4008 1.4903 20.7308 5.54026 19.6198 9.08022C18.9898 10.8892 17.9598 12.5402 16.6108 13.8892C14.6799 15.7591 12.5609 17.4191 10.2799 18.8491L10.0299 19.0001L9.76991 18.8391C7.48094 17.4191 5.34996 15.7591 3.40098 13.8792C2.06099 12.5302 1.03001 10.8892 0.390012 9.08022C-0.739976 5.54026 0.590011 1.4903 4.32097 0.269312C4.61097 0.169313 4.90997 0.0993133 5.20996 0.0603137H5.32996C5.61096 0.0193141 5.88996 0.000154663 6.16995 0.000154663H6.27995ZM15.1899 3.16028C14.7799 3.01928 14.3299 3.24028 14.1799 3.66028C14.0399 4.08027 14.2599 4.54027 14.6799 4.68926C15.3209 4.92926 15.7499 5.56026 15.7499 6.25925V6.29025C15.7309 6.51925 15.7999 6.74024 15.9398 6.91024C16.0798 7.08024 16.2898 7.17924 16.5098 7.20024C16.9198 7.18924 17.2698 6.86024 17.2998 6.43925V6.32025C17.3298 4.91926 16.4808 3.65028 15.1899 3.16028Z" fill="#E2E1F5"></path>
+                        </svg>
+
+
+                        <svg class="icon-2" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.5542 12.7229C12.8675 12.7229 12.253 12.994 11.7831 13.4187L5.34036 9.66867C5.38554 9.46084 5.42169 9.25301 5.42169 9.03614C5.42169 8.81928 5.38554 8.61145 5.34036 8.40361L11.7108 4.68976C12.1988 5.14157 12.8404 5.42169 13.5542 5.42169C15.0542 5.42169 16.2651 4.21084 16.2651 2.71084C16.2651 1.21084 15.0542 0 13.5542 0C12.0542 0 10.8434 1.21084 10.8434 2.71084C10.8434 2.92771 10.8795 3.13554 10.9247 3.34337L4.55422 7.05723C4.06627 6.60542 3.4247 6.3253 2.71084 6.3253C1.21084 6.3253 0 7.53614 0 9.03614C0 10.5361 1.21084 11.747 2.71084 11.747C3.4247 11.747 4.06627 11.4669 4.55422 11.0151L10.988 14.7741C10.9428 14.9639 10.9157 15.1627 10.9157 15.3614C10.9157 16.8163 12.0994 18 13.5542 18C15.009 18 16.1928 16.8163 16.1928 15.3614C16.1928 13.9066 15.009 12.7229 13.5542 12.7229Z" fill="url(#paint0_linear)"></path>
+                        <defs>
+                        <linearGradient id="paint0_linear" x1="0" y1="0" x2="17.9621" y2="1.89247" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#79B8BB"></stop>
+                        <stop offset="0.989583" stop-color="#8DADA0"></stop>
+                        </linearGradient>
+                        </defs>
+                        </svg>
+
+
+
+
+                        <p class="verse-content">But the very hairs of your head are all numbered. Do not fear therefore; you are of more value than many sparrows.</p>
+                        <a href="#" class="verse-version">FBV</a> 
+                      </div>
+                    </div>
+                  
+                    <div class="item">
+                      <div class="second-selection">
+                        <span class="verse-reference">Luke 12:8</span>
+
+                        <svg class="icon-1" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.27995 0.000154663C6.90994 0.0193141 7.51994 0.129313 8.11093 0.330311H8.16993C8.20993 0.349311 8.23993 0.37031 8.25993 0.38931C8.48093 0.46031 8.68993 0.540309 8.88992 0.650307L9.26992 0.820306C9.41992 0.900305 9.59992 1.0493 9.69991 1.1103C9.79991 1.1693 9.90991 1.2303 9.99991 1.2993C11.1109 0.45031 12.4599 -0.00968556 13.8499 0.000154663C14.4809 0.000154663 15.1109 0.0893134 15.7099 0.290311C19.4008 1.4903 20.7308 5.54026 19.6198 9.08022C18.9898 10.8892 17.9598 12.5402 16.6108 13.8892C14.6799 15.7591 12.5609 17.4191 10.2799 18.8491L10.0299 19.0001L9.76991 18.8391C7.48094 17.4191 5.34996 15.7591 3.40098 13.8792C2.06099 12.5302 1.03001 10.8892 0.390012 9.08022C-0.739976 5.54026 0.590011 1.4903 4.32097 0.269312C4.61097 0.169313 4.90997 0.0993133 5.20996 0.0603137H5.32996C5.61096 0.0193141 5.88996 0.000154663 6.16995 0.000154663H6.27995ZM15.1899 3.16028C14.7799 3.01928 14.3299 3.24028 14.1799 3.66028C14.0399 4.08027 14.2599 4.54027 14.6799 4.68926C15.3209 4.92926 15.7499 5.56026 15.7499 6.25925V6.29025C15.7309 6.51925 15.7999 6.74024 15.9398 6.91024C16.0798 7.08024 16.2898 7.17924 16.5098 7.20024C16.9198 7.18924 17.2698 6.86024 17.2998 6.43925V6.32025C17.3298 4.91926 16.4808 3.65028 15.1899 3.16028Z" fill="#E2E1F5"></path>
+                        </svg>
+
+
+                        <svg class="icon-2" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.5542 12.7229C12.8675 12.7229 12.253 12.994 11.7831 13.4187L5.34036 9.66867C5.38554 9.46084 5.42169 9.25301 5.42169 9.03614C5.42169 8.81928 5.38554 8.61145 5.34036 8.40361L11.7108 4.68976C12.1988 5.14157 12.8404 5.42169 13.5542 5.42169C15.0542 5.42169 16.2651 4.21084 16.2651 2.71084C16.2651 1.21084 15.0542 0 13.5542 0C12.0542 0 10.8434 1.21084 10.8434 2.71084C10.8434 2.92771 10.8795 3.13554 10.9247 3.34337L4.55422 7.05723C4.06627 6.60542 3.4247 6.3253 2.71084 6.3253C1.21084 6.3253 0 7.53614 0 9.03614C0 10.5361 1.21084 11.747 2.71084 11.747C3.4247 11.747 4.06627 11.4669 4.55422 11.0151L10.988 14.7741C10.9428 14.9639 10.9157 15.1627 10.9157 15.3614C10.9157 16.8163 12.0994 18 13.5542 18C15.009 18 16.1928 16.8163 16.1928 15.3614C16.1928 13.9066 15.009 12.7229 13.5542 12.7229Z" fill="url(#paint0_linear)"></path>
+                        <defs>
+                        <linearGradient id="paint0_linear" x1="0" y1="0" x2="17.9621" y2="1.89247" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#79B8BB"></stop>
+                        <stop offset="0.989583" stop-color="#8DADA0"></stop>
+                        </linearGradient>
+                        </defs>
+                        </svg>
+
+
+
+
+                        <p class="verse-content">I tell you the truth, those who declare they belong to me, the Son of man will also declare they belong to him before God's angels,</p>
+                        <a href="#" class="verse-version">FBV</a> 
+                      </div>
+                    </div>
+                  
+                    <div class="item">
+                      <div class="second-selection">
+                        <span class="verse-reference">Luke 12:9</span>
+
+                        <svg class="icon-1" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.27995 0.000154663C6.90994 0.0193141 7.51994 0.129313 8.11093 0.330311H8.16993C8.20993 0.349311 8.23993 0.37031 8.25993 0.38931C8.48093 0.46031 8.68993 0.540309 8.88992 0.650307L9.26992 0.820306C9.41992 0.900305 9.59992 1.0493 9.69991 1.1103C9.79991 1.1693 9.90991 1.2303 9.99991 1.2993C11.1109 0.45031 12.4599 -0.00968556 13.8499 0.000154663C14.4809 0.000154663 15.1109 0.0893134 15.7099 0.290311C19.4008 1.4903 20.7308 5.54026 19.6198 9.08022C18.9898 10.8892 17.9598 12.5402 16.6108 13.8892C14.6799 15.7591 12.5609 17.4191 10.2799 18.8491L10.0299 19.0001L9.76991 18.8391C7.48094 17.4191 5.34996 15.7591 3.40098 13.8792C2.06099 12.5302 1.03001 10.8892 0.390012 9.08022C-0.739976 5.54026 0.590011 1.4903 4.32097 0.269312C4.61097 0.169313 4.90997 0.0993133 5.20996 0.0603137H5.32996C5.61096 0.0193141 5.88996 0.000154663 6.16995 0.000154663H6.27995ZM15.1899 3.16028C14.7799 3.01928 14.3299 3.24028 14.1799 3.66028C14.0399 4.08027 14.2599 4.54027 14.6799 4.68926C15.3209 4.92926 15.7499 5.56026 15.7499 6.25925V6.29025C15.7309 6.51925 15.7999 6.74024 15.9398 6.91024C16.0798 7.08024 16.2898 7.17924 16.5098 7.20024C16.9198 7.18924 17.2698 6.86024 17.2998 6.43925V6.32025C17.3298 4.91926 16.4808 3.65028 15.1899 3.16028Z" fill="#E2E1F5"></path>
+                        </svg>
+
+
+                        <svg class="icon-2" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.5542 12.7229C12.8675 12.7229 12.253 12.994 11.7831 13.4187L5.34036 9.66867C5.38554 9.46084 5.42169 9.25301 5.42169 9.03614C5.42169 8.81928 5.38554 8.61145 5.34036 8.40361L11.7108 4.68976C12.1988 5.14157 12.8404 5.42169 13.5542 5.42169C15.0542 5.42169 16.2651 4.21084 16.2651 2.71084C16.2651 1.21084 15.0542 0 13.5542 0C12.0542 0 10.8434 1.21084 10.8434 2.71084C10.8434 2.92771 10.8795 3.13554 10.9247 3.34337L4.55422 7.05723C4.06627 6.60542 3.4247 6.3253 2.71084 6.3253C1.21084 6.3253 0 7.53614 0 9.03614C0 10.5361 1.21084 11.747 2.71084 11.747C3.4247 11.747 4.06627 11.4669 4.55422 11.0151L10.988 14.7741C10.9428 14.9639 10.9157 15.1627 10.9157 15.3614C10.9157 16.8163 12.0994 18 13.5542 18C15.009 18 16.1928 16.8163 16.1928 15.3614C16.1928 13.9066 15.009 12.7229 13.5542 12.7229Z" fill="url(#paint0_linear)"></path>
+                        <defs>
+                        <linearGradient id="paint0_linear" x1="0" y1="0" x2="17.9621" y2="1.89247" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#79B8BB"></stop>
+                        <stop offset="0.989583" stop-color="#8DADA0"></stop>
+                        </linearGradient>
+                        </defs>
+                        </svg>
+
+
+
+
+                        <p class="verse-content">but those who deny me will be denied before God's angels.</p>
+                        <a href="#" class="verse-version">FBV</a> 
+                      </div>
+                    </div>
+                  </div>
+
+                <div class="slider-counter"></div>
+                <div class="slider-counter-2"></div>
+              </div>
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+ <!-- Owl Stylesheets -->
+  <link rel="stylesheet" href="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.theme.default.min.css">
+
+
+<style>
+  @media screen and (min-width: 768px) {
+  .search-page-content{
+  	overflow-y: inherit;
+  }
+.slide-handler {
+    width: 32%;
+    margin: auto;
+}
+.second-selection {
+    width: 93%;
+    margin-left: 16px;
+}
+  }
+.versions.carousel-wrap {
+    width: 36%!important;
+    margin: auto;
+}
+.versions {
+  background-color: #18155f;
+  display: none;
+}
+  
+.versions .owl-stage {
+  width: unset !important;
+  display: flex;
+  justify-content: center;
+  margin-left: 30px;
+}
+  
+.owl-carousel .owl-stage {
+  padding-top: 20px; 
+}
+  
+.carousel-wrap {
+  width: 100%;
+  position: relative;
+}
+
+/* fix blank or flashing items on carousel */
+.owl-carousel .item {
+  position: relative;
+  z-index: 100; 
+  -webkit-backface-visibility: hidden; 
+}
+
+/* end fix */
+.owl-nav > div {
+
+  position: absolute;
+  top: 50%;
+  color: #cdcbcd;
+}
+
+.owl-nav i {
+  font-size: 24px;
+  color: #79B8BB;
+  margin-top: 3px;
+}
+
+.owl-nav .owl-prev {
+ 
+      top: 40%;
+    position: absolute;
+    left: -8px;
+}
+
+.owl-nav .owl-next {
+
+    top: 40%;
+    position: absolute;
+    right: -8px;
+}
+  
+  .first-selection .owl-nav {
+    display: none;
+  } 
+  
+  .c-first-selection {
+    width: 55%;
+    display: inline-block !important;
+  }
+  
+  .c-first-selection a {
+    width: max-content;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  
+  .c-heading {
+    width: 43%;
+    display: inline-block;
+  }
+  
+  .c-section {
+        display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  .slider-counter {
+  text-align: center;
+    margin-top: -16px;
+    margin-bottom: 20px;
+    color: #E2E1F5;
+    position: absolute;
+        top: 47%;
+    left: 14px;
+  }
+  
+   .slider-counter-2 {
+  text-align: center;
+    margin-top: -16px;
+    margin-bottom: 20px;
+    color: #E2E1F5;
+    position: absolute;
+        top: 47%;
+    right: 14px;
+  }
+  
+  .second-slider-counter {
+  text-align: center;
+    margin-top: -16px;
+    margin-bottom: 20px;
+    color: #E2E1F5;
+    position: absolute;
+        top: 47%;
+    left: 14px;
+  }
+  
+   .second-slider-counter-2 {
+  text-align: center;
+    margin-top: -16px;
+    margin-bottom: 20px;
+    color: #E2E1F5;
+    position: absolute;
+        top: 47%;
+    right: 14px;
+  }
+
+  .first-selection {
+      width: 100% !important;
+   }
+
+</style>
+
+<!-- javascript -->
+<script src="https://owlcarousel2.github.io/OwlCarousel2/assets/vendors/jquery.min.js"></script>
+<script src="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/owl.carousel.js"></script>
+
+
+
+<script>
+  
+// This is necessary. Owl breaks without this.
+jQuery(document).ready(async function($) {
+  $('.first-selection').owlCarousel({
+    loop: false,
+    margin: 60,
+    nav: true,
+    navText: [
+      "<i class='fa fa-caret-left'></i>",
+      "<i class='fa fa-caret-right'></i>"
+    ],
+    autoplay: false,
+    autoplayHoverPause: false,
+    responsive: {
+      0: {
+        items: 1
+      },
+      600: {
+        items: 1
+      },
+      1000: {
+        items: 1
+      }
+    }
+  });
+  $('.t-first-selection').on('initialized.owl.carousel changed.owl.carousel', function(e) {
+    if (!e.namespace)  {
+      return;
+    }
+    var carousel = e.relatedTarget;
+
+//     $('.slider-counter').text(carousel.relative(carousel.current()));
+//     $('.slider-counter-2').text(carousel.relative(carousel.current()) + 2);
+  }).owlCarousel({
+    startPosition: 2,
+    loop: true,
+    margin: 10,
+    nav: true,
+    navText: [
+      "<i class='fas fa-chevron-left'></i>",
+      "<i class='fas fa-chevron-right'></i>"
+    ],
+    autoplay: false,
+    autoplayHoverPause: false,
+    responsive: {
+      0: {
+        items: 1
+      },
+      600: {
+        items: 1
+      },
+      1000: {
+        items: 1
+      }
+    }
+  });
+  
+  
+
+  
+  
+     
+  
+});
+</script>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="center-area affirmate-main">
+                <h4 class="memorize-center-text">To record affirmation, tap on the red button.</h4> 
+            </div>
+        </div>  
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="boxing-with-my affirmate-sec" style="margin-top: -20px;">
+                <h4 class="boxing-with-my-main-text">Affirmation Examples</h4> 
+                <p>I am extremly precious to God.</p>
+                <p>I am uniquely designed by God.</p>
+            </div>
+        </div>  
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="center-area">
+                <a href="#" class="buyitnow-click my-own-none"><i class="fa fa-microphone" aria-hidden="true"></i></a>
+            </div>
+        </div>  
+    </div>
+</section>
+<div class="bottom-section width-100 display-block p-20">
+  <div class="bottom-buyitnow display-block text-cente custom-setting-for-this custom-color-setting-aff">
+    <a class="buyitnow-click custom-color-setting-aff-anch">Send</a>
+  </div>
+</div>

@@ -1,0 +1,146 @@
+{%- if section.settings.title != blank -%}
+  <div class="section-header grid-item push-left-one-tenth lap--push-left-none">
+    <h2 class="section-header__title h4">{{ section.settings.title | escape }}</h2>
+  </div>
+{%- endif -%}
+
+<div class="image-gallery grid eleven-tenths push-left-one-tenth lap--push-left-none">
+
+  {%- assign switch = false -%}
+
+  {%- for block in section.blocks -%}
+
+    {%- liquid
+
+      assign index = forloop.index0 | modulo: 5
+      assign remaining = forloop.length | minus: forloop.index
+
+      if index == 0
+        if remaining == 0
+          assign grid_size = 'ten-tenths'
+        else 
+          unless switch
+            assign grid_size = 'three-tenths'
+          else 
+            assign grid_size = 'six-tenths'
+          endunless
+        endif
+      elsif index == 1
+        unless switch
+          assign grid_size = 'six-tenths'
+        else
+          assign grid_size = 'three-tenths'
+        endunless
+      elsif index == 2
+        if remaining == 0
+          assign grid_size = 'ten-tenths'
+        elsif remaining == 1
+          unless switch
+            assign grid_size = 'six-tenths'
+          else
+            assign grid_size = 'three-tenths'
+          endunless
+        elsif remaining > 1 
+          assign grid_size = 'three-tenths lap--full-width'
+        endif
+      elsif index == 3
+        assign grid_size = 'three-tenths'
+        if switch and remaining == 0 
+          assign grid_size = 'six-tenths'
+        else 
+          assign grid_size = 'three-tenths'
+        endif
+      elsif index == 4
+        assign grid_size = 'two-tenths'
+        unless switch
+          assign switch = true
+        else 
+          assign switch = false
+        endunless
+      endif
+
+    -%}
+
+    <div class="gallery-item {{ grid_size }} push-right-one-tenth lap--push-right-padding" {{ block.shopify_attributes }}>
+
+      <div class="gallery-item__caption">
+        {%- unless block.settings.image == blank -%}
+          {%- render 'lazy-image', image: block.settings.image, alt: block.settings.title -%}
+        {%- else -%}
+          <span class="onboarding-svg onboarding-background">
+            {{ 'image' | placeholder_svg_tag }}
+          </span>
+        {%- endunless -%}
+      </div>
+
+      {%- unless block.settings.title == blank -%}
+        <strong class="gallery-item__title">{{ block.settings.title | escape }}</strong>
+      {%- endunless -%}
+
+      {%- unless block.settings.caption == blank -%}
+        <div class="gallery-item__caption text-size--smaller rte">{{ block.settings.caption }}</div>
+      {%- endunless -%}
+
+    </div>
+
+  {%- endfor -%}
+
+</div>
+
+{% schema %}
+  {
+    "name": "Image gallery",
+    "class": "section-w-margin section-w-mobile-padding",
+  	"settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Image gallery"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Image"
+          },
+          {
+            "type": "richtext",
+            "id": "caption",
+            "label": "Caption",
+            "default": "<p>Write some details about this image.</p>"
+          }
+        ]
+      }
+    ],
+    "presets": [{
+      "name": "Image gallery",
+      "category": "Image", 
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }]
+  }
+{% endschema %}

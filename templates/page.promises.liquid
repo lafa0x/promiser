@@ -1,0 +1,239 @@
+<div class="shopify-section section-w-margin section-w-mobile-padding" id="section-{{ page.title | handle }}">
+  <div class="section-header five-tenths lap--full-width push-left-one-tenth lap--push-left-none">
+<!--     <h1 class="section-header__title h1">{{ page.title | escape }}</h1> -->
+  </div>
+  <div class="five-tenths lap--full-width push-left-one-tenth lap--push-left-none">
+    <div class="rte">
+        <div id="shopify-section-163294039134ad1f2b" class="shopify-section"><div class="custom-search">
+    <div class="main-filter">
+
+    <form class="filter-form" action="search" autocomplete="off">
+        <button type="submit"><img src="//cdn.shopify.com/s/files/1/0575/8815/4557/t/4/assets/search-icon.png?v=6764782664197292930
+                      //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/search-icon.png?42"></button>   <div class="search-cancel" onclick="document.getElementById('searchBox').value = ''">x</div>  <input type="text" placeholder="Search Bible Promise or Topic" name="search" class="search-a" id="searchBox" style="border: 2px solid rgb(121, 184, 187);"> <br>
+
+        <div class="form-switch">
+            <label class="switch">
+                <input type="checkbox" id="studyMode" name="study">
+                <span class="slider round"></span> 
+            </label> <span class="filter-type"> Study Mode </span>
+        </div>
+    </form>
+    </div>
+
+ <div class="study-info" id="info-about-btn">
+        <span class="info-content">i</span>
+    </div>
+
+    
+  
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  
+  jQuery(function(){
+      jQuery("#custom-search-icon").click(function() {
+        jQuery(".custom-search").toggle();
+        jQuery(".search-filter").toggle();
+        jQuery(".search-a").css("border", "2px solid #79B8BB");
+    });
+  });
+  
+  
+  // Handle form submit
+  document.querySelector('.filter-form').addEventListener('submit', (e) => {
+ 	e.preventDefault();
+    const study = document.getElementById('studyMode');
+    const isStudy = study.checked;
+    const searchBox = document.getElementById('searchBox');
+    let redirect = isStudy ? '/pages/study-mode' : '/search';
+   	redirect += '?search=' + searchBox.value;
+    window.location.href = redirect;
+  });
+  
+  document.getElementById('studyMode').addEventListener('change', (e) => {
+    const searchLinkContainers = document.querySelectorAll('.search-filter-link');
+    
+    for (const linkContainer of searchLinkContainers) {
+      const searchLinks = linkContainer.querySelectorAll('a');
+    
+      for (const link of searchLinks) {
+        const sides = link.href.split('?');
+        const page = e.target.checked ? '/pages/study-mode' : '/search';
+        link.href = page + '?' + sides[1];
+      }
+    }
+  });
+  
+  jQuery(function(){
+  
+  jQuery("#searchBox").keyup(function () {
+       if (jQuery(this).val()) {
+          jQuery(".search-cancel").show();
+       }
+       else {
+          jQuery(".search-cancel").hide();
+       }
+    });
+    jQuery(".search-cancel").click(function () {
+       jQuery("#searchBox").val('');
+       jQuery(this).hide();
+    });
+
+  });
+  
+  
+  $('#info-about-btn, .study-info').click(function(){
+      $('.study-info-about').toggle('slow');
+  });
+  
+  $('.study-infos').click(function(){
+      $('.study-info-about').hide('slow');
+  }); 
+  
+  
+   jQuery('.ctm-plan').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    jQuery('.ctm-main-menu').removeClass('ctm-menu-active');
+    jQuery('.ctm-plan-menu').addClass('ctm-menu-active');
+});
+  
+  jQuery('.ctm-shop').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    jQuery('.ctm-main-menu').removeClass('ctm-menu-active');
+    jQuery('.ctm-shop-menu').addClass('ctm-menu-active');
+});
+  
+   jQuery('.ctm-shop-menu .ctm-header').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    jQuery('.ctm-shop-menu').removeClass('ctm-menu-active');
+    jQuery('.ctm-main-menu').addClass('ctm-menu-active');
+});
+  
+  jQuery('.ctm-plan-menu .ctm-header').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    jQuery('.ctm-plan-menu').removeClass('ctm-menu-active');
+    jQuery('.ctm-main-menu').addClass('ctm-menu-active');
+}); 
+</script>
+</div>
+      	<div class="row">
+          <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/boxes.png?v=1635338972" alt="" class="icon-setting"/>
+            <div class="col-md-12">
+                <h3 class="main-text pt-10 your-promise">your promises</h3>
+              	<h5 class="main-text pt-10 choose-topic">choose a topic</h5>
+            </div>
+        </div>	
+    </div>
+  </div>
+</div>
+<section class="main-sec trigger-main">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="custom-trigger-area">
+                <span class="month-text">this month</span> 
+                <div class="end-floating">
+                  <span class="knowl-text">forever loved</span>&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>  
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="custom-trigger-area">
+                <span class="month-text">next month</span> 
+                <div class="end-floating">
+                  <span class="knowl-text">fearlessness</span>&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>  
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="custom-trigger-area">
+                <span class="month-text">december</span> 
+                <div class="end-floating">
+                  <span class="knowl-text">contentment</span>&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>  
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="custom-trigger-area">
+                <span class="month-text">january</span> 
+                <div class="end-floating">
+                  <span class="knowl-text">peace</span>&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>  
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="custom-trigger-area">
+                <span class="month-text">february</span> 
+                <div class="end-floating">
+                  <span class="knowl-text">comfort</span>&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>  
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="custom-trigger-area">
+                <span class="month-text">march</span> 
+                <div class="end-floating">
+                  <span class="knowl-text">guidance</span>&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>  
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="custom-trigger-area">
+                <span class="month-text">april</span> 
+                <div class="end-floating">
+                  <span class="knowl-text">motivation</span>&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>  
+    </div>
+    <div class="row bl-dis">
+      <h4 class="for-you pb-10">recommended for you</h4>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="custom-trigger-area">
+                <span class="month-text">success</span> 
+                <div class="end-floating">
+                  <span class="knowl-text">preview</span>&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>  
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="custom-trigger-area">
+                <span class="month-text">wisdom</span> 
+                <div class="end-floating">
+                  <span class="knowl-text">preview</span>&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>  
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="custom-trigger-area">
+                <span class="month-text">acceptance</span> 
+                <div class="end-floating">
+                  <span class="knowl-text">preview</span>&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>  
+    </div>
+</section>
+<div class="bottom-section width-100 display-block p-20">
+  <div class="bottom-buyitnow display-block text-center">
+    <a class="buyitnow-click">get a promise box for more</a>
+  </div>
+</div>

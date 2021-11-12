@@ -1,0 +1,576 @@
+<link rel="stylesheet" href="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.theme.default.min.css">
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css"> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://gijsroge.github.io/owl-carousel2-thumbs/assets/OwlCarousel2Thumbs.min.js"></script>
+<style>
+.insize{
+  max-width:600px;
+}
+.owl-thumbs {
+    float: left;
+    position: absolute;
+    top: -20px;
+    display: inline-grid;
+    left: -170px;
+}
+.item img {
+    border-radius: 20px;
+}
+.owl-thumbs .owl-thumb-item{
+  height:124px;
+  width: 100%;
+  max-width:150px;
+  background: transparent;
+  border: none;
+  overflow: hidden;
+  margin-top: 14px;
+}
+.owl-thumbs .owl-thumb-item img{
+  max-width:100%;
+  height:auto;
+  border-radius: 20px;
+}
+.owl-dots{
+  position:absolute;
+  bottom:170px;
+  left:0;
+  right:0;
+}
+</style>
+<script>
+  jQuery(document).ready(function($){
+    $(document).ready(function(){
+      $('.owl-carousel').owlCarousel({
+        loop: true,
+        items: 1,
+        slideSpeed: 2000,
+        autoplay: true,
+        thumbs: true,
+        dots: false,
+        thumbImage: true,
+        thumbContainerClass: 'owl-thumbs',
+        thumbItemClass: 'owl-thumb-item'
+       });
+    });
+  });
+</script>
+<div class="pro-mb-dis">
+  <div class="product-top-section display-flex width-100 mt-30 mb-20">
+  <div class="product-title-section width-80">
+      <h1 class="product-title font-size26 m-0">Promise T-Shirt</h1>
+  </div>
+    <div class="product-price-section width-30 text-right">
+      <span class="product-price font-size26">$12.00</span>
+    </div>
+</div>
+
+{%- assign variant = product.selected_or_first_available_variant -%}
+
+<div class="hide smaller-lap--show-block d-none">
+  {%- render 'product-header', product: product, variant: variant -%}
+</div>
+
+<!-- <div class="product__offers four-tenths lap--five-tenths smaller-lap--full-width smaller-lap--push-left-none">
+
+  <div>
+  
+    <div class="smaller-lap--hide">
+      {%- render 'product-header', product: product, variant: variant -%}
+    </div>
+
+    <div id="add-to-cart-{{ section.id }}" class="product__form" data-type="{{ settings.cart_action }}"
+      {% if section.settings.enable_payment_button %} data-payment-buttons {% endif %}
+    >
+
+      {%- form 'product', product -%}
+
+         <select class="productSelect" name="id">
+          {% for variant in product.variants %}
+            <option 
+              value="{{ variant.id }}" 
+              {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} 
+              {% if section.settings.show_quantities and variant.inventory_management != null %} 
+                data-quantity="{{ variant.inventory_quantity }}" 
+                data-inventory="{{ variant.inventory_policy }}" 
+              {% endif %} 
+            >
+              {{ variant.title | escape }}
+            </option>
+          {% endfor %}
+        </select>
+
+        <div class="product__cart-functions"> 
+
+          {%- render 'product-variants', product: product, color_swatches: section.settings.show_color_swatches -%}
+
+          <div class="product__cart-actions cart-actions buttons-holder">
+
+            <div class="product__cart-actions-holder">
+
+              {%- if section.settings.show_quantity_selector -%}
+                <input type="number" name="quantity" value="1" min="1" class="product__quantity" aria-label="{{ 'product.page.quantity' | t }}">
+              {%- endif -%}
+
+              <button type="submit" name="add" class="product__add-to-cart button button--border">
+                <span class="add-to-cart__text" data-add-to-cart-text="{% if product.tags contains 'preorder' %} {{ 'product.preorder.button_label' | t }} {% else %} {{ 'product.page.add_to_cart_button' | t }} {% endif %}"> {%- if product.tags contains 'preorder' -%} {{ 'product.preorder.button_label' | t }} {%- else -%} {{ 'product.page.add_to_cart_button' | t }} {%- endif -%} </span>
+              </button>
+
+            </div>
+            
+            {%- liquid
+              unless product.tags contains 'preorder'
+                if section.settings.enable_payment_button
+                  echo form | payment_button
+                endif
+              endunless
+              echo form | payment_terms
+            -%}
+
+          </div>
+
+          {%- if section.settings.show_quantities -%}
+            <span class="product__variant-quantity" {% if product.tags contains 'preorder' %} style="display:none" {% endif %}></span>
+          {%- endif -%}
+
+          {%- if product.tags contains 'preorder' -%}
+            <span style="display:block;margin-top:2em;width:100%;" class="text-size--smaller">{{ 'product.preorder.description' | t }}</span>
+          {%- endif -%}
+
+          {%- if section.settings.show_local_pickup -%}
+            <div class="product-availability-container" data-store-availability-container data-base-url="{{ shop.url }}{{ routes.root_url }}"></div>
+          {%- endif -%}
+
+        </div>
+
+      {%- endform -%}
+
+      Add extra content to the product offers here
+
+      {%- if section.blocks.size > 0 or section.settings.show_share -%}
+
+        <div class="toggles connect-with-product-event">
+
+          {%- for block in section.blocks -%}
+            {%- assign page = pages[block.settings.page] -%}
+            {%- if page != blank -%}
+              <div class="toggle" {{ block.shopify_attributes }}>
+                <span tabindex="0" class="toggle__title text-size--smaller" aria-expanded="false" aria-controls="toggle-{{ block.id }}">{{ page.title | escape }}</span>
+                <div id="toggle-{{ block.id }}" class="toggle__content rte">{{ page.content }}</div>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+
+          {%- if section.settings.show_share -%}
+            <div class="toggle">
+              <span tabindex="0" class="toggle__title text-size--smaller" aria-expanded="false" aria-controls="toggle-{{ block.id }}">{{ 'general.sharing.title' | t }}</span>
+              <div id="toggle-{{ block.id }}" class="toggle__content rte">
+                {%- render 'share', title: product.title, url: product.url, image: product.featured_media -%}
+              </div>
+            </div>
+          {%- endif -%}
+
+        </div>
+        
+      {%- endif -%}
+
+    </div>
+
+  </div>
+
+</div> -->
+
+<div class="product__gallery six-tenths lap--push-left-padding smaller-lap--full-width smaller-lap--push-left-none">
+
+  <div id="product-gallery-{{ section.id }}" class="product-gallery" data-video-looping="{{ section.settings.enable_video_looping }}" data-size="{{ product.media.size }}">
+
+    <div class="product-gallery__viewport">
+
+      <div class="product-gallery__container push-left-one-tenth lap--push-left-none">
+
+        <div class="product-gallery__items">
+
+          {%- if product.media.size == 0 -%} 
+     
+            <div class="product-gallery__item" style="width: 100%;">
+              <span class="onboarding-svg with-background">
+                {{ 'product-1' | placeholder_svg_tag }}
+              </span>
+            </div>
+
+          {%- endif -%}
+
+          {%- liquid
+            for media in product.media
+              render 'product-media', media: media, enable_zoom: section.settings.enable_zoom, index: forloop.index0, media_aspect: section.settings.media_aspect
+            endfor
+          -%}
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  {% assign first_3d_model = product.media | where: "media_type", "model" | first %}
+
+  {% if first_3d_model %}
+    <button
+      aria-label="{{ 'product.page.view_in_space_label' | t }}"
+      class="product-gallery__view-in-space"
+      data-shopify-xr
+      data-shopify-first-model3d-id="{{ first_3d_model.id }}"
+      data-shopify-model3d-id="{{ first_3d_model.id }}"
+      data-shopify-title="{{ product.title | escape }}"
+      data-shopify-xr-hidden
+    >{% render 'theme-symbols', icon: 'model-button' %}
+      <span class='product-gallery__view-in-space-text'>{{ 'product.page.view_in_space' | t }}</span>
+    </button>
+  {% endif %}
+
+</div>
+
+<div class="select-size width-100 display-block text-left mt-20">
+  <h1 class="font-size16 mb-15 letter-spacing2">Select size of the T-shirt</h1>
+  <div class="select-sizes">
+    <div class="select-size-item display-inline-block">
+      <input type="radio" id="s" name="skills" value="S">
+      <label for="s">S</label>
+    </div>
+    <div class="select-size-item display-inline-block">
+      <input type="radio" id="xs" name="skills" value="XS">
+      <label for="xs">XS</label>
+    </div>
+  <div class="select-size-item display-inline-block">
+      <input type="radio" id="m" name="skills" value="M">
+      <label for="m">M</label>
+    </div>
+    <div class="select-size-item display-inline-block">
+      <input type="radio" id="l" name="skills" value="L">
+      <label for="l">L</label>
+    </div>
+    <div class="select-size-item display-inline-block">
+      <input type="radio" id="xl" name="skills" value="XL">
+      <label for="xl">XL</label>
+    </div>
+    <div class="select-size-item display-inline-block">
+      <input type="radio" id="xxl" name="skills" value="XXL">
+      <label for="xxl">XXL</label>
+    </div>
+  </div>
+  <h2 class="font-size16 mt-15 mb-15 letter-spacing2 display-flex">Find Your Size 
+    <div class="icon">
+      <div class="arrow"></div>
+    </div>
+  </h2>
+</div>
+
+<div class="select-size select-color width-100 display-block text-left mt-20">
+  <h1 class="font-size16 mb-15 letter-spacing2">Select Color</h1>
+  <div class="select-sizes">
+    <div class="select-size-item display-inline-block">
+      <input type="radio" id="White" name="skills" value="White">
+      <label for="White" class="radius-me" ><span style="background:#fff;padding: 4px 8px;border-radius: 30px;margin-right: 10px;">&nbsp;</span>White</label>
+    </div>
+    <div class="select-size-item display-inline-block">
+      <input type="radio" id="Black" name="skills" value="Black">
+      <label for="Black" class="radius-me"><span style="background:#000;padding: 4px 8px;border-radius: 30px;margin-right: 10px;">&nbsp;</span>Black</label>
+    </div>
+  <div class="select-size-item display-inline-block">
+      <input type="radio" id="Gray" name="skills" value="Gray">
+      <label for="Gray" class="radius-me"><span style="background:#606060;padding: 4px 8px;border-radius: 30px;margin-right: 10px;">&nbsp;</span>Gray</label>
+    </div>
+  </div>
+</div>
+
+<div class="product-about width-100 display-block text-left mt-40">
+  <h1 class="font-size16 mb-15 letter-spacing2">About the Product</h1>
+  <p class="font-size14 mb-15 letter-spacing2">About the Product About the Product About the Product About the Product About the Product About the Product 
+  About the Product About the Product About the Product About the Product About the Product About the Product About the Product About the Product
+  </p>
+</div>
+<div class="product__description five-tenths smaller-lap--full-width push-left-one-tenth lap--push-left-padding smaller-lap--push-left-none">
+  <div class="rte">
+    {{ product.description }}
+  </div>
+</div>
+<div class="bottom-section width-100 display-block p-20">
+  <div class="display-flex">
+    <div class="bottom-price  width-40">
+      <label class="display-block font-size14 mb-5 letter-spacing2">Price</label>
+      <span class="display-block font-size18 letter-spacing2">$12.00</span>
+    </div>
+    <div class="bottom-addtocart width-60 text-right" id="hideButtonDiv" style="display: block;" >
+      <a class="addtocart-click" onclick="showButton()" >Add To Cart</a>
+    </div>
+    <div class="actions width-60 text-right" id="showButtonDiv" style="display: none;">
+      <i class="fa fa-trash" aria-hidden="true"></i>
+      <span class="quantity-scared">1</span>
+      <a href="" class="remove my-plus" title="" aria-label="">
+        <span aria-hidden="true">{% render 'theme-symbols', icon: 'plus' %}</span>
+      </a>
+    </div>
+  </div>
+  <div class="bottom-buyitnow display-block text-center" id="showButtonDivv" style="display: none;">
+    <a class="buyitnow-click">Buy It Now</a>
+  </div>
+</div>
+</div>
+
+<!-- desktop html starts -->
+<div class="pro-desk-dis">
+  <div class="detail-area-main">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="slider-handle ml-minus">
+            <div class="container insize">
+              <div class="owl-carousel owl-theme" data-slider-id="1">
+                  <div class="item"><img src="https://cdn.pixabay.com/photo/2016/09/26/20/10/grapes-1696921__340.jpg" alt="zoom" class="alignleft size-medium wp-image-7000" /></div>
+                  <div class="item"><img src="https://cdn.pixabay.com/photo/2016/10/26/09/19/arbutus-1771003__340.jpg" alt="zoom" class="alignleft size-medium wp-image-7000" /></div>
+                  <div class="item"><img src="https://cdn.pixabay.com/photo/2018/11/30/13/33/northern-lights-3847784_960_720.jpg" alt="zoom" class="alignleft size-medium wp-image-7000" /></div>
+              </div>
+            </div>
+          </div>  
+        </div>
+        <div class="col-md-6">
+          <div class="right-side-contain">
+              <div class="product-top-section display-flex width-100 mb-20">
+                <div class="product-title-section width-80">
+                    <h1 class="product-title font-size26 m-0">Promise T-Shirt</h1>
+                </div>
+                <div class="product-price-section width-30 text-right">
+                  <span class="product-price font-size26">$12.00</span>
+                </div>
+              </div>
+              <div class="select-size width-100 display-block text-left mt-20">
+                <h1 class="font-size16 mb-15 letter-spacing2">Select size of the T-shirt</h1>
+                <div class="select-sizes main-area-of-check">
+                  <div class="select-size-item display-inline-block check-hanlde-main">
+                    <input type="radio" id="s" name="skills" value="S">
+                    <label for="s">S</label>
+                  </div>
+                  <div class="select-size-item display-inline-block check-hanlde-main">
+                    <input type="radio" id="xs" name="skills" value="XS">
+                    <label for="xs">XS</label>
+                  </div>
+                <div class="select-size-item display-inline-block check-hanlde-main">
+                    <input type="radio" id="m" name="skills" value="M">
+                    <label for="m">M</label>
+                  </div>
+                  <div class="select-size-item display-inline-block check-hanlde-main">
+                    <input type="radio" id="l" name="skills" value="L">
+                    <label for="l">L</label>
+                  </div>
+                  <div class="select-size-item display-inline-block check-hanlde-main">
+                    <input type="radio" id="xl" name="skills" value="XL">
+                    <label for="xl">XL</label>
+                  </div>
+                  <div class="select-size-item display-inline-block check-hanlde-main">
+                    <input type="radio" id="xxl" name="skills" value="XXL">
+                    <label for="xxl">XXL</label>
+                  </div>
+                </div>
+                <h2 class="font-size16 mt-15 mb-15 letter-spacing2 display-flex col-changer">Find Your Size 
+                  <div class="icon">
+                    <div class="long-arrow-right"></div>
+                    <!-- <div class="arrow"></div> -->
+                  </div>
+                </h2>
+              </div>
+              <div class="select-size select-color width-100 display-block text-left mt-20">
+                <h1 class="font-size16 mb-15 letter-spacing2">Select Color</h1>
+                <div class="select-sizes main-area-of-check">
+                  <div class="select-size-item display-inline-block check-hanlde-main">
+                    <input type="radio" id="White" name="skills" value="White">
+                    <label for="White" class="radius-me" ><span style="background:#fff;padding: 4px 8px;border-radius: 30px;margin-right: 10px;">&nbsp;</span>White</label>
+                  </div>
+                  <div class="select-size-item display-inline-block check-hanlde-main">
+                    <input type="radio" id="Black" name="skills" value="Black">
+                    <label for="Black" class="radius-me"><span style="background:#000;padding: 4px 8px;border-radius: 30px;margin-right: 10px;">&nbsp;</span>Black</label>
+                  </div>
+                <div class="select-size-item display-inline-block check-hanlde-main">
+                    <input type="radio" id="Gray" name="skills" value="Gray">
+                    <label for="Gray" class="radius-me"><span style="background:#606060;padding: 4px 8px;border-radius: 30px;margin-right: 10px;">&nbsp;</span>Gray</label>
+                  </div>
+                </div>
+              </div>
+              <div class="product-about width-100 display-block text-left mt-40">
+                <h1 class="font-size16 mb-15 letter-spacing2">About the Product</h1>
+                <p class="font-size14 mb-15 letter-spacing2">About the Product About the Product About the Product About the Product About the Product About the Product 
+                About the Product About the Product About the Product About the Product About the Product About the Product About the Product About the Product
+                </p>
+              </div>
+              <div class="product__description five-tenths smaller-lap--full-width push-left-one-tenth lap--push-left-padding smaller-lap--push-left-none">
+                <div class="rte">
+                  {{ product.description }}
+                </div>
+              </div>
+              <div class="bottom-section width-100 display-block p-20">
+                <div class="custom-handling-btn-lg add-to-cart-btn">
+                  <div class="display-flex">
+                    <div class="bottom-price  width-40">
+                      <label class="display-block font-size14 mb-5 letter-spacing2">Price</label>
+                      <span class="display-block font-size18 letter-spacing2">$12.00</span>
+                    </div>
+                    <div class="bottom-addtocart width-60 text-right">
+                      <a class="addtocart-click" id="addToCart">Add To Cart</a>
+                    </div>
+                    <div class="actions width-60 text-right" style="display: none;">
+                      <i class="fa fa-trash" aria-hidden="true"></i>
+                      <span class="quantity-scared">1</span>
+                      <a href="" class="remove my-plus" title="" aria-label="">
+                        <span aria-hidden="true"><svg aria-hidden="true" focusable="false" role="presentation" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 0H9V8.5H0.5V10.5H9V19H11V10.5H19.5V8.5H11V0Z"></path></svg></span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Product",
+    "class": "mount-product-page mount-toggles",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Content"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_vendor",
+        "label": "Show vendor",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_color_swatches",
+        "label": "Show color swatches",
+        "default": true,
+        "info": "This theme can show custom images for color swatches. [Learn more](https://shopify-support.krownthemes.com/article/554-using-color-swatches)"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_quantity_selector",
+        "label": "Show quantity selector",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_quantities",
+        "label": "Show variant quantities",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_payment_button",
+        "label": "Show dynamic checkout button",
+        "info": "Each customer will see their preferred payment method from those available on your store, such as PayPal or Apple Pay. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_sku",
+        "label": "Show SKU",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_barcode",
+        "label": "Show barcode",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_tax_info",
+        "label": "Show tax info",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_local_pickup",
+        "label": "Show local pickup availability",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_share",
+        "label": "Show social sharing options",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Media",
+        "info": "Learn more about [media type](https://help.shopify.com/en/manual/products/product-media)"
+      }, 
+      {
+        "type": "select",
+        "id": "media_aspect",
+        "label": "Media aspect ratio",
+        "options": [
+          {
+            "value": "natural",
+            "label": "Natural",
+            "group": "Uncropped"
+          },
+          {
+            "value": "1.333",
+            "label": "Short (4:3)",
+            "group": "Cropped"
+          },
+          {
+            "value": "1",
+            "label": "Square (1:1)",
+            "group": "Cropped"
+          },
+          {
+            "value": "0.833",
+            "label": "Tall (5:6)",
+            "group": "Cropped"
+          },
+          {
+            "value": "0.666",
+            "label": "Taller (2:3)",
+            "group": "Cropped"
+          }
+        ],
+        "default": "natural",
+        "info": "When using the natural aspect ratio, make sure that you resize your images at the same size, for a clean. Using one of the cropped setting, all images will be resized to the same dimension."
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_zoom",
+        "label": "Enable image zoom",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_video_looping",
+        "label": "Enable video looping",
+        "default": false
+      }
+    ],
+    "max_blocks": 4,
+    "blocks": [
+      {
+        "type": "page",
+        "name": "Content",
+        "settings": [
+          {
+            "type": "page",
+            "id": "page",
+            "label": "Select page"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,111 @@
+<div class="section-header ten-tenths lap--full-width push-left-one-tenth lap--push-left-none">
+  <h1 class="section-header__title h1">
+
+    <span class="five-tenths">
+      {{ blog.title | escape }}
+      {%- if section.settings.show_rss -%}
+        <a class="rss-link" href="{{ shop.url }}{{ blog.url }}.atom">
+          {%- render 'theme-symbols', icon: 'rss' -%}
+          <span class="visually-hidden">RSS</span>
+        </a>
+      {%- endif -%}
+    </span>
+
+    {%- if section.settings.tags_enable and blog.all_tags.size > 0 -%}
+      <label for="tagged-with" class="visually-hidden">{{ 'blog.tags_dropdown.label' | t }}</label>
+      <select name="tagged-with" id="tagged-with">
+        <option value="{{ blog.url }}" {% if current_tags == blank %} selected {% endif %}>
+          {{ 'blog.tags_dropdown.show_all' | t }}
+        </option>
+        {%- for tag in blog.all_tags -%}
+          <option value="{{ blog.url }}/tagged/{{ tag.handle }}" {% if current_tags contains tag %} selected {% endif %}>
+            {{ tag | capitalize }}
+          </option>
+        {%- endfor -%}
+      </select>
+      <script>
+        document.getElementById('tagged-with').addEventListener('change', function(e){
+          document.location.href = e.target.value;
+        });
+      </script>
+    {%- endif -%}
+  </h1>
+
+</div>
+
+{%- if blog.articles.size == 0 -%}
+
+  <p class="no-content-message text-size--largest push-left-one-tenth lap--push-left-none">
+    {{ 'blog.grid.no_articles' | t }}
+  </p>
+
+{%- else -%}
+
+  {%- paginate blog.articles by section.settings.post_limit -%}
+
+    <div class="blog push-left-half-tenth lap--push-left-none">
+
+      {%- for article in blog.articles -%}
+
+        {%- liquid
+          assign date_format = 'general.date_format.month_day_year' | t
+          if forloop.first and section.settings.show_images
+            assign css_class = 'blog-item--featured ten-tenths push-left-half-tenth'
+            assign image_size = 'five-tenths lap--six-tenths palm--full-width'
+            assign content_size = 'four-tenths lap--five-tenths palm--full-width push-left-one-tenth palm--push-left-none'
+          else
+            assign css_class = 'three-tenths product-tablet--five-plus-tenths push-left-half-tenth lap--push-left-padding'
+            assign image_size = ''
+            assign content_size = ''
+          endif
+
+          render 'blog-item', article: article, css_class: css_class, image_size: image_size, content_size: content_size, date_format: date_format, first: forloop.first, show_images: section.settings.show_images
+
+        -%}
+
+      {%- endfor -%}
+      
+    </div>
+
+    {%- if paginate.pages > 1 -%}
+      {%- render 'pagination', paginate: paginate -%}
+    {%- endif -%}
+  {%- endpaginate -%}
+
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Blog",
+    "class": "mount-blog section-w-margin section-w-mobile-padding",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_rss",
+        "default": false,
+        "label": "Show RSS"
+      },
+      {
+        "type": "checkbox",
+        "id": "tags_enable",
+        "default": true,
+        "label": "Enable tag filtering"
+      },
+      {
+        "type": "range",
+        "id": "post_limit",
+        "label": "Number of posts per page",
+        "min": 2,
+        "max": 24,
+        "step": 1,
+        "default": 7
+      },
+      {
+        "type": "checkbox",
+        "id": "show_images",
+        "label": "Show post image",
+        "default": true
+      }
+    ]
+  }
+{% endschema %}

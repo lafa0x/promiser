@@ -1,0 +1,618 @@
+
+<form action="{{ routes.cart_url }}" method="post" novalidate class="cart" id="site-cart">
+<div class="mb-dis">
+  <div class="cart-holder" data-items="{{ cart.items.size }}">
+
+    <div class="cart-items">
+
+      {%- for item in cart.items -%}
+
+        <div class="cart-item" data-title="{{ item.product.title | escape }} {%- unless item.product.has_only_default_variant -%} ({{ item.variant.title | escape }}) {%- endunless -%}" data-id="{{ item.key }}" data-variant="{{ item.variant.id }}" data-qty="{{ item.quantity }}">
+
+          <div>
+
+            <a href="{{ item.url | within: collections.all }}" class="thumbnail">
+              <figure class="new-sty-img lazy-image {% if item.image.src contains 'png' %} lazy-image--transparent {% endif %}" data-ratio style="padding-top: 130%">
+                <img 
+                  src="{{ item.image | img_url: '100x130', crop: 'center' }}" alt="{{ item.title | escape }}"
+                  srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                  data-srcset="{{ item.image | img_url: '100x130', crop: 'center' }} 100w, {{ item.image | img_url: '200x260', crop: 'center' }} 260w"
+                  data-sizes="auto" class="lazyload"
+                 width="{{ item.image.width }}" height="{{ item.image.height }}"
+                />
+                <noscript><span class="ll-fallback" style="background-image:url({{ item.image | img_url: '100x130', crop: 'center' }})"></span></noscript>
+              </figure>
+            </a>
+
+            <div class="content">
+
+              <a href="{{ item.url }}">
+                <span class="title">{{ item.product.title | escape }}</span>
+                {%- unless item.product.has_only_default_variant -%}
+                  <span class="info variant-title custom-text-set">({{ item.variant.title | escape }})</span>
+                {%- endunless -%}
+              </a>
+
+              {%- if item.selling_plan_allocation -%}
+                <span class="info selling-plan">
+                  {{ item.selling_plan_allocation.selling_plan.name }} 
+                </span>
+              {%- endif -%}
+          
+              <div class="price">
+
+                <div class="item__price-list price-set">
+
+                  {%- if item.final_line_price < item.original_line_price -%}
+                    <span class="item__price">{{ item.final_line_price | money }}</span>
+                    <span class="item__price item__price--compare">{{ item.original_line_price | money }}</span>
+                  {%- elsif item.variant.compare_at_price > item.variant.price -%}
+                    <span class="item__price">{{ item.final_line_price | money }}</span>
+                    <span class="item__price item__price--compare">{{ item.variant.compare_at_price | times: item.quantity | money }}</span>
+                  {%- else -%}
+                    <span class="item__price">{{ item.final_line_price | money }}</span>
+                  {%- endif -%}
+
+                  {%- if item.quantity > 1 and type == 'page' -%}
+                    <span class="info quantity-extra" style="margin-top:3px">({{ item.quantity }} x {{ item.final_price | money }})</span>
+                  {%- endif -%}
+                  
+                </div>
+
+                {%- if item.unit_price_measurement -%}
+                  <span class="item__unit">
+                    {{ item.unit_price | money }} / 
+                    {%- if item.unit_price_measurement.reference_value != 1 -%}
+                      {{ item.unit_price_measurement.reference_value }}
+                    {%- endif -%}
+                    {{ item.unit_price_measurement.reference_unit }}
+                  </span>
+                {%- endif -%}
+
+              </div>
+
+               {%- if item.line_level_discount_allocations.size > 0 -%}
+                {%- for discount_allocation in item.line_level_discount_allocations -%}
+                  <small class="discount">{{ 'cart.discount' | t }} <span style="display: inline-block">{{ discount_allocation.discount_application.title }} <span style="display: inline-block">(-{{ discount_allocation.amount | money | strip }})</span></span></small>
+                {% endfor %}
+              {%- endif -%}
+
+              {%- liquid
+                assign property_size = item.properties | property_size
+                assign properties = 'template ' | split: ' '
+                if property_size > 0
+                  assign properties = item.properties
+                endif
+              -%}
+
+              <div class="item__properties">
+                {%- for p in item.properties -%}
+                  {%- assign property_first_char = p.first | slice: 0 -%}
+                  <div class="item__property {% if property_size == 0 or p.last == blank or property_first_char == '_' %} hide {% endif %}">
+                    <span class="item__propety-label">{{ p.first }}:</span>
+                    <span class="item__property-value">
+                      {%- if p.last contains '/uploads/' -%}
+                        <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                      {%- else -%}
+                        {{ p.last }}
+                      {%- endif -%}
+                    </span>
+                  </div>
+                {%- endfor -%}
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="actions">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+<!--      <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0" class="remove" title="{{ 'cart.remove_item' | t }}" aria-label="{{ 'cart.remove_item' | t }}"><span aria-hidden="true">{% render 'theme-symbols', icon: 'trash' %}</span></a> -->
+            {%- if settings.cart_quantity_selector -%}
+            <span class="quantity-scared">1</span>
+<!--               <input data-href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=$qty" class="qty" type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0" aria-label="{{ 'product.page.quantity' | t }}"> -->
+            {%- endif -%}
+            <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0" class="remove my-plus" title="{{ 'cart.remove_item' | t }}" aria-label="{{ 'cart.remove_item' | t }}"><span aria-hidden="true">{% render 'theme-symbols', icon: 'plus' %}</span></a>
+          </div>
+
+        </div>
+
+      {%- endfor -%}
+
+    </div>
+
+    {%- if settings.cart_notes_enable -%}
+      <textarea name="note" class="text-newdesign" id="cartSpecialInstructions" placeholder="{{ 'cart.note' | t }}" aria-label="{{ 'cart.note' | t }}">{{ cart.note }}</textarea>
+    {%- endif -%}
+
+    <div class="cart-out">
+
+      <div id="CartDetails">
+        
+        {%- if cart.cart_level_discount_applications != blank -%} 
+          <div>
+            <p id="CartSubTotal">{{ 'cart.subtotal' | t }} <span>{{ cart.items_subtotal_price | money }}</span></p>
+            <p id="CartDiscounts">
+              {{ 'cart.discounts' | t }}
+              {%- for discount_application in cart.cart_level_discount_applications -%}
+                <span style="display: inline-block">{{ discount_application.title }} <span style="display: inline-block">(-{{ discount_application.total_allocated_amount | money | strip }})</span></span>
+              {%- endfor -%}
+            </p>
+          </div>
+        {%- endif -%}
+
+      </div>
+
+      <p id="CartTotal" class="pb-20">Cart overview</span></p>
+<!--       <span class="info">{{ 'cart.shipping_at_checkout' | t }}</span> -->
+     <div class="row bt-space-with pb-10">
+      <div class="col-md-6">
+        <span class="cart-total-by-new">Price</span>
+      </div>
+      <div class="col-md-6">
+        <span class="pricing-area-by-new">$12.00</span>
+      </div>
+    </div>
+    <div class="row bt-space-with pb-10 pt-10">
+      <div class="col-md-6">
+        <span class="cart-total-by-new">Discount</span>
+      </div>
+      <div class="col-md-6">
+        <span class="pricing-area-by-new">$0.00</span>
+      </div>
+    </div>
+    <div class="row pb-10 pt-10 pb-30 custom-style">
+      <div class="col-md-6">
+        <span class="cart-total-by-new">Total</span>
+      </div>
+      <div class="col-md-6">
+        <span class="pricing-area-by-new">$12.00</span>
+      </div>
+    </div>
+  <a href="#" class="just-info-by-new pt-20"><span class="just-detail-by-new"><span class="i-handling">i</span>Shipping & taxes calculated at checkout</span></a>
+
+<!--       <div class="cart-actions buttons-holder {% if additional_checkout_buttons and settings.cart_additional_buttons and type == 'page' %} cart-actions--additional-checkout-buttons {% endif %}">
+        
+        {%- if type == 'sidebar' -%}
+          <button class="button button--border">{{ 'cart.view_cart' | t }}</button>
+        {%- endif -%}
+
+        <noscript><button name="update" class="button button--border button--wide">{{ 'cart.update_cart' | t }}</button></noscript>
+    
+        <input class="button button--solid {% if additional_checkout_buttons and settings.cart_additional_buttons and type == 'page' %} button--wide {% endif %}" type="submit" name="checkout" value="{{ 'cart.checkout' | t }}">
+      
+        {%- if additional_checkout_buttons and settings.cart_additional_buttons -%}
+          <div class="additional-checkout-buttons additional-checkout-buttons--vertical">{{ content_for_additional_checkout_buttons }}</div>
+        {%- endif -%}
+
+      </div> -->
+
+    </div>
+
+  </div>
+
+  <div class="cart-continue">
+    <a href="{{ routes.all_products_collection_url }}" class="button button--solid button--wide button--align">
+      <span>{{ 'cart.continue_browsing' | t }}</span>
+    </a>
+  </div>
+<div class="bottom-section width-100 display-block p-20">
+  <div class="display-flex">
+    <div class="bottom-price  width-40">
+      <label class="display-block font-size14 mb-5 letter-spacing2">Total</label>
+      <span class="display-block font-size18 letter-spacing2">$12.00</span>
+    </div>
+    <div class="bottom-addtocart width-60 text-right">
+      <a class="addtocart-click" id="addToCart">Continue</a>
+    </div>
+    <div class="actions width-60 text-right" style="display: none;">
+      <i class="fa fa-trash" aria-hidden="true"></i>
+      <span class="quantity-scared">1</span>
+      <a href="" class="remove my-plus" title="" aria-label="">
+        <span aria-hidden="true">{% render 'theme-symbols', icon: 'plus' %}</span>
+      </a>
+    </div>
+  </div>
+</div>
+</div>
+<!-- desktop view starts -->
+<div class="cart-me">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="product-area-cart">
+          <div class="cart-items" style="margin-bottom: 30px;">
+          {%- for item in cart.items -%}
+            <div class="cart-item" data-title="{{ item.product.title | escape }} {%- unless item.product.has_only_default_variant -%} ({{ item.variant.title | escape }}) {%- endunless -%}" data-id="{{ item.key }}" data-variant="{{ item.variant.id }}" data-qty="{{ item.quantity }}">
+              <div>
+                <a href="{{ item.url | within: collections.all }}" class="thumbnail">
+                  <figure class="new-sty-img lazy-image {% if item.image.src contains 'png' %} lazy-image--transparent {% endif %}" data-ratio style="padding-top: 130%">
+                    <img 
+                      src="{{ item.image | img_url: '100x130', crop: 'center' }}" alt="{{ item.title | escape }}"
+                      srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                      data-srcset="{{ item.image | img_url: '100x130', crop: 'center' }} 100w, {{ item.image | img_url: '200x260', crop: 'center' }} 260w"
+                      data-sizes="auto" class="lazyload"
+                     width="{{ item.image.width }}" height="{{ item.image.height }}"
+                    />
+                    <noscript><span class="ll-fallback" style="background-image:url({{ item.image | img_url: '100x130', crop: 'center' }})"></span></noscript>
+                  </figure>
+                </a>
+                <div class="content">
+                  <a href="{{ item.url }}">
+                    <span class="title">{{ item.product.title | escape }}</span>
+                    {%- unless item.product.has_only_default_variant -%}
+                      <span class="info variant-title custom-text-set">({{ item.variant.title | escape }})</span>
+                    {%- endunless -%}
+                  </a>
+                  {%- if item.selling_plan_allocation -%}
+                    <span class="info selling-plan">
+                      {{ item.selling_plan_allocation.selling_plan.name }} 
+                    </span>
+                  {%- endif -%}
+                  <div class="price">
+                    <div class="item__price-list price-set">
+                      {%- if item.final_line_price < item.original_line_price -%}
+                        <span class="item__price">{{ item.final_line_price | money }}</span>
+                        <span class="item__price item__price--compare">{{ item.original_line_price | money }}</span>
+                      {%- elsif item.variant.compare_at_price > item.variant.price -%}
+                        <span class="item__price">{{ item.final_line_price | money }}</span>
+                        <span class="item__price item__price--compare">{{ item.variant.compare_at_price | times: item.quantity | money }}</span>
+                      {%- else -%}
+                        <span class="item__price">{{ item.final_line_price | money }}</span>
+                      {%- endif -%}
+
+                      {%- if item.quantity > 1 and type == 'page' -%}
+                        <span class="info quantity-extra" style="margin-top:3px">({{ item.quantity }} x {{ item.final_price | money }})</span>
+                      {%- endif -%}
+                      
+                    </div>
+                    {%- if item.unit_price_measurement -%}
+                      <span class="item__unit">
+                        {{ item.unit_price | money }} / 
+                        {%- if item.unit_price_measurement.reference_value != 1 -%}
+                          {{ item.unit_price_measurement.reference_value }}
+                        {%- endif -%}
+                        {{ item.unit_price_measurement.reference_unit }}
+                      </span>
+                    {%- endif -%}
+                  </div>
+                   {%- if item.line_level_discount_allocations.size > 0 -%}
+                    {%- for discount_allocation in item.line_level_discount_allocations -%}
+                      <small class="discount">{{ 'cart.discount' | t }} <span style="display: inline-block">{{ discount_allocation.discount_application.title }} <span style="display: inline-block">(-{{ discount_allocation.amount | money | strip }})</span></span></small>
+                    {% endfor %}
+                  {%- endif -%}
+
+                  {%- liquid
+                    assign property_size = item.properties | property_size
+                    assign properties = 'template ' | split: ' '
+                    if property_size > 0
+                      assign properties = item.properties
+                    endif
+                  -%}
+
+                  <div class="item__properties">
+                    {%- for p in item.properties -%}
+                      {%- assign property_first_char = p.first | slice: 0 -%}
+                      <div class="item__property {% if property_size == 0 or p.last == blank or property_first_char == '_' %} hide {% endif %}">
+                        <span class="item__propety-label">{{ p.first }}:</span>
+                        <span class="item__property-value">
+                          {%- if p.last contains '/uploads/' -%}
+                            <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                          {%- else -%}
+                            {{ p.last }}
+                          {%- endif -%}
+                        </span>
+                      </div>
+                    {%- endfor -%}
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="actions">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+    <!--      <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0" class="remove" title="{{ 'cart.remove_item' | t }}" aria-label="{{ 'cart.remove_item' | t }}"><span aria-hidden="true">{% render 'theme-symbols', icon: 'trash' %}</span></a> -->
+                {%- if settings.cart_quantity_selector -%}
+                <span class="quantity-scared">1</span>
+    <!--               <input data-href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=$qty" class="qty" type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0" aria-label="{{ 'product.page.quantity' | t }}"> -->
+                {%- endif -%}
+                <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0" class="remove my-plus" title="{{ 'cart.remove_item' | t }}" aria-label="{{ 'cart.remove_item' | t }}"><span aria-hidden="true">{% render 'theme-symbols', icon: 'plus' %}</span></a>
+              </div>
+
+            </div>
+
+          {%- endfor -%}
+
+        </div>
+        <div class="cart-items" style="margin-bottom: 30px;">
+          {%- for item in cart.items -%}
+            <div class="cart-item" data-title="{{ item.product.title | escape }} {%- unless item.product.has_only_default_variant -%} ({{ item.variant.title | escape }}) {%- endunless -%}" data-id="{{ item.key }}" data-variant="{{ item.variant.id }}" data-qty="{{ item.quantity }}">
+              <div>
+                <a href="{{ item.url | within: collections.all }}" class="thumbnail">
+                  <figure class="new-sty-img lazy-image {% if item.image.src contains 'png' %} lazy-image--transparent {% endif %}" data-ratio style="padding-top: 130%">
+                    <img 
+                      src="{{ item.image | img_url: '100x130', crop: 'center' }}" alt="{{ item.title | escape }}"
+                      srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                      data-srcset="{{ item.image | img_url: '100x130', crop: 'center' }} 100w, {{ item.image | img_url: '200x260', crop: 'center' }} 260w"
+                      data-sizes="auto" class="lazyload"
+                     width="{{ item.image.width }}" height="{{ item.image.height }}"
+                    />
+                    <noscript><span class="ll-fallback" style="background-image:url({{ item.image | img_url: '100x130', crop: 'center' }})"></span></noscript>
+                  </figure>
+                </a>
+                <div class="content">
+                  <a href="{{ item.url }}">
+                    <span class="title">{{ item.product.title | escape }}</span>
+                    {%- unless item.product.has_only_default_variant -%}
+                      <span class="info variant-title custom-text-set">({{ item.variant.title | escape }})</span>
+                    {%- endunless -%}
+                  </a>
+                  {%- if item.selling_plan_allocation -%}
+                    <span class="info selling-plan">
+                      {{ item.selling_plan_allocation.selling_plan.name }} 
+                    </span>
+                  {%- endif -%}
+                  <div class="price">
+                    <div class="item__price-list price-set">
+                      {%- if item.final_line_price < item.original_line_price -%}
+                        <span class="item__price">{{ item.final_line_price | money }}</span>
+                        <span class="item__price item__price--compare">{{ item.original_line_price | money }}</span>
+                      {%- elsif item.variant.compare_at_price > item.variant.price -%}
+                        <span class="item__price">{{ item.final_line_price | money }}</span>
+                        <span class="item__price item__price--compare">{{ item.variant.compare_at_price | times: item.quantity | money }}</span>
+                      {%- else -%}
+                        <span class="item__price">{{ item.final_line_price | money }}</span>
+                      {%- endif -%}
+
+                      {%- if item.quantity > 1 and type == 'page' -%}
+                        <span class="info quantity-extra" style="margin-top:3px">({{ item.quantity }} x {{ item.final_price | money }})</span>
+                      {%- endif -%}
+                      
+                    </div>
+                    {%- if item.unit_price_measurement -%}
+                      <span class="item__unit">
+                        {{ item.unit_price | money }} / 
+                        {%- if item.unit_price_measurement.reference_value != 1 -%}
+                          {{ item.unit_price_measurement.reference_value }}
+                        {%- endif -%}
+                        {{ item.unit_price_measurement.reference_unit }}
+                      </span>
+                    {%- endif -%}
+                  </div>
+                   {%- if item.line_level_discount_allocations.size > 0 -%}
+                    {%- for discount_allocation in item.line_level_discount_allocations -%}
+                      <small class="discount">{{ 'cart.discount' | t }} <span style="display: inline-block">{{ discount_allocation.discount_application.title }} <span style="display: inline-block">(-{{ discount_allocation.amount | money | strip }})</span></span></small>
+                    {% endfor %}
+                  {%- endif -%}
+
+                  {%- liquid
+                    assign property_size = item.properties | property_size
+                    assign properties = 'template ' | split: ' '
+                    if property_size > 0
+                      assign properties = item.properties
+                    endif
+                  -%}
+
+                  <div class="item__properties">
+                    {%- for p in item.properties -%}
+                      {%- assign property_first_char = p.first | slice: 0 -%}
+                      <div class="item__property {% if property_size == 0 or p.last == blank or property_first_char == '_' %} hide {% endif %}">
+                        <span class="item__propety-label">{{ p.first }}:</span>
+                        <span class="item__property-value">
+                          {%- if p.last contains '/uploads/' -%}
+                            <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                          {%- else -%}
+                            {{ p.last }}
+                          {%- endif -%}
+                        </span>
+                      </div>
+                    {%- endfor -%}
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="actions">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+    <!--      <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0" class="remove" title="{{ 'cart.remove_item' | t }}" aria-label="{{ 'cart.remove_item' | t }}"><span aria-hidden="true">{% render 'theme-symbols', icon: 'trash' %}</span></a> -->
+                {%- if settings.cart_quantity_selector -%}
+                <span class="quantity-scared">1</span>
+    <!--               <input data-href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=$qty" class="qty" type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0" aria-label="{{ 'product.page.quantity' | t }}"> -->
+                {%- endif -%}
+                <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0" class="remove my-plus" title="{{ 'cart.remove_item' | t }}" aria-label="{{ 'cart.remove_item' | t }}"><span aria-hidden="true">{% render 'theme-symbols', icon: 'plus' %}</span></a>
+              </div>
+
+            </div>
+
+          {%- endfor -%}
+
+        </div>
+        <div class="cart-items" style="margin-bottom: 30px;">
+          {%- for item in cart.items -%}
+            <div class="cart-item" data-title="{{ item.product.title | escape }} {%- unless item.product.has_only_default_variant -%} ({{ item.variant.title | escape }}) {%- endunless -%}" data-id="{{ item.key }}" data-variant="{{ item.variant.id }}" data-qty="{{ item.quantity }}">
+              <div>
+                <a href="{{ item.url | within: collections.all }}" class="thumbnail">
+                  <figure class="new-sty-img lazy-image {% if item.image.src contains 'png' %} lazy-image--transparent {% endif %}" data-ratio style="padding-top: 130%">
+                    <img 
+                      src="{{ item.image | img_url: '100x130', crop: 'center' }}" alt="{{ item.title | escape }}"
+                      srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                      data-srcset="{{ item.image | img_url: '100x130', crop: 'center' }} 100w, {{ item.image | img_url: '200x260', crop: 'center' }} 260w"
+                      data-sizes="auto" class="lazyload"
+                     width="{{ item.image.width }}" height="{{ item.image.height }}"
+                    />
+                    <noscript><span class="ll-fallback" style="background-image:url({{ item.image | img_url: '100x130', crop: 'center' }})"></span></noscript>
+                  </figure>
+                </a>
+                <div class="content">
+                  <a href="{{ item.url }}">
+                    <span class="title">{{ item.product.title | escape }}</span>
+                    {%- unless item.product.has_only_default_variant -%}
+                      <span class="info variant-title custom-text-set">({{ item.variant.title | escape }})</span>
+                    {%- endunless -%}
+                  </a>
+                  {%- if item.selling_plan_allocation -%}
+                    <span class="info selling-plan">
+                      {{ item.selling_plan_allocation.selling_plan.name }} 
+                    </span>
+                  {%- endif -%}
+                  <div class="price">
+                    <div class="item__price-list price-set">
+                      {%- if item.final_line_price < item.original_line_price -%}
+                        <span class="item__price">{{ item.final_line_price | money }}</span>
+                        <span class="item__price item__price--compare">{{ item.original_line_price | money }}</span>
+                      {%- elsif item.variant.compare_at_price > item.variant.price -%}
+                        <span class="item__price">{{ item.final_line_price | money }}</span>
+                        <span class="item__price item__price--compare">{{ item.variant.compare_at_price | times: item.quantity | money }}</span>
+                      {%- else -%}
+                        <span class="item__price">{{ item.final_line_price | money }}</span>
+                      {%- endif -%}
+
+                      {%- if item.quantity > 1 and type == 'page' -%}
+                        <span class="info quantity-extra" style="margin-top:3px">({{ item.quantity }} x {{ item.final_price | money }})</span>
+                      {%- endif -%}
+                      
+                    </div>
+                    {%- if item.unit_price_measurement -%}
+                      <span class="item__unit">
+                        {{ item.unit_price | money }} / 
+                        {%- if item.unit_price_measurement.reference_value != 1 -%}
+                          {{ item.unit_price_measurement.reference_value }}
+                        {%- endif -%}
+                        {{ item.unit_price_measurement.reference_unit }}
+                      </span>
+                    {%- endif -%}
+                  </div>
+                   {%- if item.line_level_discount_allocations.size > 0 -%}
+                    {%- for discount_allocation in item.line_level_discount_allocations -%}
+                      <small class="discount">{{ 'cart.discount' | t }} <span style="display: inline-block">{{ discount_allocation.discount_application.title }} <span style="display: inline-block">(-{{ discount_allocation.amount | money | strip }})</span></span></small>
+                    {% endfor %}
+                  {%- endif -%}
+
+                  {%- liquid
+                    assign property_size = item.properties | property_size
+                    assign properties = 'template ' | split: ' '
+                    if property_size > 0
+                      assign properties = item.properties
+                    endif
+                  -%}
+
+                  <div class="item__properties">
+                    {%- for p in item.properties -%}
+                      {%- assign property_first_char = p.first | slice: 0 -%}
+                      <div class="item__property {% if property_size == 0 or p.last == blank or property_first_char == '_' %} hide {% endif %}">
+                        <span class="item__propety-label">{{ p.first }}:</span>
+                        <span class="item__property-value">
+                          {%- if p.last contains '/uploads/' -%}
+                            <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                          {%- else -%}
+                            {{ p.last }}
+                          {%- endif -%}
+                        </span>
+                      </div>
+                    {%- endfor -%}
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="actions">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+    <!--      <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0" class="remove" title="{{ 'cart.remove_item' | t }}" aria-label="{{ 'cart.remove_item' | t }}"><span aria-hidden="true">{% render 'theme-symbols', icon: 'trash' %}</span></a> -->
+                {%- if settings.cart_quantity_selector -%}
+                <span class="quantity-scared">1</span>
+    <!--               <input data-href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=$qty" class="qty" type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0" aria-label="{{ 'product.page.quantity' | t }}"> -->
+                {%- endif -%}
+                <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0" class="remove my-plus" title="{{ 'cart.remove_item' | t }}" aria-label="{{ 'cart.remove_item' | t }}"><span aria-hidden="true">{% render 'theme-symbols', icon: 'plus' %}</span></a>
+              </div>
+
+            </div>
+
+          {%- endfor -%}
+
+        </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="calculation-area">
+          <div class="cart-out" style="margin: 0;">
+            <div id="CartDetails">
+              {%- if cart.cart_level_discount_applications != blank -%} 
+                <div>
+                  <p id="CartSubTotal">{{ 'cart.subtotal' | t }} <span>{{ cart.items_subtotal_price | money }}</span></p>
+                  <p id="CartDiscounts">
+                    {{ 'cart.discounts' | t }}
+                    {%- for discount_application in cart.cart_level_discount_applications -%}
+                      <span style="display: inline-block">{{ discount_application.title }} <span style="display: inline-block">(-{{ discount_application.total_allocated_amount | money | strip }})</span></span>
+                    {%- endfor -%}
+                  </p>
+                </div>
+              {%- endif -%}
+            </div>
+            <p id="CartTotal" class="pb-20">Cart overview</span></p>
+           <div class="row bt-space-with pb-10">
+            <div class="col-md-6">
+              <span class="cart-total-by-new">Price</span>
+            </div>
+            <div class="col-md-6">
+              <span class="pricing-area-by-new">$12.00</span>
+            </div>
+          </div>
+          <div class="row bt-space-with pb-10 pt-10">
+            <div class="col-md-6">
+              <span class="cart-total-by-new">Discount</span>
+            </div>
+            <div class="col-md-6">
+              <span class="pricing-area-by-new">$0.00</span>
+            </div>
+          </div>
+          <div class="row pb-10 pt-10 pb-30 custom-style">
+            <div class="col-md-6">
+              <span class="cart-total-by-new">Total</span>
+            </div>
+            <div class="col-md-6">
+              <span class="pricing-area-by-new">$12.00</span>
+            </div>
+          </div>
+          <a href="#" class="just-info-by-new pt-20"><span class="just-detail-by-new"><span class="i-handling">i</span>Shipping & taxes calculated at checkout</span></a>
+        </div>
+      </div>
+      {%- if settings.cart_notes_enable -%}
+        <textarea name="note" class="text-newdesign" id="cartSpecialInstructions" rows="9" cols="40" placeholder="{{ 'cart.note' | t }}" aria-label="{{ 'cart.note' | t }}">{{ cart.note }}</textarea>
+      {%- endif -%}
+    </div>
+    <div class="bottom-section width-100 display-block p-20">
+      <div class="custom-handling-btn-lg">
+        <div class="display-flex">
+          <div class="bottom-price  width-40">
+            <label class="display-block font-size14 mb-5 letter-spacing2">Total</label>
+            <span class="display-block font-size18 letter-spacing2">$12.00</span>
+          </div>
+          <div class="bottom-addtocart width-60 text-right">
+            <a class="addtocart-click" id="addToCart">Continue</a>
+          </div>
+          <div class="actions width-60 text-right" style="display: none;">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+            <span class="quantity-scared">1</span>
+            <a href="" class="remove my-plus" title="" aria-label="">
+              <span aria-hidden="true">{% render 'theme-symbols', icon: 'plus' %}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- desktop view ends -->
+</form>
+<style>
+  .col-md-8{
+    width: 66%;
+    margin: 0 0 0 50px;
+  }
+  .col-md-4{
+    width: 33%;
+  }
+</style>

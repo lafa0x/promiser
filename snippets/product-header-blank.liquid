@@ -1,0 +1,20 @@
+<div class="product__header">
+
+  <h3 class="product__title h2">{{ 'general.onboarding.product_title' | t }}</h3>
+
+  {%- if section.settings.show_vendor -%}
+    {%- capture vendor -%} {{ 'general.onboarding.vendor_name' | t }} {%- endcapture -%}
+    <p class="product__vendor text-size--small">{{ 'product.page.vendor_html' | t: vendor: vendor }}</p>
+  {%- endif -%}
+
+  <span class="product__price text-size--larger">
+
+  	<span class="product__price--original">{{ 1999 | money }}</span>
+    
+  	<span class="product__price--compare">
+      {{ 2999 | money }}
+    </span>
+
+  </span>
+
+</div>

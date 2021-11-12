@@ -1,0 +1,87 @@
+{% section 'collection' %}
+
+<script>
+
+  // Filters
+
+  window.HighlightCollectionFilter = {
+    'pathname': document.location.pathname + document.location.search,
+    'sort': ''
+  }
+
+  document.addEventListener('shopify:section:load', function(e){
+    var $section = $(e.target);
+    if ( $section.hasClass('mount-collection') ) {
+      window.HighlightInitFilters();
+    }
+  });
+
+  window.HighlightInitFilters = function() {
+    var $filters = $('.filter-by');
+    $filters.on('change', function() {
+      var newTags = [];
+      $filters.each(function() { 
+        if ($(this).val()) {
+          newTags.push($(this).val());
+        }
+      });
+      if (newTags.length) {
+        var query = newTags.join('+');
+        window.HighlightCollectionFilter['pathname'] = $('{{ 'tag' | link_to_tag: 'tag' }}').attr('href').replace('/tag', '/' + query);
+      } else {
+        {%- if collection.handle -%}
+          window.HighlightCollectionFilter['pathname'] = '{{ routes.collections_url }}/{{ collection.handle }}';
+        {%- elsif collection.products.first.type == collection.title -%}
+          window.HighlightCollectionFilter['pathname'] = '{{ collection.title | url_for_type }}';
+        {%- elsif collection.products.first.vendor == collection.title -%}
+          window.HighlightCollectionFilter['pathname'] = '{{ collection.title | url_for_vendor }}';
+        {%- endif -%}
+      }
+      window.HighlightInitFilterSortApply();
+    });
+  }
+
+  document.addEventListener('shopify:section:load', function(e){
+    var $section = $(e.target);
+    if ( $section.hasClass('mount-collection') ) {
+      window.HighlightInitSort();
+    }
+  });
+
+  // Sorting
+
+  window.HighlightInitSort = function() {
+    Shopify.queryParams = {};
+      if (location.search.length) {
+        for (var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
+          aKeyValue = aCouples[i].split('=');
+          if (aKeyValue.length > 1) {
+            Shopify.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
+          }
+      }
+    }
+    $('#sort-by')
+      .val('{{ collection.sort_by | default: collection.default_sort_by }}')
+      .on('change', function() {
+        window.HighlightCollectionFilter['sort'] = $(this).val();
+        window.HighlightInitFilterSortApply();
+      }
+    );
+  }
+
+  // Apply sorting
+  
+  window.HighlightInitFilterSortApply = function() {
+    if ( window.HighlightCollectionFilter['sort'] != '' ) {
+      if ( window.HighlightCollectionFilter['pathname'].indexOf('sort_by') >= 0 ) {
+        window.HighlightCollectionFilter['pathname'] = window.HighlightCollectionFilter['pathname'].replace(/sort_by=.+/g, 'sort_by=' + window.HighlightCollectionFilter['sort']);
+      } else {
+        window.HighlightCollectionFilter['pathname'] = window.HighlightCollectionFilter['pathname'] + ( window.HighlightCollectionFilter['pathname'].indexOf('?') >= 0 ? '&' : '?' ) + 'sort_by=' + window.HighlightCollectionFilter['sort'];
+      }
+    } else {
+      // empty
+    }
+    document.location.href =  window.HighlightCollectionFilter['pathname'];
+  }
+
+</script>

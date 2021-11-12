@@ -1,0 +1,2578 @@
+<!-- <div class="shopify-section section-w-margin section-w-mobile-padding" id="section-{{ page.title | handle }}">
+  <div class="section-header five-tenths lap--full-width push-left-one-tenth lap--push-left-none">
+    <h1 class="section-header__title h1">{{ page.title | escape }}</h1>
+  </div>
+  <div class="five-tenths lap--full-width push-left-one-tenth lap--push-left-none">
+    <div class="rte">
+      Study Mode Page Data
+    </div>
+  </div>
+</div> -->
+
+{%- section 'search-box' -%}
+			
+<!-- 			 <div class="study-info" id="info-about-btn">
+                    <span class="info-content">i</span>
+			</div>
+
+			<div class="study-info-about" >
+              
+					<div class="study-infos">
+                    	<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M13.295 2.115C13.6844 1.72564 13.6844 1.09436 13.295 0.705C12.9056 0.315639 12.2744 0.315639 11.885 0.705L7 5.59L2.115 0.705C1.72564 0.315639 1.09436 0.315639 0.705 0.705C0.315639 1.09436 0.315639 1.72564 0.705 2.115L5.59 7L0.705 11.885C0.315639 12.2744 0.315639 12.9056 0.705 13.295C1.09436 13.6844 1.72564 13.6844 2.115 13.295L7 8.41L11.885 13.295C12.2744 13.6844 12.9056 13.6844 13.295 13.295C13.6844 12.9056 13.6844 12.2744 13.295 11.885L8.41 7L13.295 2.115Z" fill="url(#paint0_linear)"/>
+                          <defs>
+                          <linearGradient id="paint0_linear" x1="0" y1="0" x2="15.4227" y2="1.79824" gradientUnits="userSpaceOnUse">
+                          <stop stop-color="#79B8BB"/>
+                          <stop offset="0.989583" stop-color="#8DADA0"/>
+                          </linearGradient>
+                          </defs>
+                        </svg>
+                  	</div>	
+              	<div class="second-selection study-content-panel">
+                    <span>About</span>
+                    <p>Read the verse in different versions and one or more verses before and after for context. Hightlight keywords that stand out to you.</p>
+                  	
+                                    
+                </div>
+              
+			</div> -->
+
+<template id="search-result-template">
+  <div class="search-result">
+  <div class="carousel-wrap">
+    <div id="item-container" class="owl-carousel read-slider-2"> 
+      <template id="item">
+        <div class="item">
+          <div class="second-selection">
+            <span class="verse-reference">Luke 12:7-1</span>
+            <svg class="icon-1" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.27995 0.000154663C6.90994 0.0193141 7.51994 0.129313 8.11093 0.330311H8.16993C8.20993 0.349311 8.23993 0.37031 8.25993 0.38931C8.48093 0.46031 8.68993 0.540309 8.88992 0.650307L9.26992 0.820306C9.41992 0.900305 9.59992 1.0493 9.69991 1.1103C9.79991 1.1693 9.90991 1.2303 9.99991 1.2993C11.1109 0.45031 12.4599 -0.00968556 13.8499 0.000154663C14.4809 0.000154663 15.1109 0.0893134 15.7099 0.290311C19.4008 1.4903 20.7308 5.54026 19.6198 9.08022C18.9898 10.8892 17.9598 12.5402 16.6108 13.8892C14.6799 15.7591 12.5609 17.4191 10.2799 18.8491L10.0299 19.0001L9.76991 18.8391C7.48094 17.4191 5.34996 15.7591 3.40098 13.8792C2.06099 12.5302 1.03001 10.8892 0.390012 9.08022C-0.739976 5.54026 0.590011 1.4903 4.32097 0.269312C4.61097 0.169313 4.90997 0.0993133 5.20996 0.0603137H5.32996C5.61096 0.0193141 5.88996 0.000154663 6.16995 0.000154663H6.27995ZM15.1899 3.16028C14.7799 3.01928 14.3299 3.24028 14.1799 3.66028C14.0399 4.08027 14.2599 4.54027 14.6799 4.68926C15.3209 4.92926 15.7499 5.56026 15.7499 6.25925V6.29025C15.7309 6.51925 15.7999 6.74024 15.9398 6.91024C16.0798 7.08024 16.2898 7.17924 16.5098 7.20024C16.9198 7.18924 17.2698 6.86024 17.2998 6.43925V6.32025C17.3298 4.91926 16.4808 3.65028 15.1899 3.16028Z" fill="#E2E1F5"/>
+            </svg>
+            <svg class="icon-2" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13.5542 12.7229C12.8675 12.7229 12.253 12.994 11.7831 13.4187L5.34036 9.66867C5.38554 9.46084 5.42169 9.25301 5.42169 9.03614C5.42169 8.81928 5.38554 8.61145 5.34036 8.40361L11.7108 4.68976C12.1988 5.14157 12.8404 5.42169 13.5542 5.42169C15.0542 5.42169 16.2651 4.21084 16.2651 2.71084C16.2651 1.21084 15.0542 0 13.5542 0C12.0542 0 10.8434 1.21084 10.8434 2.71084C10.8434 2.92771 10.8795 3.13554 10.9247 3.34337L4.55422 7.05723C4.06627 6.60542 3.4247 6.3253 2.71084 6.3253C1.21084 6.3253 0 7.53614 0 9.03614C0 10.5361 1.21084 11.747 2.71084 11.747C3.4247 11.747 4.06627 11.4669 4.55422 11.0151L10.988 14.7741C10.9428 14.9639 10.9157 15.1627 10.9157 15.3614C10.9157 16.8163 12.0994 18 13.5542 18C15.009 18 16.1928 16.8163 16.1928 15.3614C16.1928 13.9066 15.009 12.7229 13.5542 12.7229Z" fill="url(#paint0_linear)"/>
+              <defs>
+              <linearGradient id="paint0_linear" x1="0" y1="0" x2="17.9621" y2="1.89247" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#79B8BB"/>
+              <stop offset="0.989583" stop-color="#8DADA0"/>
+              </linearGradient>
+              </defs>
+            </svg>
+
+            <p class="verse-content">“Indeed, the very hairs of your head are all numbered. Don’t be afraid; you are worth more than many sparrows.” Luke 12:7, NKJV</p>
+            <a class="verse-version" href="#" > NKJV </a> 
+          </div>
+        </div>
+      </template>
+    </div>
+    <div class="slider-counter"></div>
+    <div class="slider-counter-2"></div>
+  </div>
+  </div>
+</template>
+  
+<div class="search-page-content teach study-active">
+      <div class="study-p-1-img">
+        <img src="{{ '1.png' | asset_img_url: '' }}
+                  //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/1.png?42" />
+
+        <h4 class="study-heading"> TEACH </h4>
+
+      </div>
+  
+        <div class="search-result">
+			
+          
+          	<div class="study-p-1">
+
+              
+              	<div class="second-selection study-content-panel">
+                    <span>PRAYER</span>
+                    <p>Teach me Holy Spirit and lead me into all truth.</p>
+                  	<p>In Jesus’s name, Amen.</p>
+                  
+					<div class="study-info">
+                    	<span>i</span>
+                  	</div>	                  
+                </div>
+              
+              	<div class="study-page-move">
+                  
+                  
+                  
+                  <div class="study-next one-next">
+                    <a href="#">
+                  <span>
+                    Next Up: Read
+                  </span>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 11.8438H2" stroke="url(#paint0_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M17.1367 7L22.0001 11.8418L17.1367 16.6852" stroke="url(#paint1_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                        <linearGradient id="paint0_linear" x1="2" y1="11.8438" x2="5.46879" y2="19.9328" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#79B8BB"/>
+                        <stop offset="0.989583" stop-color="#8DADA0"/>
+                        </linearGradient>
+                        <linearGradient id="paint1_linear" x1="17.1367" y1="7" x2="22.5486" y2="7.31686" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#79B8BB"/>
+                        <stop offset="0.989583" stop-color="#8DADA0"/>
+                        </linearGradient>
+                        </defs>
+                      </svg>
+
+                    </a>
+
+                  	</div>
+                  
+                  
+              	</div>
+              
+              
+              	
+          	</div>
+
+
+
+
+        </div>
+  
+  
+  
+  </div>
+
+
+
+<div class="search-page-content read-1">
+  
+  	 <div class="study-p-1-img">
+                  <img src="{{ 'trust-r.png' | asset_img_url: '' }}
+  //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/trust-r.png?42" />
+                  
+           <h4 class="study-heading"> READ </h4>
+                  
+                </div>
+  
+        <div class="search-result">
+			
+          
+          	<div class="study-p-1">
+              
+              
+              	<div class="second-selection study-content-panel">
+                    <span>OVERVIEW</span>
+                    <p>Read the verse in different versions and one or more verses before and after for context. Hightlight keywords that stand out to you.</p>
+                  
+					<div class="study-info">
+                    	<span>i</span>
+                  	</div>	                  
+                </div>
+              
+              	<div class="study-page-move">
+                  
+                  <div class="study-previous">
+                    <a href="#">
+                    	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2 11.8398L22 11.8398" stroke="url(#paint0_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M6.86328 16.6836L1.9999 11.8418L6.86328 6.99836" stroke="url(#paint1_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <defs>
+                      <linearGradient id="paint0_linear" x1="22" y1="11.8398" x2="18.5312" y2="3.75082" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#79B8BB"/>
+                      <stop offset="0.989583" stop-color="#8DADA0"/>
+                      </linearGradient>
+                      <linearGradient id="paint1_linear" x1="6.86328" y1="16.6836" x2="1.45139" y2="16.3667" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#79B8BB"/>
+                      <stop offset="0.989583" stop-color="#8DADA0"/>
+                      </linearGradient>
+                      </defs>
+                    </svg>
+                  <span>
+                    Teach Prayer
+                  </span>
+                    </a>
+                   
+
+                  </div>
+                  
+                  <div class="study-next">
+                    <a href="#">
+                    	<span>
+                    Read Promise
+                  </span>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 11.8438H2" stroke="url(#paint0_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M17.1367 7L22.0001 11.8418L17.1367 16.6852" stroke="url(#paint1_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                        <linearGradient id="paint0_linear" x1="2" y1="11.8438" x2="5.46879" y2="19.9328" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#79B8BB"/>
+                        <stop offset="0.989583" stop-color="#8DADA0"/>
+                        </linearGradient>
+                        <linearGradient id="paint1_linear" x1="17.1367" y1="7" x2="22.5486" y2="7.31686" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#79B8BB"/>
+                        <stop offset="0.989583" stop-color="#8DADA0"/>
+                        </linearGradient>
+                        </defs>
+                      </svg>
+                    </a>
+                  
+
+                  	</div>
+                  
+                  
+              	</div>
+              
+              
+              	
+          	</div>
+
+
+
+
+        </div>
+  
+  
+  
+  </div>
+
+
+
+<div class="search-page-content read-2">
+  
+    <div class="study-p-1-img">
+                  <img src="{{ 'trust-rt.png' | asset_img_url: '' }}
+  //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/trust-rt.png?42" />
+                  
+	<h4 class="study-heading cross-heading"> READ </h4>
+              <h4 class="study-sub-heading"> PROMISES </h4>
+                  
+                </div>
+  
+        <div class="search-result">
+			
+          
+          	<div class="study-p-1">
+              
+              
+              <div class="carousel-wrap">
+                <div class="owl-carousel first-selection">
+                  <div class="item"><a href="#" class="s-active" > NKJV </a></div>
+                  <div class="item"><a href="#" > NKJV </a></div>
+                  <div class="item"><a href="#" > NKJV </a></div>
+                  <div class="item"><a href="#" > NKJV </a></div>
+                  <div class="item"><a href="#" > NKJV </a></div>
+                </div>
+              </div>
+
+              
+              <div class="primary-verse">
+                <div class="carousel-wrap">
+                  <div class="owl-carousel read-slider-2"> 
+                  <div class="item">
+                  <div class="second-selection">
+                    <span>Luke 12:7-1</span>
+                    <svg class="icon-1" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.27995 0.000154663C6.90994 0.0193141 7.51994 0.129313 8.11093 0.330311H8.16993C8.20993 0.349311 8.23993 0.37031 8.25993 0.38931C8.48093 0.46031 8.68993 0.540309 8.88992 0.650307L9.26992 0.820306C9.41992 0.900305 9.59992 1.0493 9.69991 1.1103C9.79991 1.1693 9.90991 1.2303 9.99991 1.2993C11.1109 0.45031 12.4599 -0.00968556 13.8499 0.000154663C14.4809 0.000154663 15.1109 0.0893134 15.7099 0.290311C19.4008 1.4903 20.7308 5.54026 19.6198 9.08022C18.9898 10.8892 17.9598 12.5402 16.6108 13.8892C14.6799 15.7591 12.5609 17.4191 10.2799 18.8491L10.0299 19.0001L9.76991 18.8391C7.48094 17.4191 5.34996 15.7591 3.40098 13.8792C2.06099 12.5302 1.03001 10.8892 0.390012 9.08022C-0.739976 5.54026 0.590011 1.4903 4.32097 0.269312C4.61097 0.169313 4.90997 0.0993133 5.20996 0.0603137H5.32996C5.61096 0.0193141 5.88996 0.000154663 6.16995 0.000154663H6.27995ZM15.1899 3.16028C14.7799 3.01928 14.3299 3.24028 14.1799 3.66028C14.0399 4.08027 14.2599 4.54027 14.6799 4.68926C15.3209 4.92926 15.7499 5.56026 15.7499 6.25925V6.29025C15.7309 6.51925 15.7999 6.74024 15.9398 6.91024C16.0798 7.08024 16.2898 7.17924 16.5098 7.20024C16.9198 7.18924 17.2698 6.86024 17.2998 6.43925V6.32025C17.3298 4.91926 16.4808 3.65028 15.1899 3.16028Z" fill="#E2E1F5"/>
+                    </svg>
+
+                    
+                    <svg class="icon-2" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.5542 12.7229C12.8675 12.7229 12.253 12.994 11.7831 13.4187L5.34036 9.66867C5.38554 9.46084 5.42169 9.25301 5.42169 9.03614C5.42169 8.81928 5.38554 8.61145 5.34036 8.40361L11.7108 4.68976C12.1988 5.14157 12.8404 5.42169 13.5542 5.42169C15.0542 5.42169 16.2651 4.21084 16.2651 2.71084C16.2651 1.21084 15.0542 0 13.5542 0C12.0542 0 10.8434 1.21084 10.8434 2.71084C10.8434 2.92771 10.8795 3.13554 10.9247 3.34337L4.55422 7.05723C4.06627 6.60542 3.4247 6.3253 2.71084 6.3253C1.21084 6.3253 0 7.53614 0 9.03614C0 10.5361 1.21084 11.747 2.71084 11.747C3.4247 11.747 4.06627 11.4669 4.55422 11.0151L10.988 14.7741C10.9428 14.9639 10.9157 15.1627 10.9157 15.3614C10.9157 16.8163 12.0994 18 13.5542 18C15.009 18 16.1928 16.8163 16.1928 15.3614C16.1928 13.9066 15.009 12.7229 13.5542 12.7229Z" fill="url(#paint0_linear)"/>
+                    <defs>
+                    <linearGradient id="paint0_linear" x1="0" y1="0" x2="17.9621" y2="1.89247" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#79B8BB"/>
+                    <stop offset="0.989583" stop-color="#8DADA0"/>
+                    </linearGradient>
+                    </defs>
+                    </svg>
+
+                    <p>“Indeed, the very hairs of your head are all numbered. Don’t be afraid; you are worth more than many sparrows.” Luke 12:7, NKJV</p>
+                    <a href="#" > NKJV </a> 
+                  </div>
+                  </div>
+
+
+                  <div class="item">
+                  <div class="second-selection">
+                    <span>Luke 12:7-2</span>
+                    <svg class="icon-1" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.27995 0.000154663C6.90994 0.0193141 7.51994 0.129313 8.11093 0.330311H8.16993C8.20993 0.349311 8.23993 0.37031 8.25993 0.38931C8.48093 0.46031 8.68993 0.540309 8.88992 0.650307L9.26992 0.820306C9.41992 0.900305 9.59992 1.0493 9.69991 1.1103C9.79991 1.1693 9.90991 1.2303 9.99991 1.2993C11.1109 0.45031 12.4599 -0.00968556 13.8499 0.000154663C14.4809 0.000154663 15.1109 0.0893134 15.7099 0.290311C19.4008 1.4903 20.7308 5.54026 19.6198 9.08022C18.9898 10.8892 17.9598 12.5402 16.6108 13.8892C14.6799 15.7591 12.5609 17.4191 10.2799 18.8491L10.0299 19.0001L9.76991 18.8391C7.48094 17.4191 5.34996 15.7591 3.40098 13.8792C2.06099 12.5302 1.03001 10.8892 0.390012 9.08022C-0.739976 5.54026 0.590011 1.4903 4.32097 0.269312C4.61097 0.169313 4.90997 0.0993133 5.20996 0.0603137H5.32996C5.61096 0.0193141 5.88996 0.000154663 6.16995 0.000154663H6.27995ZM15.1899 3.16028C14.7799 3.01928 14.3299 3.24028 14.1799 3.66028C14.0399 4.08027 14.2599 4.54027 14.6799 4.68926C15.3209 4.92926 15.7499 5.56026 15.7499 6.25925V6.29025C15.7309 6.51925 15.7999 6.74024 15.9398 6.91024C16.0798 7.08024 16.2898 7.17924 16.5098 7.20024C16.9198 7.18924 17.2698 6.86024 17.2998 6.43925V6.32025C17.3298 4.91926 16.4808 3.65028 15.1899 3.16028Z" fill="#E2E1F5"/>
+                    </svg>
+
+                    
+                    <svg class="icon-2" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.5542 12.7229C12.8675 12.7229 12.253 12.994 11.7831 13.4187L5.34036 9.66867C5.38554 9.46084 5.42169 9.25301 5.42169 9.03614C5.42169 8.81928 5.38554 8.61145 5.34036 8.40361L11.7108 4.68976C12.1988 5.14157 12.8404 5.42169 13.5542 5.42169C15.0542 5.42169 16.2651 4.21084 16.2651 2.71084C16.2651 1.21084 15.0542 0 13.5542 0C12.0542 0 10.8434 1.21084 10.8434 2.71084C10.8434 2.92771 10.8795 3.13554 10.9247 3.34337L4.55422 7.05723C4.06627 6.60542 3.4247 6.3253 2.71084 6.3253C1.21084 6.3253 0 7.53614 0 9.03614C0 10.5361 1.21084 11.747 2.71084 11.747C3.4247 11.747 4.06627 11.4669 4.55422 11.0151L10.988 14.7741C10.9428 14.9639 10.9157 15.1627 10.9157 15.3614C10.9157 16.8163 12.0994 18 13.5542 18C15.009 18 16.1928 16.8163 16.1928 15.3614C16.1928 13.9066 15.009 12.7229 13.5542 12.7229Z" fill="url(#paint0_linear)"/>
+                    <defs>
+                    <linearGradient id="paint0_linear" x1="0" y1="0" x2="17.9621" y2="1.89247" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#79B8BB"/>
+                    <stop offset="0.989583" stop-color="#8DADA0"/>
+                    </linearGradient>
+                    </defs>
+                    </svg>
+
+                    <p>“Indeed, the very hairs of your head are all numbered. Don’t be afraid; you are worth more than many sparrows.” Luke 12:7, NKJV</p>
+                    <a href="#" > NKJV </a> 
+                  </div>
+                  </div>
+
+
+                  <div class="item">
+                  <div class="second-selection">
+                    <span>Luke 12:7-3</span>
+                   <svg class="icon-1" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.27995 0.000154663C6.90994 0.0193141 7.51994 0.129313 8.11093 0.330311H8.16993C8.20993 0.349311 8.23993 0.37031 8.25993 0.38931C8.48093 0.46031 8.68993 0.540309 8.88992 0.650307L9.26992 0.820306C9.41992 0.900305 9.59992 1.0493 9.69991 1.1103C9.79991 1.1693 9.90991 1.2303 9.99991 1.2993C11.1109 0.45031 12.4599 -0.00968556 13.8499 0.000154663C14.4809 0.000154663 15.1109 0.0893134 15.7099 0.290311C19.4008 1.4903 20.7308 5.54026 19.6198 9.08022C18.9898 10.8892 17.9598 12.5402 16.6108 13.8892C14.6799 15.7591 12.5609 17.4191 10.2799 18.8491L10.0299 19.0001L9.76991 18.8391C7.48094 17.4191 5.34996 15.7591 3.40098 13.8792C2.06099 12.5302 1.03001 10.8892 0.390012 9.08022C-0.739976 5.54026 0.590011 1.4903 4.32097 0.269312C4.61097 0.169313 4.90997 0.0993133 5.20996 0.0603137H5.32996C5.61096 0.0193141 5.88996 0.000154663 6.16995 0.000154663H6.27995ZM15.1899 3.16028C14.7799 3.01928 14.3299 3.24028 14.1799 3.66028C14.0399 4.08027 14.2599 4.54027 14.6799 4.68926C15.3209 4.92926 15.7499 5.56026 15.7499 6.25925V6.29025C15.7309 6.51925 15.7999 6.74024 15.9398 6.91024C16.0798 7.08024 16.2898 7.17924 16.5098 7.20024C16.9198 7.18924 17.2698 6.86024 17.2998 6.43925V6.32025C17.3298 4.91926 16.4808 3.65028 15.1899 3.16028Z" fill="#E2E1F5"/>
+                    </svg>
+
+                    
+                    <svg class="icon-2" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.5542 12.7229C12.8675 12.7229 12.253 12.994 11.7831 13.4187L5.34036 9.66867C5.38554 9.46084 5.42169 9.25301 5.42169 9.03614C5.42169 8.81928 5.38554 8.61145 5.34036 8.40361L11.7108 4.68976C12.1988 5.14157 12.8404 5.42169 13.5542 5.42169C15.0542 5.42169 16.2651 4.21084 16.2651 2.71084C16.2651 1.21084 15.0542 0 13.5542 0C12.0542 0 10.8434 1.21084 10.8434 2.71084C10.8434 2.92771 10.8795 3.13554 10.9247 3.34337L4.55422 7.05723C4.06627 6.60542 3.4247 6.3253 2.71084 6.3253C1.21084 6.3253 0 7.53614 0 9.03614C0 10.5361 1.21084 11.747 2.71084 11.747C3.4247 11.747 4.06627 11.4669 4.55422 11.0151L10.988 14.7741C10.9428 14.9639 10.9157 15.1627 10.9157 15.3614C10.9157 16.8163 12.0994 18 13.5542 18C15.009 18 16.1928 16.8163 16.1928 15.3614C16.1928 13.9066 15.009 12.7229 13.5542 12.7229Z" fill="url(#paint0_linear)"/>
+                    <defs>
+                    <linearGradient id="paint0_linear" x1="0" y1="0" x2="17.9621" y2="1.89247" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#79B8BB"/>
+                    <stop offset="0.989583" stop-color="#8DADA0"/>
+                    </linearGradient>
+                    </defs>
+                    </svg>
+
+                    <p>“Indeed, the very hairs of your head are all numbered. Don’t be afraid; you are worth more than many sparrows.” Luke 12:7, NKJV</p>
+                    <a href="#" > NKJV </a> 
+                  </div>
+                  </div>
+
+
+
+                </div>
+                  <div class="slider-counter"></div>
+                  <div class="slider-counter-2"></div>
+                </div>
+              </div>
+
+
+
+                <div class="carousel-wrap c-section">
+                  <div class="c-heading"><a href="#" class="t-active" > Related Promises </a></div> 
+                  <div class="owl-carousel c-first-selection" id="related-promises">   
+                    <div class="item"><a href="#" class="c-active" > Jeremiah 31:3 </a></div>
+                    <div class="item"><a href="#" > Deuteronomy </a></div>
+                  </div>
+                </div>
+              
+              	<div class="study-page-move">
+                  
+                  <div class="study-previous">
+                    <a href="#">
+                    	 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2 11.8398L22 11.8398" stroke="url(#paint0_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M6.86328 16.6836L1.9999 11.8418L6.86328 6.99836" stroke="url(#paint1_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <defs>
+                      <linearGradient id="paint0_linear" x1="22" y1="11.8398" x2="18.5312" y2="3.75082" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#79B8BB"/>
+                      <stop offset="0.989583" stop-color="#8DADA0"/>
+                      </linearGradient>
+                      <linearGradient id="paint1_linear" x1="6.86328" y1="16.6836" x2="1.45139" y2="16.3667" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#79B8BB"/>
+                      <stop offset="0.989583" stop-color="#8DADA0"/>
+                      </linearGradient>
+                      </defs>
+                    </svg>
+                  <span>
+                    Read Overview
+                  </span>
+                    </a>
+                   
+
+                  </div>
+                  
+                  <div class="study-next">
+                    <a href="#">
+                    	 <span>
+                    Next Up Understand
+                  </span>
+                  	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 11.8438H2" stroke="url(#paint0_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M17.1367 7L22.0001 11.8418L17.1367 16.6852" stroke="url(#paint1_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                        <linearGradient id="paint0_linear" x1="2" y1="11.8438" x2="5.46879" y2="19.9328" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#79B8BB"/>
+                        <stop offset="0.989583" stop-color="#8DADA0"/>
+                        </linearGradient>
+                        <linearGradient id="paint1_linear" x1="17.1367" y1="7" x2="22.5486" y2="7.31686" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#79B8BB"/>
+                        <stop offset="0.989583" stop-color="#8DADA0"/>
+                        </linearGradient>
+                        </defs>
+                      </svg>
+                    </a>
+                 
+
+                  	</div>
+                  
+                  
+              	</div>
+              
+              
+              	
+          	</div>
+
+
+
+
+        </div>
+  
+  
+  
+  </div>
+
+
+
+
+<div class="search-page-content understand-1">
+  
+ 			 <div class="study-p-1-img">
+                  <img src="{{ 'trust-u.png' | asset_img_url: '' }}
+  //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/trust-u.png?42" />
+                  
+                 	<h4 class="study-heading"> UNDERSTAND </h4>
+                  
+                </div>
+  
+        <div class="search-result">
+			
+          
+          	<div class="study-p-1">
+              
+              
+              
+              	<div class="second-selection study-content-panel">
+                    <span>CONTEXT</span>
+                    <p id="context">{{ settings.context_text }}</p>
+                  
+					<div class="study-info">
+                    	<span>i</span>
+                  	</div>	                  
+                </div>
+              
+              	<div class="study-page-move">
+                  
+                  <div class="study-previous">
+                    <a href="#">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2 11.8398L22 11.8398" stroke="url(#paint0_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M6.86328 16.6836L1.9999 11.8418L6.86328 6.99836" stroke="url(#paint1_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <defs>
+                      <linearGradient id="paint0_linear" x1="22" y1="11.8398" x2="18.5312" y2="3.75082" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#79B8BB"/>
+                      <stop offset="0.989583" stop-color="#8DADA0"/>
+                      </linearGradient>
+                      <linearGradient id="paint1_linear" x1="6.86328" y1="16.6836" x2="1.45139" y2="16.3667" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#79B8BB"/>
+                      <stop offset="0.989583" stop-color="#8DADA0"/>
+                      </linearGradient>
+                      </defs>
+                    </svg>
+                    <span>
+                      Read Promise
+                    </span>
+                    </a>
+                    
+
+                  </div>
+                  
+                  <div class="study-next">
+                    <a href="#">
+                    	<span>
+<!--                     Cross Refrences -->
+                    Reflection
+                  </span>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 11.8438H2" stroke="url(#paint0_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M17.1367 7L22.0001 11.8418L17.1367 16.6852" stroke="url(#paint1_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                        <linearGradient id="paint0_linear" x1="2" y1="11.8438" x2="5.46879" y2="19.9328" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#79B8BB"/>
+                        <stop offset="0.989583" stop-color="#8DADA0"/>
+                        </linearGradient>
+                        <linearGradient id="paint1_linear" x1="17.1367" y1="7" x2="22.5486" y2="7.31686" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#79B8BB"/>
+                        <stop offset="0.989583" stop-color="#8DADA0"/>
+                        </linearGradient>
+                        </defs>
+                      </svg>
+                    </a>
+                  
+
+                  	</div>
+                  
+                  
+              	</div>
+              
+              
+              	
+          	</div>
+
+
+
+
+        </div>
+  
+  
+  
+  </div>
+
+
+
+
+<div class="search-page-content understand-2">
+  
+   <div class="study-p-1-img">
+                  <img src="{{ 'trust-ut.png' | asset_img_url: '' }}
+  //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/trust-ut.png?42" />
+                  
+	<h4 class="study-heading cross-heading"> UNDERSTAND </h4>
+    <h4 class="study-sub-heading"> CROSS REFERENCES </h4>
+                  
+    </div>
+  
+  	<div class="cross-references-result">
+    
+        <div class="carousel-wrap cross-reference-versions">
+          <div class="owl-carousel first-selection">
+            <div class="item"><a href="#" class="s-active" > NKJV </a></div>
+            <div class="item"><a href="#" > NKJV </a></div>
+            <div class="item"><a href="#" > NKJV </a></div>
+            <div class="item"><a href="#" > NKJV </a></div>
+            <div class="item"><a href="#" > NKJV </a></div>
+          </div>
+        </div>
+
+  
+	</div>
+              
+              
+          <div class="search-result">
+          	<div class="study-p-1">
+              
+<!--               		<div class="understand-info">
+                      <div class="study-info">
+                          <span>i</span>
+                       </div>
+              		</div> -->
+
+
+              
+              	<div class="study-page-move">
+                  
+                  <div class="study-previous">
+                    <a href="#">
+                    	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2 11.8398L22 11.8398" stroke="url(#paint0_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M6.86328 16.6836L1.9999 11.8418L6.86328 6.99836" stroke="url(#paint1_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <defs>
+                      <linearGradient id="paint0_linear" x1="22" y1="11.8398" x2="18.5312" y2="3.75082" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#79B8BB"/>
+                      <stop offset="0.989583" stop-color="#8DADA0"/>
+                      </linearGradient>
+                      <linearGradient id="paint1_linear" x1="6.86328" y1="16.6836" x2="1.45139" y2="16.3667" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#79B8BB"/>
+                      <stop offset="0.989583" stop-color="#8DADA0"/>
+                      </linearGradient>
+                      </defs>
+                    </svg>
+                  <span>
+                    Context
+                  </span>
+                    </a>
+                   
+
+                  </div>
+                  
+                  <div class="study-next">
+                    <a href="#">
+                    	<span>
+                      Reflection
+                  </span>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 11.8438H2" stroke="url(#paint0_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M17.1367 7L22.0001 11.8418L17.1367 16.6852" stroke="url(#paint1_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                        <linearGradient id="paint0_linear" x1="2" y1="11.8438" x2="5.46879" y2="19.9328" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#79B8BB"/>
+                        <stop offset="0.989583" stop-color="#8DADA0"/>
+                        </linearGradient>
+                        <linearGradient id="paint1_linear" x1="17.1367" y1="7" x2="22.5486" y2="7.31686" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#79B8BB"/>
+                        <stop offset="0.989583" stop-color="#8DADA0"/>
+                        </linearGradient>
+                        </defs>
+                      </svg>
+                    </a>
+                  
+
+                  	</div>
+                  
+                  
+              	</div>
+              
+              
+                 </div>
+  </div>
+
+  
+  
+  
+  </div>
+
+
+
+
+
+<div class="search-page-content understand-3">
+  
+  <div class="study-p-1-img">
+                  <img src="{{ 'trust-ut.png' | asset_img_url: '' }}
+  //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/trust-ut.png?42" />
+                  
+	<h4 class="study-heading cross-heading"> UNDERSTAND </h4>
+              <h4 class="study-sub-heading"> REFLECTION </h4>
+                  
+                </div>
+  
+        <div class="search-result">
+			
+          
+          	<div class="study-p-1">
+              
+              
+              
+              	<div class="carousel-wrap">
+                <div class="owl-carousel first-selection">
+                  <div class="item"><a href="#" class="s-active" > NKJV </a></div>
+                  <div class="item"><a href="#" > NKJV </a></div>
+                  <div class="item"><a href="#" > NKJV </a></div>
+                  <div class="item"><a href="#" > NKJV </a></div>
+                  <div class="item"><a href="#" > NKJV </a></div>
+
+                </div>
+              </div>
+
+
+              <div class="primary-verse">
+                <div class="carousel-wrap">
+                <div class="owl-carousel t-first-selection"> 
+                  <div class="item">
+                  <div class="second-selection">
+                    <span>Luke 12:7-1</span>
+                    <svg class="icon-1" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.27995 0.000154663C6.90994 0.0193141 7.51994 0.129313 8.11093 0.330311H8.16993C8.20993 0.349311 8.23993 0.37031 8.25993 0.38931C8.48093 0.46031 8.68993 0.540309 8.88992 0.650307L9.26992 0.820306C9.41992 0.900305 9.59992 1.0493 9.69991 1.1103C9.79991 1.1693 9.90991 1.2303 9.99991 1.2993C11.1109 0.45031 12.4599 -0.00968556 13.8499 0.000154663C14.4809 0.000154663 15.1109 0.0893134 15.7099 0.290311C19.4008 1.4903 20.7308 5.54026 19.6198 9.08022C18.9898 10.8892 17.9598 12.5402 16.6108 13.8892C14.6799 15.7591 12.5609 17.4191 10.2799 18.8491L10.0299 19.0001L9.76991 18.8391C7.48094 17.4191 5.34996 15.7591 3.40098 13.8792C2.06099 12.5302 1.03001 10.8892 0.390012 9.08022C-0.739976 5.54026 0.590011 1.4903 4.32097 0.269312C4.61097 0.169313 4.90997 0.0993133 5.20996 0.0603137H5.32996C5.61096 0.0193141 5.88996 0.000154663 6.16995 0.000154663H6.27995ZM15.1899 3.16028C14.7799 3.01928 14.3299 3.24028 14.1799 3.66028C14.0399 4.08027 14.2599 4.54027 14.6799 4.68926C15.3209 4.92926 15.7499 5.56026 15.7499 6.25925V6.29025C15.7309 6.51925 15.7999 6.74024 15.9398 6.91024C16.0798 7.08024 16.2898 7.17924 16.5098 7.20024C16.9198 7.18924 17.2698 6.86024 17.2998 6.43925V6.32025C17.3298 4.91926 16.4808 3.65028 15.1899 3.16028Z" fill="#E2E1F5"/>
+                    </svg>
+
+                    
+                    <svg class="icon-2" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.5542 12.7229C12.8675 12.7229 12.253 12.994 11.7831 13.4187L5.34036 9.66867C5.38554 9.46084 5.42169 9.25301 5.42169 9.03614C5.42169 8.81928 5.38554 8.61145 5.34036 8.40361L11.7108 4.68976C12.1988 5.14157 12.8404 5.42169 13.5542 5.42169C15.0542 5.42169 16.2651 4.21084 16.2651 2.71084C16.2651 1.21084 15.0542 0 13.5542 0C12.0542 0 10.8434 1.21084 10.8434 2.71084C10.8434 2.92771 10.8795 3.13554 10.9247 3.34337L4.55422 7.05723C4.06627 6.60542 3.4247 6.3253 2.71084 6.3253C1.21084 6.3253 0 7.53614 0 9.03614C0 10.5361 1.21084 11.747 2.71084 11.747C3.4247 11.747 4.06627 11.4669 4.55422 11.0151L10.988 14.7741C10.9428 14.9639 10.9157 15.1627 10.9157 15.3614C10.9157 16.8163 12.0994 18 13.5542 18C15.009 18 16.1928 16.8163 16.1928 15.3614C16.1928 13.9066 15.009 12.7229 13.5542 12.7229Z" fill="url(#paint0_linear)"/>
+                    <defs>
+                    <linearGradient id="paint0_linear" x1="0" y1="0" x2="17.9621" y2="1.89247" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#79B8BB"/>
+                    <stop offset="0.989583" stop-color="#8DADA0"/>
+                    </linearGradient>
+                    </defs>
+                    </svg>
+
+                    <p>“Indeed, the very hairs of your head are all numbered. Don’t be afraid; you are worth more than many sparrows.” Luke 12:7, NKJV</p>
+                    <a href="#" > NKJV </a> 
+                  </div>
+                  </div>
+
+
+                  <div class="item">
+                  <div class="second-selection">
+                    <span>Luke 12:7-2</span>
+                    <svg class="icon-1" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.27995 0.000154663C6.90994 0.0193141 7.51994 0.129313 8.11093 0.330311H8.16993C8.20993 0.349311 8.23993 0.37031 8.25993 0.38931C8.48093 0.46031 8.68993 0.540309 8.88992 0.650307L9.26992 0.820306C9.41992 0.900305 9.59992 1.0493 9.69991 1.1103C9.79991 1.1693 9.90991 1.2303 9.99991 1.2993C11.1109 0.45031 12.4599 -0.00968556 13.8499 0.000154663C14.4809 0.000154663 15.1109 0.0893134 15.7099 0.290311C19.4008 1.4903 20.7308 5.54026 19.6198 9.08022C18.9898 10.8892 17.9598 12.5402 16.6108 13.8892C14.6799 15.7591 12.5609 17.4191 10.2799 18.8491L10.0299 19.0001L9.76991 18.8391C7.48094 17.4191 5.34996 15.7591 3.40098 13.8792C2.06099 12.5302 1.03001 10.8892 0.390012 9.08022C-0.739976 5.54026 0.590011 1.4903 4.32097 0.269312C4.61097 0.169313 4.90997 0.0993133 5.20996 0.0603137H5.32996C5.61096 0.0193141 5.88996 0.000154663 6.16995 0.000154663H6.27995ZM15.1899 3.16028C14.7799 3.01928 14.3299 3.24028 14.1799 3.66028C14.0399 4.08027 14.2599 4.54027 14.6799 4.68926C15.3209 4.92926 15.7499 5.56026 15.7499 6.25925V6.29025C15.7309 6.51925 15.7999 6.74024 15.9398 6.91024C16.0798 7.08024 16.2898 7.17924 16.5098 7.20024C16.9198 7.18924 17.2698 6.86024 17.2998 6.43925V6.32025C17.3298 4.91926 16.4808 3.65028 15.1899 3.16028Z" fill="#E2E1F5"/>
+                    </svg>
+
+                    
+                    <svg class="icon-2" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.5542 12.7229C12.8675 12.7229 12.253 12.994 11.7831 13.4187L5.34036 9.66867C5.38554 9.46084 5.42169 9.25301 5.42169 9.03614C5.42169 8.81928 5.38554 8.61145 5.34036 8.40361L11.7108 4.68976C12.1988 5.14157 12.8404 5.42169 13.5542 5.42169C15.0542 5.42169 16.2651 4.21084 16.2651 2.71084C16.2651 1.21084 15.0542 0 13.5542 0C12.0542 0 10.8434 1.21084 10.8434 2.71084C10.8434 2.92771 10.8795 3.13554 10.9247 3.34337L4.55422 7.05723C4.06627 6.60542 3.4247 6.3253 2.71084 6.3253C1.21084 6.3253 0 7.53614 0 9.03614C0 10.5361 1.21084 11.747 2.71084 11.747C3.4247 11.747 4.06627 11.4669 4.55422 11.0151L10.988 14.7741C10.9428 14.9639 10.9157 15.1627 10.9157 15.3614C10.9157 16.8163 12.0994 18 13.5542 18C15.009 18 16.1928 16.8163 16.1928 15.3614C16.1928 13.9066 15.009 12.7229 13.5542 12.7229Z" fill="url(#paint0_linear)"/>
+                    <defs>
+                    <linearGradient id="paint0_linear" x1="0" y1="0" x2="17.9621" y2="1.89247" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#79B8BB"/>
+                    <stop offset="0.989583" stop-color="#8DADA0"/>
+                    </linearGradient>
+                    </defs>
+                    </svg>
+
+                    <p>“Indeed, the very hairs of your head are all numbered. Don’t be afraid; you are worth more than many sparrows.” Luke 12:7, NKJV</p>
+                    <a href="#" > NKJV </a> 
+                  </div>
+                  </div>
+
+
+                  <div class="item">
+                  <div class="second-selection">
+                    <span>Luke 12:7-3</span>
+                    <svg class="icon-1" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.27995 0.000154663C6.90994 0.0193141 7.51994 0.129313 8.11093 0.330311H8.16993C8.20993 0.349311 8.23993 0.37031 8.25993 0.38931C8.48093 0.46031 8.68993 0.540309 8.88992 0.650307L9.26992 0.820306C9.41992 0.900305 9.59992 1.0493 9.69991 1.1103C9.79991 1.1693 9.90991 1.2303 9.99991 1.2993C11.1109 0.45031 12.4599 -0.00968556 13.8499 0.000154663C14.4809 0.000154663 15.1109 0.0893134 15.7099 0.290311C19.4008 1.4903 20.7308 5.54026 19.6198 9.08022C18.9898 10.8892 17.9598 12.5402 16.6108 13.8892C14.6799 15.7591 12.5609 17.4191 10.2799 18.8491L10.0299 19.0001L9.76991 18.8391C7.48094 17.4191 5.34996 15.7591 3.40098 13.8792C2.06099 12.5302 1.03001 10.8892 0.390012 9.08022C-0.739976 5.54026 0.590011 1.4903 4.32097 0.269312C4.61097 0.169313 4.90997 0.0993133 5.20996 0.0603137H5.32996C5.61096 0.0193141 5.88996 0.000154663 6.16995 0.000154663H6.27995ZM15.1899 3.16028C14.7799 3.01928 14.3299 3.24028 14.1799 3.66028C14.0399 4.08027 14.2599 4.54027 14.6799 4.68926C15.3209 4.92926 15.7499 5.56026 15.7499 6.25925V6.29025C15.7309 6.51925 15.7999 6.74024 15.9398 6.91024C16.0798 7.08024 16.2898 7.17924 16.5098 7.20024C16.9198 7.18924 17.2698 6.86024 17.2998 6.43925V6.32025C17.3298 4.91926 16.4808 3.65028 15.1899 3.16028Z" fill="#E2E1F5"/>
+                    </svg>
+
+                    
+                    <svg class="icon-2" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.5542 12.7229C12.8675 12.7229 12.253 12.994 11.7831 13.4187L5.34036 9.66867C5.38554 9.46084 5.42169 9.25301 5.42169 9.03614C5.42169 8.81928 5.38554 8.61145 5.34036 8.40361L11.7108 4.68976C12.1988 5.14157 12.8404 5.42169 13.5542 5.42169C15.0542 5.42169 16.2651 4.21084 16.2651 2.71084C16.2651 1.21084 15.0542 0 13.5542 0C12.0542 0 10.8434 1.21084 10.8434 2.71084C10.8434 2.92771 10.8795 3.13554 10.9247 3.34337L4.55422 7.05723C4.06627 6.60542 3.4247 6.3253 2.71084 6.3253C1.21084 6.3253 0 7.53614 0 9.03614C0 10.5361 1.21084 11.747 2.71084 11.747C3.4247 11.747 4.06627 11.4669 4.55422 11.0151L10.988 14.7741C10.9428 14.9639 10.9157 15.1627 10.9157 15.3614C10.9157 16.8163 12.0994 18 13.5542 18C15.009 18 16.1928 16.8163 16.1928 15.3614C16.1928 13.9066 15.009 12.7229 13.5542 12.7229Z" fill="url(#paint0_linear)"/>
+                    <defs>
+                    <linearGradient id="paint0_linear" x1="0" y1="0" x2="17.9621" y2="1.89247" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#79B8BB"/>
+                    <stop offset="0.989583" stop-color="#8DADA0"/>
+                    </linearGradient>
+                    </defs>
+                    </svg>
+
+                    <p>“Indeed, the very hairs of your head are all numbered. Don’t be afraid; you are worth more than many sparrows.” Luke 12:7, NKJV</p>
+                    <a href="#" > NKJV </a> 
+                  </div>
+                  </div>
+
+
+
+                </div>
+
+                   <div class="slider-counter"></div>
+                      <div class="slider-counter-2"></div>
+                    </div>
+              </div>
+              
+              	<div class="record-content">
+              		<span> To add your thoughts, tap on the fields below.</span>
+                 
+              </div>
+              
+              	<div class="second-selection study-question">
+                    <span>Observations</span>
+                   
+                   <input type="text" placeholder="What did you observe?" class="study-input">
+                  	                  
+                </div>
+              
+              	<div class="second-selection study-question">
+                    <span>Insights</span>
+                    
+                  <input type="text" placeholder="What stood out to you?" class="study-input">
+                  	                  
+                </div>
+              
+             	 <div class="second-selection study-question">
+                    <span>Questions</span>
+                    
+                   	<input type="text" placeholder="What questions do you have?" class="study-input">
+                  	                  
+                </div>
+		
+
+              
+
+
+
+              
+              	<div class="study-page-move">
+                  
+                  <div class="study-previous">
+                    <a href="#">
+                    	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2 11.8398L22 11.8398" stroke="url(#paint0_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M6.86328 16.6836L1.9999 11.8418L6.86328 6.99836" stroke="url(#paint1_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <defs>
+                      <linearGradient id="paint0_linear" x1="22" y1="11.8398" x2="18.5312" y2="3.75082" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#79B8BB"/>
+                      <stop offset="0.989583" stop-color="#8DADA0"/>
+                      </linearGradient>
+                      <linearGradient id="paint1_linear" x1="6.86328" y1="16.6836" x2="1.45139" y2="16.3667" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#79B8BB"/>
+                      <stop offset="0.989583" stop-color="#8DADA0"/>
+                      </linearGradient>
+                      </defs>
+                    </svg>
+                  <span>
+<!--                     Cross Refrences -->
+                    Context
+                  </span>
+                    
+                    </a>
+                    
+
+                  </div>
+                  
+                  <div class="study-next">
+                    <a href="#">
+                    	<span>
+                      Next Up: See
+                  </span>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 11.8438H2" stroke="url(#paint0_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M17.1367 7L22.0001 11.8418L17.1367 16.6852" stroke="url(#paint1_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                        <linearGradient id="paint0_linear" x1="2" y1="11.8438" x2="5.46879" y2="19.9328" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#79B8BB"/>
+                        <stop offset="0.989583" stop-color="#8DADA0"/>
+                        </linearGradient>
+                        <linearGradient id="paint1_linear" x1="17.1367" y1="7" x2="22.5486" y2="7.31686" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#79B8BB"/>
+                        <stop offset="0.989583" stop-color="#8DADA0"/>
+                        </linearGradient>
+                        </defs>
+                      </svg>
+                    </a>
+                  
+
+                  	</div>
+                  
+                  
+              	</div>
+              
+              
+              	
+          	</div>
+
+
+
+
+        </div>
+  
+  
+  
+  </div>
+
+
+
+
+
+
+<div class="search-page-content see-1">
+  
+   <div class="study-p-1-img">
+                  <img src="{{ 'trust-s.png' | asset_img_url: '' }}
+  //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/trust-s.png?42" />
+                  
+<h4 class="study-heading"> SEE </h4>
+                  
+                </div>
+  
+        <div class="search-result">
+			
+          
+          	<div class="study-p-1">
+              
+               
+              
+              	
+              
+              
+              	<div class="second-selection study-content-panel">
+                    <span>OVERVIEW</span>
+                    <p>See hot it relates to God’s character and what it means for line by answering a few questions.</p>
+                  
+					<div class="study-info">
+                    	<span>i</span>
+                  	</div>	                  
+                </div>
+              
+              	<div class="study-page-move">
+                  
+                  <div class="study-previous">
+                    <a href="#">
+                    	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2 11.8398L22 11.8398" stroke="url(#paint0_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M6.86328 16.6836L1.9999 11.8418L6.86328 6.99836" stroke="url(#paint1_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <defs>
+                      <linearGradient id="paint0_linear" x1="22" y1="11.8398" x2="18.5312" y2="3.75082" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#79B8BB"/>
+                      <stop offset="0.989583" stop-color="#8DADA0"/>
+                      </linearGradient>
+                      <linearGradient id="paint1_linear" x1="6.86328" y1="16.6836" x2="1.45139" y2="16.3667" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#79B8BB"/>
+                      <stop offset="0.989583" stop-color="#8DADA0"/>
+                      </linearGradient>
+                      </defs>
+                    </svg>
+                  <span>
+                    Add Thoughts
+                  </span>
+                    </a>
+                    
+
+                  </div>
+                  
+                  <div class="study-next">
+                    <a href="#">
+                    	<span>
+                    Discovery Questions
+                  </span>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 11.8438H2" stroke="url(#paint0_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M17.1367 7L22.0001 11.8418L17.1367 16.6852" stroke="url(#paint1_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                        <linearGradient id="paint0_linear" x1="2" y1="11.8438" x2="5.46879" y2="19.9328" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#79B8BB"/>
+                        <stop offset="0.989583" stop-color="#8DADA0"/>
+                        </linearGradient>
+                        <linearGradient id="paint1_linear" x1="17.1367" y1="7" x2="22.5486" y2="7.31686" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#79B8BB"/>
+                        <stop offset="0.989583" stop-color="#8DADA0"/>
+                        </linearGradient>
+                        </defs>
+                      </svg>
+                    </a>
+                  
+
+                  	</div>
+                  
+                  
+              	</div>
+              
+              
+              	
+          	</div>
+
+
+
+
+        </div>
+  
+  
+  
+  </div>
+
+
+
+
+
+<div class="search-page-content see-2">
+  
+  <div class="study-p-1-img">
+                  <img src="{{ 'trust-st.png' | asset_img_url: '' }}
+  //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/trust-st.png?42" />
+                  
+	<h4 class="study-heading cross-heading"> SEE </h4>
+              <h4 class="study-sub-heading"> DISCOVERY QUESTIONS </h4>
+                  
+                </div>
+  
+        <div class="search-result">
+			
+          
+          	<div class="study-p-1">
+              
+              
+              
+              	<div class="carousel-wrap">
+                <div class="owl-carousel first-selection">
+                  <div class="item"><a href="#" class="s-active" > NKJV </a></div>
+                  <div class="item"><a href="#" > NKJV </a></div>
+                  <div class="item"><a href="#" > NKJV </a></div>
+                  <div class="item"><a href="#" > NKJV </a></div>
+                  <div class="item"><a href="#" > NKJV </a></div>
+
+                </div>
+              </div>
+
+			  <div class="primary-verse">
+                <div class="carousel-wrap">
+                <div class="owl-carousel t-first-selection"> 
+                  <div class="item">
+                  <div class="second-selection">
+                    <span>Luke 12:7-1</span>
+                    <svg class="icon-1" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.27995 0.000154663C6.90994 0.0193141 7.51994 0.129313 8.11093 0.330311H8.16993C8.20993 0.349311 8.23993 0.37031 8.25993 0.38931C8.48093 0.46031 8.68993 0.540309 8.88992 0.650307L9.26992 0.820306C9.41992 0.900305 9.59992 1.0493 9.69991 1.1103C9.79991 1.1693 9.90991 1.2303 9.99991 1.2993C11.1109 0.45031 12.4599 -0.00968556 13.8499 0.000154663C14.4809 0.000154663 15.1109 0.0893134 15.7099 0.290311C19.4008 1.4903 20.7308 5.54026 19.6198 9.08022C18.9898 10.8892 17.9598 12.5402 16.6108 13.8892C14.6799 15.7591 12.5609 17.4191 10.2799 18.8491L10.0299 19.0001L9.76991 18.8391C7.48094 17.4191 5.34996 15.7591 3.40098 13.8792C2.06099 12.5302 1.03001 10.8892 0.390012 9.08022C-0.739976 5.54026 0.590011 1.4903 4.32097 0.269312C4.61097 0.169313 4.90997 0.0993133 5.20996 0.0603137H5.32996C5.61096 0.0193141 5.88996 0.000154663 6.16995 0.000154663H6.27995ZM15.1899 3.16028C14.7799 3.01928 14.3299 3.24028 14.1799 3.66028C14.0399 4.08027 14.2599 4.54027 14.6799 4.68926C15.3209 4.92926 15.7499 5.56026 15.7499 6.25925V6.29025C15.7309 6.51925 15.7999 6.74024 15.9398 6.91024C16.0798 7.08024 16.2898 7.17924 16.5098 7.20024C16.9198 7.18924 17.2698 6.86024 17.2998 6.43925V6.32025C17.3298 4.91926 16.4808 3.65028 15.1899 3.16028Z" fill="#E2E1F5"/>
+                    </svg>
+
+                    
+                    <svg class="icon-2" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.5542 12.7229C12.8675 12.7229 12.253 12.994 11.7831 13.4187L5.34036 9.66867C5.38554 9.46084 5.42169 9.25301 5.42169 9.03614C5.42169 8.81928 5.38554 8.61145 5.34036 8.40361L11.7108 4.68976C12.1988 5.14157 12.8404 5.42169 13.5542 5.42169C15.0542 5.42169 16.2651 4.21084 16.2651 2.71084C16.2651 1.21084 15.0542 0 13.5542 0C12.0542 0 10.8434 1.21084 10.8434 2.71084C10.8434 2.92771 10.8795 3.13554 10.9247 3.34337L4.55422 7.05723C4.06627 6.60542 3.4247 6.3253 2.71084 6.3253C1.21084 6.3253 0 7.53614 0 9.03614C0 10.5361 1.21084 11.747 2.71084 11.747C3.4247 11.747 4.06627 11.4669 4.55422 11.0151L10.988 14.7741C10.9428 14.9639 10.9157 15.1627 10.9157 15.3614C10.9157 16.8163 12.0994 18 13.5542 18C15.009 18 16.1928 16.8163 16.1928 15.3614C16.1928 13.9066 15.009 12.7229 13.5542 12.7229Z" fill="url(#paint0_linear)"/>
+                    <defs>
+                    <linearGradient id="paint0_linear" x1="0" y1="0" x2="17.9621" y2="1.89247" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#79B8BB"/>
+                    <stop offset="0.989583" stop-color="#8DADA0"/>
+                    </linearGradient>
+                    </defs>
+                    </svg>
+
+                    <p>“Indeed, the very hairs of your head are all numbered. Don’t be afraid; you are worth more than many sparrows.” Luke 12:7, NKJV</p>
+                    <a href="#" > NKJV </a> 
+                  </div>
+                  </div>
+
+
+                  <div class="item">
+                  <div class="second-selection">
+                    <span>Luke 12:7-2</span>
+                    <svg class="icon-1" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.27995 0.000154663C6.90994 0.0193141 7.51994 0.129313 8.11093 0.330311H8.16993C8.20993 0.349311 8.23993 0.37031 8.25993 0.38931C8.48093 0.46031 8.68993 0.540309 8.88992 0.650307L9.26992 0.820306C9.41992 0.900305 9.59992 1.0493 9.69991 1.1103C9.79991 1.1693 9.90991 1.2303 9.99991 1.2993C11.1109 0.45031 12.4599 -0.00968556 13.8499 0.000154663C14.4809 0.000154663 15.1109 0.0893134 15.7099 0.290311C19.4008 1.4903 20.7308 5.54026 19.6198 9.08022C18.9898 10.8892 17.9598 12.5402 16.6108 13.8892C14.6799 15.7591 12.5609 17.4191 10.2799 18.8491L10.0299 19.0001L9.76991 18.8391C7.48094 17.4191 5.34996 15.7591 3.40098 13.8792C2.06099 12.5302 1.03001 10.8892 0.390012 9.08022C-0.739976 5.54026 0.590011 1.4903 4.32097 0.269312C4.61097 0.169313 4.90997 0.0993133 5.20996 0.0603137H5.32996C5.61096 0.0193141 5.88996 0.000154663 6.16995 0.000154663H6.27995ZM15.1899 3.16028C14.7799 3.01928 14.3299 3.24028 14.1799 3.66028C14.0399 4.08027 14.2599 4.54027 14.6799 4.68926C15.3209 4.92926 15.7499 5.56026 15.7499 6.25925V6.29025C15.7309 6.51925 15.7999 6.74024 15.9398 6.91024C16.0798 7.08024 16.2898 7.17924 16.5098 7.20024C16.9198 7.18924 17.2698 6.86024 17.2998 6.43925V6.32025C17.3298 4.91926 16.4808 3.65028 15.1899 3.16028Z" fill="#E2E1F5"/>
+                    </svg>
+
+                    
+                    <svg class="icon-2" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.5542 12.7229C12.8675 12.7229 12.253 12.994 11.7831 13.4187L5.34036 9.66867C5.38554 9.46084 5.42169 9.25301 5.42169 9.03614C5.42169 8.81928 5.38554 8.61145 5.34036 8.40361L11.7108 4.68976C12.1988 5.14157 12.8404 5.42169 13.5542 5.42169C15.0542 5.42169 16.2651 4.21084 16.2651 2.71084C16.2651 1.21084 15.0542 0 13.5542 0C12.0542 0 10.8434 1.21084 10.8434 2.71084C10.8434 2.92771 10.8795 3.13554 10.9247 3.34337L4.55422 7.05723C4.06627 6.60542 3.4247 6.3253 2.71084 6.3253C1.21084 6.3253 0 7.53614 0 9.03614C0 10.5361 1.21084 11.747 2.71084 11.747C3.4247 11.747 4.06627 11.4669 4.55422 11.0151L10.988 14.7741C10.9428 14.9639 10.9157 15.1627 10.9157 15.3614C10.9157 16.8163 12.0994 18 13.5542 18C15.009 18 16.1928 16.8163 16.1928 15.3614C16.1928 13.9066 15.009 12.7229 13.5542 12.7229Z" fill="url(#paint0_linear)"/>
+                    <defs>
+                    <linearGradient id="paint0_linear" x1="0" y1="0" x2="17.9621" y2="1.89247" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#79B8BB"/>
+                    <stop offset="0.989583" stop-color="#8DADA0"/>
+                    </linearGradient>
+                    </defs>
+                    </svg>
+
+                    <p>“Indeed, the very hairs of your head are all numbered. Don’t be afraid; you are worth more than many sparrows.” Luke 12:7, NKJV</p>
+                    <a href="#" > NKJV </a> 
+                  </div>
+                  </div>
+
+
+                  <div class="item">
+                  <div class="second-selection">
+                    <span>Luke 12:7-3</span>
+                    <svg class="icon-1" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.27995 0.000154663C6.90994 0.0193141 7.51994 0.129313 8.11093 0.330311H8.16993C8.20993 0.349311 8.23993 0.37031 8.25993 0.38931C8.48093 0.46031 8.68993 0.540309 8.88992 0.650307L9.26992 0.820306C9.41992 0.900305 9.59992 1.0493 9.69991 1.1103C9.79991 1.1693 9.90991 1.2303 9.99991 1.2993C11.1109 0.45031 12.4599 -0.00968556 13.8499 0.000154663C14.4809 0.000154663 15.1109 0.0893134 15.7099 0.290311C19.4008 1.4903 20.7308 5.54026 19.6198 9.08022C18.9898 10.8892 17.9598 12.5402 16.6108 13.8892C14.6799 15.7591 12.5609 17.4191 10.2799 18.8491L10.0299 19.0001L9.76991 18.8391C7.48094 17.4191 5.34996 15.7591 3.40098 13.8792C2.06099 12.5302 1.03001 10.8892 0.390012 9.08022C-0.739976 5.54026 0.590011 1.4903 4.32097 0.269312C4.61097 0.169313 4.90997 0.0993133 5.20996 0.0603137H5.32996C5.61096 0.0193141 5.88996 0.000154663 6.16995 0.000154663H6.27995ZM15.1899 3.16028C14.7799 3.01928 14.3299 3.24028 14.1799 3.66028C14.0399 4.08027 14.2599 4.54027 14.6799 4.68926C15.3209 4.92926 15.7499 5.56026 15.7499 6.25925V6.29025C15.7309 6.51925 15.7999 6.74024 15.9398 6.91024C16.0798 7.08024 16.2898 7.17924 16.5098 7.20024C16.9198 7.18924 17.2698 6.86024 17.2998 6.43925V6.32025C17.3298 4.91926 16.4808 3.65028 15.1899 3.16028Z" fill="#E2E1F5"/>
+                    </svg>
+
+                    
+                    <svg class="icon-2" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.5542 12.7229C12.8675 12.7229 12.253 12.994 11.7831 13.4187L5.34036 9.66867C5.38554 9.46084 5.42169 9.25301 5.42169 9.03614C5.42169 8.81928 5.38554 8.61145 5.34036 8.40361L11.7108 4.68976C12.1988 5.14157 12.8404 5.42169 13.5542 5.42169C15.0542 5.42169 16.2651 4.21084 16.2651 2.71084C16.2651 1.21084 15.0542 0 13.5542 0C12.0542 0 10.8434 1.21084 10.8434 2.71084C10.8434 2.92771 10.8795 3.13554 10.9247 3.34337L4.55422 7.05723C4.06627 6.60542 3.4247 6.3253 2.71084 6.3253C1.21084 6.3253 0 7.53614 0 9.03614C0 10.5361 1.21084 11.747 2.71084 11.747C3.4247 11.747 4.06627 11.4669 4.55422 11.0151L10.988 14.7741C10.9428 14.9639 10.9157 15.1627 10.9157 15.3614C10.9157 16.8163 12.0994 18 13.5542 18C15.009 18 16.1928 16.8163 16.1928 15.3614C16.1928 13.9066 15.009 12.7229 13.5542 12.7229Z" fill="url(#paint0_linear)"/>
+                    <defs>
+                    <linearGradient id="paint0_linear" x1="0" y1="0" x2="17.9621" y2="1.89247" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#79B8BB"/>
+                    <stop offset="0.989583" stop-color="#8DADA0"/>
+                    </linearGradient>
+                    </defs>
+                    </svg>
+
+                    <p>“Indeed, the very hairs of your head are all numbered. Don’t be afraid; you are worth more than many sparrows.” Luke 12:7, NKJV</p>
+                    <a href="#" > NKJV </a> 
+                  </div>
+                  </div>
+
+
+
+                </div>
+
+                   <div class="slider-counter"></div>
+                      <div class="slider-counter-2"></div>
+                    </div>
+              </div>
+              
+              <div class="record-content">
+              		<span> To add your thoughts, tap on the fields below.</span>
+              </div>
+              
+              	<div class="second-selection study-question">
+                    <span>Good Discovery</span>
+                   
+                  <input type="text" placeholder="What have you learned about god?" class="study-input">
+                  	                  
+                </div>
+              
+              	<div class="second-selection study-question">
+                    <span>Self Discovery</span>
+                   
+                  <input type="text" placeholder="What have you learned about yourself?" class="study-input">
+                  	                  
+                </div>
+              
+             	 <div class="second-selection study-question">
+                    <span>Life Changes</span>
+                    
+                    <input type="text" placeholder="What changes do you want to make?" class="study-input">
+                  	                  
+                </div>
+		
+
+              
+
+
+
+              
+              	<div class="study-page-move">
+                  
+                  <div class="study-previous">
+                    <a href="#">
+                    	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2 11.8398L22 11.8398" stroke="url(#paint0_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M6.86328 16.6836L1.9999 11.8418L6.86328 6.99836" stroke="url(#paint1_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <defs>
+                      <linearGradient id="paint0_linear" x1="22" y1="11.8398" x2="18.5312" y2="3.75082" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#79B8BB"/>
+                      <stop offset="0.989583" stop-color="#8DADA0"/>
+                      </linearGradient>
+                      <linearGradient id="paint1_linear" x1="6.86328" y1="16.6836" x2="1.45139" y2="16.3667" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#79B8BB"/>
+                      <stop offset="0.989583" stop-color="#8DADA0"/>
+                      </linearGradient>
+                      </defs>
+                    </svg>
+                  <span>
+                   	See Overview
+                  </span>
+                    </a>
+                    
+
+                  </div>
+                  
+                  <div class="study-next">
+                    <a href="#">
+                    	 <span>
+                      Next Up: Transform
+                  </span>
+                 	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 11.8438H2" stroke="url(#paint0_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M17.1367 7L22.0001 11.8418L17.1367 16.6852" stroke="url(#paint1_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                        <linearGradient id="paint0_linear" x1="2" y1="11.8438" x2="5.46879" y2="19.9328" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#79B8BB"/>
+                        <stop offset="0.989583" stop-color="#8DADA0"/>
+                        </linearGradient>
+                        <linearGradient id="paint1_linear" x1="17.1367" y1="7" x2="22.5486" y2="7.31686" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#79B8BB"/>
+                        <stop offset="0.989583" stop-color="#8DADA0"/>
+                        </linearGradient>
+                        </defs>
+                      </svg>
+                    </a>
+                 
+
+                  	</div>
+                  
+                  
+              	</div>
+              
+              
+              	
+          	</div>
+
+
+
+
+        </div>
+  
+  
+  
+  </div>
+
+
+<div class="search-page-content transform-1">
+  
+  <div class="study-p-1-img">
+                  <img src="{{ 'trust-t.png' | asset_img_url: '' }}
+  //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/trust-t.png?42" />
+                  <h4 class="study-heading"> TRANSFORM </h4>
+                  
+                </div>
+  
+        <div class="search-result">
+			
+          
+          	<div class="study-p-1">
+
+              
+              	<div class="second-selection study-content-panel">
+                    <span>OVERVIEW</span>
+                    <p>Transform by declaring God’s Word over your life. The more we speak Hus promises, the more our trust in God grows and the more we are transformed into His image.</p>
+                  
+					<div class="study-info">
+                    	<span>i</span>
+                  	</div>	                  
+                </div>
+              
+              	<div class="study-page-move">
+                  
+                  <div class="study-previous">
+                    <a href="#">
+                    	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2 11.8398L22 11.8398" stroke="url(#paint0_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M6.86328 16.6836L1.9999 11.8418L6.86328 6.99836" stroke="url(#paint1_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <defs>
+                      <linearGradient id="paint0_linear" x1="22" y1="11.8398" x2="18.5312" y2="3.75082" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#79B8BB"/>
+                      <stop offset="0.989583" stop-color="#8DADA0"/>
+                      </linearGradient>
+                      <linearGradient id="paint1_linear" x1="6.86328" y1="16.6836" x2="1.45139" y2="16.3667" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#79B8BB"/>
+                      <stop offset="0.989583" stop-color="#8DADA0"/>
+                      </linearGradient>
+                      </defs>
+                    </svg>
+                  <span>
+                    Discovery Questions
+                  </span>
+                    </a>
+                    
+
+                  </div>
+                  
+                  <div class="study-next">
+                    <a href="#">
+                    	<span>
+                    Affirmation
+                  </span>
+                  	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 11.8438H2" stroke="url(#paint0_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M17.1367 7L22.0001 11.8418L17.1367 16.6852" stroke="url(#paint1_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                        <linearGradient id="paint0_linear" x1="2" y1="11.8438" x2="5.46879" y2="19.9328" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#79B8BB"/>
+                        <stop offset="0.989583" stop-color="#8DADA0"/>
+                        </linearGradient>
+                        <linearGradient id="paint1_linear" x1="17.1367" y1="7" x2="22.5486" y2="7.31686" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#79B8BB"/>
+                        <stop offset="0.989583" stop-color="#8DADA0"/>
+                        </linearGradient>
+                        </defs>
+                      </svg>
+                      
+                    </a>
+                  
+
+                  	</div>
+                  
+                  
+              	</div>
+              
+              
+              	
+          	</div>
+
+
+
+
+        </div>
+  
+  
+  
+  </div>
+
+
+<div class="search-page-content transform-2">
+  
+   <div class="study-p-1-img">
+                  <img src="{{ 'trust-tt.png' | asset_img_url: '' }}
+  //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/trust-tt.png?42" />
+                  
+	<h4 class="study-heading cross-heading"> TRANSFORM </h4>
+              <h4 class="study-sub-heading"> AFFIRMATION </h4>
+                  
+                </div>
+  
+        <div class="search-result">
+			
+          
+          	<div class="study-p-1">
+              
+              
+              
+              	<div class="carousel-wrap">
+                <div class="owl-carousel first-selection">
+                  <div class="item"><a href="#" class="s-active" > NKJV </a></div>
+                  <div class="item"><a href="#" > NKJV </a></div>
+                  <div class="item"><a href="#" > NKJV </a></div>
+                  <div class="item"><a href="#" > NKJV </a></div>
+                  <div class="item"><a href="#" > NKJV </a></div>
+
+                </div>
+              </div>
+
+			  <div class="primary-verse">
+                <div class="carousel-wrap">
+                <div class="owl-carousel t-first-selection"> 
+                  <div class="item">
+                  <div class="second-selection">
+                    <span>Luke 12:7-1</span>
+                    <svg class="icon-1" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.27995 0.000154663C6.90994 0.0193141 7.51994 0.129313 8.11093 0.330311H8.16993C8.20993 0.349311 8.23993 0.37031 8.25993 0.38931C8.48093 0.46031 8.68993 0.540309 8.88992 0.650307L9.26992 0.820306C9.41992 0.900305 9.59992 1.0493 9.69991 1.1103C9.79991 1.1693 9.90991 1.2303 9.99991 1.2993C11.1109 0.45031 12.4599 -0.00968556 13.8499 0.000154663C14.4809 0.000154663 15.1109 0.0893134 15.7099 0.290311C19.4008 1.4903 20.7308 5.54026 19.6198 9.08022C18.9898 10.8892 17.9598 12.5402 16.6108 13.8892C14.6799 15.7591 12.5609 17.4191 10.2799 18.8491L10.0299 19.0001L9.76991 18.8391C7.48094 17.4191 5.34996 15.7591 3.40098 13.8792C2.06099 12.5302 1.03001 10.8892 0.390012 9.08022C-0.739976 5.54026 0.590011 1.4903 4.32097 0.269312C4.61097 0.169313 4.90997 0.0993133 5.20996 0.0603137H5.32996C5.61096 0.0193141 5.88996 0.000154663 6.16995 0.000154663H6.27995ZM15.1899 3.16028C14.7799 3.01928 14.3299 3.24028 14.1799 3.66028C14.0399 4.08027 14.2599 4.54027 14.6799 4.68926C15.3209 4.92926 15.7499 5.56026 15.7499 6.25925V6.29025C15.7309 6.51925 15.7999 6.74024 15.9398 6.91024C16.0798 7.08024 16.2898 7.17924 16.5098 7.20024C16.9198 7.18924 17.2698 6.86024 17.2998 6.43925V6.32025C17.3298 4.91926 16.4808 3.65028 15.1899 3.16028Z" fill="#E2E1F5"/>
+                    </svg>
+
+                    
+                    <svg class="icon-2" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.5542 12.7229C12.8675 12.7229 12.253 12.994 11.7831 13.4187L5.34036 9.66867C5.38554 9.46084 5.42169 9.25301 5.42169 9.03614C5.42169 8.81928 5.38554 8.61145 5.34036 8.40361L11.7108 4.68976C12.1988 5.14157 12.8404 5.42169 13.5542 5.42169C15.0542 5.42169 16.2651 4.21084 16.2651 2.71084C16.2651 1.21084 15.0542 0 13.5542 0C12.0542 0 10.8434 1.21084 10.8434 2.71084C10.8434 2.92771 10.8795 3.13554 10.9247 3.34337L4.55422 7.05723C4.06627 6.60542 3.4247 6.3253 2.71084 6.3253C1.21084 6.3253 0 7.53614 0 9.03614C0 10.5361 1.21084 11.747 2.71084 11.747C3.4247 11.747 4.06627 11.4669 4.55422 11.0151L10.988 14.7741C10.9428 14.9639 10.9157 15.1627 10.9157 15.3614C10.9157 16.8163 12.0994 18 13.5542 18C15.009 18 16.1928 16.8163 16.1928 15.3614C16.1928 13.9066 15.009 12.7229 13.5542 12.7229Z" fill="url(#paint0_linear)"/>
+                    <defs>
+                    <linearGradient id="paint0_linear" x1="0" y1="0" x2="17.9621" y2="1.89247" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#79B8BB"/>
+                    <stop offset="0.989583" stop-color="#8DADA0"/>
+                    </linearGradient>
+                    </defs>
+                    </svg>
+
+                    <p>“Indeed, the very hairs of your head are all numbered. Don’t be afraid; you are worth more than many sparrows.” Luke 12:7, NKJV</p>
+                    <a href="#" > NKJV </a> 
+                  </div>
+                  </div>
+
+
+                  <div class="item">
+                  <div class="second-selection">
+                    <span>Luke 12:7-2</span>
+                    <svg class="icon-1" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.27995 0.000154663C6.90994 0.0193141 7.51994 0.129313 8.11093 0.330311H8.16993C8.20993 0.349311 8.23993 0.37031 8.25993 0.38931C8.48093 0.46031 8.68993 0.540309 8.88992 0.650307L9.26992 0.820306C9.41992 0.900305 9.59992 1.0493 9.69991 1.1103C9.79991 1.1693 9.90991 1.2303 9.99991 1.2993C11.1109 0.45031 12.4599 -0.00968556 13.8499 0.000154663C14.4809 0.000154663 15.1109 0.0893134 15.7099 0.290311C19.4008 1.4903 20.7308 5.54026 19.6198 9.08022C18.9898 10.8892 17.9598 12.5402 16.6108 13.8892C14.6799 15.7591 12.5609 17.4191 10.2799 18.8491L10.0299 19.0001L9.76991 18.8391C7.48094 17.4191 5.34996 15.7591 3.40098 13.8792C2.06099 12.5302 1.03001 10.8892 0.390012 9.08022C-0.739976 5.54026 0.590011 1.4903 4.32097 0.269312C4.61097 0.169313 4.90997 0.0993133 5.20996 0.0603137H5.32996C5.61096 0.0193141 5.88996 0.000154663 6.16995 0.000154663H6.27995ZM15.1899 3.16028C14.7799 3.01928 14.3299 3.24028 14.1799 3.66028C14.0399 4.08027 14.2599 4.54027 14.6799 4.68926C15.3209 4.92926 15.7499 5.56026 15.7499 6.25925V6.29025C15.7309 6.51925 15.7999 6.74024 15.9398 6.91024C16.0798 7.08024 16.2898 7.17924 16.5098 7.20024C16.9198 7.18924 17.2698 6.86024 17.2998 6.43925V6.32025C17.3298 4.91926 16.4808 3.65028 15.1899 3.16028Z" fill="#E2E1F5"/>
+                    </svg>
+
+                    
+                    <svg class="icon-2" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.5542 12.7229C12.8675 12.7229 12.253 12.994 11.7831 13.4187L5.34036 9.66867C5.38554 9.46084 5.42169 9.25301 5.42169 9.03614C5.42169 8.81928 5.38554 8.61145 5.34036 8.40361L11.7108 4.68976C12.1988 5.14157 12.8404 5.42169 13.5542 5.42169C15.0542 5.42169 16.2651 4.21084 16.2651 2.71084C16.2651 1.21084 15.0542 0 13.5542 0C12.0542 0 10.8434 1.21084 10.8434 2.71084C10.8434 2.92771 10.8795 3.13554 10.9247 3.34337L4.55422 7.05723C4.06627 6.60542 3.4247 6.3253 2.71084 6.3253C1.21084 6.3253 0 7.53614 0 9.03614C0 10.5361 1.21084 11.747 2.71084 11.747C3.4247 11.747 4.06627 11.4669 4.55422 11.0151L10.988 14.7741C10.9428 14.9639 10.9157 15.1627 10.9157 15.3614C10.9157 16.8163 12.0994 18 13.5542 18C15.009 18 16.1928 16.8163 16.1928 15.3614C16.1928 13.9066 15.009 12.7229 13.5542 12.7229Z" fill="url(#paint0_linear)"/>
+                    <defs>
+                    <linearGradient id="paint0_linear" x1="0" y1="0" x2="17.9621" y2="1.89247" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#79B8BB"/>
+                    <stop offset="0.989583" stop-color="#8DADA0"/>
+                    </linearGradient>
+                    </defs>
+                    </svg>
+
+                    <p>“Indeed, the very hairs of your head are all numbered. Don’t be afraid; you are worth more than many sparrows.” Luke 12:7, NKJV</p>
+                    <a href="#" > NKJV </a> 
+                  </div>
+                  </div>
+
+
+                  <div class="item">
+                  <div class="second-selection">
+                    <span>Luke 12:7-3</span>
+                    <svg class="icon-1" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.27995 0.000154663C6.90994 0.0193141 7.51994 0.129313 8.11093 0.330311H8.16993C8.20993 0.349311 8.23993 0.37031 8.25993 0.38931C8.48093 0.46031 8.68993 0.540309 8.88992 0.650307L9.26992 0.820306C9.41992 0.900305 9.59992 1.0493 9.69991 1.1103C9.79991 1.1693 9.90991 1.2303 9.99991 1.2993C11.1109 0.45031 12.4599 -0.00968556 13.8499 0.000154663C14.4809 0.000154663 15.1109 0.0893134 15.7099 0.290311C19.4008 1.4903 20.7308 5.54026 19.6198 9.08022C18.9898 10.8892 17.9598 12.5402 16.6108 13.8892C14.6799 15.7591 12.5609 17.4191 10.2799 18.8491L10.0299 19.0001L9.76991 18.8391C7.48094 17.4191 5.34996 15.7591 3.40098 13.8792C2.06099 12.5302 1.03001 10.8892 0.390012 9.08022C-0.739976 5.54026 0.590011 1.4903 4.32097 0.269312C4.61097 0.169313 4.90997 0.0993133 5.20996 0.0603137H5.32996C5.61096 0.0193141 5.88996 0.000154663 6.16995 0.000154663H6.27995ZM15.1899 3.16028C14.7799 3.01928 14.3299 3.24028 14.1799 3.66028C14.0399 4.08027 14.2599 4.54027 14.6799 4.68926C15.3209 4.92926 15.7499 5.56026 15.7499 6.25925V6.29025C15.7309 6.51925 15.7999 6.74024 15.9398 6.91024C16.0798 7.08024 16.2898 7.17924 16.5098 7.20024C16.9198 7.18924 17.2698 6.86024 17.2998 6.43925V6.32025C17.3298 4.91926 16.4808 3.65028 15.1899 3.16028Z" fill="#E2E1F5"/>
+                    </svg>
+
+                    
+                    <svg class="icon-2" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.5542 12.7229C12.8675 12.7229 12.253 12.994 11.7831 13.4187L5.34036 9.66867C5.38554 9.46084 5.42169 9.25301 5.42169 9.03614C5.42169 8.81928 5.38554 8.61145 5.34036 8.40361L11.7108 4.68976C12.1988 5.14157 12.8404 5.42169 13.5542 5.42169C15.0542 5.42169 16.2651 4.21084 16.2651 2.71084C16.2651 1.21084 15.0542 0 13.5542 0C12.0542 0 10.8434 1.21084 10.8434 2.71084C10.8434 2.92771 10.8795 3.13554 10.9247 3.34337L4.55422 7.05723C4.06627 6.60542 3.4247 6.3253 2.71084 6.3253C1.21084 6.3253 0 7.53614 0 9.03614C0 10.5361 1.21084 11.747 2.71084 11.747C3.4247 11.747 4.06627 11.4669 4.55422 11.0151L10.988 14.7741C10.9428 14.9639 10.9157 15.1627 10.9157 15.3614C10.9157 16.8163 12.0994 18 13.5542 18C15.009 18 16.1928 16.8163 16.1928 15.3614C16.1928 13.9066 15.009 12.7229 13.5542 12.7229Z" fill="url(#paint0_linear)"/>
+                    <defs>
+                    <linearGradient id="paint0_linear" x1="0" y1="0" x2="17.9621" y2="1.89247" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#79B8BB"/>
+                    <stop offset="0.989583" stop-color="#8DADA0"/>
+                    </linearGradient>
+                    </defs>
+                    </svg>
+
+                    <p>“Indeed, the very hairs of your head are all numbered. Don’t be afraid; you are worth more than many sparrows.” Luke 12:7, NKJV</p>
+                    <a href="#" > NKJV </a> 
+                  </div>
+                  </div>
+
+
+
+                </div>
+
+                   <div class="slider-counter"></div>
+                      <div class="slider-counter-2"></div>
+                    </div>
+              </div>
+              
+              
+               <div class="record-content">
+              		<span> To add your thoughts, tap on the fields below.</span>
+              </div>
+              
+              	<div class="second-selection study-question" id="affirmations">
+                    <span>Affirmation Example</span>
+                </div>
+              
+              	<div class="second-selection study-question record-section">
+                    
+					<img src="{{ 'record-img.png' | asset_img_url: '' }}
+  //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/record-img.png?42" style="width: 48px !important;" />
+                  	                  
+                </div>
+              
+               <div class="second-selection study-question record-section">
+                    
+					<img src="{{ 'record-start.png' | asset_img_url: '' }}
+  //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/record-start.png?42" />
+                  	                  
+                </div>
+              
+              <div class="second-selection study-question record-section">
+                    
+					<img src="{{ 'record-delete.png' | asset_img_url: '' }}
+  //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/record-delete.png?42" />
+                  	                  
+                </div>
+              
+              <div class="second-selection study-question record-section">
+                    
+					<img src="{{ 'record-play.png' | asset_img_url: '' }}
+  //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/record-play.png?42" />
+                  	                  
+                </div>
+
+		
+
+              
+
+
+
+              
+              	<div class="study-page-move">
+                  
+                  <div class="study-previous">
+                    <a href="#">
+                    	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2 11.8398L22 11.8398" stroke="url(#paint0_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M6.86328 16.6836L1.9999 11.8418L6.86328 6.99836" stroke="url(#paint1_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <defs>
+                      <linearGradient id="paint0_linear" x1="22" y1="11.8398" x2="18.5312" y2="3.75082" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#79B8BB"/>
+                      <stop offset="0.989583" stop-color="#8DADA0"/>
+                      </linearGradient>
+                      <linearGradient id="paint1_linear" x1="6.86328" y1="16.6836" x2="1.45139" y2="16.3667" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#79B8BB"/>
+                      <stop offset="0.989583" stop-color="#8DADA0"/>
+                      </linearGradient>
+                      </defs>
+                    </svg>
+                  <span>
+                   	Transform Overview
+                  </span>
+                    </a>
+                    
+
+                  </div>
+                  
+                  <div class="study-next">
+                    <a href="#">
+                    	 <span>
+                      Prayer
+                  </span>
+                  	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 11.8438H2" stroke="url(#paint0_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M17.1367 7L22.0001 11.8418L17.1367 16.6852" stroke="url(#paint1_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                        <linearGradient id="paint0_linear" x1="2" y1="11.8438" x2="5.46879" y2="19.9328" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#79B8BB"/>
+                        <stop offset="0.989583" stop-color="#8DADA0"/>
+                        </linearGradient>
+                        <linearGradient id="paint1_linear" x1="17.1367" y1="7" x2="22.5486" y2="7.31686" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#79B8BB"/>
+                        <stop offset="0.989583" stop-color="#8DADA0"/>
+                        </linearGradient>
+                        </defs>
+                      </svg>
+                    </a>
+                 
+
+                  	</div>
+                  
+                  
+              	</div>
+              
+              
+              	
+          	</div>
+
+
+
+
+        </div>
+  
+  
+  
+  </div>
+
+
+
+
+<div class="search-page-content transform-3">
+  
+   <div class="study-p-1-img">
+                  <img src="{{ 'trust-tt.png' | asset_img_url: '' }}
+  //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/trust-tt.png?42" />
+                  
+	<h4 class="study-heading cross-heading"> TRANSFORM </h4>
+              <h4 class="study-sub-heading"> PRAYER </h4>
+                  
+                </div>
+  
+        <div class="search-result">
+			
+          
+          	<div class="study-p-1">
+              
+              
+              
+              	<div class="carousel-wrap">
+                <div class="owl-carousel first-selection">
+                  <div class="item"><a href="#" class="s-active" > NKJV </a></div>
+                  <div class="item"><a href="#" > NKJV </a></div>
+                  <div class="item"><a href="#" > NKJV </a></div>
+                  <div class="item"><a href="#" > NKJV </a></div>
+                  <div class="item"><a href="#" > NKJV </a></div>
+
+                </div>
+              </div>
+
+
+              <div class="primary-verse">
+                <div class="carousel-wrap">
+                <div class="owl-carousel t-first-selection"> 
+                  <div class="item">
+                  <div class="second-selection">
+                    <span>Luke 12:7-1</span>
+                    <svg class="icon-1" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.27995 0.000154663C6.90994 0.0193141 7.51994 0.129313 8.11093 0.330311H8.16993C8.20993 0.349311 8.23993 0.37031 8.25993 0.38931C8.48093 0.46031 8.68993 0.540309 8.88992 0.650307L9.26992 0.820306C9.41992 0.900305 9.59992 1.0493 9.69991 1.1103C9.79991 1.1693 9.90991 1.2303 9.99991 1.2993C11.1109 0.45031 12.4599 -0.00968556 13.8499 0.000154663C14.4809 0.000154663 15.1109 0.0893134 15.7099 0.290311C19.4008 1.4903 20.7308 5.54026 19.6198 9.08022C18.9898 10.8892 17.9598 12.5402 16.6108 13.8892C14.6799 15.7591 12.5609 17.4191 10.2799 18.8491L10.0299 19.0001L9.76991 18.8391C7.48094 17.4191 5.34996 15.7591 3.40098 13.8792C2.06099 12.5302 1.03001 10.8892 0.390012 9.08022C-0.739976 5.54026 0.590011 1.4903 4.32097 0.269312C4.61097 0.169313 4.90997 0.0993133 5.20996 0.0603137H5.32996C5.61096 0.0193141 5.88996 0.000154663 6.16995 0.000154663H6.27995ZM15.1899 3.16028C14.7799 3.01928 14.3299 3.24028 14.1799 3.66028C14.0399 4.08027 14.2599 4.54027 14.6799 4.68926C15.3209 4.92926 15.7499 5.56026 15.7499 6.25925V6.29025C15.7309 6.51925 15.7999 6.74024 15.9398 6.91024C16.0798 7.08024 16.2898 7.17924 16.5098 7.20024C16.9198 7.18924 17.2698 6.86024 17.2998 6.43925V6.32025C17.3298 4.91926 16.4808 3.65028 15.1899 3.16028Z" fill="#E2E1F5"/>
+                    </svg>
+
+                    
+                    <svg class="icon-2" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.5542 12.7229C12.8675 12.7229 12.253 12.994 11.7831 13.4187L5.34036 9.66867C5.38554 9.46084 5.42169 9.25301 5.42169 9.03614C5.42169 8.81928 5.38554 8.61145 5.34036 8.40361L11.7108 4.68976C12.1988 5.14157 12.8404 5.42169 13.5542 5.42169C15.0542 5.42169 16.2651 4.21084 16.2651 2.71084C16.2651 1.21084 15.0542 0 13.5542 0C12.0542 0 10.8434 1.21084 10.8434 2.71084C10.8434 2.92771 10.8795 3.13554 10.9247 3.34337L4.55422 7.05723C4.06627 6.60542 3.4247 6.3253 2.71084 6.3253C1.21084 6.3253 0 7.53614 0 9.03614C0 10.5361 1.21084 11.747 2.71084 11.747C3.4247 11.747 4.06627 11.4669 4.55422 11.0151L10.988 14.7741C10.9428 14.9639 10.9157 15.1627 10.9157 15.3614C10.9157 16.8163 12.0994 18 13.5542 18C15.009 18 16.1928 16.8163 16.1928 15.3614C16.1928 13.9066 15.009 12.7229 13.5542 12.7229Z" fill="url(#paint0_linear)"/>
+                    <defs>
+                    <linearGradient id="paint0_linear" x1="0" y1="0" x2="17.9621" y2="1.89247" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#79B8BB"/>
+                    <stop offset="0.989583" stop-color="#8DADA0"/>
+                    </linearGradient>
+                    </defs>
+                    </svg>
+
+                    <p>“Indeed, the very hairs of your head are all numbered. Don’t be afraid; you are worth more than many sparrows.” Luke 12:7, NKJV</p>
+                    <a href="#" > NKJV </a> 
+                  </div>
+                  </div>
+
+
+                  <div class="item">
+                  <div class="second-selection">
+                    <span>Luke 12:7-2</span>
+                    <svg class="icon-1" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.27995 0.000154663C6.90994 0.0193141 7.51994 0.129313 8.11093 0.330311H8.16993C8.20993 0.349311 8.23993 0.37031 8.25993 0.38931C8.48093 0.46031 8.68993 0.540309 8.88992 0.650307L9.26992 0.820306C9.41992 0.900305 9.59992 1.0493 9.69991 1.1103C9.79991 1.1693 9.90991 1.2303 9.99991 1.2993C11.1109 0.45031 12.4599 -0.00968556 13.8499 0.000154663C14.4809 0.000154663 15.1109 0.0893134 15.7099 0.290311C19.4008 1.4903 20.7308 5.54026 19.6198 9.08022C18.9898 10.8892 17.9598 12.5402 16.6108 13.8892C14.6799 15.7591 12.5609 17.4191 10.2799 18.8491L10.0299 19.0001L9.76991 18.8391C7.48094 17.4191 5.34996 15.7591 3.40098 13.8792C2.06099 12.5302 1.03001 10.8892 0.390012 9.08022C-0.739976 5.54026 0.590011 1.4903 4.32097 0.269312C4.61097 0.169313 4.90997 0.0993133 5.20996 0.0603137H5.32996C5.61096 0.0193141 5.88996 0.000154663 6.16995 0.000154663H6.27995ZM15.1899 3.16028C14.7799 3.01928 14.3299 3.24028 14.1799 3.66028C14.0399 4.08027 14.2599 4.54027 14.6799 4.68926C15.3209 4.92926 15.7499 5.56026 15.7499 6.25925V6.29025C15.7309 6.51925 15.7999 6.74024 15.9398 6.91024C16.0798 7.08024 16.2898 7.17924 16.5098 7.20024C16.9198 7.18924 17.2698 6.86024 17.2998 6.43925V6.32025C17.3298 4.91926 16.4808 3.65028 15.1899 3.16028Z" fill="#E2E1F5"/>
+                    </svg>
+
+                    
+                    <svg class="icon-2" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.5542 12.7229C12.8675 12.7229 12.253 12.994 11.7831 13.4187L5.34036 9.66867C5.38554 9.46084 5.42169 9.25301 5.42169 9.03614C5.42169 8.81928 5.38554 8.61145 5.34036 8.40361L11.7108 4.68976C12.1988 5.14157 12.8404 5.42169 13.5542 5.42169C15.0542 5.42169 16.2651 4.21084 16.2651 2.71084C16.2651 1.21084 15.0542 0 13.5542 0C12.0542 0 10.8434 1.21084 10.8434 2.71084C10.8434 2.92771 10.8795 3.13554 10.9247 3.34337L4.55422 7.05723C4.06627 6.60542 3.4247 6.3253 2.71084 6.3253C1.21084 6.3253 0 7.53614 0 9.03614C0 10.5361 1.21084 11.747 2.71084 11.747C3.4247 11.747 4.06627 11.4669 4.55422 11.0151L10.988 14.7741C10.9428 14.9639 10.9157 15.1627 10.9157 15.3614C10.9157 16.8163 12.0994 18 13.5542 18C15.009 18 16.1928 16.8163 16.1928 15.3614C16.1928 13.9066 15.009 12.7229 13.5542 12.7229Z" fill="url(#paint0_linear)"/>
+                    <defs>
+                    <linearGradient id="paint0_linear" x1="0" y1="0" x2="17.9621" y2="1.89247" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#79B8BB"/>
+                    <stop offset="0.989583" stop-color="#8DADA0"/>
+                    </linearGradient>
+                    </defs>
+                    </svg>
+
+                    <p>“Indeed, the very hairs of your head are all numbered. Don’t be afraid; you are worth more than many sparrows.” Luke 12:7, NKJV</p>
+                    <a href="#" > NKJV </a> 
+                  </div>
+                  </div>
+
+
+                  <div class="item">
+                  <div class="second-selection">
+                    <span>Luke 12:7-3</span>
+                    <svg class="icon-1" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.27995 0.000154663C6.90994 0.0193141 7.51994 0.129313 8.11093 0.330311H8.16993C8.20993 0.349311 8.23993 0.37031 8.25993 0.38931C8.48093 0.46031 8.68993 0.540309 8.88992 0.650307L9.26992 0.820306C9.41992 0.900305 9.59992 1.0493 9.69991 1.1103C9.79991 1.1693 9.90991 1.2303 9.99991 1.2993C11.1109 0.45031 12.4599 -0.00968556 13.8499 0.000154663C14.4809 0.000154663 15.1109 0.0893134 15.7099 0.290311C19.4008 1.4903 20.7308 5.54026 19.6198 9.08022C18.9898 10.8892 17.9598 12.5402 16.6108 13.8892C14.6799 15.7591 12.5609 17.4191 10.2799 18.8491L10.0299 19.0001L9.76991 18.8391C7.48094 17.4191 5.34996 15.7591 3.40098 13.8792C2.06099 12.5302 1.03001 10.8892 0.390012 9.08022C-0.739976 5.54026 0.590011 1.4903 4.32097 0.269312C4.61097 0.169313 4.90997 0.0993133 5.20996 0.0603137H5.32996C5.61096 0.0193141 5.88996 0.000154663 6.16995 0.000154663H6.27995ZM15.1899 3.16028C14.7799 3.01928 14.3299 3.24028 14.1799 3.66028C14.0399 4.08027 14.2599 4.54027 14.6799 4.68926C15.3209 4.92926 15.7499 5.56026 15.7499 6.25925V6.29025C15.7309 6.51925 15.7999 6.74024 15.9398 6.91024C16.0798 7.08024 16.2898 7.17924 16.5098 7.20024C16.9198 7.18924 17.2698 6.86024 17.2998 6.43925V6.32025C17.3298 4.91926 16.4808 3.65028 15.1899 3.16028Z" fill="#E2E1F5"/>
+                    </svg>
+
+                    
+                    <svg class="icon-2" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.5542 12.7229C12.8675 12.7229 12.253 12.994 11.7831 13.4187L5.34036 9.66867C5.38554 9.46084 5.42169 9.25301 5.42169 9.03614C5.42169 8.81928 5.38554 8.61145 5.34036 8.40361L11.7108 4.68976C12.1988 5.14157 12.8404 5.42169 13.5542 5.42169C15.0542 5.42169 16.2651 4.21084 16.2651 2.71084C16.2651 1.21084 15.0542 0 13.5542 0C12.0542 0 10.8434 1.21084 10.8434 2.71084C10.8434 2.92771 10.8795 3.13554 10.9247 3.34337L4.55422 7.05723C4.06627 6.60542 3.4247 6.3253 2.71084 6.3253C1.21084 6.3253 0 7.53614 0 9.03614C0 10.5361 1.21084 11.747 2.71084 11.747C3.4247 11.747 4.06627 11.4669 4.55422 11.0151L10.988 14.7741C10.9428 14.9639 10.9157 15.1627 10.9157 15.3614C10.9157 16.8163 12.0994 18 13.5542 18C15.009 18 16.1928 16.8163 16.1928 15.3614C16.1928 13.9066 15.009 12.7229 13.5542 12.7229Z" fill="url(#paint0_linear)"/>
+                    <defs>
+                    <linearGradient id="paint0_linear" x1="0" y1="0" x2="17.9621" y2="1.89247" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#79B8BB"/>
+                    <stop offset="0.989583" stop-color="#8DADA0"/>
+                    </linearGradient>
+                    </defs>
+                    </svg>
+
+                    <p>“Indeed, the very hairs of your head are all numbered. Don’t be afraid; you are worth more than many sparrows.” Luke 12:7, NKJV</p>
+                    <a href="#" > NKJV </a> 
+                  </div>
+                  </div>
+
+
+
+                </div>
+
+                   <div class="slider-counter"></div>
+                      <div class="slider-counter-2"></div>
+                    </div>
+              </div>
+              
+              
+              
+              	<div class="second-selection study-question">
+                    <span>Prayer Example</span>
+                    <p id="prayer-example">{{ settings.prayer_text }}</p>
+
+                  	                  
+                </div>
+              
+              	<div class="second-selection study-question record-section">
+                    
+					<img src="{{ 'record-img.png' | asset_img_url: '' }}
+  //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/record-img.png?42" style="width: 48px !important;" />
+                  	                  
+                </div>
+              
+              <div class="second-selection study-question record-section">
+                    
+					<img src="{{ 'record-start.png' | asset_img_url: '' }}
+  //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/record-start.png?42" />
+                  	                  
+                </div>
+              
+              <div class="second-selection study-question record-section">
+                    
+					<img src="{{ 'record-delete.png' | asset_img_url: '' }}
+  //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/record-delete.png?42" />
+                  	                  
+                </div>
+              
+              <div class="second-selection study-question record-section">
+                    
+					<img src="{{ 'record-play.png' | asset_img_url: '' }}
+  //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/record-play.png?42" />
+                  	                  
+                </div>
+
+		
+
+              
+
+
+
+              
+              	<div class="study-page-move">
+                  
+                  <div class="study-previous">
+                    <a href="#">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2 11.8398L22 11.8398" stroke="url(#paint0_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M6.86328 16.6836L1.9999 11.8418L6.86328 6.99836" stroke="url(#paint1_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <defs>
+                      <linearGradient id="paint0_linear" x1="22" y1="11.8398" x2="18.5312" y2="3.75082" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#79B8BB"/>
+                      <stop offset="0.989583" stop-color="#8DADA0"/>
+                      </linearGradient>
+                      <linearGradient id="paint1_linear" x1="6.86328" y1="16.6836" x2="1.45139" y2="16.3667" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#79B8BB"/>
+                      <stop offset="0.989583" stop-color="#8DADA0"/>
+                      </linearGradient>
+                      </defs>
+                    </svg>
+
+                  <span>
+                   	Affirmation
+                  </span>
+                    </a>
+                    
+
+                  </div>
+                  
+                  <div class="study-next">
+                    <a href="#">
+                    <span>
+                      Save Study
+                  </span>
+                	 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 11.8438H2" stroke="url(#paint0_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M17.1367 7L22.0001 11.8418L17.1367 16.6852" stroke="url(#paint1_linear)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                        <linearGradient id="paint0_linear" x1="2" y1="11.8438" x2="5.46879" y2="19.9328" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#79B8BB"/>
+                        <stop offset="0.989583" stop-color="#8DADA0"/>
+                        </linearGradient>
+                        <linearGradient id="paint1_linear" x1="17.1367" y1="7" x2="22.5486" y2="7.31686" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#79B8BB"/>
+                        <stop offset="0.989583" stop-color="#8DADA0"/>
+                        </linearGradient>
+                        </defs>
+                      </svg>
+                    </a>
+                  
+
+                  	</div>
+                  
+                  
+              	</div>
+              
+              
+              	
+          	</div>
+
+
+
+
+        </div>
+  
+  
+  
+  </div>
+
+
+
+
+
+  
+  
+        <div class="button-promise-bottom">
+              <a class="slide-button button button--underline button-search-filter" href="" title="Start your Box">Get a PromiseBox For More</a>
+        </div>
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+ <!-- Owl Stylesheets -->
+    <link rel="stylesheet" href="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.theme.default.min.css">
+
+
+<style>
+  .owl-carousel.first-selection {
+  	padding-bottom: 20px;
+  }
+  
+  .first-selection .owl-stage {
+    width: unset !important;
+    display: flex;
+    justify-content: center;
+    margin-left: 40px;
+  }
+  
+  .c-first-selection a {
+    width: max-content;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  
+  #related-promises {
+    padding-top: 20px;
+  }
+  
+  .cross-reference-versions {
+    padding: 0 20px;
+  }
+  
+   .first-selection {
+	 width: 100% !important;
+   }
+</style>
+
+
+
+<!-- javascript -->
+    <script src="https://owlcarousel2.github.io/OwlCarousel2/assets/vendors/jquery.min.js"></script>
+    <script src="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/owl.carousel.js"></script>
+
+<script>
+  
+// This is necessary. Owl breaks without this.
+jQuery(document).ready(async function($) {
+  
+  const API_URL = 'https://promiser-bible-search.herokuapp.com/api/v1';
+  
+  const urlParams = new URLSearchParams(window.location.search);
+  const term = urlParams.get('search');
+  const study = !!urlParams.get('study');
+  const searchVersion = urlParams.get('version') || 'FBV';
+  
+  // Get available versions
+  const getVersions = async () => {
+    const URL = API_URL + '/versions';
+
+    return await (await fetch(URL)).json();
+  }
+
+  // Perform the search for verses
+  const getVerses = async () => {
+
+    if (!term) {
+      setTimeout(() => document.getElementById('custom-search-icon').dispatchEvent(new Event('click')), 100);
+      return;
+    }
+
+    const URL = API_URL + '/search?term=' + term + '&version=' + searchVersion + '&study=true&unrestricted=false&relatedVerses=true&adjacentVerses=true';
+    
+    return await (await fetch(URL)).json();
+  }
+  
+  const [versionsResponse, versesResponse] = await Promise.all([getVersions(), getVerses()]);
+  
+  console.log(versionsResponse.data);
+  console.log(versesResponse.data);
+
+  // If there was nothing found, stop and show the search bar.
+  if (!versesResponse.data.length) {
+    setTimeout(() => document.getElementById('custom-search-icon').dispatchEvent(new Event('click')), 100);
+    return;
+  }
+  
+  // Set all versions
+  const versionsContainers = document.querySelectorAll(".owl-carousel.first-selection");
+  for (const versionsContainer of versionsContainers) {
+    versionsContainer.innerHTML = '';
+  
+//     // Always include NKJV
+//     if (!versionsResponse.data.some(version => version.abbreviation === 'NKJV')) {
+//       const div = document.createElement('div');
+//       div.className = "item";
+
+//       const a = document.createElement('a');
+//       a.href = "?search=" + term + "&study=" + study ? 'on' : '' + "&version=" + 'NKJV';
+//       a.innerText = 'NKJV';
+
+//       if (searchVersion === 'NKJV') {
+//         a.className = 's-active';
+//       }
+
+//       div.appendChild(a);
+//       versionsContainer.appendChild(div);
+//     }
+
+    // Append the versions to the top
+    versionsResponse.data.forEach(version => {
+      const div = document.createElement('div');
+      div.className = "item";
+
+      const a = document.createElement('a');
+      a.href = "?search=" + term + "&study=" + (study ? 'on' : '') + "&version=" + version.abbreviation;
+      a.innerText = version.abbreviation;
+
+      if (searchVersion === version.abbreviation) {
+        a.className = 's-active';
+      }
+
+      div.appendChild(a);
+      versionsContainer.appendChild(div);
+    });
+  }
+  
+  // Use only the first verse found
+  const verse = versesResponse.data[0];
+  
+  // Set related verses
+  const relatedContainer = document.getElementById('related-promises');
+  relatedContainer.innerHTML = '';
+  verse.related.forEach(related => {
+    const item = document.createElement('div');
+    item.className = "item";
+    item.innerHTML = '<a href="/pages/study-mode?search=' + related.reference + '">' + related.reference + '</a>';
+
+    relatedContainer.appendChild(item);
+  });
+  
+  // Set the primary verse in all places it should go
+  const resultTemplate = document.getElementById('search-result-template');
+  
+  const primaryVerseContainers = document.querySelectorAll('.primary-verse');
+  for (const primaryVerseContainer of primaryVerseContainers) {
+  
+    const resultClone = resultTemplate.content.cloneNode(true);
+
+    const itemContainer = resultClone.getElementById('item-container');
+
+    // Append adjacent verses
+    const items = [...verse.previous, verse, ...verse.next];
+    const itemTemplate = resultClone.getElementById('item');
+
+    items.forEach(item => {
+      const itemClone = itemTemplate.content.cloneNode(true);
+
+      const referenceElem = itemClone.querySelector('.verse-reference');
+      const contentElem = itemClone.querySelector('.verse-content');
+      const versionElem = itemClone.querySelector('.verse-version');
+
+      referenceElem.textContent = item.reference;
+      contentElem.textContent = item.content;
+      versionElem.textContent = item.version;
+
+      itemContainer.appendChild(itemClone);
+    });
+    
+    itemTemplate.remove();
+    
+    primaryVerseContainer.innerHTML = '';
+    primaryVerseContainer.appendChild(resultClone);
+  }
+  
+  // Append cross references
+  const container = document.querySelector('.cross-references-result');
+
+  verse.crossReferences.forEach((cr, i) => {
+    const resultClone = resultTemplate.content.cloneNode(true);
+    if (i % 2 !== 0) {
+      $(resultClone.querySelector('.search-result')).addClass('second-panel'); 
+    }
+
+    const itemContainer = resultClone.getElementById('item-container');
+
+    // Append adjacent verses
+    const items = [...cr.previous, cr, ...cr.next];
+//     const items = [cr];
+    const itemTemplate = resultClone.getElementById('item');
+
+    items.forEach(item => {
+      const itemClone = itemTemplate.content.cloneNode(true);
+
+      const referenceElem = itemClone.querySelector('.verse-reference');
+      const contentElem = itemClone.querySelector('.verse-content');
+      const versionElem = itemClone.querySelector('.verse-version');
+
+      referenceElem.textContent = item.reference;
+      contentElem.textContent = item.content;
+      versionElem.textContent = item.version;
+
+      itemContainer.appendChild(itemClone);
+    });
+
+    itemTemplate.remove();
+
+    container.appendChild(resultClone);
+  });
+  
+  // Set context
+//   document.getElementById('context').innerText = verse.context || 'Sorry, we do not have context for this yet.';
+  
+  // Set affirmations
+  const affContainer = document.getElementById('affirmations');
+  const affirmations = [];
+  const getAffirmation = () => {
+   	const index = Math.floor(Math.random() * verse.affirmations.length);
+    if (affirmations.includes(verse.affirmations[index])) {
+      return getAffirmation();
+    }
+  	return verse.affirmations[index];
+  }
+  if (verse.affirmations.length > affirmations.length) {
+    affirmations.push(getAffirmation());
+  }
+  if (verse.affirmations.length > affirmations.length) {
+    affirmations.push(getAffirmation());
+  }
+  affirmations.forEach(aff => {
+    const p = document.createElement('p');
+    p.innerText = aff;
+    affContainer.appendChild(p);
+  });
+  
+  // Set the prayer example
+//   document.getElementById('prayer-example').innerText = verse.prayer;
+  
+  
+  $('.read-2 .first-selection').owlCarousel({
+  loop: false,
+  margin: 10,
+  nav: false,
+  navText: [
+    "<i class='fa fa-caret-left'></i>",
+    "<i class='fa fa-caret-right'></i>"
+  ],
+  autoplay: false,
+  autoplayHoverPause: false,
+  responsive: {
+    0: {
+      items: 3
+    },
+    600: {
+      items: 3
+    },
+    1000: {
+      items: 5
+    }
+  }
+})
+  
+   $('.understand-2 .first-selection').owlCarousel({
+  loop: false,
+  margin: 10,
+  nav: false,
+  navText: [
+    "<i class='fa fa-caret-left'></i>",
+    "<i class='fa fa-caret-right'></i>"
+  ],
+  autoplay: false,
+  autoplayHoverPause: false,
+  responsive: {
+    0: {
+      items: 3
+    },
+    600: {
+      items: 3
+    },
+    1000: {
+      items: 5
+    }
+  }
+})
+   
+   
+    $('.understand-3 .first-selection').owlCarousel({
+  loop: false,
+  margin: 10,
+  nav: false,
+  navText: [
+    "<i class='fa fa-caret-left'></i>",
+    "<i class='fa fa-caret-right'></i>"
+  ],
+  autoplay: false,
+  autoplayHoverPause: false,
+  responsive: {
+    0: {
+      items: 3
+    },
+    600: {
+      items: 3
+    },
+    1000: {
+      items: 5
+    }
+  }
+})
+    
+    
+    
+     $('.see-2 .first-selection').owlCarousel({
+  loop: false,
+  margin: 10,
+  nav: false,
+  navText: [
+    "<i class='fa fa-caret-left'></i>",
+    "<i class='fa fa-caret-right'></i>"
+  ],
+  autoplay: false,
+  autoplayHoverPause: false,
+  responsive: {
+    0: {
+      items: 3
+    },
+    600: {
+      items: 3
+    },
+    1000: {
+      items: 5
+    }
+  }
+})
+     
+     
+     
+      $('.transform-2 .first-selection').owlCarousel({
+  loop: false,
+  margin: 10,
+  nav: false,
+  navText: [
+    "<i class='fa fa-caret-left'></i>",
+    "<i class='fa fa-caret-right'></i>"
+  ],
+  autoplay: false,
+  autoplayHoverPause: false,
+  responsive: {
+    0: {
+      items: 3
+    },
+    600: {
+      items: 3
+    },
+    1000: {
+      items: 5
+    }
+  }
+})
+      
+      
+       $('.transform-3 .first-selection').owlCarousel({
+  loop: false,
+  margin: 10,
+  nav: false,
+  navText: [
+    "<i class='fa fa-caret-left'></i>",
+    "<i class='fa fa-caret-right'></i>"
+  ],
+  autoplay: false,
+  autoplayHoverPause: false,
+  responsive: {
+    0: {
+      items: 3
+    },
+    600: {
+      items: 3
+    },
+    1000: {
+      items: 5
+    }
+  }
+})
+  
+  
+  
+  
+  
+   $('.read-slider-2').on('initialized.owl.carousel changed.owl.carousel', function(e) {
+    if (!e.namespace)  {
+      return;
+    }
+    var carousel = e.relatedTarget;
+//     $('.read-2 .slider-counter').text(carousel.relative(carousel.current())  );
+//     $('.read-2 .slider-counter-2').text(carousel.relative(carousel.current()) + 1 + 1 );
+  }).owlCarousel({
+    loop: true,
+     startPosition: 2,
+  margin: 10,
+  nav: true,
+  navText: [
+    "<i class='fas fa-chevron-left'></i>",
+    "<i class='fas fa-chevron-right'></i>"
+  ],
+  autoplay: false,
+  autoplayHoverPause: false,
+  responsive: {
+    0: {
+      items: 1
+    },
+    600: {
+      items: 3
+    },
+    1000: {
+      items: 5
+    }
+  }
+  });
+ 
+   
+   
+  
+  
+  
+  $('.understand-2 .t-first-selection').on('initialized.owl.carousel changed.owl.carousel', function(e) {
+    if (!e.namespace)  {
+      return;
+    }
+    var carousel = e.relatedTarget;
+    $('.understand-2 .slider-counter').text(carousel.relative(carousel.current())  );
+     $('.understand-2 .slider-counter-2').text(carousel.relative(carousel.current()) + 1 + 1 );
+  }).owlCarousel({
+    loop: true,
+  margin: 10,
+  nav: true,
+  navText: [
+    "<i class='fas fa-chevron-left'></i>",
+    "<i class='fas fa-chevron-right'></i>"
+  ],
+  autoplay: false,
+  autoplayHoverPause: false,
+  responsive: {
+    0: {
+      items: 1
+    },
+    600: {
+      items: 3
+    },
+    1000: {
+      items: 5
+    }
+  }
+  });
+  
+  
+  $('.understand-2 .t-first-selection-u').on('initialized.owl.carousel changed.owl.carousel', function(e) {
+    if (!e.namespace)  {
+      return;
+    }
+    var carousel = e.relatedTarget;
+    $('.understand-2 .second-slider-counter').text(carousel.relative(carousel.current())  );
+     $('.understand-2 .second-slider-counter-2').text(carousel.relative(carousel.current()) + 1 + 1 );
+  }).owlCarousel({
+    loop: true,
+  margin: 10,
+  nav: true,
+  navText: [
+    "<i class='fas fa-chevron-left'></i>",
+    "<i class='fas fa-chevron-right'></i>"
+  ],
+  autoplay: false,
+  autoplayHoverPause: false,
+  responsive: {
+    0: {
+      items: 1
+    },
+    600: {
+      items: 3
+    },
+    1000: {
+      items: 5
+    }
+  }
+  });
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   $('.understand-3 .t-first-selection').on('initialized.owl.carousel changed.owl.carousel', function(e) {
+    if (!e.namespace)  {
+      return;
+    }
+    var carousel = e.relatedTarget;
+    $('.understand-3 .slider-counter').text(carousel.relative(carousel.current())  );
+     $('.understand-3 .slider-counter-2').text(carousel.relative(carousel.current()) + 1 + 1 );
+  }).owlCarousel({
+    loop: true,
+  margin: 10,
+  nav: true,
+  navText: [
+    "<i class='fas fa-chevron-left'></i>",
+    "<i class='fas fa-chevron-right'></i>"
+  ],
+  autoplay: false,
+  autoplayHoverPause: false,
+  responsive: {
+    0: {
+      items: 1
+    },
+    600: {
+      items: 3
+    },
+    1000: {
+      items: 5
+    }
+  }
+  });
+  
+  
+  
+  
+   $('.see-2 .t-first-selection').on('initialized.owl.carousel changed.owl.carousel', function(e) {
+    if (!e.namespace)  {
+      return;
+    }
+    var carousel = e.relatedTarget;
+    $('.see-2 .slider-counter').text(carousel.relative(carousel.current())  );
+     $('.see-2 .slider-counter-2').text(carousel.relative(carousel.current()) + 1 + 1 );
+  }).owlCarousel({
+    loop: true,
+  margin: 10,
+  nav: true,
+  navText: [
+    "<i class='fas fa-chevron-left'></i>",
+    "<i class='fas fa-chevron-right'></i>"
+  ],
+  autoplay: false,
+  autoplayHoverPause: false,
+  responsive: {
+    0: {
+      items: 1
+    },
+    600: {
+      items: 3
+    },
+    1000: {
+      items: 5
+    }
+  }
+  });
+  
+  
+  
+   $('.transform-2 .t-first-selection').on('initialized.owl.carousel changed.owl.carousel', function(e) {
+    if (!e.namespace)  {
+      return;
+    }
+    var carousel = e.relatedTarget;
+    $('.transform-2 .slider-counter').text(carousel.relative(carousel.current())  );
+     $('.transform-2 .slider-counter-2').text(carousel.relative(carousel.current()) + 1 + 1 );
+  }).owlCarousel({
+    loop: true,
+  margin: 10,
+  nav: true,
+  navText: [
+    "<i class='fas fa-chevron-left'></i>",
+    "<i class='fas fa-chevron-right'></i>"
+  ],
+  autoplay: false,
+  autoplayHoverPause: false,
+  responsive: {
+    0: {
+      items: 1
+    },
+    600: {
+      items: 3
+    },
+    1000: {
+      items: 5
+    }
+  }
+  });
+  
+  
+  
+  
+  $('.transform-3 .t-first-selection').on('initialized.owl.carousel changed.owl.carousel', function(e) {
+    if (!e.namespace)  {
+      return;
+    }
+    var carousel = e.relatedTarget;
+    $('.transform-3 .slider-counter').text(carousel.relative(carousel.current())  );
+     $('.transform-3 .slider-counter-2').text(carousel.relative(carousel.current()) + 1 + 1 );
+  }).owlCarousel({
+    loop: true,
+  margin: 10,
+  nav: true,
+  navText: [
+    "<i class='fas fa-chevron-left'></i>",
+    "<i class='fas fa-chevron-right'></i>"
+  ],
+  autoplay: false,
+  autoplayHoverPause: false,
+  responsive: {
+    0: {
+      items: 1
+    },
+    600: {
+      items: 3
+    },
+    1000: {
+      items: 5
+    }
+  }
+  });
+  
+  
+  
+  
+  
+    $('.t-second-selection').on('initialized.owl.carousel changed.owl.carousel', function(e) {
+    if (!e.namespace)  {
+      return;
+    }
+    var carousel = e.relatedTarget;
+    $('.second-slider-counter').text(carousel.relative(carousel.current())  );
+     $('.second-slider-counter-2').text(carousel.relative(carousel.current()) + 1 + 1 );
+  }).owlCarousel({
+    loop: true,
+  margin: 10,
+  nav: true,
+  navText: [
+    "<i class='fas fa-chevron-left'></i>",
+    "<i class='fas fa-chevron-right'></i>"
+  ],
+  autoplay: false,
+  autoplayHoverPause: false,
+  responsive: {
+    0: {
+      items: 1
+    },
+    600: {
+      items: 3
+    },
+    1000: {
+      items: 5
+    }
+  }
+  });
+   
+   
+    $('.c-first-selection').owlCarousel({
+  loop: false,
+  margin: 8,
+      autoWidth: true,
+  nav: false,
+  navText: [
+    "<i class='fa fa-caret-left'></i>",
+    "<i class='fa fa-caret-right'></i>"
+  ],
+  autoplay: false,
+  autoplayHoverPause: false,
+  responsive: {
+    0: {
+      items: 2
+    },
+    600: {
+      items: 3
+    },
+    1000: {
+      items: 5
+    }
+  }
+})
+    
+    
+    
+    $('.teach .study-next a').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    $('.teach').removeClass('study-active');
+    $('.read-1').addClass('study-active');
+});
+  
+   $('.read-1 .study-next a').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    $('.read-1').removeClass('study-active');
+    $('.read-2').addClass('study-active');
+});
+  
+  $('.read-1 .study-previous a').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    $('.read-1').removeClass('study-active');
+    $('.teach').addClass('study-active');
+});
+  
+  
+   $('.read-2 .study-next a').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    $('.read-2').removeClass('study-active');
+    $('.understand-1').addClass('study-active');
+});
+  
+  $('.read-2 .study-previous a').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    $('.read-2').removeClass('study-active');
+    $('.read-1').addClass('study-active');
+});
+  
+  $('.understand-1 .study-next a').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    $('.understand-1').removeClass('study-active');
+//     $('.understand-2').addClass('study-active');
+    $('.understand-3').addClass('study-active');
+});
+  
+  $('.understand-1 .study-previous a').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    $('.understand-1').removeClass('study-active');
+    $('.read-2').addClass('study-active');
+});
+  
+    $('.understand-2 .study-next a').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    $('.understand-2').removeClass('study-active');
+    $('.understand-3').addClass('study-active');
+});
+  
+  $('.understand-2 .study-previous a').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    $('.understand-2').removeClass('study-active');
+    $('.understand-1').addClass('study-active');
+});
+  
+    $('.understand-3 .study-next a').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    $('.understand-3').removeClass('study-active');
+    $('.see-1').addClass('study-active');
+});
+  
+  $('.understand-3 .study-previous a').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    $('.understand-3').removeClass('study-active');
+//     $('.understand-2').addClass('study-active');
+    $('.understand-1').addClass('study-active');
+});
+  
+   $('.see-1 .study-next a').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    $('.see-1').removeClass('study-active');
+    $('.see-2').addClass('study-active');
+});
+  
+  $('.see-1 .study-previous a').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    $('.see-1').removeClass('study-active');
+    $('.understand-3').addClass('study-active');
+});
+  
+   $('.see-2 .study-next a').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    $('.see-2').removeClass('study-active');
+    $('.transform-1').addClass('study-active');
+});
+  
+  $('.see-2 .study-previous a').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    $('.see-2').removeClass('study-active');
+    $('.see-1').addClass('study-active');
+});
+  
+    $('.transform-1 .study-next a').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    $('.transform-1').removeClass('study-active');
+    $('.transform-2').addClass('study-active');
+});
+  
+  $('.transform-1 .study-previous a').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    $('.transform-1').removeClass('study-active');
+    $('.see-2').addClass('study-active');
+});
+  
+    $('.transform-2 .study-next a').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    $('.transform-2').removeClass('study-active');
+    $('.transform-3').addClass('study-active');
+});
+  
+  $('.transform-2 .study-previous a').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    $('.transform-2').removeClass('study-active');
+    $('.transform-1').addClass('study-active');
+});
+  
+   $('.transform-3 .study-previous a').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    $('.transform-3').removeClass('study-active');
+    $('.transform-2').addClass('study-active');
+});
+  
+  
+  
+  $(".read-2 .first-selection .item a, .understand-2 .first-selection .item a, .understand-3 .first-selection .item a, .see-2 .first-selection .item a, .transform-2 .first-selection .item a, .transform-3 .first-selection .item a ").click(function () {
+  // If the clicked element has the active class, remove the active class from EVERY .nav-link>.state element
+  if ($(this).hasClass("s-active")) {
+    $(".read-2 .first-selection .item a, .understand-2 .first-selection .item a, .understand-3 .first-selection .item a, .see-2 .first-selection .item a, .transform-2 .first-selection .item a, .transform-3 .first-selection .item a ").removeClass("s-active");
+  }
+  // Else, the element doesn't have the active class, so we remove it from every element before applying it to the element that was clicked
+  else {
+    $(".read-2 .first-selection .item a, .understand-2 .first-selection .item a, .understand-3 .first-selection .item a, .see-2 .first-selection .item a, .transform-2 .first-selection .item a, .transform-3 .first-selection .item a  ").removeClass("s-active");
+    $(this).addClass("s-active");
+  }
+});
+  
+  
+  
+  $('.read-2 .study-p-1-img img ').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    $('.read-2').removeClass('study-active');
+    $('.read-1').addClass('study-active');
+});
+  
+  
+   $('.understand-2 .study-p-1-img img, .understand-3 .study-p-1-img img ').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    $('.understand-2, .understand-3').removeClass('study-active');
+    $('.understand-1').addClass('study-active');
+});
+  
+  
+   $('.see-2 .study-p-1-img img ').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    $('.see-2').removeClass('study-active');
+    $('.see-1').addClass('study-active');
+});
+  
+   $('.transform-2 .study-p-1-img img, .transform-3 .study-p-1-img img ').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    $('.transform-2, .transform-3').removeClass('study-active');
+    $('.transform-1').addClass('study-active');
+});
+  
+  
+    $(".disable-owl-swipe").on("touchstart mousedown", function(e) {
+            // Prevent carousel swipe
+            e.stopPropagation();
+        });
+ 
+  
+  
+
+  
+
+
+  
+  $('#info-about-btn, .study-info').click(function(){
+      $('.study-info-about').toggle('slow');
+  });
+  
+  $('.study-infos').click(function(){
+      $('.study-info-about').hide('slow');
+  });
+  
+});
+</script>
+
+

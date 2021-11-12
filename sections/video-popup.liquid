@@ -1,0 +1,68 @@
+<div class="wrapper">
+
+  {%- if section.settings.title != blank -%}
+    <div class="section-header">
+      <h2 class="section-header__title h4">{{ section.settings.title | escape }}</h2>
+    </div>
+  {%- endif -%}
+
+  <div class="video-popup">
+
+    <div class="video-popup__container">
+
+      <a class="video-popup__link" {% unless section.settings.video == blank %} data-video-id="{{ section.settings.video.id }}" data-video-source="{{ section.settings.video.type }}" {% endunless %} href="{{ section.settings.video }}">
+
+        {%- unless section.settings.video == blank -%}
+          <span class="video-popup__play" aria-hidden="true">
+            {%- render 'theme-symbols', icon: 'play' -%}
+          </span>
+        {%- endunless -%}
+
+        {% unless section.settings.image == blank -%}
+          <span class="video-popup__background" aria-hidden="true">
+            {%- render 'lazy-image', image: section.settings.image, type: 'background', alt: section.settings.title -%}
+          </span>
+        {%- else -%}
+          <span class="video-popup__background onboarding-svg onboarding-background">
+            <span style="opacity: .5;">{{ 'lifestyle-1' | placeholder_svg_tag }}</span>
+          </span>
+        {%- endunless -%}
+
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "Video",
+    "class": "mount-video-popup section-w-margin no-overflow",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Video"
+      },
+      {
+        "id": "video",
+        "type": "video_url",
+        "label": "Video URL",
+        "accept": ["youtube", "vimeo"],
+        "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Background image"
+      }
+    ],
+    "presets": [{
+      "name": "Video",
+      "category": "Video"
+    }]
+  }
+{% endschema %}

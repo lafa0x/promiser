@@ -1,0 +1,154 @@
+<div class="popup-content" data-show="{{ section.settings.newsletter_auto }}" data-freq="{{ section.settings.newsletter_frequent }}" data-enable="{{ section.settings.popup_enable }}">
+
+  {% if section.settings.image %}
+    <div class="popup-image" aria-hidden="true">
+      <figure class="lazy-image lazy-image--background lazy-preloader">
+        <img
+          src="{{ section.settings.image | img_url: '620x200', crop: 'center' }}" alt="{{ section.settings.title | escape }}"
+          srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+          data-srcset="{{ section.settings.image | img_url: '620x200', crop: 'center' }} 620w, {{ section.settings.image | img_url: '1240x400', crop: 'center' }}, 1240w"
+          data-sizes="auto" class="lazyload" 
+          width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}"
+        />
+      </figure>
+    </div>
+  {% endif %}
+
+  <div class="popup-text">
+
+    {%- if section.settings.title -%}
+      <span class="h4 popup-title">{{ section.settings.title }}</span>
+    {%- endif -%}
+
+    {%- if section.settings.title -%}
+      <div class="rte">{{ section.settings.content }}</div>
+    {%- endif -%}
+
+    {%- if section.settings.newsletter_enable -%}
+      {%- render 'newsletter-form', type: 'popup' -%}
+    {%- endif -%}
+
+  </div>
+
+  <button class="popup-close">
+    <span class="visually-hidden">{{ 'general.accessibility_labels.close' | t }}</span>
+    {% render 'theme-symbols', icon: 'close' %}
+  </button>
+
+</div>
+
+<style>
+  {%- if section.settings.popup_txtcolor != 'rgba(0,0,0,0)' -%}
+    {%- liquid
+      assign popup_txtcolor = section.settings.popup_txtcolor
+      assign popup_txt_brightness = popup_txtcolor | color_brightness 
+      if popup_txt_brightness > 150 
+        assign popup_txt_foreground = '#000' 
+      else 
+        assign popup_txt_foreground = '#fff' 
+      endif 
+    -%}
+    .popup-content, .popup-content a, .popup-content input, .popup-content input::placeholder {
+      color: {{ popup_txtcolor }} !important;
+    }
+    .popup-content .button {
+      background: {{ popup_txtcolor }} !important;
+      color: {{ popup_txt_foreground }} !important;
+    }
+    .popup-close path {
+      fill: {{ popup_txtcolor }};
+    }
+  {%- endif -%}
+  {%- if section.settings.popup_bgcolor != 'rgba(0,0,0,0)' -%}
+    .popup-content, .popup-content input {
+      background: {{ section.settings.popup_bgcolor }};
+      border: none;
+    }
+    .popup-content input {
+      border-color: {{ section.settings.popup_bgcolor | color_lighten: 20 }} !important;
+    }
+  {%- endif -%}
+</style>
+
+{% schema %}
+  {
+    "name": "Popup",
+    "class": "mount-popup",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Popup"
+      },
+      {
+        "type": "richtext",
+        "id": "content",
+        "label": "Content",
+        "default": "<p>Stay up to date on the latest product releases, special offers & news by signing up for our newsletter.</p><p>Read our <a href='#'>privacy policy</a>.</p>"
+      },
+      {
+        "type": "checkbox",
+        "id": "newsletter_enable",
+        "label": "Show newsletter",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Functionality"
+      },
+      {
+        "type": "checkbox",
+        "id": "popup_enable",
+        "label": "Enable popup",
+        "default": false
+      },
+      {
+        "type": "range",
+        "id": "newsletter_auto",
+        "label": "Show popup after",
+        "min": 10,
+        "max": 60,
+        "step": 10,
+        "unit": "sec",
+        "default": 10
+      },
+      {
+        "type": "select",
+        "id": "newsletter_frequent",
+        "label": "Popup frequency",
+        "options": [
+          {
+            "value": "day",
+            "label": "Show each day"
+          },
+          {
+            "value": "week",
+            "label": "Show each week"
+          },
+          {
+            "value": "once",
+            "label": "Show only once"
+          }
+        ],
+        "default": "week"
+      },
+      {
+        "type": "header",
+        "content": "Colors"
+      },
+      {
+        "type": "color",
+        "id": "popup_bgcolor",
+        "label": "Background color",
+        "default": "#111111"
+      },
+      {
+        "type": "color",
+        "id": "popup_txtcolor",
+        "label": "Text color",
+        "default": "#ffffff"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,69 @@
+<div class="product__header">
+
+  <{% if type == 'section' %}h3{% else %}h1{% endif %} class="product__title h2">{{ product.title | escape }}</{% if type == 'section' %}h3{% else %}h1{% endif %}>
+
+  {%- if section.settings.show_vendor -%}
+    {%- capture vendor -%} {{ product.vendor | link_to_vendor }} {%- endcapture -%}
+    <p class="product__vendor text-size--small">{{ 'product.page.vendor_html' | t: vendor: vendor }}</p>
+  {%- endif -%}
+
+  <span class="product__price text-size--larger">
+
+  	<span class="product__price--original"><span class="visually-hidden">{{ 'general.accessibility_labels.price.regular' | t }}</span>{{ variant.price | money }}</span>
+    
+  	<span class="product__price--compare">
+      <span class="visually-hidden">{{ 'general.accessibility_labels.price.sale' | t }}</span>
+      {%- if variant.compare_at_price > variant.price -%}
+        {{ variant.compare_at_price | money }}
+  	  {%- endif -%}
+    </span>
+
+  </span>
+
+  <div class="product__extras">
+
+    <span class="unit-price">
+      {%- if variant.unit_price_measurement -%}
+        <span class="visually-hidden">{{ 'general.accessibility_labels.price.unit' | t }}</span>
+        {%- liquid
+          echo variant.unit_price | money
+          echo '/'
+          if variant.unit_price_measurement.reference_value != 1
+            echo variant.unit_price_measurement.reference_value
+          endif
+          echo variant.unit_price_measurement.reference_unit
+        -%}
+      {%- endif -%}
+    </span>
+
+    {%- if section.settings.show_tax_info -%}
+      {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
+        <span class="product__policies" data-product-policies>
+          {% if shop.taxes_included %}
+            {{ 'product.page.include_taxes' | t }}
+          {%- endif -%}
+          {%- if shop.shipping_policy.body != blank -%}
+            {{ 'product.page.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+          {%- endif -%}
+        </span>
+      {%- endif -%}
+    {%- endif -%}
+
+    {%- if section.settings.show_sku -%}
+      <span class="product__sku">
+        {%- if variant.sku != empty -%}
+          {{ 'product.page.sku' | t }}{{ variant.sku | escape }}
+        {%- endif -%}
+      </span>
+    {%- endif -%}
+    {%- if section.settings.show_barcode -%}
+      <span class="product__barcode">
+        {%- if variant.barcode != empty -%}
+          {{ 'product.page.barcode' | t }}{{ variant.barcode | escape }}
+        {%- endif -%}
+      </span>
+    {%- endif -%}
+
+  </div>
+
+</div>

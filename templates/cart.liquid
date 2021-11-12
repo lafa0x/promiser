@@ -1,0 +1,24 @@
+<div class="shopify-section section-w-margin section-w-mobile-padding" id="section-cart">
+
+  <div class="section-header five-tenths lap--full-width push-left-one-tenth lap--push-left-none">
+    <h1 class="section-header__title h1">{{ 'cart.title' | t }}</h1>
+  </div>
+
+  <div class="grid five-tenths lap--full-width push-left-one-tenth lap--push-left-none">
+
+    {%- if cart.item_count > 0 -%}
+      {%- render 'cart-form', type: 'page' -%}
+    {%- else -%}
+
+      <div class="rte">
+        <p>{{ 'cart.empty' | t }}</p>
+        <a href="{{ routes.all_products_collection_url }}" class="button button--solid button--align">
+          <span>{{ 'cart.continue_browsing' | t }}</span>
+        </a>
+      </div>
+
+    {% endif %}
+
+  </div>
+
+</div>

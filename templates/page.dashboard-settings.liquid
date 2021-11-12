@@ -1,0 +1,193 @@
+<div class="my-own-changer-pro">
+  <div class="row email-header">
+    <div class="col-md-4">
+      <div class="email-header-img"> 
+          <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/menu.png?v=1635951505" class="close-me-brand" alt="" name="close">
+      </div>
+    </div>
+    <div class="col-md-8">
+        <div class="email-header-text">
+          <a href="#" class="brand-logo-type-promiser">PROMISER</a>
+        </div>
+        <div class="cart-and-profile">
+          <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/profile-dashboard-setting.png?v=1636011117" class="dashboard-profile-img">
+          <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/empty.png?v=1635341474" class="empty-profile-img">
+        </div>
+    </div>
+  </div>
+  <div class="between-area">
+    <div id="shopify-section-163294039134ad1f2b" class="shopify-section"><div class="custom-search" style="display: block;">
+    <div class="main-filter">
+
+    <form class="filter-form" action="search" autocomplete="off">
+        <button type="submit"><img src="//cdn.shopify.com/s/files/1/0575/8815/4557/t/4/assets/search-icon.png?v=6764782664197292930
+                      //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/search-icon.png?42"></button>   <div class="search-cancel" onclick="document.getElementById('searchBox').value = ''">x</div>  <input type="text" placeholder="Search Bible Promise or Topic" name="search" class="search-a" id="searchBox" style="border: 2px solid rgb(121, 184, 187);"> <br>
+
+        <div class="form-switch">
+            <label class="switch">
+                <input type="checkbox" id="studyMode" name="study">
+                <span class="slider round"></span> 
+            </label> <span class="filter-type"> Study Mode </span>
+        </div>
+    </form>
+    </div>
+
+ <div class="study-info" id="info-about-btn">
+        <span class="info-content">i</span>
+    </div>
+
+    
+  
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  
+  jQuery(function(){
+      jQuery("#custom-search-icon").click(function() {
+        jQuery(".custom-search").toggle();
+        jQuery(".search-filter").toggle();
+        jQuery(".search-a").css("border", "2px solid #79B8BB");
+    });
+  });
+  
+  
+  // Handle form submit
+  document.querySelector('.filter-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+    const study = document.getElementById('studyMode');
+    const isStudy = study.checked;
+    const searchBox = document.getElementById('searchBox');
+    let redirect = isStudy ? '/pages/study-mode' : '/search';
+    redirect += '?search=' + searchBox.value;
+    window.location.href = redirect;
+  });
+  
+  document.getElementById('studyMode').addEventListener('change', (e) => {
+    const searchLinkContainers = document.querySelectorAll('.search-filter-link');
+    
+    for (const linkContainer of searchLinkContainers) {
+      const searchLinks = linkContainer.querySelectorAll('a');
+    
+      for (const link of searchLinks) {
+        const sides = link.href.split('?');
+        const page = e.target.checked ? '/pages/study-mode' : '/search';
+        link.href = page + '?' + sides[1];
+      }
+    }
+  });
+  
+  jQuery(function(){
+  
+  jQuery("#searchBox").keyup(function () {
+       if (jQuery(this).val()) {
+          jQuery(".search-cancel").show();
+       }
+       else {
+          jQuery(".search-cancel").hide();
+       }
+    });
+    jQuery(".search-cancel").click(function () {
+       jQuery("#searchBox").val('');
+       jQuery(this).hide();
+    });
+
+  });
+  
+  
+  $('#info-about-btn, .study-info').click(function(){
+      $('.study-info-about').toggle('slow');
+  });
+  
+  $('.study-infos').click(function(){
+      $('.study-info-about').hide('slow');
+  }); 
+  
+  
+   jQuery('.ctm-plan').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    jQuery('.ctm-main-menu').removeClass('ctm-menu-active');
+    jQuery('.ctm-plan-menu').addClass('ctm-menu-active');
+});
+  
+  jQuery('.ctm-shop').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    jQuery('.ctm-main-menu').removeClass('ctm-menu-active');
+    jQuery('.ctm-shop-menu').addClass('ctm-menu-active');
+});
+  
+   jQuery('.ctm-shop-menu .ctm-header').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    jQuery('.ctm-shop-menu').removeClass('ctm-menu-active');
+    jQuery('.ctm-main-menu').addClass('ctm-menu-active');
+});
+  
+  jQuery('.ctm-plan-menu .ctm-header').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    jQuery('.ctm-plan-menu').removeClass('ctm-menu-active');
+    jQuery('.ctm-main-menu').addClass('ctm-menu-active');
+}); 
+</script>
+</div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="main-text-off">
+        <h4 class="setting-text-off">SETTINGS</h4>
+      </div>
+    </div>
+  </div>
+  <div class="style-bottom-open">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="back-to-dashboard">
+          <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/point.png?v=1635951435" class="go-back-img">
+          <h5 class="back-to-dashboard-text">Back to Dashboard</h5>
+        </div>
+      </div>
+    </div>
+    <div class="icon-listings">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="tabbing-area">
+            <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/profile-setting.png?v=1635951384" class="go-back-img">
+            <h5 class="profile-area">Profile</h5>
+          </div>
+          <div class="end-right-icon">
+            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="tabbing-area">
+            <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/lock.png?v=1635951384" class="go-back-img security">
+            <h5 class="profile-area secure-text">Security</h5>
+          </div>
+          <div class="end-right-icon secure-cheveron">
+            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="tabbing-area">
+            <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/notifications-setting.png?v=1635951384" class="notify-icon">
+            <h5 class="profile-area notify-text">Notifications</h5>
+          </div>
+          <div class="end-right-icon notify-cheveron">
+            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="tabbing-area my-custom-setted">
+          <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/ic.png?v=1635951363" class="backup-logout">
+          <h5 class="profile-area logout-me">Log Out</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

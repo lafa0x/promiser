@@ -1,0 +1,2106 @@
+{
+  "current": {
+    "color_accent": "#3f14e1",
+    "color_text": "#000000",
+    "color_background": "#ffffff",
+    "headings_font": "roboto_n4",
+    "headings_size": 36,
+    "body_font": "roboto_n4",
+    "body_size": 18,
+    "grid_aspect": "natural",
+    "show_variant_image": true,
+    "color_sale_price": "#ea0000",
+    "favicon": "",
+    "cart_action": "overlay",
+    "cart_notes_enable": true,
+    "cart_additional_buttons": true,
+    "predictive_search_enabled": true,
+    "predictive_search_show_vendor": false,
+    "predictive_search_show_price": false,
+    "predictive_search_include_articles": true,
+    "predictive_search_include_pages": true,
+    "social_facebook": "#",
+    "social_instagram": "#",
+    "social_twitter": "",
+    "social_youtube": "",
+    "social_vimeo": "",
+    "social_pinterest": "",
+    "social_tiktok": "#",
+    "social_tumblr": "#",
+    "social_linkedin": "",
+    "social_reddit": "",
+    "social_flickr": "",
+    "social_email": "",
+    "search_info": "Read the verse in different versions and one or more verses before and after for context. Hightlight keywords that stand out to you.",
+    "context_text": "Jesus often used examples from nature to explain spiritual truths. He spoke our language and related to our everyday experience. God's name is also 'Palmoni' or 'Wonderful Numberer'.",
+    "prayer_text": "Dear Father in Heaven, I thank you that You pay so close attention to me that every hair on my head is numbered. There is nothing to small in my life for you to notice. You are acquainted with my every detail and care in my heart. For this reason, I choose not to worry because my life is safe in Your hands.",
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/Union.png",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "large",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#197bbd",
+    "checkout_button_color": "#197bbd",
+    "checkout_error_color": "#e32c2b",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo_src": "shopify:\/\/shop_images\/Promiser__Logo_Horizontal_White_for_Dark_BG.png",
+          "logo_height": 25,
+          "show_icon_labels": true,
+          "menu_primary": "main-menu",
+          "menu_secondary": "",
+          "show_social_icons": false,
+          "show_locale_selector": false,
+          "show_currency_selector": false
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "83a51fca-3419-4673-9613-9505c11e0d29": {
+            "type": "text",
+            "settings": {
+              "title": "About",
+              "content": "<p>few gift are more memorable than this handmade VerseBox to help your loved ones grow in an eternal direction.<\/p>"
+            }
+          },
+          "657d0481-8a40-4d4d-a64c-1a3264f6de2a": {
+            "type": "menus",
+            "settings": {
+              "title_1": "Useful Links",
+              "menu_1": "footer",
+              "title_2": "",
+              "menu_2": ""
+            }
+          },
+          "6da0334d-ae68-4f13-8809-407ba4d94552": {
+            "type": "social",
+            "settings": {
+              "title": "Follow us on Social Media"
+            }
+          },
+          "cb26e229-0f34-44da-a191-022d03cc56e4": {
+            "type": "newsletter",
+            "disabled": true,
+            "settings": {
+              "title": "Newsletter",
+              "text": "<p>Invite customers to join your newsletter.<br\/>Link to your <a href=\"#\">privacy policy<\/a>.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "83a51fca-3419-4673-9613-9505c11e0d29",
+          "657d0481-8a40-4d4d-a64c-1a3264f6de2a",
+          "6da0334d-ae68-4f13-8809-407ba4d94552",
+          "cb26e229-0f34-44da-a191-022d03cc56e4"
+        ],
+        "settings": {
+          "show_payment_icons": true,
+          "show_locale_selector": true,
+          "show_currency_selector": true
+        }
+      },
+      "1614677245d294ce84": {
+        "type": "slider-vertical",
+        "blocks": {
+          "1614677245d294ce84-0": {
+            "type": "image",
+            "settings": {
+              "heading": "Promises just for you",
+              "caption": "Promisebox",
+              "button_label": "Start your Box",
+              "button_link": "",
+              "image1": "shopify:\/\/shop_images\/Group_109.png",
+              "image1_caption": "",
+              "image2": "shopify:\/\/shop_images\/Group_75.png",
+              "image2_caption": "",
+              "image3": "shopify:\/\/shop_images\/Group_72.png",
+              "image3_caption": ""
+            }
+          }
+        },
+        "block_order": [
+          "1614677245d294ce84-0"
+        ],
+        "settings": {}
+      },
+      "product": {
+        "type": "product",
+        "settings": {
+          "show_vendor": true,
+          "show_quantity_selector": true,
+          "show_quantities": false,
+          "enable_payment_button": true,
+          "show_sku": false,
+          "show_barcode": false,
+          "show_tax_info": false,
+          "show_local_pickup": false,
+          "show_share": true,
+          "media_aspect": "natural",
+          "enable_zoom": true,
+          "enable_video_looping": false
+        }
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "show_product_recommendations": true,
+          "title": "Recommended products",
+          "products_number": 6
+        }
+      },
+      "16154607644c8d63ca": {
+        "type": "featured-collection",
+        "disabled": true,
+        "settings": {
+          "heading": "Most Popular",
+          "caption": "Collection",
+          "collection": "",
+          "show_view_all": true,
+          "layout": "asymmetrical",
+          "products_number": 7,
+          "show_promotional_block": true,
+          "promotional_block_title": "Write a short, captivating paragraph about your products. Or write about your current offers.",
+          "promotional_block_button_label": "Learn more",
+          "promotional_block_button_link": ""
+        }
+      },
+      "161587852665205c9d": {
+        "type": "video-popup",
+        "disabled": true,
+        "settings": {
+          "title": "Video",
+          "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc"
+        }
+      },
+      "161587985773819fa8": {
+        "type": "images-with-text-overlay",
+        "disabled": true,
+        "blocks": {
+          "161587985773819fa8-0": {
+            "type": "image",
+            "settings": {
+              "alignment": "50% 50%",
+              "heading": "Emphasize a collection",
+              "description": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "161587985773819fa8-1": {
+            "type": "image",
+            "settings": {
+              "alignment": "100% 50%",
+              "heading": "Show a product",
+              "description": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "81d50cac-7d31-4323-9a5d-17750ad2a48a": {
+            "type": "image",
+            "settings": {
+              "alignment": "50% 50%",
+              "heading": "Write your story",
+              "description": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "161587985773819fa8-2": {
+            "type": "image",
+            "settings": {
+              "alignment": "50% 50%",
+              "heading": "Give a freebie",
+              "description": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "161587985773819fa8-0",
+          "161587985773819fa8-1",
+          "81d50cac-7d31-4323-9a5d-17750ad2a48a",
+          "161587985773819fa8-2"
+        ],
+        "settings": {
+          "title": "Images with text overlay",
+          "layout": "asymmetrical",
+          "text_alignment": "horizontal-left vertical-bottom",
+          "color_text": "#ffffff",
+          "color_bg": "rgba(0,0,0,0)"
+        }
+      },
+      "product-extra-images": {
+        "type": "product-extra-images",
+        "blocks": {
+          "366e1b16-1874-4167-b494-f60d9730ce0a": {
+            "type": "image",
+            "settings": {
+              "image": "",
+              "heading": "Feature 1",
+              "description": "<p>Write about specific product features or store details.<\/p>",
+              "collection": ""
+            }
+          },
+          "621009c7-76c2-4de1-9b05-066af104d169": {
+            "type": "image",
+            "settings": {
+              "image": "",
+              "heading": "Feature 2",
+              "description": "<p>Give more details about the concept, production process, manufacturing details.<\/p>",
+              "collection": ""
+            }
+          },
+          "c890d2c2-617c-4dee-a756-f54f5bc891a1": {
+            "type": "image",
+            "settings": {
+              "image": "",
+              "heading": "Feature 3",
+              "description": "<p>Showcase your product's greatest strengths and unique features.<\/p>",
+              "collection": ""
+            }
+          }
+        },
+        "block_order": [
+          "366e1b16-1874-4167-b494-f60d9730ce0a",
+          "621009c7-76c2-4de1-9b05-066af104d169",
+          "c890d2c2-617c-4dee-a756-f54f5bc891a1"
+        ],
+        "settings": {
+          "title": "More features",
+          "gallery_aspect": "1.333"
+        }
+      },
+      "product-extra-toggles": {
+        "type": "product-extra-toggles",
+        "blocks": {
+          "6a3f605a-a6ee-4460-8b02-01240d6aa630": {
+            "type": "text",
+            "settings": {
+              "title": "Unique features",
+              "body": "<p>Add extra product information, such technical data or key features and benefits.<\/p>",
+              "select_icon": "archive-box",
+              "collection": ""
+            }
+          },
+          "cc16e09e-2f5f-4313-a473-dabbfa0d22b8": {
+            "type": "text",
+            "settings": {
+              "title": "Technical data",
+              "body": "<p>Add extra product information, such technical data or key features and benefits.<\/p>",
+              "select_icon": "wind",
+              "collection": ""
+            }
+          },
+          "e00a160c-5c7f-4aef-a953-ff1dd65bb43f": {
+            "type": "text",
+            "settings": {
+              "title": "Usage scenarious",
+              "body": "<p>Add extra product information, such technical data or key features and benefits.<\/p>",
+              "select_icon": "coins",
+              "custom_icon": "shopify:\/\/shop_images\/noun_cotton_788943_1.png",
+              "collection": ""
+            }
+          }
+        },
+        "block_order": [
+          "6a3f605a-a6ee-4460-8b02-01240d6aa630",
+          "cc16e09e-2f5f-4313-a473-dabbfa0d22b8",
+          "e00a160c-5c7f-4aef-a953-ff1dd65bb43f"
+        ],
+        "settings": {
+          "title": "Key benefits"
+        }
+      },
+      "collection": {
+        "type": "collection",
+        "settings": {
+          "sort_enable": true,
+          "tags_enable": false,
+          "layout": "asymmetrical",
+          "products_number": 29,
+          "show_promotional_block": false,
+          "promotional_block_title": "Write a short, captivating paragraph about your products.",
+          "promotional_block_button_label": ""
+        }
+      },
+      "blog": {
+        "type": "blog",
+        "settings": {
+          "tags_enable": true,
+          "post_limit": 7,
+          "show_images": true
+        }
+      },
+      "161607876709a40cd9": {
+        "type": "blog-posts",
+        "settings": {
+          "title": "Popular Topic",
+          "blog": "",
+          "post_limit": 4,
+          "blog_show_image": true,
+          "show_view_all": false,
+          "button_label_one": "Gift A Box",
+          "button_link_one": "shopify:\/\/products\/i-am-fearless-fearless-affirmations",
+          "button_label_two": "Start Your Box",
+          "button_link_two": "shopify:\/\/products\/i-am-fearless-fearless-affirmations"
+        }
+      },
+      "1616428115e21d1578": {
+        "type": "newsletter",
+        "disabled": true,
+        "settings": {
+          "title": "Newsletter",
+          "text": "<p>Invite customers to join your newsletter.<br\/>Link to your <a href='#'>privacy policy<\/a>.<\/p>"
+        }
+      },
+      "text-columns-with-icons": {
+        "type": "text-columns-with-icons",
+        "settings": {
+          "show_on_homepage": false,
+          "show_on_product": false,
+          "show_on_collection": false,
+          "show_on_blog": false,
+          "show_on_regular": false
+        }
+      },
+      "list-collections": {
+        "type": "list-collections",
+        "settings": {
+          "text_alignment": "horizontal-left vertical-bottom",
+          "color_text": "#ffffff",
+          "color_bg": "#000000",
+          "display_type": "all",
+          "sort": "alphabetical"
+        }
+      },
+      "article": {
+        "type": "article",
+        "settings": {
+          "show_images": true,
+          "show_share": true
+        }
+      },
+      "1616657801ae0345a2": {
+        "type": "rich-text",
+        "disabled": true,
+        "settings": {
+          "title": "About Us",
+          "content": "<p>Write a big, bold statement about your brand. Catch your visitors attention by using some additional images with your products or store.<\/p>",
+          "button_label": "Learn More",
+          "button_link": "shopify:\/\/pages\/about-us",
+          "text_alignment": "center",
+          "text_size": "large"
+        }
+      },
+      "1616659086729a2095": {
+        "type": "rich-text",
+        "disabled": true,
+        "settings": {
+          "title": "About",
+          "content": "<p>few gift are more memorable than this handmade VerseBox to help your loved ones grow in an eternal direction.<\/p>",
+          "button_label": "",
+          "button_link": "",
+          "text_alignment": "center",
+          "text_size": "extra"
+        }
+      },
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {
+          "bar_show": true,
+          "bar_show_on_homepage": true,
+          "bar_show_dismiss": true,
+          "bar_message": "Use this bar for a short, important announcement.",
+          "bar_link": "",
+          "bar_bgcolor": "#000000",
+          "bar_txtcolor": "#ffffff"
+        }
+      },
+      "password": {
+        "type": "password",
+        "settings": {
+          "logo_src": "",
+          "logo_height": 48,
+          "title": "Opening soon",
+          "body": "<p>Write some information about your store and what it will sell.<\/p>",
+          "show_newsletter": true,
+          "newsletter_text": "<p>Be the first to know when we launch.<\/p><p>Read our <a href=\"#\">privacy policy<\/a>.<\/p>"
+        }
+      },
+      "gift-card": {
+        "type": "gift-card",
+        "settings": {
+          "logo_src": "",
+          "logo_height": 40
+        }
+      },
+      "16167901769692ce25": {
+        "type": "featured-product",
+        "disabled": true,
+        "settings": {
+          "featured_product": "",
+          "show_vendor": true,
+          "show_color_swatches": true,
+          "show_quantity_selector": true,
+          "show_quantities": false,
+          "enable_payment_button": true,
+          "show_sku": false,
+          "show_barcode": false,
+          "show_tax_info": false,
+          "media_aspect": "natural",
+          "enable_zoom": true,
+          "enable_video_looping": false
+        }
+      },
+      "16170033456ff74945": {
+        "type": "collection-list",
+        "disabled": true,
+        "blocks": {
+          "16170033456ff74945-1": {
+            "type": "collection",
+            "settings": {
+              "collection": ""
+            }
+          },
+          "16170033456ff74945-0": {
+            "type": "collection",
+            "settings": {
+              "collection": ""
+            }
+          },
+          "4d71d6dd-109b-48ec-b9d3-dedd950f9ce2": {
+            "type": "collection",
+            "settings": {
+              "collection": ""
+            }
+          }
+        },
+        "block_order": [
+          "16170033456ff74945-1",
+          "16170033456ff74945-0",
+          "4d71d6dd-109b-48ec-b9d3-dedd950f9ce2"
+        ],
+        "settings": {
+          "title": "Explore our collections"
+        }
+      },
+      "popup": {
+        "type": "popup",
+        "settings": {
+          "title": "Popup",
+          "content": "<p>Stay up to date on the latest product releases, special offers & news by signing up for our newsletter.<\/p><p>Read our <a href='#'>privacy policy<\/a>.<\/p>",
+          "newsletter_enable": true,
+          "popup_enable": false,
+          "newsletter_auto": 10,
+          "newsletter_frequent": "week",
+          "popup_bgcolor": "#111111",
+          "popup_txtcolor": "#ffffff"
+        }
+      },
+      "1632858200ff0ca03f": {
+        "type": "go-digital",
+        "blocks": {
+          "1632858200ff0ca03f-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/message.png",
+              "heading": "Daily Promises In Your Inbox"
+            }
+          },
+          "1632858200ff0ca03f-1": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/bookmark.png",
+              "heading": "Digital Study The Promises"
+            }
+          },
+          "1632858200ff0ca03f-2": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/message.png",
+              "heading": "Daily Promises In Your Inbox"
+            }
+          }
+        },
+        "block_order": [
+          "1632858200ff0ca03f-0",
+          "1632858200ff0ca03f-1",
+          "1632858200ff0ca03f-2"
+        ],
+        "settings": {
+          "title": "Go digital",
+          "sub_title": "Promises in your inbox",
+          "button_label": "Start Your Box",
+          "button_link": "shopify:\/\/pages\/privacy-policy"
+        }
+      },
+      "163291651114ee4a6d": {
+        "type": "popular-topics",
+        "blocks": {
+          "163291651114ee4a6d-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/study.png",
+              "heading": "Go deeper in  Study Mode"
+            }
+          },
+          "163291651114ee4a6d-1": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/voice.png",
+              "heading": "Record Affirmations"
+            }
+          },
+          "163291651114ee4a6d-2": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/profile.png",
+              "heading": "Receive  Prayer"
+            }
+          }
+        },
+        "block_order": [
+          "163291651114ee4a6d-0",
+          "163291651114ee4a6d-1",
+          "163291651114ee4a6d-2"
+        ],
+        "settings": {
+          "title": "T.r.u.s.t.",
+          "sub_title": "God More",
+          "button_label": "Try Study Mode",
+          "button_link": "shopify:\/\/pages\/privacy-policy"
+        }
+      },
+      "163294039134ad1f2b": {
+        "type": "search-box",
+        "settings": {}
+      },
+      "search-box": {
+        "type": "search-box",
+        "settings": {}
+      }
+    },
+    "content_for_index": [
+      "163294039134ad1f2b",
+      "1614677245d294ce84",
+      "16154607644c8d63ca",
+      "1616657801ae0345a2",
+      "161587985773819fa8",
+      "161587852665205c9d",
+      "16167901769692ce25",
+      "1616428115e21d1578",
+      "16170033456ff74945",
+      "1632858200ff0ca03f",
+      "163291651114ee4a6d",
+      "161607876709a40cd9",
+      "1616659086729a2095"
+    ]
+  },
+  "presets": {
+    "Modern": {
+      "color_accent": "#3f14e1",
+      "color_text": "#000000",
+      "color_background": "#ffffff",
+      "headings_font": "roboto_n4",
+      "body_font": "roboto_n4",
+      "body_size": 18,
+      "headings_size": 36,
+      "grid_aspect": "natural",
+      "show_variant_image": true,
+      "color_sale_price": "#ea0000",
+      "favicon": "",
+      "cart_action": "overlay",
+      "cart_notes_enable": true,
+      "cart_additional_buttons": true,
+      "predictive_search_enabled": true,
+      "predictive_search_show_vendor": false,
+      "predictive_search_show_price": false,
+      "predictive_search_include_articles": true,
+      "predictive_search_include_pages": true,
+      "social_facebook": "",
+      "social_instagram": "",
+      "social_twitter": "",
+      "social_youtube": "",
+      "social_vimeo": "",
+      "social_pinterest": "",
+      "social_tumblr": "",
+      "social_linkedin": "",
+      "social_reddit": "",
+      "social_flickr": "",
+      "social_email": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#fff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+      "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+      "checkout_accent_color": "#197bbd",
+      "checkout_button_color": "#197bbd",
+      "checkout_error_color": "#e32c2b",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "logo_src": "",
+            "logo_height": 50,
+            "menu_primary": "main-menu",
+            "menu_secondary": "",
+            "show_social_icons": true,
+            "show_locale_selector": true,
+            "show_currency_selector": true
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "83a51fca-3419-4673-9613-9505c11e0d29": {
+              "type": "text",
+              "settings": {
+                "title": "About",
+                "content": "<p>Write a short statement about your brand.<\/p>"
+              }
+            },
+            "657d0481-8a40-4d4d-a64c-1a3264f6de2a": {
+              "type": "menus",
+              "settings": {
+                "title_1": "LINKS",
+                "menu_1": "footer"
+              }
+            },
+            "cb26e229-0f34-44da-a191-022d03cc56e4": {
+              "type": "newsletter",
+              "settings": {
+                "title": "Newsletter"
+              }
+            }
+          },
+          "block_order": [
+            "83a51fca-3419-4673-9613-9505c11e0d29",
+            "657d0481-8a40-4d4d-a64c-1a3264f6de2a",
+            "cb26e229-0f34-44da-a191-022d03cc56e4"
+          ],
+          "settings": {
+            "show_payment_icons": true,
+            "show_locale_selector": true,
+            "show_currency_selector": true
+          }
+        },
+        "1614677245d294ce84": {
+          "type": "slider-vertical",
+          "blocks": {
+            "1614677245d294ce84-1": {
+              "type": "image",
+              "settings": {
+                "heading": "Welcome to our store",
+                "caption": "Showcase your best products",
+                "button_label": "Explore all",
+                "button_link": ""
+              }
+            },
+            "1614677245d294ce84-0": {
+              "type": "image",
+              "settings": {
+                "heading": "Write about yourself",
+                "caption": "Include some awesome images",
+                "button_label": "Learn more"
+              }
+            },
+            "1614677245d294ce84-2": {
+              "type": "image",
+              "settings": {
+                "heading": "Promote your products",
+                "caption": "Include various promotions and flash sales",
+                "button_label": "Shop now"
+              }
+            }
+          },
+          "block_order": [
+            "1614677245d294ce84-1",
+            "1614677245d294ce84-0",
+            "1614677245d294ce84-2"
+          ],
+          "settings": {}
+        },
+        "product": {
+          "type": "product",
+          "settings": {
+            "show_vendor": true,
+            "show_quantity_selector": true,
+            "show_quantities": false,
+            "enable_payment_button": true,
+            "show_sku": false,
+            "show_barcode": false,
+            "show_tax_info": false,
+            "show_local_pickup": false,
+            "show_share": true,
+            "media_aspect": "natural",
+            "enable_zoom": true,
+            "enable_video_looping": false
+          }
+        },
+        "product-recommendations": {
+          "type": "product-recommendations",
+          "settings": {
+            "show_product_recommendations": true,
+            "title": "Recommended products",
+            "products_number": 6
+          }
+        },
+        "16154607644c8d63ca": {
+          "type": "featured-collection",
+          "settings": {
+            "heading": "Most Popular",
+            "caption": "Collection",
+            "collection": "",
+            "show_view_all": true,
+            "layout": "asymmetrical",
+            "products_number": 7,
+            "show_promotional_block": true,
+            "promotional_block_title": "Write a short, captivating paragraph about your products. Or write about your current offers.",
+            "promotional_block_button_label": "Learn more"
+          }
+        },
+        "161587852665205c9d": {
+          "type": "video-popup",
+          "settings": {
+            "title": "Video"
+          }
+        },
+        "161587985773819fa8": {
+          "type": "images-with-text-overlay",
+          "blocks": {
+            "161587985773819fa8-0": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "50% 50%",
+                "heading": "Emphasize a collection",
+                "description": "",
+                "button_label": "",
+                "button_link": ""
+              }
+            },
+            "161587985773819fa8-1": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "100% 50%",
+                "heading": "Show a product",
+                "description": "",
+                "button_label": "",
+                "button_link": ""
+              }
+            },
+            "81d50cac-7d31-4323-9a5d-17750ad2a48a": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "50% 50%",
+                "heading": "Write your story",
+                "description": "",
+                "button_label": "",
+                "button_link": ""
+              }
+            },
+            "161587985773819fa8-2": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "50% 50%",
+                "heading": "Give a freebie",
+                "description": "",
+                "button_label": "",
+                "button_link": ""
+              }
+            }
+          },
+          "block_order": [
+            "161587985773819fa8-0",
+            "161587985773819fa8-1",
+            "81d50cac-7d31-4323-9a5d-17750ad2a48a",
+            "161587985773819fa8-2"
+          ],
+          "settings": {
+            "title": "Images with text overlay",
+            "layout": "asymmetrical",
+            "text_alignment": "horizontal-left vertical-bottom",
+            "color_text": "#ffffff",
+            "color_bg": "rgba(0,0,0,0)"
+          }
+        },
+        "product-extra-images": {
+          "type": "product-extra-images",
+          "blocks": {
+            "366e1b16-1874-4167-b494-f60d9730ce0a": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "heading": "Feature 1",
+                "description": "<p>Write about specific product features or store details.<\/p>",
+                "collection": ""
+              }
+            },
+            "621009c7-76c2-4de1-9b05-066af104d169": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "heading": "Feature 2",
+                "description": "<p>Give more details about the concept, production process, manufacturing details.<\/p>",
+                "collection": ""
+              }
+            },
+            "c890d2c2-617c-4dee-a756-f54f5bc891a1": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "heading": "Feature 3",
+                "description": "<p>Showcase your product's greatest strengths and unique features.<\/p>",
+                "collection": ""
+              }
+            }
+          },
+          "block_order": [
+            "366e1b16-1874-4167-b494-f60d9730ce0a",
+            "621009c7-76c2-4de1-9b05-066af104d169",
+            "c890d2c2-617c-4dee-a756-f54f5bc891a1"
+          ],
+          "settings": {
+            "title": "More features",
+            "gallery_aspect": "1.333"
+          }
+        },
+        "product-extra-toggles": {
+          "type": "product-extra-toggles",
+          "blocks": {
+            "6a3f605a-a6ee-4460-8b02-01240d6aa630": {
+              "type": "text",
+              "settings": {
+                "title": "Unique features",
+                "body": "<p>Add extra product information, such technical data or key features and benefits.<\/p>",
+                "select_icon": "archive-box",
+                "collection": ""
+              }
+            },
+            "cc16e09e-2f5f-4313-a473-dabbfa0d22b8": {
+              "type": "text",
+              "settings": {
+                "title": "Technical data",
+                "body": "<p>Add extra product information, such technical data or key features and benefits.<\/p>",
+                "select_icon": "wind",
+                "collection": ""
+              }
+            },
+            "e00a160c-5c7f-4aef-a953-ff1dd65bb43f": {
+              "type": "text",
+              "settings": {
+                "title": "Usage scenarious",
+                "body": "<p>Add extra product information, such technical data or key features and benefits.<\/p>",
+                "select_icon": "coins",
+                "custom_icon": "shopify:\/\/shop_images\/noun_cotton_788943_1.png",
+                "collection": ""
+              }
+            }
+          },
+          "block_order": [
+            "6a3f605a-a6ee-4460-8b02-01240d6aa630",
+            "cc16e09e-2f5f-4313-a473-dabbfa0d22b8",
+            "e00a160c-5c7f-4aef-a953-ff1dd65bb43f"
+          ],
+          "settings": {
+            "title": "Key benefits"
+          }
+        },
+        "collection": {
+          "type": "collection",
+          "settings": {
+            "sort_enable": true,
+            "tags_enable": false,
+            "layout": "asymmetrical",
+            "products_number": 29,
+            "show_promotional_block": false,
+            "promotional_block_title": "Write a short, captivating paragraph about your products.",
+            "promotional_block_button_label": ""
+          }
+        },
+        "blog": {
+          "type": "blog",
+          "settings": {
+            "tags_enable": true,
+            "post_limit": 7,
+            "show_images": true
+          }
+        },
+        "161607876709a40cd9": {
+          "type": "blog-posts",
+          "settings": {
+            "title": "Latest Articles",
+            "blog": "",
+            "post_limit": 3,
+            "blog_show_image": true,
+            "show_view_all": true
+          }
+        },
+        "1616428115e21d1578": {
+          "type": "newsletter",
+          "disabled": true,
+          "settings": {
+            "title": "Newsletter",
+            "text": "<p>Invite customers to join your newsletter.<br\/>Link to your <a href='#'>privacy policy<\/a>.<\/p>"
+          }
+        },
+        "text-columns-with-icons": {
+          "type": "text-columns-with-icons",
+          "blocks": {
+            "dc0e2351-9175-4503-9568-f4f102cbc798": {
+              "type": "text-icon",
+              "settings": {
+                "title": "Shipping",
+                "body": "<p>Write some useful information about your shipping details<\/p><p>Link to your <a href='#'>shipping policy<\/a>.<\/p>",
+                "select_icon": "shipping-box"
+              }
+            },
+            "00665f2b-5814-4213-853b-3b6c73955a4a": {
+              "type": "text-icon",
+              "settings": {
+                "title": "Delivery",
+                "body": "<p>Let your customers know if you offer free delivery for certain types of orders<\/p><p>Link to your <a href='#'>offers page<\/a>.<\/p>",
+                "select_icon": "delivery"
+              }
+            },
+            "913a05c0-114a-4fb7-ba39-047df22f46cf": {
+              "type": "text-icon",
+              "settings": {
+                "title": "Returns",
+                "body": "<p>Show customers how much time they have for testing your products<\/p><p>Link to your <a href='#'>returns policy<\/a>.<\/p>",
+                "select_icon": "time-limit"
+              }
+            }
+          },
+          "block_order": [
+            "dc0e2351-9175-4503-9568-f4f102cbc798",
+            "00665f2b-5814-4213-853b-3b6c73955a4a",
+            "913a05c0-114a-4fb7-ba39-047df22f46cf"
+          ],
+          "settings": {
+            "show_on_homepage": true,
+            "show_on_product": true,
+            "show_on_collection": true,
+            "show_on_blog": true,
+            "show_on_regular": true
+          }
+        },
+        "list-collections": {
+          "type": "list-collections",
+          "settings": {
+            "text_alignment": "horizontal-left vertical-bottom",
+            "color_text": "#ffffff",
+            "color_bg": "#000000",
+            "display_type": "all",
+            "sort": "alphabetical"
+          }
+        },
+        "article": {
+          "type": "article",
+          "settings": {
+            "show_images": true,
+            "show_share": true
+          }
+        },
+        "1616657801ae0345a2": {
+          "type": "rich-text",
+          "settings": {
+            "title": "About Us",
+            "content": "<p>Write a big, bold statement about your brand. Catch your visitors attention by using some additional images with your products or store.<\/p>",
+            "button_label": "Learn More",
+            "button_link": "shopify:\/\/pages\/about-us",
+            "text_alignment": "center",
+            "text_size": "large"
+          }
+        },
+        "1616659086729a2095": {
+          "type": "rich-text",
+          "settings": {
+            "title": "Introduce a",
+            "content": "<p><strong>Big, bold call to action<\/strong><\/p>",
+            "button_label": "Link to collections",
+            "button_link": "",
+            "text_alignment": "center",
+            "text_size": "extra"
+          }
+        },
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "settings": {
+            "bar_show": true,
+            "bar_show_on_homepage": true,
+            "bar_show_dismiss": true,
+            "bar_message": "Use this bar for a short, important announcement.",
+            "bar_bgcolor": "#000000",
+            "bar_txtcolor": "#ffffff"
+          }
+        },
+        "password": {
+          "type": "password",
+          "settings": {
+            "logo_src": "",
+            "logo_height": 48,
+            "title": "Opening soon",
+            "body": "<p>Write some information about your store and what it will sell.<\/p>",
+            "show_newsletter": true,
+            "newsletter_text": "<p>Be the first to know when we launch.<\/p><p>Read our <a href=\"#\">privacy policy<\/a>.<\/p>"
+          }
+        },
+        "gift-card": {
+          "type": "gift-card",
+          "settings": {
+            "logo_src": "",
+            "logo_height": 40
+          }
+        },
+        "16167901769692ce25": {
+          "type": "featured-product",
+          "settings": {
+            "featured_product": "",
+            "show_vendor": true,
+            "show_quantity_selector": true,
+            "show_quantities": false,
+            "enable_payment_button": true,
+            "show_sku": false,
+            "show_barcode": false,
+            "show_tax_info": false,
+            "media_aspect": "natural",
+            "enable_zoom": true,
+            "enable_video_looping": false
+          }
+        },
+        "16170033456ff74945": {
+          "type": "collection-list",
+          "blocks": {
+            "16170033456ff74945-1": {
+              "type": "collection",
+              "settings": {
+                "collection": "",
+                "collection_image": ""
+              }
+            },
+            "16170033456ff74945-0": {
+              "type": "collection",
+              "settings": {
+                "collection": "",
+                "collection_image": ""
+              }
+            },
+            "4d71d6dd-109b-48ec-b9d3-dedd950f9ce2": {
+              "type": "collection",
+              "settings": {
+                "collection": "",
+                "collection_image": ""
+              }
+            }
+          },
+          "block_order": [
+            "16170033456ff74945-1",
+            "16170033456ff74945-0",
+            "4d71d6dd-109b-48ec-b9d3-dedd950f9ce2"
+          ],
+          "settings": {
+            "title": "Explore our collections"
+          }
+        }
+      },
+      "content_for_index": [
+        "1614677245d294ce84",
+        "16154607644c8d63ca",
+        "1616657801ae0345a2",
+        "161587985773819fa8",
+        "1616659086729a2095",
+        "161587852665205c9d",
+        "16167901769692ce25",
+        "1616428115e21d1578",
+        "161607876709a40cd9",
+        "16170033456ff74945"
+      ]
+    },
+    "Single": {
+      "color_accent": "#ffffff",
+      "color_text": "#d3d6c7",
+      "color_background": "#34362b",
+      "headings_font": "roboto_n4",
+      "headings_size": 36,
+      "body_font": "roboto_mono_n4",
+      "body_size": 16,
+      "quote_font": "swiss_721_n1",
+      "grid_aspect": "natural",
+      "show_variant_image": true,
+      "color_sale_price": "#c1cf89",
+      "favicon": "",
+      "cart_action": "overlay",
+      "cart_notes_enable": true,
+      "cart_additional_buttons": true,
+      "predictive_search_enabled": true,
+      "predictive_search_show_vendor": false,
+      "predictive_search_show_price": false,
+      "predictive_search_include_articles": true,
+      "predictive_search_include_pages": true,
+      "social_facebook": "",
+      "social_instagram": "",
+      "social_twitter": "",
+      "social_youtube": "",
+      "social_vimeo": "",
+      "social_pinterest": "",
+      "social_tumblr": "",
+      "social_linkedin": "",
+      "social_reddit": "",
+      "social_flickr": "",
+      "social_email": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#fff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+      "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+      "checkout_accent_color": "#197bbd",
+      "checkout_button_color": "#197bbd",
+      "checkout_error_color": "#e32c2b",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "logo_src": "",
+            "logo_height": 50,
+            "menu_primary": "main-menu",
+            "menu_secondary": "",
+            "show_social_icons": true,
+            "show_locale_selector": true,
+            "show_currency_selector": true
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "83a51fca-3419-4673-9613-9505c11e0d29": {
+              "type": "text",
+              "settings": {
+                "title": "About",
+                "content": "<p>Write a short statement about your brand.<\/p>"
+              }
+            },
+            "657d0481-8a40-4d4d-a64c-1a3264f6de2a": {
+              "type": "menus",
+              "settings": {
+                "title_1": "LINKS",
+                "menu_1": "footer",
+                "title_2": "",
+                "menu_2": ""
+              }
+            },
+            "cb26e229-0f34-44da-a191-022d03cc56e4": {
+              "type": "newsletter",
+              "settings": {
+                "title": "Newsletter",
+                "text": "<p>Invite customers to join your newsletter.<br\/>Link to your <a href='#'>privacy policy<\/a>.<\/p>"
+              }
+            }
+          },
+          "block_order": [
+            "83a51fca-3419-4673-9613-9505c11e0d29",
+            "657d0481-8a40-4d4d-a64c-1a3264f6de2a",
+            "cb26e229-0f34-44da-a191-022d03cc56e4"
+          ],
+          "settings": {
+            "show_payment_icons": true,
+            "show_locale_selector": true,
+            "show_currency_selector": true
+          }
+        },
+        "1614677245d294ce84": {
+          "type": "slider-vertical",
+          "blocks": {
+            "1614677245d294ce84-1": {
+              "type": "image",
+              "settings": {
+                "heading": "Welcome to our store",
+                "caption": "Showcase your best product",
+                "button_label": "Buy now"
+              }
+            }
+          },
+          "block_order": [
+            "1614677245d294ce84-1"
+          ],
+          "settings": {}
+        },
+        "product": {
+          "type": "product",
+          "settings": {
+            "show_vendor": true,
+            "show_quantity_selector": true,
+            "show_quantities": false,
+            "enable_payment_button": true,
+            "show_sku": false,
+            "show_barcode": false,
+            "show_tax_info": false,
+            "show_local_pickup": false,
+            "show_share": true,
+            "media_aspect": "natural",
+            "enable_zoom": true,
+            "enable_video_looping": false
+          }
+        },
+        "product-recommendations": {
+          "type": "product-recommendations",
+          "settings": {
+            "show_product_recommendations": true,
+            "title": "Related products",
+            "products_number": 6
+          }
+        },
+        "161587852665205c9d": {
+          "type": "video-popup",
+          "settings": {
+            "title": "Video"
+          }
+        },
+        "product-extra-images": {
+          "type": "product-extra-images",
+          "blocks": {
+            "366e1b16-1874-4167-b494-f60d9730ce0a": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "heading": "Feature 1",
+                "description": "<p>Write about specific product features or store details.<\/p>",
+                "collection": ""
+              }
+            },
+            "621009c7-76c2-4de1-9b05-066af104d169": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "heading": "Feature 2",
+                "description": "<p>Give more details about the concept, production process, manufacturing details.<\/p>",
+                "collection": ""
+              }
+            },
+            "c890d2c2-617c-4dee-a756-f54f5bc891a1": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "heading": "Feature 3",
+                "description": "<p>Showcase your product's greatest strengths and unique features.<\/p>",
+                "collection": ""
+              }
+            }
+          },
+          "block_order": [
+            "366e1b16-1874-4167-b494-f60d9730ce0a",
+            "621009c7-76c2-4de1-9b05-066af104d169",
+            "c890d2c2-617c-4dee-a756-f54f5bc891a1"
+          ],
+          "settings": {
+            "title": "More features",
+            "gallery_aspect": "1.333"
+          }
+        },
+        "product-extra-toggles": {
+          "type": "product-extra-toggles",
+          "blocks": {
+            "6a3f605a-a6ee-4460-8b02-01240d6aa630": {
+              "type": "text",
+              "settings": {
+                "title": "Unique features",
+                "body": "<p>Add extra product information, such technical data or key features and benefits.<\/p>",
+                "select_icon": "archive-box",
+                "collection": ""
+              }
+            },
+            "cc16e09e-2f5f-4313-a473-dabbfa0d22b8": {
+              "type": "text",
+              "settings": {
+                "title": "Technical data",
+                "body": "<p>Add extra product information, such technical data or key features and benefits.<\/p>",
+                "select_icon": "wind",
+                "collection": ""
+              }
+            },
+            "e00a160c-5c7f-4aef-a953-ff1dd65bb43f": {
+              "type": "text",
+              "settings": {
+                "title": "Usage scenarious",
+                "body": "<p>Add extra product information, such technical data or key features and benefits.<\/p>",
+                "select_icon": "coins",
+                "custom_icon": "shopify:\/\/shop_images\/noun_cotton_788943_1.png",
+                "collection": ""
+              }
+            }
+          },
+          "block_order": [
+            "6a3f605a-a6ee-4460-8b02-01240d6aa630",
+            "cc16e09e-2f5f-4313-a473-dabbfa0d22b8",
+            "e00a160c-5c7f-4aef-a953-ff1dd65bb43f"
+          ],
+          "settings": {
+            "title": "Key benefits"
+          }
+        },
+        "collection": {
+          "type": "collection",
+          "settings": {
+            "collection_image": false,
+            "sort_enable": false,
+            "tags_enable": false,
+            "layout": "regular",
+            "products_number": 8,
+            "show_promotional_block": false,
+            "promotional_block_title": "",
+            "promotional_block_button_label": ""
+          }
+        },
+        "blog": {
+          "type": "blog",
+          "settings": {
+            "tags_enable": true,
+            "post_limit": 7,
+            "show_images": true
+          }
+        },
+        "1616428115e21d1578": {
+          "type": "newsletter",
+          "disabled": true,
+          "settings": {
+            "title": "Newsletter",
+            "text": "<p>Invite customers to join your newsletter.<br\/>Link to your <a href=\"#\">privacy policy<\/a>.<\/p>"
+          }
+        },
+        "text-columns-with-icons": {
+          "type": "text-columns-with-icons",
+          "blocks": {
+            "dc0e2351-9175-4503-9568-f4f102cbc798": {
+              "type": "text-icon",
+              "settings": {
+                "title": "Shipping",
+                "body": "<p>Write some useful information about your shipping details<\/p><p>Link to your <a href='#'>shipping policy<\/a>.<\/p>",
+                "select_icon": "shipping-box"
+              }
+            },
+            "00665f2b-5814-4213-853b-3b6c73955a4a": {
+              "type": "text-icon",
+              "settings": {
+                "title": "Delivery",
+                "body": "<p>Let your customers know if you offer free delivery for certain types of orders<\/p><p>Link to your <a href='#'>offers page<\/a>.<\/p>",
+                "select_icon": "delivery"
+              }
+            },
+            "913a05c0-114a-4fb7-ba39-047df22f46cf": {
+              "type": "text-icon",
+              "settings": {
+                "title": "Returns",
+                "body": "<p>Show customers how much time they have for testing your products<\/p><p>Link to your <a href='#'>returns policy<\/a>.<\/p>",
+                "select_icon": "time-limit"
+              }
+            }
+          },
+          "block_order": [
+            "dc0e2351-9175-4503-9568-f4f102cbc798",
+            "00665f2b-5814-4213-853b-3b6c73955a4a",
+            "913a05c0-114a-4fb7-ba39-047df22f46cf"
+          ],
+          "settings": {
+            "show_on_homepage": true,
+            "show_on_product": true,
+            "show_on_collection": true,
+            "show_on_blog": true,
+            "show_on_regular": true
+          }
+        },
+        "list-collections": {
+          "type": "list-collections",
+          "settings": {
+            "text_alignment": "horizontal-left vertical-bottom",
+            "color_text": "#ffffff",
+            "color_bg": "#000000",
+            "display_type": "all",
+            "sort": "alphabetical"
+          }
+        },
+        "article": {
+          "type": "article",
+          "settings": {
+            "show_images": true,
+            "show_share": true
+          }
+        },
+        "1616657801ae0345a2": {
+          "type": "rich-text",
+          "settings": {
+            "title": "ANALOG",
+            "content": "<p>Write a big, bold statement about your brand. Catch your visitors attention by using some additional images with your products or store.<\/p>",
+            "button_label": "SEE HOW IT WORKS",
+            "button_link": "shopify:\/\/pages\/about-us",
+            "text_alignment": "center",
+            "text_size": "large"
+          }
+        },
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "settings": {
+            "bar_show": true,
+            "bar_show_on_homepage": true,
+            "bar_show_dismiss": true,
+            "bar_message": "Use this bar for a short, important announcement.",
+            "bar_link": "shopify:\/\/collections\/all",
+            "bar_bgcolor": "#25261d",
+            "bar_txtcolor": "#ffffff"
+          }
+        },
+        "password": {
+          "type": "password",
+          "settings": {
+            "logo_src": "",
+            "logo_height": 48,
+            "title": "Opening soon",
+            "body": "<p>Write some information about your store and what it will sell.<\/p>",
+            "show_newsletter": true,
+            "newsletter_text": "<p>Be the first to know when we launch.<\/p><p>Read our <a href=\"#\">privacy policy<\/a>.<\/p>"
+          }
+        },
+        "gift-card": {
+          "type": "gift-card",
+          "settings": {
+            "logo_src": "",
+            "logo_height": 40
+          }
+        },
+        "16167901769692ce25": {
+          "type": "featured-product",
+          "settings": {
+            "featured_product": "",
+            "show_vendor": true,
+            "show_quantity_selector": true,
+            "show_quantities": false,
+            "enable_payment_button": true,
+            "show_sku": false,
+            "show_barcode": false,
+            "show_tax_info": false,
+            "media_aspect": "natural",
+            "enable_zoom": true,
+            "enable_video_looping": false
+          }
+        },
+        "popup": {
+          "type": "popup",
+          "settings": {
+            "title": "Popup",
+            "content": "<p>Stay up to date on the latest product releases, special offers & news by signing up for our newsletter.<\/p><p>Read our <a href='#'>privacy policy<\/a>.<\/p>",
+            "newsletter_enable": true,
+            "popup_enable": false,
+            "newsletter_auto": 10,
+            "newsletter_frequent": "week",
+            "popup_bgcolor": "#111111",
+            "popup_txtcolor": "#ffffff"
+          }
+        },
+        "1617872659a0249b8d": {
+          "type": "images-with-text-slider",
+          "blocks": {
+            "6152b9a0-fb45-40b0-978d-64941cc76912": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "heading": "",
+                "description": "<p>Write about specific product features or store details.<\/p>"
+              }
+            },
+            "593cc576-8f37-4002-96f3-337e6a3697ce": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "heading": "",
+                "description": "<p>Give more details about the concept, production process, manufacturing details.<\/p>"
+              }
+            },
+            "04a9f2de-0a43-4fef-93ea-6d05dff3a70d": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "heading": "",
+                "description": "<p>Showcase your product's greatest strengths and unique features.<\/p>"
+              }
+            },
+            "1617872659a0249b8d-0": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "heading": "",
+                "description": "<p>Write about specific product features or store details.<\/p>"
+              }
+            },
+            "1617872659a0249b8d-1": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "heading": "",
+                "description": "<p>Give more details about the concept, production process, manufacturing details.<\/p>"
+              }
+            },
+            "1617872659a0249b8d-2": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "heading": "",
+                "description": "<p>Write about specific product features or store details.<\/p>"
+              }
+            }
+          },
+          "block_order": [
+            "6152b9a0-fb45-40b0-978d-64941cc76912",
+            "593cc576-8f37-4002-96f3-337e6a3697ce",
+            "04a9f2de-0a43-4fef-93ea-6d05dff3a70d",
+            "1617872659a0249b8d-0",
+            "1617872659a0249b8d-1",
+            "1617872659a0249b8d-2"
+          ],
+          "settings": {
+            "title": "Images with text slider",
+            "gallery_aspect": "0.833"
+          }
+        },
+        "161787752779d46531": {
+          "type": "rich-text",
+          "settings": {
+            "title": "Your story",
+            "content": "<p>Write a big, bold statement about your brand. Catch your visitors attention by using some additional images with your products or store.<\/p>",
+            "button_label": "",
+            "text_alignment": "center",
+            "text_size": "large"
+          }
+        },
+        "1617877660313fe827": {
+          "type": "image-with-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_d6512279-a54d-4a94-8d45-a0ba39bfc889.jpg",
+            "layout": "right-alignment",
+            "heading": "Product feature",
+            "text_size": "h1",
+            "description": "<p>Write some information about your brand, products or story.<\/p>",
+            "button_label": "Learn more"
+          }
+        },
+        "16178785111bf8e641": {
+          "type": "image-with-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/3.jpg",
+            "layout": "right-alignment",
+            "heading": "Story feature",
+            "text_size": "h1",
+            "description": "<p>Write some information about your brand, products or story.<\/p>",
+            "button_label": "Learn more"
+          }
+        },
+        "1617878884acd14f18": {
+          "type": "image-with-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1_d26a742d-1cdd-4d5b-8db3-7dba1301469c.jpg",
+            "layout": "right-alignment",
+            "heading": "Brand feature",
+            "text_size": "h1",
+            "description": "<p>Write some information about your brand, products or story.<\/p>",
+            "button_label": "Learn more"
+          }
+        },
+        "16178952790c390691": {
+          "type": "rich-text",
+          "settings": {
+            "title": "Introduce a",
+            "content": "<p><strong>Big, bold call to action<\/strong><\/p>",
+            "button_label": "Link to collections",
+            "text_alignment": "center",
+            "text_size": "extra"
+          }
+        },
+        "161821013934743242": {
+          "type": "testimonials",
+          "blocks": {
+            "161821013934743242-0": {
+              "type": "text",
+              "settings": {
+                "quote_content": "<p>“Add customer reviews and testimonials to showcase your store's happy customers.”<\/p>",
+                "quote_author": "Author",
+                "quote_caption": "Caption"
+              }
+            },
+            "161821013934743242-1": {
+              "type": "text",
+              "settings": {
+                "quote_content": "<p>“Add customer reviews and testimonials to showcase your store's happy customers.”<\/p>",
+                "quote_author": "Author",
+                "quote_caption": "Caption"
+              }
+            },
+            "6a688e52-a393-437a-8f85-69000882c59f": {
+              "type": "text",
+              "settings": {
+                "quote_content": "<p>“Add customer reviews and testimonials to showcase your store's happy customers.”<\/p>",
+                "quote_author": "Author",
+                "quote_caption": "Caption"
+              }
+            }
+          },
+          "block_order": [
+            "161821013934743242-0",
+            "161821013934743242-1",
+            "6a688e52-a393-437a-8f85-69000882c59f"
+          ],
+          "settings": {
+            "title": "Testimonials"
+          }
+        }
+      },
+      "content_for_index": [
+        "1614677245d294ce84",
+        "161587852665205c9d",
+        "161787752779d46531",
+        "1617878884acd14f18",
+        "1617877660313fe827",
+        "16178785111bf8e641",
+        "1616657801ae0345a2",
+        "1617872659a0249b8d",
+        "16178952790c390691",
+        "16167901769692ce25",
+        "161821013934743242",
+        "1616428115e21d1578"
+      ]
+    },
+    "Art": {
+      "color_accent": "#147d3b",
+      "color_text": "#000000",
+      "color_background": "#efefef",
+      "headings_font": "cardo_n4",
+      "headings_size": 36,
+      "body_font": "roboto_n4",
+      "body_size": 18,
+      "grid_aspect": "natural",
+      "product_animation": "product-item--move",
+      "product_show_secondary": false,
+      "show_variant_image": true,
+      "color_sale_price": "#dc0000",
+      "favicon": "",
+      "cart_action": "overlay",
+      "cart_notes_enable": true,
+      "cart_additional_buttons": true,
+      "cart_quantity_selector": false,
+      "predictive_search_enabled": false,
+      "predictive_search_show_vendor": false,
+      "predictive_search_show_price": false,
+      "predictive_search_include_articles": false,
+      "predictive_search_include_pages": false,
+      "social_facebook": "",
+      "social_instagram": "",
+      "social_twitter": "",
+      "social_youtube": "",
+      "social_vimeo": "",
+      "social_pinterest": "",
+      "social_tumblr": "",
+      "social_linkedin": "",
+      "social_reddit": "",
+      "social_flickr": "",
+      "social_email": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#fff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+      "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+      "checkout_accent_color": "#197bbd",
+      "checkout_button_color": "#197bbd",
+      "checkout_error_color": "#e32c2b",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "logo_src": "",
+            "logo_height": 50,
+            "show_icon_labels": false,
+            "menu_primary": "main-menu",
+            "menu_secondary": "",
+            "show_social_icons": true,
+            "show_locale_selector": true,
+            "show_currency_selector": true
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "cdb6f407-a5da-4d24-9e44-6fbc2156dae9": {
+              "type": "text",
+              "settings": {
+                "title": "About",
+                "content": "<p>Write a short statement about your brand.<\/p>"
+              }
+            },
+            "c931c7a9-fe5b-41dd-8e23-da04cb966b98": {
+              "type": "social",
+              "settings": {
+                "title": "Follow me"
+              }
+            }
+          },
+          "block_order": [
+            "cdb6f407-a5da-4d24-9e44-6fbc2156dae9",
+            "c931c7a9-fe5b-41dd-8e23-da04cb966b98"
+          ],
+          "settings": {
+            "show_payment_icons": false,
+            "show_locale_selector": false,
+            "show_currency_selector": false
+          }
+        },
+        "1614677245d294ce84": {
+          "type": "slider-vertical",
+          "blocks": {
+            "1614677245d294ce84-1": {
+              "type": "image",
+              "settings": {
+                "heading": "Welcome to our store",
+                "caption": "Showcase your best products",
+                "button_label": "Explore all",
+                "button_link": ""
+              }
+            },
+            "1614677245d294ce84-0": {
+              "type": "image",
+              "settings": {
+                "heading": "Write about yourself",
+                "caption": "Include some awesome images",
+                "button_label": "Learn more"
+              }
+            },
+            "1614677245d294ce84-2": {
+              "type": "image",
+              "settings": {
+                "heading": "Promote your products",
+                "caption": "Include various promotions and flash sales",
+                "button_label": "Shop now"
+              }
+            }
+          },
+          "block_order": [
+            "1614677245d294ce84-1",
+            "1614677245d294ce84-0",
+            "1614677245d294ce84-2"
+          ],
+          "settings": {}
+        },
+        "product": {
+          "type": "product",
+          "settings": {
+            "show_vendor": true,
+            "show_color_swatches": true,
+            "show_quantity_selector": false,
+            "show_quantities": false,
+            "enable_payment_button": true,
+            "show_sku": false,
+            "show_barcode": false,
+            "show_tax_info": false,
+            "show_local_pickup": false,
+            "show_share": true,
+            "media_aspect": "natural",
+            "enable_zoom": true,
+            "enable_video_looping": false
+          }
+        },
+        "product-recommendations": {
+          "type": "product-recommendations",
+          "settings": {
+            "show_product_recommendations": true,
+            "title": "Recommended products",
+            "products_number": 6
+          }
+        },
+        "16154607644c8d63ca": {
+          "type": "featured-collection",
+          "settings": {
+            "heading": "Most Popular",
+            "caption": "Collection",
+            "collection": "",
+            "show_view_all": true,
+            "layout": "asymmetrical",
+            "products_number": 7,
+            "show_promotional_block": true,
+            "promotional_block_title": "Write a short, captivating paragraph about your products. Or write about your current offers.",
+            "promotional_block_button_label": "Learn more",
+            "promotional_block_button_link": ""
+          }
+        },
+        "product-extra-images": {
+          "type": "product-extra-images",
+          "settings": {
+            "title": "More features",
+            "gallery_aspect": "1.333"
+          }
+        },
+        "product-extra-toggles": {
+          "type": "product-extra-toggles",
+          "settings": {
+            "title": "Key benefits"
+          }
+        },
+        "collection": {
+          "type": "collection",
+          "settings": {
+            "collection_image": false,
+            "sort_enable": true,
+            "tags_enable": false,
+            "layout": "asymmetrical",
+            "products_number": 29,
+            "show_promotional_block": false,
+            "promotional_block_title": "Write a short, captivating paragraph about your products.",
+            "promotional_block_button_label": ""
+          }
+        },
+        "blog": {
+          "type": "blog",
+          "settings": {
+            "tags_enable": true,
+            "post_limit": 7,
+            "show_images": true
+          }
+        },
+        "1616428115e21d1578": {
+          "type": "newsletter",
+          "settings": {
+            "title": "Newsletter",
+            "text": "<p>Get the latest updates!<\/p>"
+          }
+        },
+        "text-columns-with-icons": {
+          "type": "text-columns-with-icons",
+          "settings": {
+            "show_on_homepage": true,
+            "show_on_product": true,
+            "show_on_collection": true,
+            "show_on_blog": true,
+            "show_on_regular": true
+          }
+        },
+        "list-collections": {
+          "type": "list-collections",
+          "settings": {
+            "text_alignment": "horizontal-left vertical-bottom",
+            "color_text": "#ffffff",
+            "color_bg": "#000000",
+            "display_type": "all",
+            "sort": "alphabetical"
+          }
+        },
+        "article": {
+          "type": "article",
+          "settings": {
+            "show_images": true,
+            "show_share": true
+          }
+        },
+        "1616657801ae0345a2": {
+          "type": "rich-text",
+          "settings": {
+            "title": "About Us",
+            "content": "<p>Write a big, bold statement about your brand.<\/p>",
+            "button_label": "Learn More",
+            "button_link": "",
+            "text_alignment": "center",
+            "text_size": "extra"
+          }
+        },
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "settings": {
+            "bar_show": false,
+            "bar_show_on_homepage": true,
+            "bar_show_dismiss": true,
+            "bar_message": "Use this bar for a short, important announcement.",
+            "bar_bgcolor": "#000000",
+            "bar_txtcolor": "#ffffff"
+          }
+        },
+        "password": {
+          "type": "password",
+          "settings": {
+            "logo_src": "",
+            "logo_height": 48,
+            "title": "Opening soon",
+            "body": "<p>Write some information about your store and what it will sell.<\/p>",
+            "show_newsletter": true,
+            "newsletter_text": "<p>Be the first to know when we launch.<\/p><p>Read our <a href=\"#\">privacy policy<\/a>.<\/p>"
+          }
+        },
+        "gift-card": {
+          "type": "gift-card",
+          "settings": {
+            "logo_src": "",
+            "logo_height": 40
+          }
+        },
+        "popup": {
+          "type": "popup",
+          "settings": {
+            "title": "Stay updated!",
+            "content": "<p>Stay up to date on the latest product releases, special offers &amp; news by signing up for our newsletter.<\/p><p>Read our <a href=\"#\">privacy policy<\/a>.<\/p>",
+            "newsletter_enable": true,
+            "popup_enable": true,
+            "newsletter_auto": 10,
+            "newsletter_frequent": "week",
+            "popup_bgcolor": "#111111",
+            "popup_txtcolor": "#ffffff"
+          }
+        },
+        "161883056774bca91b": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "image": ""
+          }
+        },
+        "gallery": {
+          "type": "gallery",
+          "blocks": {
+            "fcbf4832-2046-4ed8-ae79-71bdf0003bd9": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Image title",
+                "caption": "<p>Short caption about image<\/p>"
+              }
+            },
+            "a5062cf9-a6fa-46de-a909-10bec013a62f": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Image title",
+                "caption": "<p>Short caption about image<\/p>"
+              }
+            },
+            "5441128b-fe04-4541-9264-0fd30ed925ad": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Image title",
+                "caption": "<p>Short caption about image<\/p>"
+              }
+            },
+            "ebbef799-0039-40ec-a073-fcd4b2eba5d3": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Image title",
+                "caption": "<p>Short caption about image<\/p>"
+              }
+            },
+            "cf0bcf74-cfaa-4d1b-9219-c9f0dc41e38c": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Image title",
+                "caption": "<p>Short caption about image<\/p>"
+              }
+            },
+            "843d9eb2-33c9-4071-9260-db09f7bf5752": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Image title",
+                "caption": "<p>Short caption about image<\/p>"
+              }
+            },
+            "454f2ec6-fc04-4980-aee9-ab296a4bc6de": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Image title",
+                "caption": "<p>Short caption about image<\/p>"
+              }
+            },
+            "ddd0af16-aa8b-4826-8f6a-dfad5e61dde4": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Image title",
+                "caption": "<p>Short caption about image<\/p>"
+              }
+            },
+            "5de41484-a8e1-4895-aa3d-cd0a79f6c379": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Image title",
+                "caption": "<p>Short caption about image<\/p>"
+              }
+            },
+            "9b03e8d6-d873-4d6f-a4b7-41239381380c": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Image title",
+                "caption": "<p>Short caption about image<\/p>"
+              }
+            },
+            "71ec528a-14ab-4d1a-acec-81e52a24cb4f": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "title": "Image title",
+                "caption": "<p>Short caption about image<\/p>"
+              }
+            }
+          },
+          "block_order": [
+            "fcbf4832-2046-4ed8-ae79-71bdf0003bd9",
+            "a5062cf9-a6fa-46de-a909-10bec013a62f",
+            "5441128b-fe04-4541-9264-0fd30ed925ad",
+            "ebbef799-0039-40ec-a073-fcd4b2eba5d3",
+            "cf0bcf74-cfaa-4d1b-9219-c9f0dc41e38c",
+            "843d9eb2-33c9-4071-9260-db09f7bf5752",
+            "454f2ec6-fc04-4980-aee9-ab296a4bc6de",
+            "ddd0af16-aa8b-4826-8f6a-dfad5e61dde4",
+            "5de41484-a8e1-4895-aa3d-cd0a79f6c379",
+            "9b03e8d6-d873-4d6f-a4b7-41239381380c",
+            "71ec528a-14ab-4d1a-acec-81e52a24cb4f"
+          ],
+          "settings": {}
+        }
+      },
+      "content_for_index": [
+        "1614677245d294ce84",
+        "16154607644c8d63ca",
+        "1616657801ae0345a2",
+        "161883056774bca91b",
+        "1616428115e21d1578"
+      ]
+    }
+  }
+}

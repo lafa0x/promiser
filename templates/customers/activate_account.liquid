@@ -1,0 +1,38 @@
+<div class="shopify-section section-w-margin section-w-mobile-padding" id="section-activate-account">
+
+	<div class="section-header five-tenths lap--full-width push-left-one-tenth lap--push-left-none">
+		<h1  class="section-header__title h1">{{ 'customer.activate_account.title' | t }}</h1>
+	</div>
+
+  <div class="grid five-tenths lap--full-width push-left-one-tenth lap--push-left-none">
+
+      {%- form 'activate_customer_password', class: 'simple-grid' -%}
+
+    		<div class="simple-grid-item one-whole">{%- render 'form-errors', form: form -%}</div>
+
+        <p class="simple-grid-item one-whole h4" style="margin-bottom:2em">{{ 'customer.activate_account.subtext' | t }}</p>
+      
+        <div class="simple-grid-item one-whole">
+          <label for="CustomerPassword" class="text-size--small">{{ 'customer.activate_account.password' | t }}</label>
+          <input type="password" value="" name="customer[password]" id="CustomerPassword" class="input-full">
+        </div>
+
+        <div class="simple-grid-item one-whole">
+          <label for="CustomerPasswordConfirmation" class="text-size--small">{{ 'customer.activate_account.password_confirm' | t }}</label>
+          <input type="password" value="" name="customer[password_confirmation]" id="CustomerPasswordConfirmation" class="input-full">
+        </div>
+
+        <div class="simple-grid-item one-whole">
+        	<div class="buttons-holder" style="margin-top:0">
+	          <input type="submit" class="button button--solid" value="{{ 'customer.activate_account.submit' | t }}">
+	          <input type="submit" class="button button--border" name="decline" value="{{ 'customer.activate_account.cancel' | t }}">
+	        </div>
+        </div>
+
+      {%- endform -%}
+
+    </div>
+
+  </div>
+
+</div>

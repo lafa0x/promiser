@@ -1,0 +1,100 @@
+{%- if section.settings.title != blank -%}
+  <div class="section-header grid-item push-left-one-tenth lap--push-left-none">
+    <h2 class="section-header__title h4">{{ section.settings.title | escape }}</h2>
+  </div>
+{%- endif -%}
+
+<div class="collection-list grid-item push-left-one-tenth lap--push-left-none">
+
+  {%- for block in section.blocks -%}
+
+    {%- assign collection = collections[block.settings.collection] -%}
+
+    <a class="collection-list-item" href="{{ collection.url | escape }}" title="{{ collection.title | escape }}" {{ block.shopify_attributes }}>
+
+      <span class="collection-list-item-title h1"><span>
+        {%- liquid  
+          if collection.title != blank
+            echo collection.title | escape
+          else
+            echo 'general.onboarding.collection_title' | t
+          endif
+        -%}
+      </span></span>
+
+      <div class="collection-list-item-image three-tenths">
+
+        {%- liquid
+
+          if block.settings.collection_image != blank
+            assign collection_image = block.settings.collection_image
+          else
+            assign collection_image = collection.image
+          endif
+
+          if collection_image != blank
+            render 'lazy-image', image: collection_image, alt: collection.title
+          else
+            echo '<span class="onboarding-svg">'
+              assign index = forloop.index | modulo: 6 | plus: 1
+              echo 'collection-X' | replace: 'X', index | placeholder_svg_tag
+            echo '</span>'
+          endif
+
+        -%}
+
+      </div>
+
+    </a>
+
+  {%- endfor -%}
+
+</div>
+
+{% schema %}
+  {
+    "name": "Collection list",
+    "class": "mount-collection-list section-w-mobile-padding section-w-margin",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Section title",
+        "default": "Collection list"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "collection",
+        "name": "Collection",
+        "settings": [
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection"
+          },
+          {
+            "type": "image_picker",
+            "id": "collection_image",
+            "label": "Image",
+            "info": "If the collection doesn't have a featured image."
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Collection list",
+        "category": "Collection",
+        "blocks": [
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,63 @@
+<div class="shopify-section section-w-margin section-w-mobile-padding" id="section-contact">
+
+  <div class="section-header five-tenths lap--full-width push-left-one-tenth lap--push-left-none">
+    <h1 class="section-header__title h1">{{ page.title | escape }}</h1>
+  </div>
+
+  <div class="grid">
+
+    <div class="five-tenths lap--nine-tenths smaller-lap--full-width push-left-one-tenth lap--push-left-none">
+      <div class="simple-form">
+
+        {%- form 'contact' -%}
+
+          {%- liquid
+            if form.posted_successfully?
+              assign success_text = 'contact.form.post_success' | t
+              render 'form-success', text: success_text
+            endif
+          -%}
+
+          {%- render 'form-errors', form: form -%}
+
+          <h2 class="h4" style="margin-bottom:2em">{{ 'contact.form.title' | t }}</h2>
+            
+          <div class="simple-grid">
+
+            <div class="one-half">
+              <label for="ContactFormName" class="text-size--small">{{ 'contact.form.name' | t }}</label>
+              <input type="text" id="ContactFormName" class="input-full" name="contact[name]" autocapitalize="words" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" required>
+            </div>
+
+            <div class="one-half">
+              <label for="ContactFormEmail" class="text-size--small">{{ 'contact.form.email' | t }}</label>
+              <input type="email" id="ContactFormEmail" class="input-full" name="contact[email]" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" required>
+            </div>
+
+            <div class="one-whole">
+              <label for="ContactFormMessage" class="text-size--small">{{ 'contact.form.message' | t }}</label>
+              <textarea rows="10" id="ContactFormMessage" class="input-full" name="contact[body]" required>{% if form.body %}{{ form.body }}{% endif %}</textarea>
+              <span class="info text-size--small">{{ 'contact.form.required_fields' | t }}</span>
+            </div>
+
+            <div class="one-whole">
+              <button type="submit" class="button button--solid button--wide button--align" aria-label="{{ 'contact.form.submit_label' | t }}">
+                {%- render 'theme-symbols', icon: 'plane' -%}
+              </button>
+            </div>
+
+          </div>
+
+        {%- endform -%}
+
+      </div>
+    </div>
+
+    {%- unless page.content == blank -%}
+      <div class="four-tenths lap--full-width push-left-one-tenth lap--push-left-none lap--push-top-one-tenth rte">
+        {{ page.content }}
+      </div>
+    {%- endunless -%}
+
+  </div>
+</div>

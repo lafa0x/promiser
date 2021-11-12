@@ -1,0 +1,377 @@
+{
+  "general": {
+    "menu": {
+      "menu_title": "Meny",
+      "search_title": "Søk",
+      "cart_title": "Handlevogn",
+      "close_button": "Lukk",
+      "back_button": "Tilbake",
+      "logged_in": "Min konto",
+      "logged_out": "Logg inn"
+    },
+    "meta": {
+      "tags": "Merket \"{{ tags }}\"",
+      "page": "Side {{ page }}"
+    },
+    "prefixes": {
+      "by": "av"
+    },
+    "404": {
+      "title": "Side ikke funnet",
+      "subtitle": "Siden du leter etter ble ikke funnet.",
+      "continue_browsing": "Fortsett å bla"
+    },
+    "newsletter": {
+      "email_label": "Din e-post",
+      "submit_label": "Send inn",
+      "confirmation": "Takk for at du abonnerer!"
+    },
+    "date_format": {
+      "month_day_year": "%b %d, %Å",
+      "month_names": {
+        "January": "Januar",
+        "February": "Februar",
+        "March": "Mars",
+        "April": "April",
+        "May": "Mai",
+        "June": "Juni",
+        "July": "Juli",
+        "August": "August",
+        "September": "September",
+        "October": "Oktober",
+        "November": "November",
+        "December": "Desember"
+      }
+    },
+    "accessibility_labels": {
+      "home": "Hjem",
+      "skip_to_content": "Hopp over til innhold",
+      "next": "Neste",
+      "previous": "Forrige",
+      "close": "Lukk",
+      "play_video": "Spill av video",
+      "language_dropdown_label": "Språk",
+      "currency_dropdown_label": "Valuta",
+      "price": {
+        "regular": "Ordinær pris",
+        "sale": "Salgspris",
+        "unit": "Enhetspris"
+      },
+      "form_error": "Feil"
+    },
+    "sharing": {
+      "title": "Del",
+      "facebook_label": "Facebook",
+      "facebook_title": "Del på Facebook",
+      "twitter_label": "Twitter",
+      "twitter_title": "Del på Twitter",
+      "pinterest_label": "Pinterest",
+      "pinterest_title": "Del på Pinterest"
+    },
+    "copyright": "Opphavsrett",
+    "breadcrumb": {
+      "homepage": "Hjem",
+      "collections": "Samlinger",
+      "search": "Søk etter \"{{ terms }}\"",
+      "blog": "Bloggen",
+      "account": "Min konto",
+      "cart": "Handlevogn"
+    },
+    "onboarding": {
+      "product_title": "Navn på produktet ditt",
+      "collection_title": "Navn på samlingen din",
+      "article_title": "Navn på artikkelen din",
+      "vendor_name": "Forhandler"
+    }
+  },
+  "product": {
+    "page": {
+      "sku": "Varenummer: ",
+      "barcode": "ISBN: ",
+      "add_to_cart_button": "Legg til handlevogn",
+      "share_link": "Del",
+      "select": "Velg",
+      "vendor_html": "av {{ vendor }}",
+      "quantity": "Antall",
+      "include_taxes": "Avgifter er inkludert.",
+      "shipping_policy_html": "<a href=\"{{ link }}\">Frakten<\/a> beregnes ved utsjekk.",
+      "view_in_space": "Se i området ditt",
+      "view_in_space_label": "Se i området ditt. Elementet lastes inn i utvidet virkelighet-vinduet"
+    },
+    "inventory": {
+      "sold_out_variant": "Utsolgt",
+      "unavailable_variant": "Utilgjengelig",
+      "one_product": "Kun ett produkt er igjen!",
+      "few_products": "{{ count }} produkter er igjen",
+      "no_products": "Ingen produkter er igjen",
+      "selling_when_out_of_stock": "Dette produktet er ikke på lager, men du kan fremdeles bestille det."
+    },
+    "preorder": {
+      "button_label": "Forhåndsbestill",
+      "description": "Vær den første som mottar dette produktet når vi har det på lager."
+    },
+    "view_product_details": "Se produktdetaljer",
+    "read_full_review": "Read full review"
+  },
+  "collections": {
+    "title": "Samlinger",
+    "sort_dropdown": {
+      "label": "Sorter",
+      "sort_by_featured": "Fremhevet",
+      "sort_by_best_selling": "Bestselgende",
+      "sort_by_title_asc": "A–Z",
+      "sort_by_title_desc": "Z–A",
+      "sort_by_price_asc": "Pris, lav til høy",
+      "sort_by_price_desc": "Pris, høy til lav",
+      "sort_by_date_desc": "Dato, ny til gammel",
+      "sort_by_date_asc": "Dato, gammel til ny"
+    },
+    "filter_dropdown": {
+      "label": "Filter",
+      "filter_all": "Alle produkter"
+    },
+    "view_all_products": "Utforsk alle",
+    "shop_now": "Handle nå",
+    "no_collections": "Det finnes dessverre ingen tilgjengelige samlinger i denne butikken.",
+    "no_products": "Det finnes dessverre ingen produkter i denne samlingen.",
+    "product_badges": {
+      "on_sale": "Salg",
+      "sold_out": "Utsolgt",
+      "new": "Nytt",
+      "pre_order": "Forhåndsbestill"
+    },
+    "price_variation_html": "Fra {{ price }}"
+  },
+  "blog": {
+    "grid": {
+      "no_articles": "Det finnes dessverre ingen artikler i denne bloggen.",
+      "read_more": "Les mer"
+    },
+    "article": {
+      "comments_count": "Kommentarer ({{count}})",
+      "comments_list_title": "Kommentarer",
+      "comment_under_moderation": "Kommentaren din ble lagt ut. Vi vil publisere den om litt, ettersom bloggen vår er moderert.",
+      "comment_posted": "Kommentaren din ble lagt ut! Takk!",
+      "no_comments_message": "Det finnes ingen kommentarer for denne artikkelen. Vær den første til å legge igjen en melding!",
+      "comments_form_title": "Skriv en kommentar",
+      "comments_form_name_label": "Ditt navn *",
+      "comments_form_email_label": "Din e-post *",
+      "comments_form_message_label": "Melding *",
+      "comments_form_required_fields": "* Ja, dette feltet er nødvendig",
+      "comments_form_submit_label": "Send inn kommentar",
+      "comments_notice": "Vennligst merk: Kommentarer må godkjennes før de publiseres",
+      "previous_article_link": "Eldre innlegg",
+      "next_article_link": "Nyere innlegg",
+      "tags": "Emneknagger:"
+    },
+    "view_all_articles": "Alle innlegg",
+    "tags_dropdown": {
+      "label": "Emneknagger",
+      "show_all": "Alle artikler"
+    }
+  },
+  "cart": {
+    "title": "Handlevogn",
+    "items_count": {
+      "one": "{{ count }} produkt i handlevognen din",
+      "other": "{{ count }} produkter i handlevognen din"
+    },
+    "added_items_count": {
+      "one": "{{ count }} produkt ble lagt til handlevognen din",
+      "other": "{{ count }} produkter ble lagt til handlevognen din"
+    },
+    "view_cart": "Se handlevognen",
+    "note": "Spesielle instruksjoner for selgeren",
+    "shipping_at_checkout": "Frakt og avgifter beregnes ved utsjekk",
+    "update_cart": "Oppdater handlevognen",
+    "remove_item": "Fjern elementet fra handlevognen",
+    "add_error": "Alle {{ title }} er i handlevognen din.",
+    "general_error": "En feil oppstod. Oppdater siden og prøv igjen.",
+    "subtotal": "Delsum:",
+    "total": "Totalsum:",
+    "checkout": "Utsjekk",
+    "discount": "Avslag",
+    "discounts": "Avslag:",
+    "free": "GRATIS",
+    "empty": "Handlevognen din er tom.",
+    "continue_browsing": "Fortsett å bla"
+  },
+  "search": {
+    "form": {
+      "placeholder": "Legg inn nøkkelord her",
+      "submit": "Send inn",
+      "product_results_title": "Produkter",
+      "collection_results_title": "Samlinger",
+      "page_results_title": "Sider",
+      "article_results_title": "Artikler",
+      "search_for_html": "Søk etter \"{{ terms }}\""
+    },
+    "page": {
+      "title": "Søk",
+      "results": "Søk i resultater",
+      "no_results": "Ingen resultater ble funnet for \"{{ terms }}\"",
+      "products_found": "Produkter for \"{{ terms }}\"",
+      "articles_and_pages_found": "Artikler og sider for \"{{ terms }}\"",
+      "results_count": {
+        "one": "Viser {{count}} resultat",
+        "other": "Viser {{offset}} – {{page_size}} av {{count}} resultater"
+      },
+      "search_button_label": "Søk",
+      "search_again_button_label": "Søk på nytt",
+      "continue_browsing": "Fortsett å bla"
+    }
+  },
+  "contact": {
+    "form": {
+      "title": "Send oss en melding",
+      "name": "Ditt navn *",
+      "email": "Din e-post *",
+      "message": "Melding *",
+      "required_fields": "* Ja, dette feltet er nødvendig",
+      "submit_label": "Send inn meldingen",
+      "post_success": "Takk for at du kontaktet oss. Vi svarer deg så raskt som mulig"
+    }
+  },
+  "customer": {
+    "account": {
+      "title": "Min konto",
+      "details": "Kontodetaljer",
+      "view_addresses": "Se adresser",
+      "default_address": "Standardadresse",
+      "return": "Gå tilbake til kontodetaljer",
+      "logout": "Logg ut"
+    },
+    "activate_account": {
+      "title": "Aktiver konto",
+      "subtext": "Opprett et passord for å aktivere kontoen din.",
+      "password": "Passord",
+      "password_confirm": "Bekreft passordet",
+      "submit": "Aktiver konto",
+      "cancel": "Avslå invitasjonen"
+    },
+    "addresses": {
+      "title": "Dine adresser",
+      "default": "(Standard)",
+      "add_new": "Legg til en ny adresse",
+      "edit_address": "Rediger adressen",
+      "first_name": "Fornavn",
+      "last_name": "Etternavn",
+      "company": "Selskap",
+      "address1": "Adresse1",
+      "address2": "Adresse2",
+      "city": "By",
+      "country": "Land",
+      "province": "Distrikt\/fylke",
+      "zip": "Postnummer",
+      "phone": "Telefon",
+      "set_default": "Velg som standardadresse",
+      "add": "Legg til adresse",
+      "update": "Oppdater adresse",
+      "cancel": "Avbryt",
+      "edit": "Rediger",
+      "delete": "Slett",
+      "delete_check": "Er du sikker på at du vil slette denne adressen?"
+    },
+    "login": {
+      "title": "Kundeinnlogging",
+      "email": "E-post",
+      "password": "Passord",
+      "forgot_password": "Glemt passordet?",
+      "sign_in": "Logg inn",
+      "sign_up": "Registrer deg",
+      "cancel": "Gå tilbake til butikken",
+      "new_customer": "Ny kunde?",
+      "guest_continue": "Fortsett som gjest"
+    },
+    "orders": {
+      "title": "Bestillingshistorikk",
+      "order_number": "Bestilling",
+      "date": "Dato",
+      "payment_status": "Betaling",
+      "fulfillment_status": "Fullførelse",
+      "total": "Total",
+      "none": "Du har ikke lagt inn noen bestillinger enda."
+    },
+    "order": {
+      "title": "Bestilling {{ name }}",
+      "date": "Lagt inn {{ date }}",
+      "cancelled": "Bestilling avbrutt {{ date }}",
+      "cancelled_reason": "Årsak: {{ reason }}",
+      "payment_status": "Betalingsstatus",
+      "fulfillment_status": "Fullførelsesstatus",
+      "discount": "Avslag",
+      "shipping": "Levering",
+      "tax": "Avgift",
+      "product": "Produkt",
+      "sku": "Varenummer",
+      "price": "Pris",
+      "quantity": "Antall",
+      "total": "Total",
+      "fulfilled_at": "Fullført {{ date }}",
+      "subtotal": "Delsum",
+      "shipping_address": "Leveringsadresse",
+      "billing_address": "Faktureringsadresse",
+      "no_billing_address": "Ingen faktureringsadresse var nødvendig for denne bestillingen.",
+      "no_shipping_address": "Ingen leveringsadresse var nødvendig for denne bestillingen."
+    },
+    "recover_password": {
+      "title": "Tilbakestill passordet ditt",
+      "email": "E-post",
+      "submit": "Send inn",
+      "cancel": "Avbryt",
+      "subtext": "Vi sender deg en e-post for å tilbakestille passordet ditt.",
+      "success": "Vi sender deg en e-post med en lenke for å oppdatere passordet ditt."
+    },
+    "reset_password": {
+      "title": "Tilbakestill passordet",
+      "subtext": "Legg inn et nytt passord for {{ email }}",
+      "password": "Passord",
+      "password_confirm": "Bekreft passordet",
+      "submit": "Tilbakestill passordet"
+    },
+    "register": {
+      "title": "Opprett en konto",
+      "first_name": "Fornavn",
+      "last_name": "Etternavn",
+      "email": "E-post",
+      "password": "Passord",
+      "submit": "Opprett",
+      "cancel": "Gå tilbake til butikken"
+    }
+  },
+  "store_availability": {
+    "view_store_info": "Se butikkinformasjon",
+    "check_other_stores": "Se tilgjengelighet i andre butikker",
+    "pick_up_available": "Henting er tilgjengelig",
+    "pick_up_currently_unavailable": "Henting er for øyeblikket ikke tilgjengelig",
+    "pick_up_available_at_html": "Henting er tilgjengelig på <strong>{{ location_name }}<\/strong>",
+    "pick_up_unavailable_at_html": "Henting er for øyeblikket ikke tilgjengelig på <strong>{{ location_name }}<\/strong>",
+    "invalid_location_address": "Kontakt butikken for å bekrefte adressen",
+    "kilometers": "km",
+    "miles": "mil"
+  },
+  "gift_card": {
+    "title": "Her er gavekortet ditt!",
+    "disabled": "Dette er ikke et gyldig gavekort",
+    "expired": "Utløp {{ expiry }}",
+    "active": "Utløper {{ expiry }}",
+    "balance_left": "igjen",
+    "redeem": "Bruk denne koden ved utsjekk for å løse inn gavekortet ditt",
+    "shop_link": "Begynn å handle",
+    "print": "Skriv ut"
+  },
+  "password_page": {
+    "login_form_heading": "Gå inn i butikken ved å skrive inn et passord",
+    "login_form_password_label": "Passord",
+    "login_form_password_placeholder": "Ditt passord",
+    "login_form_submit": "Gå inn",
+    "signup_form_heading": "Finn ut når vi er åpne",
+    "signup_form_email_label": "E-post",
+    "signup_form_email_placeholder": "Din e-post",
+    "signup_form_submit": "Send inn",
+    "signup_form_success": "Vi sender deg en e-post rett før vi åpner!",
+    "admin_link_html": "Er du butikkeieren? <a href=\"\/admin\">Logg in her<\/a>",
+    "password_link": "Gå inn ved å skrive inn et passord",
+    "powered_by_shopify_html": "Denne butikken vil være drevet av {{ shopify }}"
+  }
+}

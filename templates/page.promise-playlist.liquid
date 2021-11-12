@@ -1,0 +1,160 @@
+<div class="shopify-section section-w-margin section-w-mobile-padding" id="section-{{ page.title | handle }}">
+  <div class="section-header five-tenths lap--full-width push-left-one-tenth lap--push-left-none">
+<!--     <h1 class="section-header__title h1">{{ page.title | escape }}</h1> -->
+  </div>
+  <div class="five-tenths lap--full-width push-left-one-tenth lap--push-left-none">
+    <div class="rte">
+        <div id="shopify-section-163294039134ad1f2b" class="shopify-section"><div class="custom-search" style="display: block;">
+    <div class="main-filter">
+
+    <form class="filter-form" action="search" autocomplete="off">
+        <button type="submit"><img src="//cdn.shopify.com/s/files/1/0575/8815/4557/t/4/assets/search-icon.png?v=6764782664197292930
+                      //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/search-icon.png?42"></button>   <div class="search-cancel" onclick="document.getElementById('searchBox').value = ''">x</div>  <input type="text" placeholder="Search Bible Promise or Topic" name="search" class="search-a" id="searchBox" style="border: 2px solid rgb(121, 184, 187);"> <br>
+
+        <div class="form-switch">
+            <label class="switch">
+                <input type="checkbox" id="studyMode" name="study">
+                <span class="slider round"></span> 
+            </label> <span class="filter-type"> Study Mode </span>
+        </div>
+    </form>
+    </div>
+
+ <div class="study-info" id="info-about-btn">
+        <span class="info-content">i</span>
+    </div>
+
+    
+  
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  
+  jQuery(function(){
+      jQuery("#custom-search-icon").click(function() {
+        jQuery(".custom-search").toggle();
+        jQuery(".search-filter").toggle();
+        jQuery(".search-a").css("border", "2px solid #79B8BB");
+    });
+  });
+  
+  
+  // Handle form submit
+  document.querySelector('.filter-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+    const study = document.getElementById('studyMode');
+    const isStudy = study.checked;
+    const searchBox = document.getElementById('searchBox');
+    let redirect = isStudy ? '/pages/study-mode' : '/search';
+    redirect += '?search=' + searchBox.value;
+    window.location.href = redirect;
+  });
+  
+  document.getElementById('studyMode').addEventListener('change', (e) => {
+    const searchLinkContainers = document.querySelectorAll('.search-filter-link');
+    
+    for (const linkContainer of searchLinkContainers) {
+      const searchLinks = linkContainer.querySelectorAll('a');
+    
+      for (const link of searchLinks) {
+        const sides = link.href.split('?');
+        const page = e.target.checked ? '/pages/study-mode' : '/search';
+        link.href = page + '?' + sides[1];
+      }
+    }
+  });
+  
+  jQuery(function(){
+  
+  jQuery("#searchBox").keyup(function () {
+       if (jQuery(this).val()) {
+          jQuery(".search-cancel").show();
+       }
+       else {
+          jQuery(".search-cancel").hide();
+       }
+    });
+    jQuery(".search-cancel").click(function () {
+       jQuery("#searchBox").val('');
+       jQuery(this).hide();
+    });
+
+  });
+  
+  
+  $('#info-about-btn, .study-info').click(function(){
+      $('.study-info-about').toggle('slow');
+  });
+  
+  $('.study-infos').click(function(){
+      $('.study-info-about').hide('slow');
+  }); 
+  
+  
+   jQuery('.ctm-plan').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    jQuery('.ctm-main-menu').removeClass('ctm-menu-active');
+    jQuery('.ctm-plan-menu').addClass('ctm-menu-active');
+});
+  
+  jQuery('.ctm-shop').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    jQuery('.ctm-main-menu').removeClass('ctm-menu-active');
+    jQuery('.ctm-shop-menu').addClass('ctm-menu-active');
+});
+  
+   jQuery('.ctm-shop-menu .ctm-header').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    jQuery('.ctm-shop-menu').removeClass('ctm-menu-active');
+    jQuery('.ctm-main-menu').addClass('ctm-menu-active');
+});
+  
+  jQuery('.ctm-plan-menu .ctm-header').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    jQuery('.ctm-plan-menu').removeClass('ctm-menu-active');
+    jQuery('.ctm-main-menu').addClass('ctm-menu-active');
+}); 
+</script>
+</div>
+        <div class="row">
+          <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/boxes.png?v=1635338972" class="box-img-setting" />
+            <div class="col-md-12">
+                <h3 class="main-text pt-10 your-promise">PEACE</h3>
+                <h5 class="main-text pt-10 choose-topic">PROMISE PLAYLIST</h5>
+            </div>
+        </div>  
+    </div>
+  </div>
+</div>
+<section class="main-sec pb-30" style="margin-top: 0;">
+    <div class="col-md-12">
+      <div class="profile-kid">
+          <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/profile_1ceefde6-3b11-42f1-9469-983be1612196.png?v=1635936679" alt="" class="kid-img-setting">
+          <p class="kid-text">Seepod Kids</p>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/voice.jpg?v=1635334998" alt="" class="radio-setting">
+        </div>  
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/voice.jpg?v=1635334998" alt="" class="radio-setting">
+        </div>  
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/voice.jpg?v=1635334998" alt="" class="radio-setting">
+        </div>  
+    </div>
+</section>
+<div class="bottom-section width-100 display-block p-20">
+  <div class="bottom-buyitnow display-block text-cente custom-setting-for-this">
+    <span class="area-setting color-changer"><i class="fa fa-play" aria-hidden="true"></i></span>
+    <h5 class="play-all color-changer">Play All Recorded Memory Verses <span class="end-float"><img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/share.png?v=1635267376" alt="" class="share-setting">
+</span>
+</h5>
+  </div>
+</div>

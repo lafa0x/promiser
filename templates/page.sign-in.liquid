@@ -1,0 +1,72 @@
+<div class="main-handling-login-form">
+  <div class="row">
+    <div class="first-sec-form">
+      <div class="form-logo">
+      {{ 'Promiser__Logo_Horizontal_White_for_Dark_BG_Gradient_1.png' | asset_url | img_tag }}
+      </div>
+    </div>  
+  </div>
+  <div class="row">
+    <div class="second-sec">
+      <h2>To Sign In</h2>
+      <h3>Enter Your Email and Password</h3>
+    </div>  
+  </div>
+  <div class="row">
+    <div class="fourth-sec">
+      <input type="email" placeholder="Email" name="" class="email-for-login generic-style">
+    </div>  
+  </div>
+  <div class="row">
+    <div class="fifth-sec">
+      <input id="password-field" type="password" class="form-control generic-style" name="password" placeholder="Password" value="">
+      <!-- <span toggle="#password-field" class="fas fa-eye fa-eye field-icon toggle-password click-me-show"></span> -->
+      <!-- <input type="password" placeholder="Password" name="" class="generic-style" id="password-field"> -->
+      <a href="#" class="click-me-show"><img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/show.png?v=1636024156" name="null" class="fas fa-eye fa-eye field-icon toggle-password click-me-show eye-show-hide sign-in-eye"  toggle="#password-field"></a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="six-sec">
+      <p>Forgot your password?</p>
+    </div>  
+  </div>
+  <div class="row">
+    <div class="seven-sec">
+      <button type="submit" class="mr-jenkins-save-changes">Sign In</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="eight-sec">
+      <button type="button" class="mr-jenkins-save-changes color-scheeme-fb"><i class="fab fa-facebook-f"></i>&nbsp;&nbsp;Continue With Facebook</button>
+    </div>  
+  </div>
+  <div class="row">
+    <div class="nine-sec">
+      <button type="button" class="mr-jenkins-save-changes color-scheeme-google"><i class="fab fa-google"></i>&nbsp;&nbsp;Continue With google</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="tenth-sec">
+      <h4 class="dont-acount">Don’t have an account?&nbsp;&nbsp;<a  href="#" class="sign-up-please">Sign Up</a></h4>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+  jQuery(document).ready(function($){
+
+  $(".click-me-show").click(function() {
+
+    $(this).toggleClass("fa-eye fa-eye-slash");
+    var input = $($(this).attr("toggle"));
+    if (input.attr("type") == "password") {
+      input.attr("type", "text");
+      $(this).attr("src", "{{ 'eye_icons-03.png' | asset_url }}");
+    } else {
+      $(this).attr("src", "https://cdn.shopify.com/s/files/1/0575/8815/4557/files/show.png?v=1636024156");
+      input.attr("type", "password");
+      
+    }
+  });
+  });
+</script>
