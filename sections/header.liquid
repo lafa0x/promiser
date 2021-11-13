@@ -2,7 +2,7 @@
 
 
 
-<header class="header-holder">
+<header class="mobile-header-holder header-holder">
 
   <div class="header wrapper {% unless section.settings.show_icon_labels %} header--wout-icon-labels {% endunless %}">
 
@@ -83,6 +83,30 @@
 
   <div class="header wrapper {% unless section.settings.show_icon_labels %} header--wout-icon-labels {% endunless %}">
 
+    
+    <div id="logo" class="logo" tabindex="-1">
+
+      {%- if template == 'index' -%}<h1>{%- endif -%}
+
+        {%- if section.settings.logo_src -%}
+
+          {%- render 'head-size', logo: section.settings.logo_src, logo_height: section.settings.logo_height -%}
+          <a class="logo-img" title="{{ shop.name | escape }}" href="{{ routes.root_url }}" style="height:var(--header-logo);display:flex;align-items:center" tabindex="3">
+            <img src="{{ section.settings.logo_src | img_url: 'master' }}" alt="{{ shop.name | escape }}" style="max-height:{{ section.settings.logo_height }}px" width="{{ section.settings.logo_src.width }}" height="{{ section.settings.logo_src.height }}" />
+          </a>
+
+        {% else %}
+
+          {%- render 'head-size', logo: false, logo_height: section.settings.logo_height -%}
+          <a class="logo-txt" title="{{ shop.name | escape }}" href="{{ routes.root_url }}" tabindex="3">{{ shop.name | escape }}</a>
+
+        {% endif %}
+
+      {%- if template == 'index' -%}</h1>{%- endif -%}
+    
+    </div>
+
+
   <ul class="custom-main-nav desktoprr">
      <li>   
      <a href="#" class="custom-menu-link">
@@ -134,31 +158,12 @@
      </li> 
     
     </ul>
-    
-    <div id="logo" class="logo" tabindex="-1">
 
-      {%- if template == 'index' -%}<h1>{%- endif -%}
+  {%- render 'search-box' -%}
 
-        {%- if section.settings.logo_src -%}
-
-          {%- render 'head-size', logo: section.settings.logo_src, logo_height: section.settings.logo_height -%}
-          <a class="logo-img" title="{{ shop.name | escape }}" href="{{ routes.root_url }}" style="height:var(--header-logo);display:flex;align-items:center" tabindex="3">
-            <img src="{{ section.settings.logo_src | img_url: 'master' }}" alt="{{ shop.name | escape }}" style="max-height:{{ section.settings.logo_height }}px" width="{{ section.settings.logo_src.width }}" height="{{ section.settings.logo_src.height }}" />
-          </a>
-
-        {% else %}
-
-          {%- render 'head-size', logo: false, logo_height: section.settings.logo_height -%}
-          <a class="logo-txt" title="{{ shop.name | escape }}" href="{{ routes.root_url }}" tabindex="3">{{ shop.name | escape }}</a>
-
-        {% endif %}
-
-      {%- if template == 'index' -%}</h1>{%- endif -%}
-    
-    </div>
 
   
-    <div class="">
+    <div class="right-icons">
       <ul>
 <!--         <li>
           <a {% if settings.predictive_search_enabled and template != 'search' %} id="search-open-button" aria-expanded="false" aria-controls="site-search-sidebar" {% endif %} class="menu-meta__link" href="{{ routes.search_url }}">
@@ -673,6 +678,34 @@
   </div>
 
 {%- endif -%}
+
+<style>
+
+
+@media (min-width: 992px) {
+
+    header.desktop-header-holder.header-holder .logo {
+        position: static;
+        width: 60px;
+        order: unset;
+    }
+
+    header.desktop-header-holder.header-holder .custom-search {
+        display: block !important;
+        width: 450px;
+    }
+
+    .mobile-header-holder {
+        display: none !important;
+    }
+
+    header.desktop-header-holder.header-holder .custom-search .main-filter {
+        background-color: transparent !important;
+    }
+
+}
+
+</style>
 
 {% schema %}
   {
