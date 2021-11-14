@@ -1,6 +1,145 @@
-<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"  crossorigin="anonymous"/>
+
+<style>
+
+  @media (min-width: 992px) {
+
+      body { 
+        margin-top: 0;
+        padding-top: 0;   
+      }
+
+      .header-holder { position: static; }
+
+      .custom-main-nav.desktoprr .active.custom-menu-link {
+          padding: 8px 5px;
+          border-bottom: 4px solid;
+          border-color: #79B8BB;
+      }
+
+      .custom-main-nav.desktoprr .active.custom-menu-link span {
+          color: #79B8BB;
+      }
+
+      .custom-main-nav.desktoprr li {
+        padding-right: 19px;
+      }
+
+      .desktop-header-holder {
+        padding: 9.5px 0;
+      }
+
+      .desktop-header-holder > .wrapper {
+        padding-left: 38px;
+        padding-right: 38px;
+      }
+      
+      header.desktop-header-holder.header-holder .logo {
+          position: static;
+          order: unset;
+          margin-right: 24px;
+      }
+
+      header.desktop-header-holder.header-holder .custom-search {
+          position: relative;
+          display: flex !important;
+      }
+
+      .mobile-header-holder {
+          display: none !important;
+      }
+
+      header.desktop-header-holder.header-holder .custom-search .main-filter {
+          background-color: transparent !important;
+      }
+
+      .header__logo_navs {
+        display: flex;
+        padding-top: 6px;
+      }
+
+      .desktop-header-holder .custom-search .search-a {
+          width: 200px;
+          padding-left: 20px;
+          height: 40px;
+          margin-top: -8px;
+          font-size: 10px;
+      }
+
+      .desktop-header-holder .filter-form {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+      }
+
+      .desktop-header-holder .filter-form .filter-type {
+          position: relative;
+          top: -5px;
+          padding-right: 0;
+      }
+
+      .desktop-header-holder .main-filter button {
+          display: none;
+          top: 8px;
+          right: -38px;
+          padding: 0 !important;
+      }
+
+      .right-icons_navs { padding-top: 10px; }
+
+      .right-icons_navs li:last-child { padding-right: 0; }
+
+      .desktop-header-holder .main-filter {
+          margin: 0;
+          padding: 0;
+      }
+
+      .desktop-header-holder .study-info {
+          position: static;
+          margin-top: 5px;
+      }
+
+      .desktop-header-holder .main-filter .form-switch {
+          padding: 8px 10px 0;
+      }
+
+      .custom-main-nav.desktoprr #custom-search-icon,
+      .custom-main-nav.desktoprr #cart-open-button {
+          margin-top: 5px;
+      }
+
+      .header__logo_navs .custom-menu-link,
+      .right-icons_navs .custom-menu-link span,
+      .header__logo_navs ul li a,
+      .header__logo_navs ul li i {
+          font-size: 15px;
+      }
+      
 
 
+  }
+
+  @media (min-width: 1200px) {
+
+      header.desktop-header-holder.header-holder .custom-search {
+          width: 450px;
+      }
+
+      .desktop-header-holder .custom-search .search-a {
+          width: 278px;
+      }
+
+      header.desktop-header-holder.header-holder .logo {
+          margin-right: 48px;
+      }
+
+      .desktop-header-holder > .wrapper {
+        padding-left: 48px;
+        padding-right: 48px;
+      }
+
+  }
+
+</style>
 
 <header class="mobile-header-holder header-holder">
 
@@ -37,7 +176,7 @@
 
     <div class="menu-meta">
       <ul>
-<!--         <li>
+    <!--   <li>
           <a {% if settings.predictive_search_enabled and template != 'search' %} id="search-open-button" aria-expanded="false" aria-controls="site-search-sidebar" {% endif %} class="menu-meta__link" href="{{ routes.search_url }}">
             <span class="menu-meta__icon" aria-label="{{ 'general.menu.search_title' | t }}">
               {%- render 'theme-symbols', icon: 'user' -%}
@@ -77,95 +216,105 @@
 </header>
 
 
-
-
 <header class="desktop-header-holder header-holder">
 
   <div class="header wrapper {% unless section.settings.show_icon_labels %} header--wout-icon-labels {% endunless %}">
 
     
-    <div id="logo" class="logo" tabindex="-1">
-
-      {%- if template == 'index' -%}<h1>{%- endif -%}
-
-        {%- if section.settings.logo_src -%}
-
-          {%- render 'head-size', logo: section.settings.logo_src, logo_height: section.settings.logo_height -%}
-          <a class="logo-img" title="{{ shop.name | escape }}" href="{{ routes.root_url }}" style="height:var(--header-logo);display:flex;align-items:center" tabindex="3">
-            <img src="{{ section.settings.logo_src | img_url: 'master' }}" alt="{{ shop.name | escape }}" style="max-height:{{ section.settings.logo_height }}px" width="{{ section.settings.logo_src.width }}" height="{{ section.settings.logo_src.height }}" />
-          </a>
-
-        {% else %}
-
-          {%- render 'head-size', logo: false, logo_height: section.settings.logo_height -%}
-          <a class="logo-txt" title="{{ shop.name | escape }}" href="{{ routes.root_url }}" tabindex="3">{{ shop.name | escape }}</a>
-
-        {% endif %}
-
-      {%- if template == 'index' -%}</h1>{%- endif -%}
+  <div class="header__logo_navs">
     
+    <div id="logo" class="logo">
+          
+          
+      <a class="logo-img" title="{{ shop.name | escape }}" href="{{ routes.root_url }}" style="height:var(--header-logo);display:flex;align-items:center" tabindex="3">
+        
+        {% comment %} 
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M18 17.0145H17.1422C17.1422 10.7004 14.1898 4.80601 9.24975 1.23761L8.9992 1.05648L8.74864 1.23761C3.80698 4.80282 0.856193 10.7004 0.856193 17.0145H0C0 10.4299 3.08245 4.26819 8.24674 0.542601L8.9992 0L9.75166 0.542601C12.7695 2.71939 15.0763 5.72923 16.4727 9.16038C17.484 11.6553 18.0027 14.3224 18 17.0145ZM15.4287 17.0141H16.2857C16.286 14.1644 15.652 11.3504 14.4297 8.77616C13.2283 6.25381 11.4601 4.04339 9.263 2.31761L8.99968 2.11254L8.73636 2.31761C6.53974 4.04384 4.77155 6.25415 3.56968 8.77616C2.34776 11.3505 1.71378 14.1645 1.71367 17.0141H2.57066C2.57066 11.616 4.96768 6.48047 8.99968 3.20332C13.0349 6.48127 15.4287 11.616 15.4287 17.0141ZM14.5711 17.0149H13.7133C13.7133 12.6366 12.0001 8.46494 8.99907 5.50298C5.99801 8.46494 4.28482 12.6366 4.28482 17.0149H3.43102C3.43102 12.26 5.35486 7.73323 8.70941 4.59571L9.00226 4.32202L9.29511 4.59571C12.6465 7.73323 14.5711 12.26 14.5711 17.0149ZM11.9985 17.014H12.8555C12.8555 13.3555 11.6027 9.84212 9.327 7.12353L8.99825 6.73094L8.6695 7.12353C6.39457 9.84611 5.141 13.3595 5.141 17.018H5.99799C5.99799 13.7369 7.06005 10.5858 8.99825 8.08106C10.9365 10.5858 11.9985 13.7369 11.9985 17.014ZM10.2872 17.0149H11.1442C11.1503 14.6259 10.5407 12.2757 9.37431 10.1909L9.00088 9.52857L8.62744 10.1909C7.46164 12.2759 6.85239 14.626 6.8584 17.0149H7.71539C7.7116 15.0463 8.15095 13.102 9.00088 11.3263C9.85142 13.1018 10.2911 15.0462 10.2872 17.0149ZM9.00052 13.773C9.28572 14.8298 9.4298 15.9197 9.42901 17.0143H8.57202C8.57164 15.9197 8.71571 14.8299 9.00052 13.773Z" fill="white"/>
+        </svg>
+         {% endcomment %}
+
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 225.6 213.3">
+          <defs>
+            <radialGradient id="radial-gradient" cx="0.498" cy="-0.004" r="0.994" gradientTransform="translate(0.027) scale(0.945 1)" gradientUnits="objectBoundingBox">
+              <stop offset="0.66" stop-color="#fff"/>
+              <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <g id="Promiser__Logo_Icon_White_for_Dark_BG_Gradient" transform="translate(-72.6 -89.4)">
+            <path id="Path_1" data-name="Path 1" d="M233.8,302.6H223.1c0-41.1-13.3-80.6-37.6-111.9-24.3,31.4-37.6,70.9-37.6,112H137.2c0-45.9,15.7-89.9,44.2-124l4.1-4.9,4.1,4.9C218,212.7,233.8,256.8,233.8,302.6Zm-21.6,0H201.5a165.906,165.906,0,0,0-16.1-71.3,163.053,163.053,0,0,0-16.1,71.3H158.6a174.157,174.157,0,0,1,22.2-85.5l4.7-8.3,4.7,8.3A173.962,173.962,0,0,1,212.2,302.6Zm43,0H244.4c0-54.9-21.5-107.1-59.1-144.3-37.6,37.1-59.1,89.4-59.1,144.3H115.6c0-59.6,24.1-116.3,66.1-155.6l3.7-3.4,3.7,3.4C231.1,186.3,255.2,243,255.2,302.6Zm21.6,0H266c0-67.6-30-132-80.6-173.1-50.5,41.1-80.6,105.4-80.6,173.1H94.1a239.212,239.212,0,0,1,23.3-103.2,226.722,226.722,0,0,1,64.8-80.9l3.3-2.6,3.3,2.6a227.8,227.8,0,0,1,64.8,80.9A242.032,242.032,0,0,1,276.8,302.6Zm21.4,0H287.4c0-79.1-37-153-98.9-197.7l-3.1-2.3-3.1,2.3c-61.9,44.7-98.9,118.6-98.9,197.7H72.6c0-82.5,38.6-159.7,103.4-206.4l9.4-6.8,9.4,6.8c37.8,27.3,66.7,65,84.2,108A259.716,259.716,0,0,1,298.2,302.6Zm-107.4,0a154.534,154.534,0,0,0-5.4-40.6,154.533,154.533,0,0,0-5.4,40.6Z" fill="url(#radial-gradient)"/>
+          </g>
+        </svg>
+
+
+      </a>
+
+      {% comment }
+
+        {%- if template == 'index' -%}<h1>{%- endif -%}
+
+          {%- if section.settings.desktop_logo_src -%}
+
+            {%- render 'head-size', logo: section.settings.desktop_logo_src, logo_height: section.settings.logo_height -%}
+            <a class="logo-img" title="{{ shop.name | escape }}" href="{{ routes.root_url }}" style="height:var(--header-logo);display:flex;align-items:center" tabindex="3">
+              <img src="{{ section.settings.desktop_logo_src | img_url: 'master' }}" alt="{{ shop.name | escape }}" style="max-height:{{ section.settings.logo_height }}px" width="{{ section.settings.desktop_logo_src.width }}" height="{{ section.settings.desktop_logo_src.height }}" />
+            </a>
+
+          {% else %}
+
+            {%- render 'head-size', logo: false, logo_height: section.settings.logo_height -%}
+            <a class="logo-txt" title="{{ shop.name | escape }}" href="{{ routes.root_url }}" tabindex="3">{{ shop.name | escape }}</a>
+
+          {% endif %}
+
+        {%- if template == 'index' -%}</h1>{%- endif -%}
+      
+      {% endcomment %}
+
+
     </div>
 
 
-  <ul class="custom-main-nav desktoprr">
-     <li>   
-     <a href="#" class="custom-menu-link">
-        <span class="ctm-text"> Home </span>
-     </a> 
-     </li>    
-    
-        <li>   
-     <a href="#" class="custom-menu-link">
-        <span class="ctm-text">  Dashboard  </span>
-     </a> 
-     </li> 
-    
-  <li>     
-<div class="plane-dropdown">
-  <a class="plane-dropbtn">Plane <i class="fas fa-angle-down"></i></a>
-  <div class="plane-dropdown-content">
-  <ul>
-<li><a href="#">For You</a></li>
-<li><a href="#"> For A Child </a></li>
-<li><a href="#"> For A Friend </a></li>
-</ul>
-  </div>
-</div>        
-    </li>  
-    
-        <li>   
-     <a href="#" class="custom-menu-link">
-        <span class="ctm-text">  Shop  </span>
-     </a> 
-     </li> 
-    
-        <li>   
-     <a href="#" class="custom-menu-link">
-        <span class="ctm-text">  Blog  </span>
-     </a> 
-     </li> 
-    
-        <li>   
-     <a href="#" class="custom-menu-link">
-        <span class="ctm-text">  About </span>
-     </a> 
-     </li> 
-    
-        <li>   
-     <a href="#" class="custom-menu-link">
-        <span class="ctm-text">  help </span>
-     </a> 
-     </li> 
-    
+    <ul class="custom-main-nav desktoprr">
+      <li>   
+      <a href="#" class="active custom-menu-link">
+          <span class="ctm-text"> Home </span>
+      </a> 
+      </li>    
+      
+          <li>   
+      <a href="#" class="custom-menu-link">
+          <span class="ctm-text">  Dashboard  </span>
+      </a> 
+      </li> 
+      
+      <li>     
+        <div class="plane-dropdown">
+          <a class="plane-dropbtn">Plane <i class="fas fa-angle-down"></i></a>
+          <div class="plane-dropdown-content">
+          <ul>
+          <li><a href="#">For You</a></li>
+          <li><a href="#"> For A Child </a></li>
+          <li><a href="#"> For A Friend </a></li>
+          </ul>
+          </div>
+        </div>        
+      </li>  
+      
+      <li>   
+        <a href="#" class="custom-menu-link">
+            <span class="ctm-text">  Shop  </span>
+        </a> 
+      </li> 
     </ul>
 
+  </div>
+  
   {%- render 'search-box' -%}
 
-
-  
-    <div class="right-icons">
-      <ul>
-<!--         <li>
+    <div class="right-icons_navs">
+      <ul class="custom-main-nav desktoprr">
+        <!-- <li>
           <a {% if settings.predictive_search_enabled and template != 'search' %} id="search-open-button" aria-expanded="false" aria-controls="site-search-sidebar" {% endif %} class="menu-meta__link" href="{{ routes.search_url }}">
             <span class="menu-meta__icon" aria-label="{{ 'general.menu.search_title' | t }}">
               {%- render 'theme-symbols', icon: 'user' -%}
@@ -173,31 +322,74 @@
             <span class="lap--hide menu-meta__text">{{ 'general.menu.search_title' | t }}</span>
           </a>
         </li> -->
-        
-        <li  id="custom-search-icon">
+
+      <li>   
+        <a href="#" class="custom-menu-link">
+            <span class="ctm-text">  Blog  </span>
+        </a> 
+      </li> 
+      <li>   
+        <a href="#" class="custom-menu-link">
+            <span class="ctm-text"> About Us</span>
+        </a> 
+      </li>  
+      <li>   
+        <a href="#" class="custom-menu-link">
+            <span class="ctm-text">  Help </span>
+        </a> 
+      </li> 
+      <li  id="custom-search-icon">
           <a href="#">
-          	<svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.56334 0.819824C13.228 0.819824 17.0223 4.61411 17.0223 9.27878C17.0223 11.4796 16.1777 13.4868 14.7956 14.9932L17.5152 17.7071C17.7697 17.9616 17.7706 18.3733 17.516 18.6278C17.3892 18.7564 17.2216 18.8198 17.0548 18.8198C16.8889 18.8198 16.7221 18.7564 16.5944 18.6296L13.842 15.8849C12.3942 17.0444 10.5584 17.7386 8.56334 17.7386C3.89867 17.7386 0.103516 13.9435 0.103516 9.27878C0.103516 4.61411 3.89867 0.819824 8.56334 0.819824ZM8.56334 2.12281C4.61704 2.12281 1.4065 5.33248 1.4065 9.27878C1.4065 13.2251 4.61704 16.4356 8.56334 16.4356C12.5088 16.4356 15.7193 13.2251 15.7193 9.27878C15.7193 5.33248 12.5088 2.12281 8.56334 2.12281Z" fill="url(#paint0_linear_839:1593)"/>
+            <svg width="15" height="18" viewBox="0 0 15 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7.2 11.8565C11.1048 11.8565 14.4 12.491 14.4 14.9391C14.4 17.388 11.0832 18 7.2 18C3.29614 18 0 17.3655 0 14.9175C0 12.4685 3.31684 11.8565 7.2 11.8565ZM7.2 0C9.84519 0 11.9646 2.11862 11.9646 4.76195C11.9646 7.40527 9.84519 9.5248 7.2 9.5248C4.55571 9.5248 2.43541 7.40527 2.43541 4.76195C2.43541 2.11862 4.55571 0 7.2 0Z" fill="url(#paint0_linear_4167_16452)"/>
             <defs>
-            <linearGradient id="paint0_linear_839:1593" x1="0.103516" y1="0.819824" x2="19.5067" y2="3.03228" gradientUnits="userSpaceOnUse">
+            <linearGradient id="paint0_linear_4167_16452" x1="0" y1="0" x2="15.9403" y2="1.48688" gradientUnits="userSpaceOnUse">
             <stop stop-color="#79B8BB"/>
             <stop offset="0.989583" stop-color="#8DADA0"/>
             </linearGradient>
             </defs>
             </svg>
-
           </a>
-        </li>
+      </li>
         
-        <li>
+      <li>
           <a {% unless template == 'cart' or settings.cart_action == 'no-overlay' %} id="cart-open-button" aria-expanded="false" aria-controls="site-cart-sidebar" {% endunless %} class="menu-meta__link" href="{{ routes.cart_url }}">
             <span class="menu-meta__icon" aria-label="{{ 'general.menu.cart_title' | t }}" style="margin-top: -1px;">
               {%- render 'theme-symbols', icon: 'cart-new' -%}
+
+              {% comment %} <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.94575 7.62926C2.13415 5.98855 3.52305 4.75 5.17454 4.75H10.6821C12.3168 4.75 13.6972 5.96432 13.9056 7.58577L14.9664 15.8407C15.0624 16.5881 14.4801 17.25 13.7265 17.25H2.24279C1.49594 17.25 0.915755 16.5994 1.00095 15.8574L1.94575 7.62926Z" fill="url(#paint0_linear_4167_16456)" stroke="url(#paint1_linear_4167_16456)" stroke-width="1.5"/>
+                <mask id="path-2-inside-1_4167_16456" fill="white">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.9998 4H12.4412C13.4472 4 14.2966 4.74727 14.4248 5.74509L15.7099 15.7451C15.8636 16.941 14.932 18 13.7262 18H2.24244C1.04748 18 0.11918 16.959 0.255495 15.7718L1.40375 5.77185C1.51968 4.76219 2.3744 4 3.39069 4H3.99982C3.99982 1.79086 5.79068 0 7.99982 0C10.209 0 11.9998 1.79086 11.9998 4ZM10.4998 4C10.4998 2.61929 9.38054 1.5 7.99982 1.5C6.61911 1.5 5.49982 2.61929 5.49982 4H10.4998ZM3.39069 5.5H12.4412C12.6927 5.5 12.905 5.68682 12.9371 5.93627L14.2221 15.9363C14.2605 16.2353 14.0276 16.5 13.7262 16.5H2.24244C1.9437 16.5 1.71162 16.2398 1.7457 15.943L2.89396 5.94296C2.92294 5.69055 3.13662 5.5 3.39069 5.5Z"/>
+                </mask>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.9998 4H12.4412C13.4472 4 14.2966 4.74727 14.4248 5.74509L15.7099 15.7451C15.8636 16.941 14.932 18 13.7262 18H2.24244C1.04748 18 0.11918 16.959 0.255495 15.7718L1.40375 5.77185C1.51968 4.76219 2.3744 4 3.39069 4H3.99982C3.99982 1.79086 5.79068 0 7.99982 0C10.209 0 11.9998 1.79086 11.9998 4ZM10.4998 4C10.4998 2.61929 9.38054 1.5 7.99982 1.5C6.61911 1.5 5.49982 2.61929 5.49982 4H10.4998ZM3.39069 5.5H12.4412C12.6927 5.5 12.905 5.68682 12.9371 5.93627L14.2221 15.9363C14.2605 16.2353 14.0276 16.5 13.7262 16.5H2.24244C1.9437 16.5 1.71162 16.2398 1.7457 15.943L2.89396 5.94296C2.92294 5.69055 3.13662 5.5 3.39069 5.5Z" fill="url(#paint2_linear_4167_16456)"/>
+                <path d="M11.9998 4H10.9998V5H11.9998V4ZM14.4248 5.74509L15.4167 5.61763V5.61763L14.4248 5.74509ZM15.7099 15.7451L14.718 15.8725L15.7099 15.7451ZM0.255495 15.7718L1.24897 15.8859L0.255495 15.7718ZM1.40375 5.77185L2.39722 5.88593L1.40375 5.77185ZM3.99982 4V5H4.99982V4H3.99982ZM10.4998 4V5H11.4998V4H10.4998ZM5.49982 4H4.49982V5H5.49982V4ZM12.9371 5.93627L13.9289 5.80882V5.80882L12.9371 5.93627ZM14.2221 15.9363L13.2303 16.0637L14.2221 15.9363ZM1.7457 15.943L2.73918 16.057L1.7457 15.943ZM2.89396 5.94296L3.88743 6.05704V6.05704L2.89396 5.94296ZM12.4412 3H11.9998V5H12.4412V3ZM15.4167 5.61763C15.2244 4.12091 13.9502 3 12.4412 3V5C12.9442 5 13.3689 5.37364 13.433 5.87254L15.4167 5.61763ZM16.7017 15.6176L15.4167 5.61763L13.433 5.87254L14.718 15.8725L16.7017 15.6176ZM13.7262 19C15.5348 19 16.9322 17.4115 16.7017 15.6176L14.718 15.8725C14.7949 16.4705 14.3291 17 13.7262 17V19ZM2.24244 19H13.7262V17H2.24244V19ZM-0.737977 15.6578C-0.94245 17.4385 0.450003 19 2.24244 19V17C1.64496 17 1.18081 16.4795 1.24897 15.8859L-0.737977 15.6578ZM0.410276 5.65777L-0.737977 15.6578L1.24897 15.8859L2.39722 5.88593L0.410276 5.65777ZM3.39069 3C1.86625 3 0.584179 4.14328 0.410276 5.65777L2.39722 5.88593C2.45519 5.38109 2.88255 5 3.39069 5V3ZM3.99982 3H3.39069V5H3.99982V3ZM4.99982 4C4.99982 2.34315 6.34297 1 7.99982 1V-1C5.2384 -1 2.99982 1.23858 2.99982 4H4.99982ZM7.99982 1C9.65668 1 10.9998 2.34315 10.9998 4H12.9998C12.9998 1.23858 10.7612 -1 7.99982 -1V1ZM11.4998 4C11.4998 2.067 9.93282 0.5 7.99982 0.5V2.5C8.82825 2.5 9.49982 3.17157 9.49982 4H11.4998ZM7.99982 0.5C6.06683 0.5 4.49982 2.067 4.49982 4H6.49982C6.49982 3.17157 7.1714 2.5 7.99982 2.5V0.5ZM10.4998 3H5.49982V5H10.4998V3ZM12.4412 4.5H3.39069V6.5H12.4412V4.5ZM13.9289 5.80882C13.8328 5.06046 13.1957 4.5 12.4412 4.5V6.5C12.1896 6.5 11.9773 6.31318 11.9452 6.06373L13.9289 5.80882ZM15.214 15.8088L13.9289 5.80882L11.9452 6.06373L13.2303 16.0637L15.214 15.8088ZM13.7262 17.5C14.6305 17.5 15.3292 16.7058 15.214 15.8088L13.2303 16.0637C13.1919 15.7647 13.4248 15.5 13.7262 15.5V17.5ZM2.24244 17.5H13.7262V15.5H2.24244V17.5ZM0.752231 15.8289C0.649994 16.7193 1.34622 17.5 2.24244 17.5V15.5C2.54118 15.5 2.77325 15.7602 2.73918 16.057L0.752231 15.8289ZM1.90048 5.82889L0.752231 15.8289L2.73918 16.057L3.88743 6.05704L1.90048 5.82889ZM3.39069 4.5C2.62847 4.5 1.98744 5.07164 1.90048 5.82889L3.88743 6.05704C3.85845 6.30945 3.64477 6.5 3.39069 6.5V4.5Z" fill="url(#paint3_linear_4167_16456)" mask="url(#path-2-inside-1_4167_16456)"/>
+                <defs>
+                <linearGradient id="paint0_linear_4167_16456" x1="0" y1="4" x2="17.5539" y2="6.33912" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#79B8BB"/>
+                <stop offset="0.989583" stop-color="#8DADA0"/>
+                </linearGradient>
+                <linearGradient id="paint1_linear_4167_16456" x1="0" y1="4" x2="17.5539" y2="6.33912" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#79B8BB"/>
+                <stop offset="0.989583" stop-color="#8DADA0"/>
+                </linearGradient>
+                <linearGradient id="paint2_linear_4167_16456" x1="0.242188" y1="0" x2="17.3597" y2="1.71692" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#79B8BB"/>
+                <stop offset="0.989583" stop-color="#8DADA0"/>
+                </linearGradient>
+                <linearGradient id="paint3_linear_4167_16456" x1="0.242188" y1="0" x2="17.3597" y2="1.71692" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#79B8BB"/>
+                <stop offset="0.989583" stop-color="#8DADA0"/>
+                </linearGradient>
+                </defs>
+              </svg> {% endcomment %}
+
+
               <span class="menu-meta__count">{{ cart.item_count }}</span>
             </span>
-            <span class="lap--hide menu-meta__text">{{ 'general.menu.cart_title' | t }}</span>
+            {% comment %} <span class="lap--hide menu-meta__text">{{ 'general.menu.cart_title' | t }}</span> {% endcomment %}
           </a>
-        </li>
+      </li>
       </ul>
     </div>
   </div>
@@ -678,34 +870,11 @@
   </div>
 
 {%- endif -%}
+  
+  
+</div>
 
-<style>
 
-
-@media (min-width: 992px) {
-
-    header.desktop-header-holder.header-holder .logo {
-        position: static;
-        width: 60px;
-        order: unset;
-    }
-
-    header.desktop-header-holder.header-holder .custom-search {
-        display: block !important;
-        width: 450px;
-    }
-
-    .mobile-header-holder {
-        display: none !important;
-    }
-
-    header.desktop-header-holder.header-holder .custom-search .main-filter {
-        background-color: transparent !important;
-    }
-
-}
-
-</style>
 
 {% schema %}
   {
