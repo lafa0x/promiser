@@ -43,6 +43,8 @@
 
   <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
 
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"  crossorigin="anonymous"/>
+
   {{ content_for_header }}
   
   {%- if template == 'customers/addresses' -%}
@@ -61,6 +63,8 @@
 
   {%- section 'announcement-bar' -%}
   {%- section 'header' -%}
+
+  {%- render 'search-additional-popup' -%}
 
 	<main id="main" class="page-content">
     {%- render 'breadcrumb' -%}
