@@ -80,7 +80,175 @@
   {%- endif -%}  -->
 
   
-  {%- section 'search-box' -%}
+
+<div class="custom-search">
+    <div class="main-filter">
+
+    <form class="filter-form" action="search" autocomplete="off">
+        <button type="submit"><img src="{{ 'search-icon.png' | asset_img_url: '' }}
+                      //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/search-icon.png?42" /></button>   <div class="search-cancel"  onclick="document.getElementById('searchBox').value = ''">x</div>  <input type="text"  placeholder="Search Bible Promise or Topic" name="search" class="search-a" id="searchBox"> <br>
+
+        <div class="form-switch">
+            <label class="switch">
+                <input type="checkbox" id="studyMode" name="study">
+                <span class="slider round"></span> 
+            </label> <span class="filter-type"> Study Mode </span>
+        </div>
+    </form>
+    </div>
+
+ <div class="study-info" id="info-about-btn">
+        <span class="info-content">i</span>
+    </div>
+
+    
+  
+
+</div>
+
+
+<div class="study-info-about" >
+
+      <div class="study-infos">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13.295 2.115C13.6844 1.72564 13.6844 1.09436 13.295 0.705C12.9056 0.315639 12.2744 0.315639 11.885 0.705L7 5.59L2.115 0.705C1.72564 0.315639 1.09436 0.315639 0.705 0.705C0.315639 1.09436 0.315639 1.72564 0.705 2.115L5.59 7L0.705 11.885C0.315639 12.2744 0.315639 12.9056 0.705 13.295C1.09436 13.6844 1.72564 13.6844 2.115 13.295L7 8.41L11.885 13.295C12.2744 13.6844 12.9056 13.6844 13.295 13.295C13.6844 12.9056 13.6844 12.2744 13.295 11.885L8.41 7L13.295 2.115Z" fill="url(#paint0_linear)"/>
+          <defs>
+            <linearGradient id="paint0_linear" x1="0" y1="0" x2="15.4227" y2="1.79824" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#79B8BB"/>
+              <stop offset="0.989583" stop-color="#8DADA0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>	
+      <div class="second-selection study-content-panel">
+        <span>About</span>
+        <p>{{ settings.search_info }}</p>
+      </div>
+    </div>
+
+ 
+
+<div class="search-filter">
+  <div>
+    <h5>Popular Promises</h5>
+    <div class="search-filter-link">
+      <a href="/search?search=luke 12:7">Luke 12:7</a>
+      <a href="/search?search=luke 12:7">Luke 12:7</a>
+      <a href="/search?search=luke 12:7">Luke 12:7</a>
+      <a href="/search?search=luke 12:7">Luke 12:7</a>
+      <a href="/search?search=luke 12:7">Luke 12:7</a>
+      <a href="/search?search=luke 12:7">Luke 12:7</a>
+      <a href="/search?search=luke 12:7">Luke 12:7</a>  	
+    </div>
+  </div>
+  
+  
+  <div class="popular-topics">
+    <h5>Popular Topics</h5>
+    <div class="search-filter-link">
+      <a href="/search?search=peace">Peace</a>
+      <a href="/search?search=love">Love</a>
+      <a href="/search?search=joy">Joy</a>
+      <a href="/search?search=encouragement">Encouragement</a>
+      <a href="/search?search=motivation">Motivation</a>
+      <a href="/search?search=contentment">Contentment</a>  	
+    </div>
+  </div>
+  
+  
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  
+  jQuery(function(){
+      jQuery("#custom-search-icon").click(function() {
+        jQuery(".custom-search").toggle();
+        jQuery(".search-filter").toggle();
+        jQuery(".search-a").css("border", "2px solid #79B8BB");
+    });
+  });
+  
+  
+  // Handle form submit
+  document.querySelector('.filter-form').addEventListener('submit', (e) => {
+ 	e.preventDefault();
+    const study = document.getElementById('studyMode');
+    const isStudy = study.checked;
+    const searchBox = document.getElementById('searchBox');
+    let redirect = isStudy ? '/pages/study-mode' : '/search';
+   	redirect += '?search=' + searchBox.value;
+    window.location.href = redirect;
+  });
+  
+  document.getElementById('studyMode').addEventListener('change', (e) => {
+    const searchLinkContainers = document.querySelectorAll('.search-filter-link');
+    
+    for (const linkContainer of searchLinkContainers) {
+      const searchLinks = linkContainer.querySelectorAll('a');
+    
+      for (const link of searchLinks) {
+        const sides = link.href.split('?');
+        const page = e.target.checked ? '/pages/study-mode' : '/search';
+        link.href = page + '?' + sides[1];
+      }
+    }
+  });
+  
+  jQuery(function(){
+  
+  jQuery("#searchBox").keyup(function () {
+       if (jQuery(this).val()) {
+          jQuery(".search-cancel").show();
+       }
+       else {
+          jQuery(".search-cancel").hide();
+       }
+    });
+    jQuery(".search-cancel").click(function () {
+       jQuery("#searchBox").val('');
+       jQuery(this).hide();
+    });
+
+  });
+  
+  
+  $('#info-about-btn, .study-info').click(function(){
+      $('.study-info-about').toggle('slow');
+  });
+  
+  $('.study-infos').click(function(){
+      $('.study-info-about').hide('slow');
+  }); 
+  
+  
+   jQuery('.ctm-plan').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    jQuery('.ctm-main-menu').removeClass('ctm-menu-active');
+    jQuery('.ctm-plan-menu').addClass('ctm-menu-active');
+});
+  
+  jQuery('.ctm-shop').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    jQuery('.ctm-main-menu').removeClass('ctm-menu-active');
+    jQuery('.ctm-shop-menu').addClass('ctm-menu-active');
+});
+  
+   jQuery('.ctm-shop-menu .ctm-header').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    jQuery('.ctm-shop-menu').removeClass('ctm-menu-active');
+    jQuery('.ctm-main-menu').addClass('ctm-menu-active');
+});
+  
+  jQuery('.ctm-plan-menu .ctm-header').click(function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    jQuery('.ctm-plan-menu').removeClass('ctm-menu-active');
+    jQuery('.ctm-main-menu').addClass('ctm-menu-active');
+});
+  
+  
+</script>
 
 
   
@@ -230,11 +398,11 @@
   <link rel="stylesheet" href="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.theme.default.min.css">
 
 <style>
-  
-.versions {
-  background-color: #18155f;
-  display: none;
-}
+
+
+
+
+
   
 .versions .owl-stage {
   width: unset !important;
@@ -358,6 +526,140 @@
 	    width: 100% !important;
    }
 
+
+/* Code By lafa0X */
+
+.owl-carousel .owl-stage,
+.owl-carousel .owl-stage .owl-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+
+  .versions {
+    background-color: #18155f;
+    display: none;
+  }
+
+}
+
+@media (max-width: 768px) {
+  
+  .versions {
+    background-color: #18155f;
+    display: none;
+  }
+
+ 
+  .template-search .shopify-section > #site-cart-sidebar+ .study-info-about + .search-filter {
+      display: none !important;
+  }
+
+     
+  .template-search .search-filter,
+    .custom-search {
+        display: block !important;
+    }
+
+}
+     
+  /* search-page for desktop */
+
+  @media (min-width: 992px) {
+
+    body .search-result.second-panel {
+      margin-top: 48px;
+      margin-bottom: 48px;
+      background-color: #42407a !important;
+      padding-top: 4px !important;
+    }
+
+    .custom-search {
+        display: none !important;
+    }
+
+    .template-search .search-filter {
+        position: absolute;
+        width: 695px;
+        top: 18%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        z-index: 999;
+    }
+
+  .search-result {
+      padding-top: 10px !important;
+  }
+
+  .search-page-content {
+      padding: 60px 0 160px;
+  }
+
+  .search-page-content .versions.carousel-wrap {
+    width: 675px;
+    margin: 0 auto;
+  }
+
+  .search-result .carousel-wrap {
+    width: 555px;
+    margin: 0 auto;
+  }
+
+  .versions .owl-stage {
+    width: unset !important;
+    display: flex;
+    margin-left: 30px;
+    justify-content: auto;
+    flex-wrap: nowrap;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+
+  .versions .owl-stage::-webkit-scrollbar {
+    display: none;
+  }
+  .second-panel .c-first-selection a,
+  .second-panel .second-selection {
+    background-color: #030052;
+  }
+
+  .search-result.second-panel .carousel-wrap.c-section  {
+    margin-bottom: 48px;
+  }
+
+  .second-selection {
+    height: auto;
+  }
+
+  .carousel-wrap.c-section {
+      padding-left: 20px;
+      padding-right: 45px;
+  }
+
+  .owl-carousel .owl-stage .owl-item:last-child {
+      margin-right: 0 !important;
+  }
+
+  .carousel-wrap.c-section {
+    display: flex;
+    align-content: center;
+  }
+
+  .carousel-wrap.c-section  .owl-carousel .owl-stage {
+      padding-top: 0;   
+  }
+
+
+
+
+
+
+}
+
 </style>
 
 
@@ -375,7 +677,7 @@ jQuery(document).ready(async function($) {
   const API_URL = 'https://promiser-bible-search.herokuapp.com/api/v1';
   
   const urlParams = new URLSearchParams(window.location.search);
-  const term = urlParams.get('search');
+  var term = urlParams.get('search');
   const study = !!urlParams.get('study');
   const searchVersion = urlParams.get('version') || 'FBV';
   
@@ -399,6 +701,7 @@ jQuery(document).ready(async function($) {
     return await (await fetch(URL)).json();
   }
   
+
   const [versionsResponse, versesResponse] = await Promise.all([getVersions(), getVerses()]);
   
   console.log(versionsResponse.data);
@@ -421,9 +724,21 @@ jQuery(document).ready(async function($) {
 //     versionsContainer.appendChild(div);
 //   }
   
+  // assign term like peace/love
+
   // Append the versions to the top
+  
+  var count = 0;
+
   versionsResponse.data.forEach(version => {
     const div = document.createElement('div');
+    
+    term = "peace";
+
+    if( count == 0 ){
+      var versionName = version.abbreviation;
+    }
+
     div.className = "item";
     
     const a = document.createElement('a');
@@ -433,12 +748,33 @@ jQuery(document).ready(async function($) {
     if (searchVersion === version.abbreviation) {
       a.className = 's-active';
     }
+
+    
+    const URL = window.location;
+
+    if( URL.search == '' ) {
+
+        const params = "?search=" + term + "&study=" + (study ? 'on' : '') + "&version=FBV" ;
+        const pathName = URL.pathname;
+
+      window.location.replace(URL.origin + "/search" + params);
+
+      return;
+
+    }
+
+
     
     div.appendChild(a);
     versionsContainer.appendChild(div);
+    count++;
   });
 
-  console.log(versesResponse.data);
+  //console.log(versesResponse.data);
+
+  if ( versesResponse != undefined ) {
+
+
 
   // If there was nothing found, stop and show the search bar.
   if (!versesResponse.data.length) {
@@ -446,9 +782,14 @@ jQuery(document).ready(async function($) {
     return;
   }
 
+  }
+
+
   // Append search results
   const container = document.querySelector('.search-page-content');
   const resultTemplate = document.getElementById('search-result');
+
+  if ( versesResponse != undefined ) {
 
   versesResponse.data.forEach((verse, i) => {
     const resultClone = resultTemplate.content.cloneNode(true);
@@ -490,6 +831,8 @@ jQuery(document).ready(async function($) {
 
     container.appendChild(resultClone);
   });
+
+  }
   
   // Show versions now
   document.querySelector('.versions').style.display = 'block';
@@ -598,13 +941,88 @@ jQuery(document).ready(async function($) {
       }
     }
   });
-  
+
+     
 
   
-  
-     
-  
 });
+
+
+  (function ($) {
+	  'use strict';
+
+    $.fn.loadMoreResults = function (options) {
+
+      var defaults = {
+        tag: {
+          name: 'div',
+          'class': 'search-result'
+        },
+        displayedItems: 2,
+        showItems: 2,
+        button: {
+          'class': 'slide-button button button--underline button-search-filter',
+          text: 'Get a PromiseBox For More'
+        }
+      };
+
+      var opts = $.extend(true, {}, defaults, options);
+
+      var alphaNumRE = /^[A-Za-z][-_A-Za-z0-9]+$/;
+      var numRE = /^[0-9]+$/;
+
+      $.each(opts, function validateOptions(key, val) {
+        if (key === 'tag') {
+          formatCheck(key, val, 'name', 'string');
+          formatCheck(key, val, 'class', 'string');
+        }
+        if (key === 'displayedItems') {
+          formatCheck(key, val, null, 'number');
+        }
+        if (key === 'showItems') {
+          formatCheck(key, val, null, 'number');
+        }
+        if (key === 'button') {
+          formatCheck(key, val, 'class', 'string');
+        }
+      });
+
+      function formatCheck(key, val, prop, typ) {
+        if (prop !== null && typeof prop !== 'object') {
+          if (typeof val[prop] !== typ || String(val[prop]).match(typ == 'string' ? alphaNumRE : numRE) === null) {
+            opts[key][prop] = defaults[key][prop];
+          }
+        } else {
+          if (typeof val !== typ || String(val).match(typ == 'string' ? alphaNumRE : numRE) === null) {
+            opts[key] = defaults[key];
+          }
+        }
+      };
+
+      return this.each(function (index, element) {
+        var $list = $(element),
+            lc = $list.find(' > ' + opts.tag.name + '.' + opts.tag.class).length,
+            dc = parseInt(opts.displayedItems),
+            sc = parseInt(opts.showItems);
+        
+        $list.find(' > ' + opts.tag.name + '.' + opts.tag.class + ':lt(' + dc + ')').css("display", "inline-block");
+        $list.find(' > ' + opts.tag.name + '.' + opts.tag.class + ':gt(' + (dc - 1) + ')').css("display", "none");
+
+        $list.parent().append('<div class="button-promise-bottom"><button class="slide-button button button--underline button-search-filter' + opts.button.class + '">' + opts.button.text + '</button></div>');
+        $list.parent().on("click", ".slide-button", function (e) {
+          e.preventDefault();
+          dc = (dc + sc <= lc) ? dc + sc : lc;
+          
+          $list.find(' > ' + opts.tag.name + '.' + opts.tag.class + ':lt(' + dc + ')').fadeIn();
+          if (dc == lc) {
+            $(this).hide();
+          }
+        });
+      });
+
+    };
+  })(jQuery);
+
 </script>
 
 
