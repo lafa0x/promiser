@@ -8,7 +8,7 @@
   {%- for option in product.options_with_values -%}
   	{%- assign downcased_option = option.name | downcase -%}
 
-  	<div class="product-variant" data-name="product-{{ option.name | escape | downcase | strip }}">
+  	<div class="product-variant select-sizes main-area-of-check{% if downcased_option == size %} select-sizes main-area-of-check {% endif %}" data-name="product-{{ option.name | escape | downcase | strip }}">
 
   		<span class="product-variant__name">{{ 'product.page.select' | t }} {{ option.name }}</span>
 

@@ -4,10 +4,24 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script src="https://gijsroge.github.io/owl-carousel2-thumbs/assets/OwlCarousel2Thumbs.min.js"></script>
+
+
 <style>
 .insize{
   max-width:600px;
 }
+
+.shopify-payment-button button {
+    margin-top: 8px !important;
+    border-radius: 50px !important;
+    background: linear-gradient( 90deg, #e37a65 0, #dc5594 100%) !important;
+}
+
+.product-variant__item.product-variant__item--size {
+    margin-bottom: 20px !important;
+    margin-right: 10px;
+}
+
 .owl-thumbs {
     float: left;
     position: absolute;
@@ -38,6 +52,34 @@
   left:0;
   right:0;
 }
+
+.owl-thumbs {
+    height: 480px;
+    overflow-y: scroll;::-webkit-scrollbar
+
+}
+
+.owl-thumbs::-webkit-scrollbar {
+    display: none !important;
+}
+.no-touchevents .product-variant__container .product-variant__item label:hover {
+    background: #86b1a9;
+    color: #fff;
+}
+
+#main {
+    padding-bottom: 120px !important;
+}
+
+
+#section-product {
+    margin-top: 120px;
+}
+
+
+
+
+
 </style>
 <script>
   jQuery(document).ready(function($){
@@ -56,15 +98,24 @@
     });
   });
 </script>
-<div class="pro-mb-dis">
+
+{%- assign variant = product.selected_or_first_available_variant -%}
+
+<section data-section-id="{{ section.id }}" data-section-type="product">
+
+
+<div class="wrapper">
+
+
+{% comment %} <div class="pro-mb-dis">
   <div class="product-top-section display-flex width-100 mt-30 mb-20">
   <div class="product-title-section width-80">
-      <h1 class="product-title font-size26 m-0">Promise T-Shirt</h1>
+      <h1 class="product-title font-size26 m-0">{{ product.title }}</h1>
   </div>
     <div class="product-price-section width-30 text-right">
       <span class="product-price font-size26">$12.00</span>
     </div>
-</div>
+</div> {% endcomment %}
 
 {%- assign variant = product.selected_or_first_available_variant -%}
 
@@ -181,6 +232,9 @@
 
 </div> -->
 
+
+{% comment %} 
+
 <div class="product__gallery six-tenths lap--push-left-padding smaller-lap--full-width smaller-lap--push-left-none">
 
   <div id="product-gallery-{{ section.id }}" class="product-gallery" data-video-looping="{{ section.settings.enable_video_looping }}" data-size="{{ product.media.size }}">
@@ -284,12 +338,12 @@
       <label for="Gray" class="radius-me"><span style="background:#606060;padding: 4px 8px;border-radius: 30px;margin-right: 10px;">&nbsp;</span>Gray</label>
     </div>
   </div>
-</div>
+</div> 
 
 <div class="product-about width-100 display-block text-left mt-40">
   <h1 class="font-size16 mb-15 letter-spacing2">About the Product</h1>
-  <p class="font-size14 mb-15 letter-spacing2">About the Product About the Product About the Product About the Product About the Product About the Product 
-  About the Product About the Product About the Product About the Product About the Product About the Product About the Product About the Product
+  <p class="font-size14 mb-15 letter-spacing2"> 
+  {{ product.description }}
   </p>
 </div>
 <div class="product__description five-tenths smaller-lap--full-width push-left-one-tenth lap--push-left-padding smaller-lap--push-left-none">
@@ -320,33 +374,133 @@
 </div>
 </div>
 
+{% endcomment %}
+
 <!-- desktop html starts -->
 <div class="pro-desk-dis">
   <div class="detail-area-main">
+
     <div class="container">
       <div class="row">
+
         <div class="col-md-8">
           <div class="slider-handle ml-minus">
             <div class="container insize">
+              
+              {% if product.images.size > 0 %}
+
               <div class="owl-carousel owl-theme" data-slider-id="1">
-                  <div class="item"><img src="https://cdn.pixabay.com/photo/2016/09/26/20/10/grapes-1696921__340.jpg" alt="zoom" class="alignleft size-medium wp-image-7000" /></div>
-                  <div class="item"><img src="https://cdn.pixabay.com/photo/2016/10/26/09/19/arbutus-1771003__340.jpg" alt="zoom" class="alignleft size-medium wp-image-7000" /></div>
-                  <div class="item"><img src="https://cdn.pixabay.com/photo/2018/11/30/13/33/northern-lights-3847784_960_720.jpg" alt="zoom" class="alignleft size-medium wp-image-7000" /></div>
+                
+                {% for image in product.images %}
+
+                  <div class="item">
+                    <img class="product-single__thumbnail-image alignleft size-medium wp-image-7000" src="{{ image.src | img_url: '560x560' }}" alt="{{ image.alt | escape }}">
+                  </div>
+
+                  {% comment %} <div class="item"><img src="https://cdn.pixabay.com/photo/2016/10/26/09/19/arbutus-1771003__340.jpg" alt="zoom" class="alignleft size-medium wp-image-7000" /></div> {% endcomment %}
+                  {% comment %} <div class="item"><img src="https://cdn.pixabay.com/photo/2018/11/30/13/33/northern-lights-3847784_960_720.jpg" alt="zoom" class="alignleft size-medium wp-image-7000" /></div> {% endcomment %}
+                
+                {% endfor %}
+
               </div>
+
+              {% endif %}
+ 
             </div>
           </div>  
         </div>
+
         <div class="col-md-6">
           <div class="right-side-contain">
               <div class="product-top-section display-flex width-100 mb-20">
                 <div class="product-title-section width-80">
-                    <h1 class="product-title font-size26 m-0">Promise T-Shirt</h1>
-                </div>
-                <div class="product-price-section width-30 text-right">
-                  <span class="product-price font-size26">$12.00</span>
+                    <h1 class="product-title font-size26 m-0">{{ product.title }}</h1>
                 </div>
               </div>
-              <div class="select-size width-100 display-block text-left mt-20">
+
+               {% comment %} <div class="product-price-section width-30 text-right">
+                  <span class="product-price font-size26">{{ product.price | money_with_currency }}</span>
+                </div> {% endcomment %}
+
+                <span class="product__price text-size--larger product-price-section">
+
+                  <span class="product__price--original product-price font-size26"><span class="visually-hidden">{{ 'general.accessibility_labels.price.regular' | t }}</span>{{ variant.price | money }}</span>
+                  
+                  <span class="product__price--compare font-size26">
+                    <span class="visually-hidden">{{ 'general.accessibility_labels.price.sale' | t }}</span>
+                    {%- if variant.compare_at_price > variant.price -%}
+                      {{ variant.compare_at_price | money }}
+                    {%- endif -%}
+                  </span>
+
+                </span>                
+
+              {%- form 'product', product -%}
+
+                <select class="productSelect" name="id">
+                  {% for variant in product.variants %}
+                    <option 
+                      value="{{ variant.id }}" 
+                      {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} 
+                      {% if section.settings.show_quantities and variant.inventory_management != null %} 
+                        data-quantity="{{ variant.inventory_quantity }}" 
+                        data-inventory="{{ variant.inventory_policy }}" 
+                      {% endif %} 
+                    >
+                      {{ variant.title | escape }}
+                    </option>
+                  {% endfor %}
+                </select>
+
+                <div class="product__cart-functions"> 
+
+                  {%- render 'product-variants', product: product, color_swatches: section.settings.show_color_swatches -%}
+
+                  <div class="product__cart-actions cart-actions buttons-holder">
+
+                    <div class="product__cart-actions-holder">
+
+                      {%- if section.settings.show_quantity_selector -%}
+                        <input type="number" name="quantity" value="1" min="1" class="product__quantity" aria-label="{{ 'product.page.quantity' | t }}">
+                      {%- endif -%}
+
+                      <button type="submit" name="add" class="product__add-to-cart button button--border addtocart-click">
+                        <span class="add-to-cart__text" data-add-to-cart-text="{% if product.tags contains 'preorder' %} {{ 'product.preorder.button_label' | t }} {% else %} {{ 'product.page.add_to_cart_button' | t }} {% endif %}"> {%- if product.tags contains 'preorder' -%} {{ 'product.preorder.button_label' | t }} {%- else -%} {{ 'product.page.add_to_cart_button' | t }} {%- endif -%} </span>
+                      </button>
+
+                    </div>
+                    
+                    {%- liquid
+                      unless product.tags contains 'preorder'
+                        if section.settings.enable_payment_button
+                          echo form | payment_button
+                        endif
+                      endunless
+                    -%}
+
+                    {% comment %} echo form | payment_terms {% endcomment %}
+
+
+                  </div>
+
+                  {%- if section.settings.show_quantities -%}
+                    <span class="product__variant-quantity" {% if product.tags contains 'preorder' %} style="display:none" {% endif %}></span>
+                  {%- endif -%}
+
+                  {%- if product.tags contains 'preorder' -%}
+                    <span style="display:block;margin-top:2em;width:100%;" class="text-size--smaller">{{ 'product.preorder.description' | t }}</span>
+                  {%- endif -%}
+
+                  {%- if section.settings.show_local_pickup -%}
+                    <div class="product-availability-container" data-store-availability-container data-base-url="{{ shop.url }}{{ routes.root_url }}"></div>
+                  {%- endif -%}
+
+                </div>
+
+              {%- endform -%}
+
+
+              {% comment %} <div class="select-size width-100 display-block text-left mt-20">
                 <h1 class="font-size16 mb-15 letter-spacing2">Select size of the T-shirt</h1>
                 <div class="select-sizes main-area-of-check">
                   <div class="select-size-item display-inline-block check-hanlde-main">
@@ -381,6 +535,7 @@
                   </div>
                 </h2>
               </div>
+
               <div class="select-size select-color width-100 display-block text-left mt-20">
                 <h1 class="font-size16 mb-15 letter-spacing2">Select Color</h1>
                 <div class="select-sizes main-area-of-check">
@@ -397,24 +552,27 @@
                     <label for="Gray" class="radius-me"><span style="background:#606060;padding: 4px 8px;border-radius: 30px;margin-right: 10px;">&nbsp;</span>Gray</label>
                   </div>
                 </div>
-              </div>
+              </div> {% endcomment %}
+
               <div class="product-about width-100 display-block text-left mt-40">
                 <h1 class="font-size16 mb-15 letter-spacing2">About the Product</h1>
-                <p class="font-size14 mb-15 letter-spacing2">About the Product About the Product About the Product About the Product About the Product About the Product 
-                About the Product About the Product About the Product About the Product About the Product About the Product About the Product About the Product
+                <p class="font-size14 mb-15 letter-spacing2">
+                  {{ product.description }}
                 </p>
               </div>
+
               <div class="product__description five-tenths smaller-lap--full-width push-left-one-tenth lap--push-left-padding smaller-lap--push-left-none">
                 <div class="rte">
                   {{ product.description }}
                 </div>
               </div>
-              <div class="bottom-section width-100 display-block p-20">
+
+              <div class="bottom-section width-100 d-lg-none p-20">
                 <div class="custom-handling-btn-lg add-to-cart-btn">
                   <div class="display-flex">
                     <div class="bottom-price  width-40">
                       <label class="display-block font-size14 mb-5 letter-spacing2">Price</label>
-                      <span class="display-block font-size18 letter-spacing2">$12.00</span>
+                      <span class="display-block font-size18 letter-spacing2">{{ product.price | money_with_currency }}</span>
                     </div>
                     <div class="bottom-addtocart width-60 text-right">
                       <a class="addtocart-click" id="addToCart">Add To Cart</a>
@@ -429,12 +587,20 @@
                   </div>
                 </div>
               </div>
+
             </div>
         </div>
+
       </div>
     </div>
+
   </div>
 </div>
+
+</div>
+
+</section>
+
 {% schema %}
   {
     "name": "Product",

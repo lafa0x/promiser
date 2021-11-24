@@ -1,1 +1,25 @@
 {{ content_for_index }}
+
+
+
+
+{% comment %} {{ page.handle }}
+<script>
+    const locSearch = window.location.search; 
+
+{% if page.handle != 'product' %}
+  var inputVal = locSearch.split('=').pop().replace(/%/g, ' ');
+
+  if( locSearch != "") {
+
+    $('.desktop-header-holder').find("#searchBox").val(inputVal);
+
+  }
+
+  {% endif %}
+
+
+  </script> {% endcomment %}
+
+
+  

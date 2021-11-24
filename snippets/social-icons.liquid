@@ -47,5 +47,10 @@
   {%- if settings.social_email != '' -%}
     <a href="mailto:{{ settings.social_email | escape }}" target="_blank"><span class="visually-hidden">Email</span><span class="icon" aria-hidden="true">{% render 'theme-symbols', icon: 'social_email' %}</span></a>
   {%- endif -%}
+  
+  {%- if settings.social_esty != '' -%}
+    <a href="{{ settings.social_esty | escape }}" target="_blank"><span class="icon {{ size }}" aria-hidden="true">{% render 'theme-symbols', icon: 'social_esty' %}</span><span class="social-text">Esty</span> </a>
+  {%- endif -%}
+
 
 </div>

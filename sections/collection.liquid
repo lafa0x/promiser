@@ -9,8 +9,22 @@
     <div class="col-md-12">
       <div class="custom-toggling list-handling">
         <ul class="block-display-list">
+
+          {%- for collection in collections -%}
+
+          {% if forloop.index == 1 %}
           <li class="active-link">
-            <a href="#" class="active-link">Tees</a>
+          {% else %}
+          <li>
+          {% endif %}
+            <a href="{{ collection.url }}">
+              {{ collection.title }}
+            </a>            
+          </li>
+
+          {% endfor %}
+          {% comment %} <li class="active-link">
+            <a href="#" >Tees</a>
           </li>
           <li>
             <a href="#" class="non-active-link">Stars</a>
@@ -20,7 +34,7 @@
           </li>
           <li>
             <a href="#" class="non-active-link">Bottles</a>
-          </li>
+          </li> {% endcomment %}
         </ul>
       </div>
     </div>
@@ -82,6 +96,68 @@
       </div> 
     </div>
     <div class="main-box">
+
+
+      <div class="row mt-20">
+
+      {% paginate collection.products by 20 %}
+        {% for product in collection.products %}
+          <!-- product info -->
+          {% comment %} <div class="col-md-3"> {% endcomment %}
+            <div class="product-box">
+                          
+                          
+              <a href="{{ product.url }}">
+
+                {%- render 'lazy-image', image: product.images.first, alt: product.title -%}
+                <h4 class="product-name-area">{{ product.title }}</h4>
+                
+              </a>
+              
+              <p class="product-pricing-area">
+                {%- if product.price %}
+                  <span class="product-price">{{ product.price | money_with_currency }}</span>
+                {%- endif -%}         
+                {% comment %}                               
+                {%- if product.has_variants -%}
+                  {%- assign price = product.price -%}
+                  {% if price.compare_at_price %}
+                    <span class="product-info__price--sale">
+                      <span class="money">{{ price.compare_at_price | money_with_currency: price.currency }}</span>
+                    </span>
+                  {% endif %}
+                  <span class="product-info__price--default">
+                    <span class="money">{{ price.price | money_with_currency: price.currency }}</span>
+                  </span>
+                {%- else -%}
+                  {%- assign price = product.variants.first.price -%}
+                  {% if price.compare_at_price %}
+                    <span class="product-info__price--sale">
+                      <span class="money">{{ price.compare_at_price | money_with_currency: price.currency }}</span>
+                    </span>
+                  {% endif %}
+                  <span class="product-info__price--default">
+                    <span class="money">{{ price.price | money_with_currency: price.currency }}</span>
+                  </span>
+                {%- endif -%} {% endcomment %}
+              
+              </p>
+
+
+            </div>
+          {% comment %} </div> {% endcomment %}
+
+
+        {% endfor %}
+
+        <div class="inline-flex" style="margin-top: 20px;">
+          {{ paginate | default_pagination }}
+        </div>
+      {% endpaginate %}
+
+      </div>
+      
+{% comment %} 
       <div class="row mt-20">
         <div class="col-md-3">
           <div class="product-box">
@@ -202,6 +278,8 @@
           </div>
         </div>
       </div>
+ {% endcomment %}
+
     </div>
   </div>
 </div>
@@ -236,9 +314,72 @@
 
 
 
+<style>
 
-<script>
-</script>
+
+.template-collection .shadow-handle {
+    padding-bottom: 60px;
+}
+
+.template-collection .main-box .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+
+  div#shopify-section-collection .custom-toggling ul {
+      width: 70%;
+  }
+
+  .collection__filters {
+      justify-content: center;
+  }
+
+
+  @media (min-width: 769px) {
+
+    .collection__filters {
+        justify-content: start;
+    }
+    .template-collection .main-box .row {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 20px;
+    }
+  }
+  @media (max-width: 768px) {
+
+    .template-collection .logo { display: block;}
+
+    .template-collection .section-header__title {
+        font-size: 38px !important;
+        position: static;
+        padding-top: 60px;
+        margin: 0;
+    }
+
+    .custom-toggling ul li a {
+        font-size: 12px;
+    }
+
+    .custom-toggling ul li {
+        margin: 0 10px;
+    }
+
+    div#shopify-section-collection .custom-toggling ul {
+        width: 100%;
+        overflow-x: scroll;
+    }
+
+    ul.block-display-list::-webkit-scrollbar {
+      display: none;
+    }
+
+  }
+
+
+
+</style>
 
 
 
@@ -322,3 +463,16 @@
     ]
   }
 {% endschema %}
+
+
+<script>
+
+
+
+  $('div#shopify-section-collection .custom-toggling ul li').find('a').each(function() {
+     $(this).parent().toggleClass('active-link', $(this).attr('href') == loc);
+  });
+
+
+
+</script>

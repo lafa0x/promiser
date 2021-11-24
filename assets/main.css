@@ -1,0 +1,13 @@
+@media (min-width: 992px) {
+  /*     .template-search .search-filter, */
+  .custom-search {
+    display: none !important; }
+  .template-search .search-filter {
+    position: absolute;
+    position: absolute;
+    width: 695px;
+    top: 18%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 999; } }

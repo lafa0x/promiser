@@ -22,3 +22,57 @@
   </div>
 
 </div>
+
+
+<script>
+  
+  $("a.remove").each(function () {
+	
+    const _this = this,
+          countCart = $(".menu-meta__count").html();
+    
+    const cartResult = countCart - 1;
+    
+  	_this.on("click", function(){
+
+      if ( cartResult == 0) {
+        window.location.reload()    
+      }
+
+    });
+    
+  });
+  
+  </script>
+  
+
+<style>
+.template-cart .section-header + div {
+    justify-content: center;
+}
+
+.template-cart #main .rte {
+    margin-top: 80px;
+    margin-bottom: 60px;
+}
+    .template-cart .cart-holder .rte {
+      margin: 120px auto !important;
+    }
+
+    .template-cart .cart-holder .rte {
+      text-align: center;
+    }
+
+  @media (max-width: 768px) {
+
+    .template-cart .cart-holder .rte {
+        margin: 60px auto !important;
+    }
+    
+
+
+  }
+
+
+  
+</style>

@@ -1,13 +1,57 @@
 <style> 
+  
+    
+      .col-md-4,  .col-md-6{
+        width: 100%;
+      }    
+    
+    .col-md-8{
+        width: 100%;
+        margin: 0;
+    } 
+  
+  
+  .addtocart-click { cursor: pointer; }
+  
+    #main .search-filter { 
+        display: none !important;  
+      
+    }
+    
+        
+    .showFilter #main .search-filter { 
+        display: block !important;  
+      
+    }
+
+  .social-icons a:last-child svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  .social-icons a:last-child > span:first-child {
+    background-color: #78b7ba;
+    border-radius: 5px;
+    width: 20px;
+    height: 20px;
+    margin-right: 3px;
+  }
+  
+  .button-promise-bottom,
+  #cart-open-button {
+      display: none;
+  }
 
   div#shopify-section-footer {
     display: block !important;
   }
 
-      .footer-item__title,
-      #shopify-section-footer .two-tenths .footer-item__title {
-          font-size: 16px;
-      }
+  .footer-item--menus .footer-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 15px;
+}
+
 
     .footer-item__title {
         text-transform: capitalize;
@@ -23,7 +67,54 @@
         letter-spacing: 0 !important;
     }
        
+  @media (max-width: 768px) {
+    
+    .detail-area-main .owl-carousel.owl-drag .owl-item .item { margin-right: 40px; }
+    
+    .product-title-section{ 
+      margin-top: 20px; 
+      width: 100%;
+    }
+    
+    .row {
+      display: flex;
+      flex-direction: column;
+  }
+      .owl-thumbs { display: none; }
+    .custom-handling-btn-lg { width: 100%; }
+    .cart-me,
+    #section-product { margin-top: 60px; }
+  section > .wrapper {
+      padding: 0;
+  }
+
+  .detail-area-main .container {
+      padding: 0;
+  }
+
+    
+    .vertical-slider .slide-heading {
+        width: 100%;
+    }
+
+    .blog-slider__images {
+      align-items: stretch;
+    }
+
+  }
+
   @media (min-width: 769px) {
+
+    
+      .col-md-4{
+        width: 33%;
+      }    
+    
+    .col-md-8{
+        width: 66%;
+        margin: 0px;
+    }
+
 
     .template-index .page-content {
       padding-top: 60px;
@@ -32,9 +123,14 @@
       #shopify-section-footer {
           display: block !important;
           width: 100% !important;
-          padding: 64px 0;
+          padding: 64px 0 115px 0;
       }
 
+      #shopify-section-footer .two-tenths .footer-item__title {
+          font-size: 16px;
+      }
+
+      .footer-item__title,
       #shopify-section-footer .two-tenths .footer-item__title {
           font-size: 16px;
       }
@@ -44,11 +140,36 @@
           margin: 0 auto;
       }
 
+      .footer-item--menus .footer-links>span {
+          margin-top: 0;
+      }
+
+          
+        #shopify-section-footer footer{
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-column-gap: 155px;      
+          
+        }
+
+
+
+
+        footer .footer-item {
+            margin: 0;
+            width: 140%;  
+        }
+
+        footer .push-left-two-tenths {
+            margin-left: 0;
+        }
    
   }
 
    @media (min-width: 992px) {
-
+    .footer-item--menus .footer-links {
+        grid-column-gap: 20px;
+    }
     .template-index .page-content {
       padding-top: 80px;
     }
@@ -56,20 +177,44 @@
       #shopify-section-footer footer{
           width: 850px;
       }
-      
+
+     .template-collection .section-header__title {
+          position: static;
+          margin-top: 60px;
+          margin-bottom: 25px;
+      }
+
+      .template-collection .logo { display: block; }
+
       
   }
 
 
    @media (min-width: 1200px) {
+     .template-collection .section-header__title {
+          margin-top: 120px;
+          margin-bottom: 30px;
+      }
+
+    footer .palm--full-width {
+        width: 100%;
+    }
+    
+    .footer-item--menus .footer-links {
+        grid-column-gap: 21px;
+    }
 
     .template-index .page-content {
-      padding-top: 110px;
+      padding-top: 5%;
     }
-      #shopify-section-footer footer{
-          width: 1055px;
-      }
       
+    #shopify-section-footer footer{
+      width: 1055px;     
+      
+    }
+
+
+            
       
   }
 
@@ -113,9 +258,12 @@
             
             <div class="footer-links text-size--larger">
               {%- for link in linklists[block.settings.menu_1].links -%}
-                <span>
-                  <a href="{{ link.url | escape }}"><span class="footer-links-body">{{ link.title | escape }}</span></a>
+                {% if forloop.index == 2 %}
+                  <a href="{{ link.url | escape }}" target="_blank"><span class="footer-links-body">{{ link.title | escape }}</span></a>
                 </span>
+                {% else %}
+                  <a href="{{ link.url | escape }}"><span class="footer-links-body">{{ link.title | escape }}</span></a>
+                {% endif %}
               {%- endfor -%}
             </div>
 
@@ -134,8 +282,12 @@
             <div class="footer-links text-size--larger">
               {%- for link in linklists[block.settings.menu_2].links -%}
                 <span>
-                  <a href="{{ link.url | escape }}"><span class="footer-links-body">{{ link.title | escape }}</span></a>
+                {% if forloop.index == 2 %}
+                  <a href="{{ link.url | escape }}" target="_blank"><span class="footer-links-body">{{ link.title | escape }}</span></a>
                 </span>
+                {% else %}
+                  <a href="{{ link.url | escape }}"><span class="footer-links-body">{{ link.title | escape }}</span></a>
+                {% endif %}
               {%- endfor -%}
             </div>
 
@@ -374,3 +526,165 @@
     ]
   }
 {% endschema %}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+
+    jQuery(function(){
+        jQuery("#custom-search-icon").click(function () {
+            jQuery(".custom-search").toggle();
+            jQuery(".search-filter").toggle();
+            jQuery(".search-a").css("border", "2px solid #79B8BB");
+        });
+    });
+
+  {/* Handle form submit */}
+  document.querySelector('.filter-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+    const study = document.getElementById('studyMode');
+    const isStudy = study.checked;
+    const searchBox = document.getElementById('searchBox');
+    let redirect = isStudy ? '/pages/study-mode' : '/search';
+    redirect += '?search=' + searchBox.value;
+    window.location.href = redirect;
+  });
+  
+  document.getElementById('studyMode').addEventListener('change', (e) => {
+    const searchLinkContainers = document.querySelectorAll('.search-filter-link');
+
+    for (const linkContainer of searchLinkContainers) {
+      const searchLinks = linkContainer.querySelectorAll('a');
+
+    for (const link of searchLinks) {
+        const sides = link.href.split('?');
+    const page = e.target.checked ? '/pages/study-mode' : '/search';
+    link.href = page + '?' + sides[1];
+      }
+    }
+  });
+
+    jQuery(function(){
+
+        jQuery("#searchBox").keyup(function () {
+            if (jQuery(this).val()) {
+                jQuery(".search-cancel").show();
+            }
+            else {
+                jQuery(".search-cancel").hide();
+            }
+        });
+        
+        jQuery(".search-cancel").click(function () {
+            jQuery("#searchBox").val('');
+        jQuery(this).hide();
+        });
+
+    });
+
+
+    $('#info-about-btn, .study-info').click(function(){
+            $('.study-info-about').toggle('slow');
+    });
+
+    $('.study-infos').click(function(){
+            $('.study-info-about').hide('slow');
+    });
+
+
+    jQuery('.ctm-plan').click(function(e) {
+        e.preventDefault(); //prevent the link from being followed
+        jQuery('.ctm-main-menu').removeClass('ctm-menu-active');
+        jQuery('.ctm-plan-menu').addClass('ctm-menu-active');
+    });
+
+        jQuery('.ctm-shop').click(function(e) {
+            e.preventDefault(); //prevent the link from being followed
+        jQuery('.ctm-main-menu').removeClass('ctm-menu-active');
+        jQuery('.ctm-shop-menu').addClass('ctm-menu-active');
+    });
+
+        jQuery('.ctm-shop-menu .ctm-header').click(function(e) {
+            e.preventDefault(); //prevent the link from being followed
+        jQuery('.ctm-shop-menu').removeClass('ctm-menu-active');
+        jQuery('.ctm-main-menu').addClass('ctm-menu-active');
+    });
+
+        jQuery('.ctm-plan-menu .ctm-header').click(function(e) {
+            e.preventDefault(); //prevent the link from being followed
+        jQuery('.ctm-plan-menu').removeClass('ctm-menu-active');
+        jQuery('.ctm-main-menu').addClass('ctm-menu-active');
+    });
+
+    
+    
+
+    $(".d-search, .search-a").on("click", function() {
+      $("body").addClass("showFilter");
+    });
+  
+  /*
+
+    $("#shopify-section-header + .study-info-about + .search-filte").on("mouseleave", function() {
+      $("body").removeClass("showFilter")
+    });
+
+  
+  function showElem(e) {
+
+    if($(e).val() != '') {
+      //Write show() function for icon selectors
+      $("body").addClass("showFilter");
+
+
+    } else {
+      // Write hide() function for icon selectors
+
+      $("body").removeClass("showFilter");
+
+    }
+
+  }
+
+    */
+
+    
+
+  $(".search-cancel").on("click", function() {
+    $("body").removeClass("showFilter")
+  });
+
+  const loc = window.location.pathname,
+        locSearch = window.location.search; 
+
+  var inputVal = locSearch.split('=').pop().replace(/%20/g, ' ');
+
+  if( locSearch != "") {
+
+    $('.desktop-header-holder').find("#searchBox").val(inputVal);
+    
+    $('#main .custom-search').find("#searchBox").val(inputVal);
+
+  }
+
+  $('.desktop-header-holder').find('a').each(function() {
+     $(this).toggleClass('active', $(this).attr('href') == loc);
+  });
+
+let _root = document.querySelector("body");
+
+window.onclick = function(event) {
+  if (event.target == _root) {
+    $("body").removeClass("showFilter");
+  }
+}
+
+window.addEventListener("touchstart", function(event){
+  
+  if (event.target == _root) {
+    $("body").removeClass("showFilter");
+  }  
+});
+
+</script>

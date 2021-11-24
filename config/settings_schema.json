@@ -329,6 +329,12 @@
         "id": "social_email",
         "label": "Email",
         "info": "mailto:contact@shopify.com"
+      },
+      {
+        "type": "text",
+        "id": "social_esty",
+        "label": "Esty",
+        "info": "Esty URL"
       }
     ]
   },

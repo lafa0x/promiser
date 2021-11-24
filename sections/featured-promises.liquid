@@ -1,0 +1,266 @@
+<div class="featured-promises">
+
+    <div class="wrapper d-flex">
+
+        <div class="d-row five-tenths">
+
+            {%- if section.settings.title != blank -%}
+              <div class="section-header">
+                <h2 class="section-header__title h4">{{ section.settings.title | escape }}</h2>
+              </div>
+            {%- endif -%}
+
+            <div class="desktop-popular custom-flex">
+
+              {%- unless section.settings.button_label_one == blank -%}
+                <div class="slide-button__holder hide palm--show-inline btnOne" style="width:100%">
+                  <a class="slide-button button button--underline" href="{{ section.settings.button_link_one }}" title="{{ section.settings.button_label_one | escape }}">{{ section.settings.button_label_one | escape }}<span class="svg svg__arrow" aria-hidden="true">{% render 'theme-symbols', icon: 'arrow-right' %}</span></a>
+                </div>
+              {%- endunless -%}
+
+              {%- unless section.settings.button_label_two == blank -%}
+                <div class="slide-button__holder hide palm--show-inline btnTwo" style="width:100%">
+                  <a class="slide-button button button--underline" href="{{ section.settings.button_link_two }}" title="{{ section.settings.button_label_two | escape }}">{{ section.settings.button_label_two | escape }}<span class="svg svg__arrow" aria-hidden="true">{% render 'theme-symbols', icon: 'arrow-right' %}</span></a>
+                </div>
+              {%- endunless -%}
+
+            </div>
+
+        </div>
+
+        <div id="css-slider-{{ section.id }}" 
+          class="css-slider css-slider--snapping blog-slider" 
+          data-navigation-class="ten-tenths lap--twelve-tenths push-left-one-tenth lap--push-left-padding">
+
+                <div class="blog-slider__images css-slides-container grid push-right-half-tenth lap--push-right-padding">
+
+                 {%- for block in section.blocks -%}
+                  <div class="blog-item__content css-slide
+                    three-tenths lap--smart-width palm--smart-width 
+                    {% if forloop.first %}
+                      push-left-one-tenth
+                    {% else %}
+                      push-left-half-tenth
+                    {% endif %} 
+                  lap--push-left-padding
+                  "> 
+
+                    {%- if block.settings.image != blank -%}
+                    {%- render 'lazy-image', image: block.settings.image, alt: block.settings.heading -%}
+                    {%- else -%}
+                    {% comment %} <span class="onboarding-svg section--image-text--item__image onboarding-background">
+                        {{ 'image' | placeholder_svg_tag }}
+                    </span> {% endcomment %}
+                    {%- endif -%}
+
+                    {% if block.settings.svg_code != blank %}
+                    <div class="svg-custom">
+                    {{ block.settings.svg_code }}
+                    </div>
+                    {%- endif -%}
+
+
+                  </div>
+                {%- endfor -%}
+
+
+            </div>
+
+
+        </div>
+
+        <div class="mobile-popular">
+
+            <div class="custom-flex">
+
+              {%- unless section.settings.button_label_one == blank -%}
+                <div class="slide-button__holder hide palm--show-inline btnOne" style="width:100%">
+                  <a class="slide-button button button--underline" href="{{ section.settings.button_link_one }}" title="{{ section.settings.button_label_one | escape }}">{{ section.settings.button_label_one | escape }}<span class="svg svg__arrow" aria-hidden="true">{% render 'theme-symbols', icon: 'arrow-right' %}</span></a>
+                </div>
+              {%- endunless -%}
+
+              {%- unless section.settings.button_label_two == blank -%}
+                <div class="slide-button__holder hide palm--show-inline btnTwo" style="width:100%">
+                  <a class="slide-button button button--underline" href="{{ section.settings.button_link_two }}" title="{{ section.settings.button_label_two | escape }}">{{ section.settings.button_label_two | escape }}<span class="svg svg__arrow" aria-hidden="true">{% render 'theme-symbols', icon: 'arrow-right' %}</span></a>
+                </div>
+              {%- endunless -%}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<style>
+
+
+#shopify-section-footer {
+    width: 100%;
+}
+
+.blog-slider__images {
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+
+  @media (max-width: 768px) {
+    .mobile-popular { display: block; }
+
+    .desktop-popular { display: none; }
+
+
+    .mobile-popular .custom-flex {
+        margin-top: 45px;
+    }
+
+
+  }
+
+  @media (min-width: 769px) {
+
+    .mobile-popular { display: none; }
+
+    .desktop-popular { display: block; }
+
+
+
+
+  div#shopify-section-1637243669fd64b4e7 .d-flex {
+      display: flex;
+  }
+
+  #shopify-section-1637243669fd64b4e7 .slide-button {
+      position: static !important;
+  }
+
+  div#shopify-section-1637243669fd64b4e7 .custom-flex {
+      display: flex;
+      flex-direction: row;
+  }
+
+  #shopify-section-1637243669fd64b4e7 .slide-button__holder {
+      margin: 0;
+  }
+
+
+  #shopify-section-1637243669fd64b4e7 h2.section-header__title {
+      width: 100%;
+      margin: 58px 15px !important;
+  }
+
+  #shopify-section-1637243669fd64b4e7 .blog-slider__images.css-slides-container {
+      margin: 0;
+  }
+
+  div#shopify-section-1637243669fd64b4e7 {
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: 3%;
+  }
+
+  div#shopify-section-1637243669fd64b4e7 .wrapper {
+      width: 600px;
+      margin: 0 0 0 auto;
+      padding-left: 6%;
+      padding-right: 0;
+  }
+
+}
+
+@media (min-width: 992px) {
+
+    div#shopify-section-1637243669fd64b4e7 .wrapper {
+      width: 900px;
+    }
+
+
+
+
+}
+
+@media (min-width: 1200px) {
+
+
+
+    div#shopify-section-1637243669fd64b4e7 .wrapper {
+      width: 100%;
+      justify-content: flex-end;    
+    }
+
+}
+
+
+
+</style>
+
+
+
+
+{% schema %}
+  {
+    "name": "Featured Promises",
+    "class": "mount-css-slider no-overflow section-w-margin",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Latest Articles"
+      },
+	  {
+        "type": "text",
+        "id": "button_label_one",
+        "label": "Button Text One"
+      },
+	  {
+        "type": "url",
+        "id": "button_link_one",
+        "label": "Button URL One"
+      },
+	  {
+        "type": "text",
+        "id": "button_label_two",
+        "label": "Button Text Two"
+      },
+	  {
+        "type": "url",
+        "id": "button_link_two",
+        "label": "Button URL Two"
+      }
+    ],    
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "html",
+            "id": "svg_code",
+            "label": "SVG Code"
+          },
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Write your Story"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured promises",
+        "category": "Blog"
+      }
+    ]
+  }
+{% endschema %}

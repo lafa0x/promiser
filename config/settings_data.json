@@ -10,7 +10,7 @@
     "grid_aspect": "natural",
     "show_variant_image": true,
     "color_sale_price": "#ea0000",
-    "favicon": "",
+    "favicon": "shopify:\/\/shop_images\/favicon-promiser.png",
     "cart_action": "overlay",
     "cart_notes_enable": true,
     "cart_additional_buttons": true,
@@ -19,18 +19,19 @@
     "predictive_search_show_price": false,
     "predictive_search_include_articles": true,
     "predictive_search_include_pages": true,
-    "social_facebook": "#",
-    "social_instagram": "#",
+    "social_facebook": "http:\/\/facebook.com\/promiser.co",
+    "social_instagram": "http:\/\/instagram.com\/_promiser.co",
     "social_twitter": "",
     "social_youtube": "",
     "social_vimeo": "",
     "social_pinterest": "",
-    "social_tiktok": "#",
-    "social_tumblr": "#",
+    "social_tiktok": "http:\/\/tiktok.com\/@promiser.co",
+    "social_tumblr": "",
     "social_linkedin": "",
     "social_reddit": "",
     "social_flickr": "",
     "social_email": "",
+    "social_esty": "https:\/\/www.etsy.com\/shop\/promiser",
     "search_info": "Read the verse in different versions and one or more verses before and after for context. Hightlight keywords that stand out to you.",
     "context_text": "Jesus often used examples from nature to explain spiritual truths. He spoke our language and related to our everyday experience. God's name is also 'Palmoni' or 'Wonderful Numberer'.",
     "prayer_text": "Dear Father in Heaven, I thank you that You pay so close attention to me that every hair on my head is numbered. There is nothing to small in my life for you to notice. You are acquainted with my every detail and care in my heart. For this reason, I choose not to worry because my life is safe in Your hands.",
@@ -52,10 +53,10 @@
       "header": {
         "type": "header",
         "settings": {
-          "logo_src": "shopify:\/\/shop_images\/Promiser__Logo_Horizontal_White_for_Dark_BG.png",
+          "logo_src": "shopify:\/\/shop_images\/mobile-logo.png",
           "logo_height": 25,
           "show_icon_labels": true,
-          "menu_primary": "main-menu",
+          "menu_primary": "",
           "menu_secondary": "",
           "show_social_icons": false,
           "show_locale_selector": false,
@@ -69,7 +70,7 @@
             "type": "text",
             "settings": {
               "title": "About",
-              "content": "<p>few gift are more memorable than this handmade VerseBox to help your loved ones grow in an eternal direction.<\/p>"
+              "content": "<p>Trusting God more through His promises<\/p><p><\/p><p>1130 South Canal Street, Suite 1237<br\/>Chicago, IL 60607<\/p><p><\/p><p><a href=\"tel:8889260958\" title=\"tel:8889260958\">(888) 926-0958<\/a><\/p>"
             }
           },
           "657d0481-8a40-4d4d-a64c-1a3264f6de2a": {
@@ -77,7 +78,7 @@
             "settings": {
               "title_1": "Useful Links",
               "menu_1": "footer",
-              "title_2": "",
+              "title_2": "Useful Linkns",
               "menu_2": ""
             }
           },
@@ -116,13 +117,14 @@
             "settings": {
               "heading": "Promises just for you",
               "caption": "Promisebox",
-              "button_label": "Start your Box",
-              "button_link": "",
-              "image1": "shopify:\/\/shop_images\/Group_109.png",
+              "button_label": "Learn More",
+              "button_link": "shopify:\/\/pages\/about-us",
+              "promisebox_image": "shopify:\/\/shop_images\/Promisebox_Alpha_01_7a7e7df2-7557-407c-99bf-909412c73bc6.png",
+              "image1": "shopify:\/\/shop_images\/Women-Home.jpg",
               "image1_caption": "",
-              "image2": "shopify:\/\/shop_images\/Group_75.png",
+              "image2": "shopify:\/\/shop_images\/item-bottle.png",
               "image2_caption": "",
-              "image3": "shopify:\/\/shop_images\/Group_72.png",
+              "image3": "shopify:\/\/shop_images\/Success_4x6_663416bf-f684-4c14-afa7-061fcc25fa92.png",
               "image3_caption": ""
             }
           }
@@ -136,14 +138,15 @@
         "type": "product",
         "settings": {
           "show_vendor": true,
-          "show_quantity_selector": true,
+          "show_color_swatches": true,
+          "show_quantity_selector": false,
           "show_quantities": false,
           "enable_payment_button": true,
           "show_sku": false,
           "show_barcode": false,
           "show_tax_info": false,
           "show_local_pickup": false,
-          "show_share": true,
+          "show_share": false,
           "media_aspect": "natural",
           "enable_zoom": true,
           "enable_video_looping": false
@@ -246,27 +249,27 @@
           "366e1b16-1874-4167-b494-f60d9730ce0a": {
             "type": "image",
             "settings": {
-              "image": "",
               "heading": "Feature 1",
               "description": "<p>Write about specific product features or store details.<\/p>",
+              "product": "",
               "collection": ""
             }
           },
           "621009c7-76c2-4de1-9b05-066af104d169": {
             "type": "image",
             "settings": {
-              "image": "",
               "heading": "Feature 2",
               "description": "<p>Give more details about the concept, production process, manufacturing details.<\/p>",
+              "product": "",
               "collection": ""
             }
           },
           "c890d2c2-617c-4dee-a756-f54f5bc891a1": {
             "type": "image",
             "settings": {
-              "image": "",
               "heading": "Feature 3",
               "description": "<p>Showcase your product's greatest strengths and unique features.<\/p>",
+              "product": "",
               "collection": ""
             }
           }
@@ -290,6 +293,7 @@
               "title": "Unique features",
               "body": "<p>Add extra product information, such technical data or key features and benefits.<\/p>",
               "select_icon": "archive-box",
+              "product": "",
               "collection": ""
             }
           },
@@ -299,6 +303,7 @@
               "title": "Technical data",
               "body": "<p>Add extra product information, such technical data or key features and benefits.<\/p>",
               "select_icon": "wind",
+              "product": "",
               "collection": ""
             }
           },
@@ -308,7 +313,7 @@
               "title": "Usage scenarious",
               "body": "<p>Add extra product information, such technical data or key features and benefits.<\/p>",
               "select_icon": "coins",
-              "custom_icon": "shopify:\/\/shop_images\/noun_cotton_788943_1.png",
+              "product": "",
               "collection": ""
             }
           }
@@ -340,20 +345,6 @@
           "tags_enable": true,
           "post_limit": 7,
           "show_images": true
-        }
-      },
-      "161607876709a40cd9": {
-        "type": "blog-posts",
-        "settings": {
-          "title": "Popular Topic",
-          "blog": "",
-          "post_limit": 4,
-          "blog_show_image": true,
-          "show_view_all": false,
-          "button_label_one": "Gift A Box",
-          "button_link_one": "shopify:\/\/products\/i-am-fearless-fearless-affirmations",
-          "button_label_two": "Start Your Box",
-          "button_link_two": "shopify:\/\/products\/i-am-fearless-fearless-affirmations"
         }
       },
       "1616428115e21d1578": {
@@ -418,8 +409,8 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "settings": {
-          "bar_show": true,
-          "bar_show_on_homepage": true,
+          "bar_show": false,
+          "bar_show_on_homepage": false,
           "bar_show_dismiss": true,
           "bar_message": "Use this bar for a short, important announcement.",
           "bar_link": "",
@@ -514,22 +505,26 @@
           "1632858200ff0ca03f-0": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/message.png",
-              "heading": "Daily Promises In Your Inbox"
+              "svg_code": "<svg version=\"1.1\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"75\" height=\"75\" viewbox=\"0 0 125 100\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" xml:space=\"preserve\">\n  <path d=\"M60,0 l50,0 a10,10 0 0,1 7,17 l-50,50 a10,10 0 0,1 -13,0 l-50,-50 a10,10 0 0,1 7,-17z\" stroke=\"#000\" stroke-width=\"0\" fill=\"#84b2ae\"><\/path>\n  <path d=\"M60,90 l54,0 a10,10 0 0,0 7,-7 l0,-60 -50,50 a15,15 0 0,1 -21,0 l-50,-50 0,60 a10,10 0 0,0 7,7z\" stroke=\"#000\" stroke-width=\"0\" fill=\"#84b2ae\"><\/path>  \n<\/svg>",
+              "heading": "Send a Promise Card",
+              "block_link": ""
             }
           },
           "1632858200ff0ca03f-1": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/bookmark.png",
-              "heading": "Digital Study The Promises"
+              "image": "shopify:\/\/shop_images\/forever__loved.png",
+              "svg_code": "",
+              "heading": "Share Hand-Made Promise Pills",
+              "block_link": ""
             }
           },
           "1632858200ff0ca03f-2": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/message.png",
-              "heading": "Daily Promises In Your Inbox"
+              "svg_code": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" aria-hidden=\"true\" focusable=\"false\" data-prefix=\"fab\" data-icon=\"facebook-messenger\" class=\"svg-inline--fa fa-facebook-messenger fa-w-16\" role=\"img\" viewbox=\"0 0 512 512\" width=\"75\"><path fill=\"#86b0a9\" d=\"M256.55 8C116.52 8 8 110.34 8 248.57c0 72.3 29.71 134.78 78.07 177.94 8.35 7.51 6.63 11.86 8.05 58.23A19.92 19.92 0 0 0 122 502.31c52.91-23.3 53.59-25.14 62.56-22.7C337.85 521.8 504 423.7 504 248.57 504 110.34 396.59 8 256.55 8zm149.24 185.13l-73 115.57a37.37 37.37 0 0 1-53.91 9.93l-58.08-43.47a15 15 0 0 0-18 0l-78.37 59.44c-10.46 7.93-24.16-4.6-17.11-15.67l73-115.57a37.36 37.36 0 0 1 53.91-9.93l58.06 43.46a15 15 0 0 0 18 0l78.41-59.38c10.44-7.98 24.14 4.54 17.09 15.62z\" style=\"\n    \/* fill: #86b0a9; *\/\n\"><\/path><\/svg>",
+              "heading": "Send a Digital Promise",
+              "block_link": "https:\/\/m.me\/105300848452420?ref=shar"
             }
           }
         },
@@ -539,10 +534,10 @@
           "1632858200ff0ca03f-2"
         ],
         "settings": {
-          "title": "Go digital",
-          "sub_title": "Promises in your inbox",
-          "button_label": "Start Your Box",
-          "button_link": "shopify:\/\/pages\/privacy-policy"
+          "title": "Share Promise Power",
+          "sub_title": "Encourage others with His Promises",
+          "button_label": "Explore Outreach",
+          "button_link": "shopify:\/\/pages\/outreach"
         }
       },
       "163291651114ee4a6d": {
@@ -550,6 +545,7 @@
         "blocks": {
           "163291651114ee4a6d-0": {
             "type": "image",
+            "disabled": true,
             "settings": {
               "image": "shopify:\/\/shop_images\/study.png",
               "heading": "Go deeper in  Study Mode"
@@ -557,6 +553,7 @@
           },
           "163291651114ee4a6d-1": {
             "type": "image",
+            "disabled": true,
             "settings": {
               "image": "shopify:\/\/shop_images\/voice.png",
               "heading": "Record Affirmations"
@@ -564,6 +561,7 @@
           },
           "163291651114ee4a6d-2": {
             "type": "image",
+            "disabled": true,
             "settings": {
               "image": "shopify:\/\/shop_images\/profile.png",
               "heading": "Receive  Prayer"
@@ -576,23 +574,70 @@
           "163291651114ee4a6d-2"
         ],
         "settings": {
-          "title": "T.r.u.s.t.",
+          "title": "",
           "sub_title": "God More",
-          "button_label": "Try Study Mode",
-          "button_link": "shopify:\/\/pages\/privacy-policy"
+          "button_label": "",
+          "button_link": ""
         }
       },
-      "163294039134ad1f2b": {
-        "type": "search-box",
-        "settings": {}
+      "1637243669fd64b4e7": {
+        "type": "featured-promises",
+        "blocks": {
+          "b747a5d7-b9e1-4f1f-9ad4-6a1e1d361d83": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/comfort_df90a5fe-b5d2-42f6-991a-665f082a38bc.jpg",
+              "svg_code": "",
+              "heading": "Comfort"
+            }
+          },
+          "52871f83-bd9a-4f2c-a3da-8e2132ea750a": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/christmas.jpg",
+              "svg_code": "",
+              "heading": "Christmas"
+            }
+          },
+          "b4e69dd6-5446-41fa-8102-4e1cc4edf3da": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/encouragement.jpg",
+              "svg_code": "",
+              "heading": "Encouragement"
+            }
+          },
+          "0fd74f7d-a1d8-4f4a-9d12-ecf2d03d6234": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/affirmations.jpg",
+              "svg_code": "",
+              "heading": "Affirmations"
+            }
+          }
+        },
+        "block_order": [
+          "b747a5d7-b9e1-4f1f-9ad4-6a1e1d361d83",
+          "52871f83-bd9a-4f2c-a3da-8e2132ea750a",
+          "b4e69dd6-5446-41fa-8102-4e1cc4edf3da",
+          "0fd74f7d-a1d8-4f4a-9d12-ecf2d03d6234"
+        ],
+        "settings": {
+          "title": "FEATURED PROMISES",
+          "button_label_one": "Share Promises",
+          "button_link_one": "shopify:\/\/pages\/outreach",
+          "button_label_two": "Learn More",
+          "button_link_two": "shopify:\/\/pages\/about-us"
+        }
       },
-      "search-box": {
-        "type": "search-box",
-        "settings": {}
+      "product-reviews": {
+        "type": "product-reviews",
+        "settings": {
+          "show_reviews": false
+        }
       }
     },
     "content_for_index": [
-      "163294039134ad1f2b",
       "1614677245d294ce84",
       "16154607644c8d63ca",
       "1616657801ae0345a2",
@@ -603,8 +648,8 @@
       "16170033456ff74945",
       "1632858200ff0ca03f",
       "163291651114ee4a6d",
-      "161607876709a40cd9",
-      "1616659086729a2095"
+      "1616659086729a2095",
+      "1637243669fd64b4e7"
     ]
   },
   "presets": {

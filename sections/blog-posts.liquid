@@ -1,75 +1,99 @@
-{%- if section.settings.title != blank -%}
-  <div class="section-header grid-item push-left-one-tenth lap--push-left-padding">
-    <h2 class="section-header__title h4">{{ section.settings.title | escape }}</h2>
-  </div>
-{%- endif -%}
+<div class="mobile-popular">
 
-{%- assign date_format = 'general.date_format.month_day_year' | t -%}
-{%- assign post_limit = section.settings.post_limit -%}
+  {%- if section.settings.title != blank -%}
+    <div class="section-header grid-item push-left-one-tenth lap--push-left-padding">
+      <h2 class="section-header__title h4">{{ section.settings.title | escape }}</h2>
+    </div>
+  {%- endif -%}
 
-<div id="css-slider-{{ section.id }}" 
-  class="css-slider css-slider--snapping blog-slider" 
-  data-navigation-class="ten-tenths lap--twelve-tenths push-left-one-tenth lap--push-left-padding"
->
+  {%- assign date_format = 'general.date_format.month_day_year' | t -%}
+  {%- assign post_limit = section.settings.post_limit -%}
 
-  {%- if blogs[section.settings.blog].articles.size > 0 or section.settings.blog == blank -%}
+  {% comment %} css-slider  {% endcomment %}
+  <div id="css-slider-{{ section.id }}" 
+    class="css-slider--snapping blog-slider" 
+    data-navigation-class="ten-tenths lap--twelve-tenths push-left-one-tenth lap--push-left-padding"
+  >
 
-    {%- if section.settings.blog_show_image -%}
-      <div class="blog-slider__images css-slides-container grid push-right-half-tenth lap--push-right-padding">
+    {%- if blogs[section.settings.blog].articles.size > 0 or section.settings.blog == blank -%}
 
-          {%- unless section.settings.blog == blank -%}
+      {%- if section.settings.blog_show_image -%}
+        <div class="blog-slider__images css-slides-container grid push-right-half-tenth lap--push-right-padding">
 
-            {%- for article in blogs[section.settings.blog].articles limit: post_limit -%}
-              <a href="{{ article.url | escape }}"
-                class="blog-item__image css-slide
-                  three-tenths lap--smart-width palm--smart-width 
-                  {% if forloop.first %}
-                    push-left-one-tenth
-                  {% else %}
-                    push-left-half-tenth
-                  {% endif %} 
-                lap--push-left-padding
-              "> 
-                {%- if article.image -%}
-                  {%- render 'lazy-image', image: article.image, alt: article.title, ratio: 0.75 -%}
-                {%- else -%}
+            {%- unless section.settings.blog == blank -%}
+
+              {%- for article in blogs[section.settings.blog].articles limit: post_limit -%}
+                <a href="{{ article.url | escape }}"
+                  class="blog-item__image css-slide
+                    three-tenths lap--smart-width palm--smart-width 
+                    {% if forloop.first %}
+                      push-left-one-tenth
+                    {% else %}
+                      push-left-half-tenth
+                    {% endif %} 
+                  lap--push-left-padding
+                "> 
+                  {%- if article.image -%}
+                    {%- render 'lazy-image', image: article.image, alt: article.title, ratio: 0.75 -%}
+                  {%- else -%}
+                    <span class="onboarding-svg section--image-text--item__image onboarding-background">
+                      {{ 'image' | placeholder_svg_tag }}
+                    </span>
+                  {%- endif -%}
+                </a>
+              {%- endfor -%}
+
+            {%- else -%}
+
+              {%- for i in (1..post_limit) -%}
+                <div
+                  class="blog-item__image css-slide
+                    three-tenths lap--smart-width palm--smart-width 
+                    {% if forloop.first %}
+                      push-left-one-tenth
+                    {% else %}
+                      push-left-half-tenth
+                    {% endif %} 
+                  lap--push-left-padding
+                "> 
                   <span class="onboarding-svg section--image-text--item__image onboarding-background">
                     {{ 'image' | placeholder_svg_tag }}
                   </span>
-                {%- endif -%}
+                </div>
+              {%- endfor -%}
+
+            {%- endunless  -%}
+
+        </div>  
+      {%- endif -%}
+
+      <div class="blog-slider__contents css-slides-container grid push-right-half-tenth lap--push-right-padding">
+
+        {%- unless section.settings.blog == blank -%}
+
+          {%- for article in blogs[section.settings.blog].articles limit: post_limit -%}
+            <div class="blog-item__content css-slide
+                three-tenths lap--smart-width palm--smart-width 
+                {% if forloop.first %}
+                  push-left-one-tenth
+                {% else %}
+                  push-left-half-tenth
+                {% endif %} 
+              lap--push-left-padding
+            " data-index="{{ forloop.index0 }}"> 
+              <a class="blog-item__title-holder h4" href="{{ article.url | escape }}" title="{{ article.title }}">
+                <span class="blog-item__title">{{ article.title }}</span>
               </a>
-            {%- endfor -%}
-
-          {%- else -%}
-
-            {%- for i in (1..post_limit) -%}
-              <div
-                class="blog-item__image css-slide
-                  three-tenths lap--smart-width palm--smart-width 
-                  {% if forloop.first %}
-                    push-left-one-tenth
-                  {% else %}
-                    push-left-half-tenth
-                  {% endif %} 
-                lap--push-left-padding
-              "> 
-                <span class="onboarding-svg section--image-text--item__image onboarding-background">
-                  {{ 'image' | placeholder_svg_tag }}
-                </span>
+              <div class="blog-item__meta">
+                <span class="blog-item__date">{{ article.published_at | date: date_format }}</span>
               </div>
-            {%- endfor -%}
+            </div>
+          {%- endfor -%}
 
-          {%- endunless  -%}
+        {%- else -%}
 
-      </div>  
-    {%- endif -%}
-
-    <div class="blog-slider__contents css-slides-container grid push-right-half-tenth lap--push-right-padding">
-
-      {%- unless section.settings.blog == blank -%}
-
-        {%- for article in blogs[section.settings.blog].articles limit: post_limit -%}
-          <div class="blog-item__content css-slide
+          {%- for i in (1..post_limit) -%}
+            <div class="blog-item__content css-slide
               three-tenths lap--smart-width palm--smart-width 
               {% if forloop.first %}
                 push-left-one-tenth
@@ -77,69 +101,301 @@
                 push-left-half-tenth
               {% endif %} 
             lap--push-left-padding
-          " data-index="{{ forloop.index0 }}"> 
-            <a class="blog-item__title-holder h4" href="{{ article.url | escape }}" title="{{ article.title }}">
-              <span class="blog-item__title">{{ article.title }}</span>
-            </a>
-            <div class="blog-item__meta">
-              <span class="blog-item__date">{{ article.published_at | date: date_format }}</span>
+            "> 
+              <a class="blog-item__title-holder h4">
+                <span class="blog-item__title">{{ 'general.onboarding.article_title' | t }}</span>
+              </a>
+              <div class="blog-item__meta">
+                <span class="blog-item__date">{{ 'Feb 25 2020' | date: date_format }}</span>
+              </div>
             </div>
-          </div>
-        {%- endfor -%}
+          {%- endfor -%}
 
-      {%- else -%}
+        {%- endunless  -%}
 
-        {%- for i in (1..post_limit) -%}
-          <div class="blog-item__content css-slide
-            three-tenths lap--smart-width palm--smart-width 
-            {% if forloop.first %}
-              push-left-one-tenth
-            {% else %}
-              push-left-half-tenth
-            {% endif %} 
-          lap--push-left-padding
-          "> 
-            <a class="blog-item__title-holder h4">
-              <span class="blog-item__title">{{ 'general.onboarding.article_title' | t }}</span>
-            </a>
-            <div class="blog-item__meta">
-              <span class="blog-item__date">{{ 'Feb 25 2020' | date: date_format }}</span>
-            </div>
-          </div>
-        {%- endfor -%}
+      </div>
 
-      {%- endunless  -%}
+    {%- else -%}
+    <span class="no-content-message text-size--larger push-left-one-tenth lap--push-left-padding">
+      {{ 'blog.grid.no_articles' | t }}
+    </span>
+    {%- endif -%}
 
+  </div>
+  
+
+  {%- if section.settings.show_view_all -%}
+    <div class="view-all h2 push-left-one-tenth lap--push-left-padding">
+      <a class="button button--underline" href="{{ blogs[section.settings.blog].url }}" title="{{ 'blog.view_all_articles' | t }}">
+        {{ 'blog.view_all_articles' | t }}
+        <span class="svg svg__arrow" aria-hidden="true">{% render 'theme-symbols', icon: 'arrow-right' %}</span>
+      </a>
     </div>
-
-  {%- else -%}
-  <span class="no-content-message text-size--larger push-left-one-tenth lap--push-left-padding">
-    {{ 'blog.grid.no_articles' | t }}
-  </span>
   {%- endif -%}
+
+  {%- unless section.settings.button_label_one == blank -%}
+    <div class="slide-button__holder hide palm--show-inline btnOne" style="width:100%">
+      <a class="slide-button button button--underline" href="{{ section.settings.button_link_one }}" title="{{ section.settings.button_label_one | escape }}">{{ section.settings.button_label_one | escape }}<span class="svg svg__arrow" aria-hidden="true">{% render 'theme-symbols', icon: 'arrow-right' %}</span></a>
+    </div>
+  {%- endunless -%}
+
+  {%- unless section.settings.button_label_two == blank -%}
+    <div class="slide-button__holder hide palm--show-inline btnTwo" style="width:100%">
+      <a class="slide-button button button--underline" href="{{ section.settings.button_link_two }}" title="{{ section.settings.button_label_two | escape }}">{{ section.settings.button_label_two | escape }}<span class="svg svg__arrow" aria-hidden="true">{% render 'theme-symbols', icon: 'arrow-right' %}</span></a>
+    </div>
+  {%- endunless -%}
 
 </div>
 
-{%- if section.settings.show_view_all -%}
-  <div class="view-all h2 push-left-one-tenth lap--push-left-padding">
-    <a class="button button--underline" href="{{ blogs[section.settings.blog].url }}" title="{{ 'blog.view_all_articles' | t }}">
-      {{ 'blog.view_all_articles' | t }}
-      <span class="svg svg__arrow" aria-hidden="true">{% render 'theme-symbols', icon: 'arrow-right' %}</span>
-    </a>
-  </div>
-{%- endif -%}
 
-{%- unless section.settings.button_label_one == blank -%}
-  <div class="slide-button__holder hide palm--show-inline btnOne" style="width:100%">
-    <a class="slide-button button button--underline" href="{{ section.settings.button_link_one }}" title="{{ section.settings.button_label_one | escape }}">{{ section.settings.button_label_one | escape }}<span class="svg svg__arrow" aria-hidden="true">{% render 'theme-symbols', icon: 'arrow-right' %}</span></a>
-  </div>
-{%- endunless -%}
+<div class="desktop-popular">
 
-{%- unless section.settings.button_label_two == blank -%}
-  <div class="slide-button__holder hide palm--show-inline btnTwo" style="width:100%">
-    <a class="slide-button button button--underline" href="{{ section.settings.button_link_two }}" title="{{ section.settings.button_label_two | escape }}">{{ section.settings.button_label_two | escape }}<span class="svg svg__arrow" aria-hidden="true">{% render 'theme-symbols', icon: 'arrow-right' %}</span></a>
-  </div>
-{%- endunless -%}
+    <div class="wrapper d-flex">
+
+        <div class="d-row five-tenths lap--push-left-padding">
+
+            {%- if section.settings.title != blank -%}
+              <div class="section-header grid-item push-left-one-tenth lap--push-left-padding">
+                <h2 class="section-header__title h4">{{ section.settings.title | escape }}</h2>
+              </div>
+            {%- endif -%}
+
+            <div class="custom-flex">
+
+              {%- unless section.settings.button_label_one == blank -%}
+                <div class="slide-button__holder hide palm--show-inline btnOne" style="width:100%">
+                  <a class="slide-button button button--underline" href="{{ section.settings.button_link_one }}" title="{{ section.settings.button_label_one | escape }}">{{ section.settings.button_label_one | escape }}<span class="svg svg__arrow" aria-hidden="true">{% render 'theme-symbols', icon: 'arrow-right' %}</span></a>
+                </div>
+              {%- endunless -%}
+
+              {%- unless section.settings.button_label_two == blank -%}
+                <div class="slide-button__holder hide palm--show-inline btnTwo" style="width:100%">
+                  <a class="slide-button button button--underline" href="{{ section.settings.button_link_two }}" title="{{ section.settings.button_label_two | escape }}">{{ section.settings.button_label_two | escape }}<span class="svg svg__arrow" aria-hidden="true">{% render 'theme-symbols', icon: 'arrow-right' %}</span></a>
+                </div>
+              {%- endunless -%}
+
+            </div>
+
+        </div>
+
+        <div id="css-slider-{{ section.id }}" 
+          class="css-slider css-slider--snapping blog-slider" 
+          data-navigation-class="ten-tenths lap--twelve-tenths push-left-one-tenth lap--push-left-padding"
+        >
+
+          {%- if blogs[section.settings.blog].articles.size > 0 or section.settings.blog == blank -%}
+
+            {%- if section.settings.blog_show_image -%}
+              <div class="blog-slider__images css-slides-container grid push-right-half-tenth lap--push-right-padding">
+
+                  {%- unless section.settings.blog == blank -%}
+
+                    {%- for article in blogs[section.settings.blog].articles limit: post_limit -%}
+                      <a href="{{ article.url | escape }}"
+                        class="blog-item__image css-slide
+                          three-tenths lap--smart-width palm--smart-width 
+                          {% if forloop.first %}
+                            push-left-one-tenth
+                          {% else %}
+                            push-left-half-tenth
+                          {% endif %} 
+                        lap--push-left-padding
+                      "> 
+                        {%- if article.image -%}
+                          {%- render 'lazy-image', image: article.image, alt: article.title, ratio: 0.75 -%}
+                        {%- else -%}
+                          <span class="onboarding-svg section--image-text--item__image onboarding-background">
+                            {{ 'image' | placeholder_svg_tag }}
+                          </span>
+                        {%- endif -%}
+                      </a>
+                    {%- endfor -%}
+
+                  {%- else -%}
+
+                    {%- for i in (1..post_limit) -%}
+                      <div
+                        class="blog-item__image css-slide
+                          three-tenths lap--smart-width palm--smart-width 
+                          {% if forloop.first %}
+                            push-left-one-tenth
+                          {% else %}
+                            push-left-half-tenth
+                          {% endif %} 
+                        lap--push-left-padding
+                      "> 
+                        <span class="onboarding-svg section--image-text--item__image onboarding-background">
+                          {{ 'image' | placeholder_svg_tag }}
+                        </span>
+                      </div>
+                    {%- endfor -%}
+
+                  {%- endunless  -%}
+
+              </div>  
+            {%- endif -%}
+
+            <div class="blog-slider__contents css-slides-container grid push-right-half-tenth lap--push-right-padding">
+
+              {%- unless section.settings.blog == blank -%}
+
+                {%- for article in blogs[section.settings.blog].articles limit: post_limit -%}
+                  <div class="blog-item__content css-slide
+                      three-tenths lap--smart-width palm--smart-width 
+                      {% if forloop.first %}
+                        push-left-one-tenth
+                      {% else %}
+                        push-left-half-tenth
+                      {% endif %} 
+                    lap--push-left-padding
+                  " data-index="{{ forloop.index0 }}"> 
+                    <a class="blog-item__title-holder h4" href="{{ article.url | escape }}" title="{{ article.title }}">
+                      <span class="blog-item__title">{{ article.title }}</span>
+                    </a>
+                    <div class="blog-item__meta">
+                      <span class="blog-item__date">{{ article.published_at | date: date_format }}</span>
+                    </div>
+                  </div>
+                {%- endfor -%}
+
+              {%- else -%}
+
+                {%- for i in (1..post_limit) -%}
+                  <div class="blog-item__content css-slide
+                    three-tenths lap--smart-width palm--smart-width 
+                    {% if forloop.first %}
+                      push-left-one-tenth
+                    {% else %}
+                      push-left-half-tenth
+                    {% endif %} 
+                  lap--push-left-padding
+                  "> 
+                    <a class="blog-item__title-holder h4">
+                      <span class="blog-item__title">{{ 'general.onboarding.article_title' | t }}</span>
+                    </a>
+                    <div class="blog-item__meta">
+                      <span class="blog-item__date">{{ 'Feb 25 2020' | date: date_format }}</span>
+                    </div>
+                  </div>
+                {%- endfor -%}
+
+              {%- endunless  -%}
+
+            </div>
+
+          {%- else -%}
+          <span class="no-content-message text-size--larger push-left-one-tenth lap--push-left-padding">
+            {{ 'blog.grid.no_articles' | t }}
+          </span>
+          {%- endif -%}
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<style>
+
+
+
+#shopify-section-footer {
+    width: 100%;
+}
+
+.blog-slider__images {
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+
+  @media (max-width: 768px) {
+    .mobile-popular { display: block; }
+
+    .desktop-popular { display: none; }
+
+
+  }
+
+  @media (min-width: 769px) {
+
+    .mobile-popular { display: none; }
+
+    .desktop-popular { display: block; }
+
+
+
+
+  div#shopify-section-161607876709a40cd9 .d-flex {
+      display: flex;
+  }
+
+  #shopify-section-161607876709a40cd9 .slide-button {
+      position: static !important;
+  }
+
+  div#shopify-section-161607876709a40cd9 .custom-flex {
+      display: flex;
+      flex-direction: row;
+  }
+
+  #shopify-section-161607876709a40cd9 .slide-button__holder {
+      margin: 0;
+  }
+
+
+  #shopify-section-161607876709a40cd9 h2.section-header__title {
+      width: 100%;
+      margin: 58px 15px !important;
+  }
+
+  #shopify-section-161607876709a40cd9 .blog-slider__images.css-slides-container {
+      margin: 0;
+  }
+
+  div#shopify-section-161607876709a40cd9 {
+      padding-left: 0;
+      padding-right: 0;
+      padding-bottom: 1%;
+  }
+
+  div#shopify-section-161607876709a40cd9 .wrapper {
+      width: 600px;
+      margin: 0 0 0 auto;
+      padding-left: 6%;
+      padding-right: 0;
+  }
+
+}
+
+@media (min-width: 992px) {
+
+    div#shopify-section-161607876709a40cd9 .wrapper {
+      width: 900px;
+    }
+
+
+
+
+}
+
+@media (min-width: 1200px) {
+
+
+
+    div#shopify-section-161607876709a40cd9 .wrapper {
+      width: 100%;
+      justify-content: flex-end;    
+    }
+
+}
+
+
+</style>
+
+
+
 
 {% schema %}
   {

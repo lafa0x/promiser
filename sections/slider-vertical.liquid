@@ -1,3 +1,24 @@
+<style>
+
+  @media (min-width: 769px ) {
+
+    .slide-image.slide-image--primary {
+      margin-top: 38%;
+    }
+
+    .vertical-slider-headings figure {
+       margin: 20px 0;
+       order: -1;
+    }
+
+    .vertical-slider .slide-image .lazy-image[data-ratio]:after {
+        background: transparent;
+    }
+
+  }
+
+</style>
+
 {%- assign text_brightness = settings.color_text | color_brightness -%}
 
 <div class="vertical-slider {% if text_brightness < 60 %} has-black-text {% endif %}">
@@ -50,6 +71,14 @@
         {%- unless block.settings.caption == blank -%}
           <span class="slide-caption seven-tenths palm--full-width h4">{{ block.settings.caption | escape }}</span>
         {%- endunless -%}
+
+        {% if block.settings.promisebox_image != blank %}
+          {%- render 'lazy-image', image: block.settings.promisebox_image, alt: block.settings.promisebox_image -%}
+        {%- else -%}
+          <span class="onboarding-svg">
+            {{ 'image' | placeholder_svg_tag }}
+          </span>
+        {%- endif -%}
 
         {%- unless block.settings.button_label == blank -%}
           <a class="slide-button button button--underline palm--hide" href="{{ block.settings.button_link }}" title="{{ block.settings.button_label | escape }}">{{ block.settings.button_label | escape }}<span class="svg svg__arrow" aria-hidden="true">{% render 'theme-symbols', icon: 'arrow-right' %}</span></a>
@@ -229,6 +258,11 @@
             "type": "header",
             "content": "Media"
           },
+	        {
+	          "type": "image_picker",
+	          "id": "promisebox_image",
+	          "label": "PromiseBox Below Image"
+	        },
 	        {
 	          "type": "image_picker",
 	          "id": "image1",

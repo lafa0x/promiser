@@ -1,7 +1,78 @@
 
 <style>
 
+
+  .template-page #main {
+        padding: 120px 0;
+    }
+
+  .study-info,
+  .main-filter .form-switch {
+    display: none;
+  }
+
+  div#shopify-section-header + .study-info-about + .search-filter {
+      display: none !important;
+  }
+
+
+  .showFilter div#shopify-section-header + .study-info-about + .search-filter {
+  }
+
+
+
+  .showFilter div#shopify-section-header + .study-info-about + .search-filter .search-filter-link a {
+      margin-bottom: 16px;
+  }
+
+  .showFilter div#shopify-section-header + .study-info-about + .search-filter .search-filter-link a {
+      margin-bottom: 24px;
+  }
+
+  .desktop-header-holder .custom-search .search-cancel {
+      top: 5px;
+  }
+
+  header.desktop-header-holder.header-holder .custom-search {
+    pointer-events: auto;
+  }
+
   @media (min-width: 992px) {
+    
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    .slide-image.slide-image--third {
+        width: 17%;
+    }
+
+    .slide-image.slide-image--secondary {
+        width: 19%;
+    }
+
+
+    .vertical-slider-headings .slide-heading {
+
+      width: 20%;
+      
+    }
+
+
+      .showFilter div#shopify-section-header + .study-info-about + .search-filter {
+        background: #fff;
+        display: block !important;  
+        transition: all .5s ease-in-out;
+        padding: 64px 81px 64px 24px;
+        margin: 0 auto;
+        width: 695px;    
+        background: #42407a;
+        top: -2px;
+        position: relative;
+        border-radius: 0 0 24px 24px;
+      }
+
 
       body { 
         margin-top: 0;
@@ -61,12 +132,17 @@
         padding-top: 6px;
       }
 
+      .desktop-header-holder .custom-search .search-a::placeholder {
+          font-size: 16px;
+      }
+
       .desktop-header-holder .custom-search .search-a {
-          width: 200px;
-          padding-left: 20px;
+          width: 100%;
+          padding-left: 45px;
           height: 40px;
           margin-top: -8px;
-          font-size: 10px;
+          font-size: 16px;
+          text-transform: capitalize;
       }
 
       .desktop-header-holder .filter-form {
@@ -82,8 +158,7 @@
       }
 
       .desktop-header-holder .main-filter button {
-          display: none;
-          top: 8px;
+          top: 10px;
           right: -38px;
           padding: 0 !important;
       }
@@ -128,9 +203,12 @@
           width: 450px;
       }
 
+     /*
       .desktop-header-holder .custom-search .search-a {
           width: 278px;
       }
+
+      */
 
       header.desktop-header-holder.header-holder .logo {
           margin-right: 48px;
@@ -141,9 +219,14 @@
         padding-right: 48px;
       }
 
+      
+
   }
 
 </style>
+
+
+
 
 <header class="mobile-header-holder header-holder">
 
@@ -189,8 +272,8 @@
           </a>
         </li> -->
         
-        <li  id="custom-search-icon">
-          <a href="#">
+        <li id="custom-search-icon">
+          <a href="/search?search=peace">
           	<svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M8.56334 0.819824C13.228 0.819824 17.0223 4.61411 17.0223 9.27878C17.0223 11.4796 16.1777 13.4868 14.7956 14.9932L17.5152 17.7071C17.7697 17.9616 17.7706 18.3733 17.516 18.6278C17.3892 18.7564 17.2216 18.8198 17.0548 18.8198C16.8889 18.8198 16.7221 18.7564 16.5944 18.6296L13.842 15.8849C12.3942 17.0444 10.5584 17.7386 8.56334 17.7386C3.89867 17.7386 0.103516 13.9435 0.103516 9.27878C0.103516 4.61411 3.89867 0.819824 8.56334 0.819824ZM8.56334 2.12281C4.61704 2.12281 1.4065 5.33248 1.4065 9.27878C1.4065 13.2251 4.61704 16.4356 8.56334 16.4356C12.5088 16.4356 15.7193 13.2251 15.7193 9.27878C15.7193 5.33248 12.5088 2.12281 8.56334 2.12281Z" fill="url(#paint0_linear_839:1593)"/>
             <defs>
@@ -281,18 +364,18 @@
 
     <ul class="custom-main-nav desktoprr">
       <li>   
-      <a href="#" class="active custom-menu-link">
+      <a href="/" class="active custom-menu-link">
           <span class="ctm-text"> Home </span>
       </a> 
       </li>    
       
-          <li>   
+          {% comment %} <li>   
       <a href="#" class="custom-menu-link">
           <span class="ctm-text">  Dashboard  </span>
       </a> 
-      </li> 
+      </li>  {% endcomment %}
       
-      <li>     
+      {% comment %} <li>     
         <div class="plane-dropdown">
           <a class="plane-dropbtn">Plane <i class="fas fa-angle-down"></i></a>
           <div class="plane-dropdown-content">
@@ -304,12 +387,13 @@
           </div>
         </div>        
       </li>  
-      
-      <li>   
-        <a href="#" class="custom-menu-link">
+       {% endcomment %}
+
+      {% comment %} <li>   
+        <a href="/collections/all" class="custom-menu-link">
             <span class="ctm-text">  Shop  </span>
         </a> 
-      </li> 
+      </li>  {% endcomment %}
     </ul>
 
   </div>
@@ -328,21 +412,21 @@
         </li> -->
 
       <li>   
-        <a href="#" class="custom-menu-link">
-            <span class="ctm-text">  Blog  </span>
+        <a href="https://medium.com/@promiser.co" class="custom-menu-link" target="_blank">
+          <span class="ctm-text">  Blog  </span>
         </a> 
       </li> 
       <li>   
-        <a href="#" class="custom-menu-link">
+        <a href="/pages/about-us" class="custom-menu-link">
             <span class="ctm-text"> About Us</span>
         </a> 
       </li>  
       <li>   
-        <a href="#" class="custom-menu-link">
+        <a href="/pages/help" class="custom-menu-link">
             <span class="ctm-text">  Help </span>
         </a> 
       </li> 
-      <li  id="custom-search-icon">
+      {% comment %} <li  id="custom-search-icon">
           <a href="#">
             <svg width="15" height="18" viewBox="0 0 15 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M7.2 11.8565C11.1048 11.8565 14.4 12.491 14.4 14.9391C14.4 17.388 11.0832 18 7.2 18C3.29614 18 0 17.3655 0 14.9175C0 12.4685 3.31684 11.8565 7.2 11.8565ZM7.2 0C9.84519 0 11.9646 2.11862 11.9646 4.76195C11.9646 7.40527 9.84519 9.5248 7.2 9.5248C4.55571 9.5248 2.43541 7.40527 2.43541 4.76195C2.43541 2.11862 4.55571 0 7.2 0Z" fill="url(#paint0_linear_4167_16452)"/>
@@ -354,13 +438,16 @@
             </defs>
             </svg>
           </a>
-      </li>
-        
+      </li> {{ routes.cart_url }} - Its in Search last time {% endcomment %}
       <li>
-          <a {% unless template == 'cart' or settings.cart_action == 'no-overlay' %} id="cart-open-button" aria-expanded="false" aria-controls="site-cart-sidebar" {% endunless %} class="menu-meta__link" href="{{ routes.cart_url }}">
-            <span class="menu-meta__icon" aria-label="{{ 'general.menu.cart_title' | t }}" style="margin-top: -1px;">
+          <a {% unless template == 'cart' or settings.cart_action == 'no-overlay' %} id="cart-open-button" aria-expanded="false" aria-controls="site-cart-sidebar" {% endunless %} class="menu-meta__link" href="/search?search=peace">
+            <span id="cart-open-button" class="menu-meta__icon" aria-label="{{ 'general.menu.cart_title' | t }}" style="margin-top: -1px;">
+              
+              {% comment  %}
               {%- render 'theme-symbols', icon: 'cart-new' -%}
+              {% endcomment %}
 
+              
               {% comment %} <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1.94575 7.62926C2.13415 5.98855 3.52305 4.75 5.17454 4.75H10.6821C12.3168 4.75 13.6972 5.96432 13.9056 7.58577L14.9664 15.8407C15.0624 16.5881 14.4801 17.25 13.7265 17.25H2.24279C1.49594 17.25 0.915755 16.5994 1.00095 15.8574L1.94575 7.62926Z" fill="url(#paint0_linear_4167_16456)" stroke="url(#paint1_linear_4167_16456)" stroke-width="1.5"/>
                 <mask id="path-2-inside-1_4167_16456" fill="white">
@@ -387,6 +474,33 @@
                 </linearGradient>
                 </defs>
               </svg> {% endcomment %}
+
+              <svg width="24" height="20" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5.17454 4.75H10.6821C12.3168 4.75 13.6972 5.96432 13.9056 7.58577L14.9664 15.8407C15.0624 16.5881 14.4801 17.25 13.7265 17.25H2.24279C1.49594 17.25 0.915755 16.5994 1.00095 15.8574L1.94575 7.62926C2.13415 5.98855 3.52305 4.75 5.17454 4.75Z" fill="url(#paint0_linear_4274_34356)" stroke="url(#paint1_linear_4274_34356)" stroke-width="1.5"/>
+                <mask id="path-2-inside-1_4274_34356" fill="white">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.9998 4H12.4412C13.4472 4 14.2966 4.74727 14.4248 5.74509L15.7099 15.7451C15.8636 16.941 14.932 18 13.7262 18H2.24244C1.04748 18 0.11918 16.959 0.255495 15.7718L1.40375 5.77185C1.51968 4.76219 2.3744 4 3.39069 4H3.99982C3.99982 1.79086 5.79068 0 7.99982 0C10.209 0 11.9998 1.79086 11.9998 4ZM10.4998 4C10.4998 2.61929 9.38054 1.5 7.99982 1.5C6.61911 1.5 5.49982 2.61929 5.49982 4H10.4998ZM3.39069 5.5H12.4412C12.6927 5.5 12.905 5.68682 12.9371 5.93627L14.2221 15.9363C14.2605 16.2353 14.0276 16.5 13.7262 16.5H2.24244C1.9437 16.5 1.71162 16.2398 1.7457 15.943L2.89396 5.94296C2.92294 5.69055 3.13662 5.5 3.39069 5.5Z"/>
+                </mask>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.9998 4H12.4412C13.4472 4 14.2966 4.74727 14.4248 5.74509L15.7099 15.7451C15.8636 16.941 14.932 18 13.7262 18H2.24244C1.04748 18 0.11918 16.959 0.255495 15.7718L1.40375 5.77185C1.51968 4.76219 2.3744 4 3.39069 4H3.99982C3.99982 1.79086 5.79068 0 7.99982 0C10.209 0 11.9998 1.79086 11.9998 4ZM10.4998 4C10.4998 2.61929 9.38054 1.5 7.99982 1.5C6.61911 1.5 5.49982 2.61929 5.49982 4H10.4998ZM3.39069 5.5H12.4412C12.6927 5.5 12.905 5.68682 12.9371 5.93627L14.2221 15.9363C14.2605 16.2353 14.0276 16.5 13.7262 16.5H2.24244C1.9437 16.5 1.71162 16.2398 1.7457 15.943L2.89396 5.94296C2.92294 5.69055 3.13662 5.5 3.39069 5.5Z" fill="url(#paint2_linear_4274_34356)"/>
+                <path d="M11.9998 4H10.9998V5H11.9998V4ZM14.4248 5.74509L15.4167 5.61763L15.4167 5.61763L14.4248 5.74509ZM15.7099 15.7451L14.718 15.8725L15.7099 15.7451ZM0.255495 15.7718L1.24897 15.8859L0.255495 15.7718ZM1.40375 5.77185L2.39722 5.88593L2.39722 5.88593L1.40375 5.77185ZM3.99982 4V5H4.99982V4H3.99982ZM10.4998 4V5H11.4998V4H10.4998ZM5.49982 4H4.49982V5H5.49982V4ZM12.9371 5.93627L13.9289 5.80882L13.9289 5.80882L12.9371 5.93627ZM14.2221 15.9363L13.2303 16.0637L13.2303 16.0637L14.2221 15.9363ZM1.7457 15.943L2.73918 16.057L2.73918 16.057L1.7457 15.943ZM2.89396 5.94296L3.88743 6.05704L3.88743 6.05704L2.89396 5.94296ZM12.4412 3H11.9998V5H12.4412V3ZM15.4167 5.61763C15.2244 4.12091 13.9502 3 12.4412 3V5C12.9442 5 13.3689 5.37364 13.433 5.87254L15.4167 5.61763ZM16.7017 15.6176L15.4167 5.61763L13.433 5.87254L14.718 15.8725L16.7017 15.6176ZM13.7262 19C15.5348 19 16.9322 17.4115 16.7017 15.6176L14.718 15.8725C14.7949 16.4705 14.3291 17 13.7262 17V19ZM2.24244 19H13.7262V17H2.24244V19ZM-0.737977 15.6578C-0.94245 17.4385 0.450003 19 2.24244 19V17C1.64496 17 1.18081 16.4795 1.24897 15.8859L-0.737977 15.6578ZM0.410276 5.65777L-0.737977 15.6578L1.24897 15.8859L2.39722 5.88593L0.410276 5.65777ZM3.39069 3C1.86625 3 0.584179 4.14328 0.410276 5.65777L2.39722 5.88593C2.45519 5.38109 2.88255 5 3.39069 5V3ZM3.99982 3H3.39069V5H3.99982V3ZM4.99982 4C4.99982 2.34315 6.34297 1 7.99982 1V-1C5.2384 -1 2.99982 1.23858 2.99982 4H4.99982ZM7.99982 1C9.65668 1 10.9998 2.34315 10.9998 4H12.9998C12.9998 1.23858 10.7612 -1 7.99982 -1V1ZM11.4998 4C11.4998 2.067 9.93282 0.5 7.99982 0.5V2.5C8.82825 2.5 9.49982 3.17157 9.49982 4H11.4998ZM7.99982 0.5C6.06683 0.5 4.49982 2.067 4.49982 4H6.49982C6.49982 3.17157 7.1714 2.5 7.99982 2.5V0.5ZM10.4998 3H5.49982V5H10.4998V3ZM12.4412 4.5H3.39069V6.5H12.4412V4.5ZM13.9289 5.80882C13.8328 5.06046 13.1957 4.5 12.4412 4.5V6.5C12.1896 6.5 11.9773 6.31318 11.9452 6.06373L13.9289 5.80882ZM15.214 15.8088L13.9289 5.80882L11.9452 6.06373L13.2303 16.0637L15.214 15.8088ZM13.7262 17.5C14.6305 17.5 15.3292 16.7058 15.214 15.8088L13.2303 16.0637C13.1919 15.7647 13.4248 15.5 13.7262 15.5V17.5ZM2.24244 17.5H13.7262V15.5H2.24244V17.5ZM0.752231 15.8289C0.649994 16.7193 1.34622 17.5 2.24244 17.5V15.5C2.54118 15.5 2.77325 15.7602 2.73918 16.057L0.752231 15.8289ZM1.90048 5.82889L0.752231 15.8289L2.73918 16.057L3.88743 6.05704L1.90048 5.82889ZM3.39069 4.5C2.62847 4.5 1.98744 5.07164 1.90048 5.82889L3.88743 6.05704C3.85845 6.30945 3.64477 6.5 3.39069 6.5V4.5Z" fill="url(#paint3_linear_4274_34356)" mask="url(#path-2-inside-1_4274_34356)"/>
+                <defs>
+                <linearGradient id="paint0_linear_4274_34356" x1="0" y1="4" x2="17.5539" y2="6.33912" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#79B8BB"/>
+                <stop offset="0.989583" stop-color="#8DADA0"/>
+                </linearGradient>
+                <linearGradient id="paint1_linear_4274_34356" x1="0" y1="4" x2="17.5539" y2="6.33912" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#79B8BB"/>
+                <stop offset="0.989583" stop-color="#8DADA0"/>
+                </linearGradient>
+                <linearGradient id="paint2_linear_4274_34356" x1="0.242188" y1="0" x2="17.3597" y2="1.71692" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#79B8BB"/>
+                <stop offset="0.989583" stop-color="#8DADA0"/>
+                </linearGradient>
+                <linearGradient id="paint3_linear_4274_34356" x1="0.242188" y1="0" x2="17.3597" y2="1.71692" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#79B8BB"/>
+                <stop offset="0.989583" stop-color="#8DADA0"/>
+                </linearGradient>
+                </defs>
+              </svg>
 
 
               <span class="menu-meta__count">{{ cart.item_count }}</span>
@@ -425,7 +539,7 @@
         
         <ul class="custom-main-nav">
           <li>
-            <a href="#" class="custom-menu-link">
+            <a href="/" class="custom-menu-link">
               <svg  class="ctm-show-svg" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M6.28558 14.144V16.896L6.26013 16.904C6.25547 17.5106 5.73274 18 5.08954 18H3.27427C1.46594 18 0 16.6175 0 14.912V7.08017C0.0166285 6.40857 0.353123 5.77975 0.916117 5.3682L7.09142 0.672281C8.1579 -0.199348 9.73294 -0.226294 10.8322 0.608282L17.1517 5.3682C17.6893 5.79225 18 6.41921 18 7.08017V14.92C18 15.7383 17.6548 16.5229 17.0405 17.1007C16.4262 17.6785 15.5933 18.0021 14.7257 18H12.868C12.5584 18 12.2615 17.8834 12.0433 17.6762C11.8251 17.4689 11.7037 17.1881 11.7059 16.896V14.144C11.7059 13.8067 11.5638 13.4832 11.3109 13.2446C11.058 13.0061 10.7149 12.8721 10.3572 12.8721H7.63431C6.88943 12.8721 6.28558 13.4416 6.28558 14.144ZM7.75 7C7.33579 7 7 7.33579 7 7.75C7 8.16421 7.33579 8.5 7.75 8.5H10.25C10.6642 8.5 11 8.16421 11 7.75C11 7.33579 10.6642 7 10.25 7H7.75Z" fill="#E2E1F5"/>
               </svg>
@@ -451,7 +565,7 @@
           </li>
           
           
-          <li>
+          {% comment %} <li>
             <a href="#" class="custom-menu-link">
              <svg class="ctm-show-svg" width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M9.68625 0C12.0575 0 13.9738 0.962963 14 3.41087V17.0723C14 17.2253 13.965 17.3783 13.895 17.5133C13.7812 17.7293 13.5887 17.8913 13.3525 17.9633C13.125 18.0353 12.8713 17.9993 12.6613 17.8733L6.99125 14.9574L1.3125 17.8733C1.18212 17.9444 1.0325 17.9903 0.88375 17.9903C0.39375 17.9903 0 17.5763 0 17.0723V3.41087C0 0.962963 1.925 0 4.2875 0H9.68625ZM10.2812 5.43579H3.6925C3.31625 5.43579 3.01 5.75078 3.01 6.14676C3.01 6.54185 3.31625 6.85773 3.6925 6.85773H10.2812C10.6575 6.85773 10.9637 6.54185 10.9637 6.14676C10.9637 5.75078 10.6575 5.43579 10.2812 5.43579Z" fill="#E2E1F5"/>
@@ -475,7 +589,7 @@
 
               <span class="ctm-text"> Dashboard </span>
             </a>
-          </li>
+          </li> 
           
           
           	<li class="ctm-plan">
@@ -516,10 +630,10 @@
             </a>
           </li>
           
+          {% endcomment %}
           
-          
-          <li class="ctm-shop">
-            <a href="#" class="custom-menu-link">
+          {% comment %} <li class="ctm-shop">
+            <a href="/collections/all" class="custom-menu-link">
              
 
               
@@ -574,12 +688,12 @@
               <path d="M0.179928 12.5837C-0.0393503 12.3645 -0.0592847 12.0213 0.120125 11.7795L0.179928 11.7103L5.50761 6.3823L0.179928 1.05433C-0.0393503 0.835052 -0.0592847 0.491918 0.120125 0.25012L0.179928 0.180846C0.399206 -0.0384321 0.742341 -0.0583668 0.984139 0.121043L1.05341 0.180846L6.81812 5.94555C7.0374 6.16483 7.05733 6.50797 6.87792 6.74976L6.81812 6.81904L1.05341 12.5837C0.812207 12.8249 0.421134 12.8249 0.179928 12.5837Z" fill="#E2E1F5"/>
               </svg>
             </a>
-          </li>
+          </li> {% endcomment %}
           
           
           
           <li>
-            <a href="#" class="custom-menu-link">
+            <a href="https://medium.com/@promiser.co" class="custom-menu-link" target="_blank">
               
 
  <svg class="ctm-show-svg" width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -606,29 +720,35 @@
               <span class="ctm-text"> Blog </span>
             </a>
           </li>
-          
+
           <div class="ctm-space"></div>
           
            <li>
-            <a href="#" class="custom-menu-link">
+            <a href="/pages/outreach" class="custom-menu-link">
+              <span class="ctm-text"> Outreach </span>
+            </a>
+          </li>
+                    
+           <li>
+            <a href="/pages/about-us" class="custom-menu-link">
               <span class="ctm-text"> About Us </span>
             </a>
           </li>
           
-          
+{% comment %}           
           <li>
-            <a href="#" class="custom-menu-link">
+            <a href="/pages/contact-us" class="custom-menu-link">
               <span class="ctm-text"> Contacts </span>
             </a>
-          </li>
+          </li> {% endcomment %}
           
           
           <li>
-            <a href="#" class="custom-menu-link">
+            <a href="/pages/help" class="custom-menu-link">
               <span class="ctm-text"> Help </span>
             </a>
           </li>
-          
+          {% comment %} 
            <div class="ctm-space"></div>
           
           <li>
@@ -653,7 +773,7 @@
             </a>
           </li>
           
-          
+           {% endcomment %}
           
           
           

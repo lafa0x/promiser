@@ -1796,22 +1796,22 @@ jQuery(document).ready(async function($) {
   for (const versionsContainer of versionsContainers) {
     versionsContainer.innerHTML = '';
   
-//     // Always include NKJV
-//     if (!versionsResponse.data.some(version => version.abbreviation === 'NKJV')) {
-//       const div = document.createElement('div');
-//       div.className = "item";
+    // Always include NKJV
+    if (!versionsResponse.data.some(version => version.abbreviation === 'NKJV')) {
+      const div = document.createElement('div');
+      div.className = "item";
 
-//       const a = document.createElement('a');
-//       a.href = "?search=" + term + "&study=" + study ? 'on' : '' + "&version=" + 'NKJV';
-//       a.innerText = 'NKJV';
+      const a = document.createElement('a');
+      a.href = "?search=" + term + "&study=" + study ? 'on' : '' + "&version=" + 'NKJV';
+      a.innerText = 'NKJV';
 
-//       if (searchVersion === 'NKJV') {
-//         a.className = 's-active';
-//       }
+      if (searchVersion === 'NKJV') {
+        a.className = 's-active';
+      }
 
-//       div.appendChild(a);
-//       versionsContainer.appendChild(div);
-//     }
+      div.appendChild(a);
+      versionsContainer.appendChild(div);
+    }
 
     // Append the versions to the top
     versionsResponse.data.forEach(version => {

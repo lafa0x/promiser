@@ -85,8 +85,23 @@
     <div class="main-filter">
 
     <form class="filter-form" action="search" autocomplete="off">
-        <button type="submit"><img src="{{ 'search-icon.png' | asset_img_url: '' }}
-                      //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/search-icon.png?42" /></button>   <div class="search-cancel"  onclick="document.getElementById('searchBox').value = ''">x</div>  <input type="text"  placeholder="Search Bible Promise or Topic" name="search" class="search-a" id="searchBox"> <br>
+        <button type="submit">
+        
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 225.6 213.3">
+            <defs>
+              <radialGradient id="radial-gradient" cx="0.498" cy="-0.004" r="0.994" gradientTransform="translate(0.027) scale(0.945 1)" gradientUnits="objectBoundingBox">
+                <stop offset="0.66" stop-color="#fff"/>
+                <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <g id="Promiser__Logo_Icon_White_for_Dark_BG_Gradient" transform="translate(-72.6 -89.4)">
+              <path id="Path_1" data-name="Path 1" d="M233.8,302.6H223.1c0-41.1-13.3-80.6-37.6-111.9-24.3,31.4-37.6,70.9-37.6,112H137.2c0-45.9,15.7-89.9,44.2-124l4.1-4.9,4.1,4.9C218,212.7,233.8,256.8,233.8,302.6Zm-21.6,0H201.5a165.906,165.906,0,0,0-16.1-71.3,163.053,163.053,0,0,0-16.1,71.3H158.6a174.157,174.157,0,0,1,22.2-85.5l4.7-8.3,4.7,8.3A173.962,173.962,0,0,1,212.2,302.6Zm43,0H244.4c0-54.9-21.5-107.1-59.1-144.3-37.6,37.1-59.1,89.4-59.1,144.3H115.6c0-59.6,24.1-116.3,66.1-155.6l3.7-3.4,3.7,3.4C231.1,186.3,255.2,243,255.2,302.6Zm21.6,0H266c0-67.6-30-132-80.6-173.1-50.5,41.1-80.6,105.4-80.6,173.1H94.1a239.212,239.212,0,0,1,23.3-103.2,226.722,226.722,0,0,1,64.8-80.9l3.3-2.6,3.3,2.6a227.8,227.8,0,0,1,64.8,80.9A242.032,242.032,0,0,1,276.8,302.6Zm21.4,0H287.4c0-79.1-37-153-98.9-197.7l-3.1-2.3-3.1,2.3c-61.9,44.7-98.9,118.6-98.9,197.7H72.6c0-82.5,38.6-159.7,103.4-206.4l9.4-6.8,9.4,6.8c37.8,27.3,66.7,65,84.2,108A259.716,259.716,0,0,1,298.2,302.6Zm-107.4,0a154.534,154.534,0,0,0-5.4-40.6,154.533,154.533,0,0,0-5.4,40.6Z" fill="url(#radial-gradient)"/>
+            </g>
+          </svg>
+                      
+        </button>   
+                      
+        <div class="search-cancel"  onclick="document.getElementById('searchBox').value = ''">x</div>  <input type="text"  placeholder="Search Bible Promise or Topic" name="search" class="search-a" id="searchBox" oninput="showElem(this)"> <br>
 
         <div class="form-switch">
             <label class="switch">
@@ -132,13 +147,20 @@
   <div>
     <h5>Popular Promises</h5>
     <div class="search-filter-link">
+      {% comment %} <a href="/search?search=luke 12:7">Luke 12:7</a>
       <a href="/search?search=luke 12:7">Luke 12:7</a>
       <a href="/search?search=luke 12:7">Luke 12:7</a>
       <a href="/search?search=luke 12:7">Luke 12:7</a>
       <a href="/search?search=luke 12:7">Luke 12:7</a>
       <a href="/search?search=luke 12:7">Luke 12:7</a>
-      <a href="/search?search=luke 12:7">Luke 12:7</a>
-      <a href="/search?search=luke 12:7">Luke 12:7</a>  	
+      <a href="/search?search=luke 12:7">Luke 12:7</a>   {% endcomment %}
+
+      <a href="/search?search=Jeremiah 29:11">Jeremiah 29:11</a>  	
+      <a href="/search?search=Romans 8:28">Romans 8:28</a>  	
+      <a href="/search?search=Philippians 4:13">Philippians 4:13</a>  	
+      <a href="/search?search=Matthew 11:28">Matthew 11:28</a>  	
+      <a href="/search?search=Philippians 1:6">Philippians 1:6</a>  	
+      {% comment %} <a href="/search?search=John 14:3">John 14:3</a>  		 {% endcomment %}
     </div>
   </div>
   
@@ -158,99 +180,6 @@
   
 </div>
 
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-  
-  jQuery(function(){
-      jQuery("#custom-search-icon").click(function() {
-        jQuery(".custom-search").toggle();
-        jQuery(".search-filter").toggle();
-        jQuery(".search-a").css("border", "2px solid #79B8BB");
-    });
-  });
-  
-  
-  // Handle form submit
-  document.querySelector('.filter-form').addEventListener('submit', (e) => {
- 	e.preventDefault();
-    const study = document.getElementById('studyMode');
-    const isStudy = study.checked;
-    const searchBox = document.getElementById('searchBox');
-    let redirect = isStudy ? '/pages/study-mode' : '/search';
-   	redirect += '?search=' + searchBox.value;
-    window.location.href = redirect;
-  });
-  
-  document.getElementById('studyMode').addEventListener('change', (e) => {
-    const searchLinkContainers = document.querySelectorAll('.search-filter-link');
-    
-    for (const linkContainer of searchLinkContainers) {
-      const searchLinks = linkContainer.querySelectorAll('a');
-    
-      for (const link of searchLinks) {
-        const sides = link.href.split('?');
-        const page = e.target.checked ? '/pages/study-mode' : '/search';
-        link.href = page + '?' + sides[1];
-      }
-    }
-  });
-  
-  jQuery(function(){
-  
-  jQuery("#searchBox").keyup(function () {
-       if (jQuery(this).val()) {
-          jQuery(".search-cancel").show();
-       }
-       else {
-          jQuery(".search-cancel").hide();
-       }
-    });
-    jQuery(".search-cancel").click(function () {
-       jQuery("#searchBox").val('');
-       jQuery(this).hide();
-    });
-
-  });
-  
-  
-  $('#info-about-btn, .study-info').click(function(){
-      $('.study-info-about').toggle('slow');
-  });
-  
-  $('.study-infos').click(function(){
-      $('.study-info-about').hide('slow');
-  }); 
-  
-  
-   jQuery('.ctm-plan').click(function(e) {
-    e.preventDefault(); //prevent the link from being followed
-    jQuery('.ctm-main-menu').removeClass('ctm-menu-active');
-    jQuery('.ctm-plan-menu').addClass('ctm-menu-active');
-});
-  
-  jQuery('.ctm-shop').click(function(e) {
-    e.preventDefault(); //prevent the link from being followed
-    jQuery('.ctm-main-menu').removeClass('ctm-menu-active');
-    jQuery('.ctm-shop-menu').addClass('ctm-menu-active');
-});
-  
-   jQuery('.ctm-shop-menu .ctm-header').click(function(e) {
-    e.preventDefault(); //prevent the link from being followed
-    jQuery('.ctm-shop-menu').removeClass('ctm-menu-active');
-    jQuery('.ctm-main-menu').addClass('ctm-menu-active');
-});
-  
-  jQuery('.ctm-plan-menu .ctm-header').click(function(e) {
-    e.preventDefault(); //prevent the link from being followed
-    jQuery('.ctm-plan-menu').removeClass('ctm-menu-active');
-    jQuery('.ctm-main-menu').addClass('ctm-menu-active');
-});
-  
-  
-</script>
-
-
   
 <div class="search-page-content">
   
@@ -258,7 +187,7 @@
       <div class="owl-carousel first-selection">
       </div>
     </div>
-  
+
   	<template id="search-result">
         <div class="search-result">
 
@@ -270,9 +199,9 @@
                       <div class="second-selection">
                         <span class="verse-reference">Luke 12:7</span>
 
-                        <svg class="icon-1" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        {% comment %} <svg class="icon-1" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6.27995 0.000154663C6.90994 0.0193141 7.51994 0.129313 8.11093 0.330311H8.16993C8.20993 0.349311 8.23993 0.37031 8.25993 0.38931C8.48093 0.46031 8.68993 0.540309 8.88992 0.650307L9.26992 0.820306C9.41992 0.900305 9.59992 1.0493 9.69991 1.1103C9.79991 1.1693 9.90991 1.2303 9.99991 1.2993C11.1109 0.45031 12.4599 -0.00968556 13.8499 0.000154663C14.4809 0.000154663 15.1109 0.0893134 15.7099 0.290311C19.4008 1.4903 20.7308 5.54026 19.6198 9.08022C18.9898 10.8892 17.9598 12.5402 16.6108 13.8892C14.6799 15.7591 12.5609 17.4191 10.2799 18.8491L10.0299 19.0001L9.76991 18.8391C7.48094 17.4191 5.34996 15.7591 3.40098 13.8792C2.06099 12.5302 1.03001 10.8892 0.390012 9.08022C-0.739976 5.54026 0.590011 1.4903 4.32097 0.269312C4.61097 0.169313 4.90997 0.0993133 5.20996 0.0603137H5.32996C5.61096 0.0193141 5.88996 0.000154663 6.16995 0.000154663H6.27995ZM15.1899 3.16028C14.7799 3.01928 14.3299 3.24028 14.1799 3.66028C14.0399 4.08027 14.2599 4.54027 14.6799 4.68926C15.3209 4.92926 15.7499 5.56026 15.7499 6.25925V6.29025C15.7309 6.51925 15.7999 6.74024 15.9398 6.91024C16.0798 7.08024 16.2898 7.17924 16.5098 7.20024C16.9198 7.18924 17.2698 6.86024 17.2998 6.43925V6.32025C17.3298 4.91926 16.4808 3.65028 15.1899 3.16028Z" fill="#E2E1F5"/>
-                        </svg>
+                        </svg> {% endcomment %}
 
 
                         <svg class="icon-2" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -330,10 +259,11 @@
                     <div class="item">
                       <div class="second-selection">
                         <span class="verse-reference">Luke 12:7</span>
-
+                        
+                        {% comment %} 
                         <svg class="icon-1" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6.27995 0.000154663C6.90994 0.0193141 7.51994 0.129313 8.11093 0.330311H8.16993C8.20993 0.349311 8.23993 0.37031 8.25993 0.38931C8.48093 0.46031 8.68993 0.540309 8.88992 0.650307L9.26992 0.820306C9.41992 0.900305 9.59992 1.0493 9.69991 1.1103C9.79991 1.1693 9.90991 1.2303 9.99991 1.2993C11.1109 0.45031 12.4599 -0.00968556 13.8499 0.000154663C14.4809 0.000154663 15.1109 0.0893134 15.7099 0.290311C19.4008 1.4903 20.7308 5.54026 19.6198 9.08022C18.9898 10.8892 17.9598 12.5402 16.6108 13.8892C14.6799 15.7591 12.5609 17.4191 10.2799 18.8491L10.0299 19.0001L9.76991 18.8391C7.48094 17.4191 5.34996 15.7591 3.40098 13.8792C2.06099 12.5302 1.03001 10.8892 0.390012 9.08022C-0.739976 5.54026 0.590011 1.4903 4.32097 0.269312C4.61097 0.169313 4.90997 0.0993133 5.20996 0.0603137H5.32996C5.61096 0.0193141 5.88996 0.000154663 6.16995 0.000154663H6.27995ZM15.1899 3.16028C14.7799 3.01928 14.3299 3.24028 14.1799 3.66028C14.0399 4.08027 14.2599 4.54027 14.6799 4.68926C15.3209 4.92926 15.7499 5.56026 15.7499 6.25925V6.29025C15.7309 6.51925 15.7999 6.74024 15.9398 6.91024C16.0798 7.08024 16.2898 7.17924 16.5098 7.20024C16.9198 7.18924 17.2698 6.86024 17.2998 6.43925V6.32025C17.3298 4.91926 16.4808 3.65028 15.1899 3.16028Z" fill="#E2E1F5"/>
-                        </svg>
+                        </svg> {% endcomment %}
 
 
                         <svg class="icon-2" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -382,10 +312,17 @@
     </template>
 			
   </div>
-  
+
+<div class="loader" style="display: none;"> </div>
+
+<div class="search-page-list">
+
+
+</div>
+
 
   <div class="button-promise-bottom">
-        <a class="slide-button button button--underline button-search-filter" href="" title="Start your Box">Get a PromiseBox For More</a>
+        <a class="slide-button button button--underline button-search-filter" href="/collections/all" title="Start your Box">Get a PromiseBox For More</a>
   </div>
 
   
@@ -536,11 +473,26 @@
   align-items: center;
 }
 
+
+
 @media (max-width: 768px) {
 
   .versions {
     background-color: #18155f;
     display: none;
+  }
+
+  .search-page-content {
+      width: 100%;
+      padding: 0 auto;
+  }
+
+  .search-page-content .versions {
+      background-color: transparent;
+  }
+
+  .search-page-content .versions .owl-stage .owl-item:first-child {
+      margin-left: 125px;
   }
 
 }
@@ -594,11 +546,13 @@
       padding-top: 10px !important;
   }
 
-  .search-page-content {
-      padding: 60px 0 160px;
+  .search-page-content,
+  .search-page-list {
+      padding: 60px 0 0;
   }
 
-  .search-page-content .versions.carousel-wrap {
+  .search-page-content .versions.carousel-wrap,
+  .search-page-list .versions.carousel-wrap {
     width: 675px;
     margin: 0 auto;
   }
@@ -653,10 +607,30 @@
       padding-top: 0;   
   }
 
+  body .search-result:last-child {
+      margin-bottom: 0;
+  }
 
+  .template-search #shopify-section-footer {
+      margin-bottom: 35px;
+  }
 
-
-
+  .loader:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -0.5;
+      -webkit-animation: spin 1s ease-in-out infinite;
+      animation: spin 1s ease-in-out infinite;
+      background: url(https://radicalgalaxy.com/wp-content/uploads/2021/09/loader.png) center center;
+      background-size: cover;
+      line-height: 1;
+      text-align: center;
+      font-size: 2em;
+      color: rgba(0,0,0,.75);
+  }
 
 }
 
@@ -727,17 +701,19 @@ jQuery(document).ready(async function($) {
   // assign term like peace/love
 
   // Append the versions to the top
-  
+      
   var count = 0;
 
   versionsResponse.data.forEach(version => {
     const div = document.createElement('div');
     
+
     term = "peace";
 
     if( count == 0 ){
       var versionName = version.abbreviation;
     }
+
 
     div.className = "item";
     
@@ -750,6 +726,7 @@ jQuery(document).ready(async function($) {
     }
 
     
+    /*
     const URL = window.location;
 
     if( URL.search == '' ) {
@@ -762,9 +739,8 @@ jQuery(document).ready(async function($) {
       return;
 
     }
+    */
 
-
-    
     div.appendChild(a);
     versionsContainer.appendChild(div);
     count++;
@@ -786,7 +762,7 @@ jQuery(document).ready(async function($) {
 
 
   // Append search results
-  const container = document.querySelector('.search-page-content');
+  const container = document.querySelector('.search-page-list');
   const resultTemplate = document.getElementById('search-result');
 
   if ( versesResponse != undefined ) {
@@ -837,85 +813,91 @@ jQuery(document).ready(async function($) {
   // Show versions now
   document.querySelector('.versions').style.display = 'block';
 
-  // Initialize Carousels
-  $('.first-selection').owlCarousel({
-    loop: false,
-    margin: 60,
-    nav: true,
-    navText: [
-      "<i class='fa fa-caret-left'></i>",
-      "<i class='fa fa-caret-right'></i>"
-    ],
-    autoplay: false,
-    autoplayHoverPause: false,
-    responsive: {
-      0: {
-        items: 4
-      },
-      600: {
-        items: 3
-      },
-      1000: {
-        items: 5
-      }
-    }
-  });
+  function owlCarouselInit(){
 
-  $('.t-first-selection').on('initialized.owl.carousel changed.owl.carousel', function(e) {
-    if (!e.namespace)  {
-      return;
-    }
-    var carousel = e.relatedTarget;
-
-//     $('.slider-counter').text(carousel.relative(carousel.current()));
-//     $('.slider-counter-2').text(carousel.relative(carousel.current()) + 2);
-  }).owlCarousel({
-    startPosition: 2,
-    loop: true,
-    margin: 10,
-    nav: true,
-    navText: [
-      "<i class='fas fa-chevron-left'></i>",
-      "<i class='fas fa-chevron-right'></i>"
-    ],
-    autoplay: false,
-    autoplayHoverPause: false,
-    responsive: {
-      0: {
-        items: 1
-      },
-      600: {
-        items: 1
-      },
-      1000: {
-        items: 1
+    // Initialize Carousels
+    $('.first-selection').owlCarousel({
+      loop: false,
+      margin: 60,
+      nav: true,
+      navText: [
+        "<i class='fa fa-caret-left'></i>",
+        "<i class='fa fa-caret-right'></i>"
+      ],
+      autoplay: false,
+      autoplayHoverPause: false,
+      responsive: {
+        0: {
+          items: 4
+        },
+        600: {
+          items: 3
+        },
+        1000: {
+          items: 5
+        }
       }
-    }
-  });
+    });
 
-  $('.c-first-selection').owlCarousel({
-    loop: true,
-    margin: 8,
-    autoWidth: true,
-    nav: false,
-    navText: [
-      "<i class='fa fa-caret-left'></i>",
-      "<i class='fa fa-caret-right'></i>"
-    ],
-    autoplay: false,
-    autoplayHoverPause: false,
-    responsive: {
-      0: {
-        items: 2
-      },
-      600: {
-        items: 3
-      },
-      1000: {
-        items: 5
+    $('.t-first-selection').on('initialized.owl.carousel changed.owl.carousel', function(e) {
+      if (!e.namespace)  {
+        return;
       }
-    }
-  });
+      var carousel = e.relatedTarget;
+
+  //     $('.slider-counter').text(carousel.relative(carousel.current()));
+  //     $('.slider-counter-2').text(carousel.relative(carousel.current()) + 2);
+    }).owlCarousel({
+      startPosition: 2,
+      loop: true,
+      margin: 10,
+      nav: true,
+      navText: [
+        "<i class='fas fa-chevron-left'></i>",
+        "<i class='fas fa-chevron-right'></i>"
+      ],
+      autoplay: false,
+      autoplayHoverPause: false,
+      responsive: {
+        0: {
+          items: 1
+        },
+        600: {
+          items: 1
+        },
+        1000: {
+          items: 1
+        }
+      }
+    });
+
+    $('.c-first-selection').owlCarousel({
+      loop: true,
+      margin: 8,
+      autoWidth: true,
+      nav: false,
+      navText: [
+        "<i class='fa fa-caret-left'></i>",
+        "<i class='fa fa-caret-right'></i>"
+      ],
+      autoplay: false,
+      autoplayHoverPause: false,
+      responsive: {
+        0: {
+          items: 2
+        },
+        600: {
+          items: 3
+        },
+        1000: {
+          items: 5
+        }
+      }
+    });
+
+  }
+
+  owlCarouselInit();
   
 
 	$('#test-first-selection').owlCarousel({
@@ -942,87 +924,134 @@ jQuery(document).ready(async function($) {
     }
   });
 
-     
+       
+    // Initialize anchor searching by ajax calls
+    $(".owl-carousel .item a").on("click", function(e){  
 
+        //Prevent the link from working as an anchor tag
+        e.preventDefault();
+
+        const _params = $(this).attr("href").replace('?', '');
+
+        const _term  = _params.split('&')[0].split('=').pop();
+
+        if (_params.split('&')[1] != undefined ) {
+          _study   = _params.split('&')[1].split('=').pop();
+        }else {
+          _study   ="";
+        }
+
+        if (_params.split('&')[2] != undefined ){
+          _version = _params.split('&')[2].split('=').pop();
+        }else {
+          _version = "";
+        }
+
+
+
+        //foreach  
+
+        //Make AJAX call to the PHP file/database query
+        $.ajax({
+            url: "https://promiser-bible-search.herokuapp.com/api/v1/search?term=" + _term + "&study=" + _study + "&version=" + _version,
+            //url: "https://promiser-bible-search.herokuapp.com/api/v1/search",
+            type: "GET", 
+            /*
+            data: $.param({
+              term: _search,
+              study: _study,  
+              version: _version
+            }), */
+             beforeSend: function () {
+                // Show loading animation
+                $('.loader').show();
+             },
+            success:function(results){
+              
+
+              var _resultTemplate = '';
+
+              $.each( results.data, function( i, items ){
+              
+              if (i % 2 !== 0) {
+              
+             _resultTemplate += '<div class="search-result second-panel">';
+
+              }else {
+
+               _resultTemplate += '<div class="search-result">';
+
+              }
+
+              const verse = [...items.previous, items, ...items.next];
+
+
+                   _resultTemplate += '<div class="carousel-wrap">';
+                     _resultTemplate += '<div id="item-container" class="owl-carousel t-first-selection">'; 
+
+                    $.each( verse, function( i, item ){
+
+                       _resultTemplate += '<div class="item"><div class="second-selection">'; 
+                       _resultTemplate += '<span class="verse-reference">'+ item.reference +'</span>'; // verse-reference
+                       _resultTemplate += '<svg class="icon-2" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.5542 12.7229C12.8675 12.7229 12.253 12.994 11.7831 13.4187L5.34036 9.66867C5.38554 9.46084 5.42169 9.25301 5.42169 9.03614C5.42169 8.81928 5.38554 8.61145 5.34036 8.40361L11.7108 4.68976C12.1988 5.14157 12.8404 5.42169 13.5542 5.42169C15.0542 5.42169 16.2651 4.21084 16.2651 2.71084C16.2651 1.21084 15.0542 0 13.5542 0C12.0542 0 10.8434 1.21084 10.8434 2.71084C10.8434 2.92771 10.8795 3.13554 10.9247 3.34337L4.55422 7.05723C4.06627 6.60542 3.4247 6.3253 2.71084 6.3253C1.21084 6.3253 0 7.53614 0 9.03614C0 10.5361 1.21084 11.747 2.71084 11.747C3.4247 11.747 4.06627 11.4669 4.55422 11.0151L10.988 14.7741C10.9428 14.9639 10.9157 15.1627 10.9157 15.3614C10.9157 16.8163 12.0994 18 13.5542 18C15.009 18 16.1928 16.8163 16.1928 15.3614C16.1928 13.9066 15.009 12.7229 13.5542 12.7229Z" fill="url(#paint0_linear)"/><defs><linearGradient id="paint0_linear" x1="0" y1="0" x2="17.9621" y2="1.89247" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient></defs></svg>'; // icons-svg
+                       _resultTemplate += '<p class="verse-content">'+ item.content +'</p>'; // verse-content
+                       _resultTemplate += '<a href="#" class="verse-version">'+ item.version +'</a>'; // verse-version
+                       _resultTemplate += '</div></div>';
+
+                    });
+
+                     _resultTemplate += '</div>';
+
+                     _resultTemplate += '<div class="slider-counter"></div><div class="slider-counter-2"></div>'; 
+                   _resultTemplate += '</div>';
+
+                   _resultTemplate += '<div class="carousel-wrap c-section">';
+                     _resultTemplate += '<div class="c-heading"><a href="#" class="t-active"> Related Promises </a></div><div class="owl-carousel c-first-selection related-verses">';
+                $.each( items.related, function( i, relate ){
+                
+
+                     _resultTemplate += '<div class="item"><a href="#">' + relate.reference + '</a></div>';  // related-promises
+
+                });
+
+                _resultTemplate += '</div></div>';
+
+
+               _resultTemplate += '</div>';
+
+              });
+               
+                              
+              $(".search-page-list").animate({'opacity': 0}, 10).html(_resultTemplate).animate({'opacity': 1}, 10);
+
+              owlCarouselInit();
+
+            },
+            error:function(data){
+              console.log(data);
+            }
+        });
+
+                     
+              $(".versions.carousel-wrap .owl-item a").each(function() {
+
+                if($(this).hasClass("s-active")) {
+                  $(this).removeClass("s-active");
+                }
+
+              });
+            
+        $('.loader').hide();
+
+        $(this).addClass('s-active');
+
+
+
+
+ 
+    });
   
 });
 
 
-  (function ($) {
-	  'use strict';
-
-    $.fn.loadMoreResults = function (options) {
-
-      var defaults = {
-        tag: {
-          name: 'div',
-          'class': 'search-result'
-        },
-        displayedItems: 2,
-        showItems: 2,
-        button: {
-          'class': 'slide-button button button--underline button-search-filter',
-          text: 'Get a PromiseBox For More'
-        }
-      };
-
-      var opts = $.extend(true, {}, defaults, options);
-
-      var alphaNumRE = /^[A-Za-z][-_A-Za-z0-9]+$/;
-      var numRE = /^[0-9]+$/;
-
-      $.each(opts, function validateOptions(key, val) {
-        if (key === 'tag') {
-          formatCheck(key, val, 'name', 'string');
-          formatCheck(key, val, 'class', 'string');
-        }
-        if (key === 'displayedItems') {
-          formatCheck(key, val, null, 'number');
-        }
-        if (key === 'showItems') {
-          formatCheck(key, val, null, 'number');
-        }
-        if (key === 'button') {
-          formatCheck(key, val, 'class', 'string');
-        }
-      });
-
-      function formatCheck(key, val, prop, typ) {
-        if (prop !== null && typeof prop !== 'object') {
-          if (typeof val[prop] !== typ || String(val[prop]).match(typ == 'string' ? alphaNumRE : numRE) === null) {
-            opts[key][prop] = defaults[key][prop];
-          }
-        } else {
-          if (typeof val !== typ || String(val).match(typ == 'string' ? alphaNumRE : numRE) === null) {
-            opts[key] = defaults[key];
-          }
-        }
-      };
-
-      return this.each(function (index, element) {
-        var $list = $(element),
-            lc = $list.find(' > ' + opts.tag.name + '.' + opts.tag.class).length,
-            dc = parseInt(opts.displayedItems),
-            sc = parseInt(opts.showItems);
-        
-        $list.find(' > ' + opts.tag.name + '.' + opts.tag.class + ':lt(' + dc + ')').css("display", "inline-block");
-        $list.find(' > ' + opts.tag.name + '.' + opts.tag.class + ':gt(' + (dc - 1) + ')').css("display", "none");
-
-        $list.parent().append('<div class="button-promise-bottom"><button class="slide-button button button--underline button-search-filter' + opts.button.class + '">' + opts.button.text + '</button></div>');
-        $list.parent().on("click", ".slide-button", function (e) {
-          e.preventDefault();
-          dc = (dc + sc <= lc) ? dc + sc : lc;
-          
-          $list.find(' > ' + opts.tag.name + '.' + opts.tag.class + ':lt(' + dc + ')').fadeIn();
-          if (dc == lc) {
-            $(this).hide();
-          }
-        });
-      });
-
-    };
-  })(jQuery);
-
 </script>
-
-
