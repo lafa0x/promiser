@@ -1,5 +1,114 @@
 <style> 
+
+  #form .error {
+      margin-top: 15px;
+      display: block;
+      color: #fff;
+  }
+
+  #promise-playlist #main:after,
+  #promise-playlist #main:before {
+      content: "";
+      display: table;
+  }
+
+  #promise-playlist #main:after {
+      clear: both;
+  }
+
+  .main-player {
+      max-width: 100%;
+      background: #414079;
+      padding: 16px;
+      border-radius: 10px;
+      margin-bottom: 16px;
+  }
+
+  .main-player .player-header {
+      align-self: normal;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-content: stretch;
+  }
+
+  .main-player .player-header svg {
+      align-self: center;
+      justify-self: end;
+  }
+
+  .main-player .player-header span {
+      justify-self: flex-start;
+  }
+
+  .main-player .player-container {
+      display: grid;
+      margin-top: 16px;
+      grid-template-columns: 1fr 2fr 1fr;
+      background-color: #030052;
+      border-radius: 16px;
+  }
+
+  .main-player .player-container > * {
+      align-self: center;
+  }
+
+  .main-player .player-container .player-progress .player-progress-title span {
+      display: block;
+      margin-top: 12px;
+  }
+
+  .main-player .player-container .player-progress .player-progress-bar {
+      border-top: 1px solid #716FA3;
+      border-bottom: 1px solid #716FA3;
+      padding: 5px 0;
+  }
+
+  .main-player .player-container .player-progress .player-progress-timer span {
+      color: #716FA3;
+      display: block;
+      margin-bottom: 12px;
+  }
+
+  .main-player .player-header svg,
+  .main-player .player-container .btn__play svg,
+  .main-player .player-container .btn__del svg,  
+  .main-player .player-container .player-progress .player-progress-bar svg {
+      cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+
+    .main-player .player-container .player-progress .player-progress-bar-fill svg,
+    .profile-kid {
+        width: 100%;
+    }
+
+  }
   
+  @media (min-width: 769px) {
+
+    .main-player .player-container .btn__play svg,
+    .main-player .player-container .btn__del svg {
+      width: 60%;
+      height: 65px;
+    }
+
+    .main-player {
+        max-width: 620px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 24px;
+        margin-bottom: 24px;
+    }
+
+    .main-player .player-container {
+      margin-top: 24px;
+      grid-template-columns: 1fr 2fr 1fr;
+    }
+    
+  }
+
+
     
       .col-md-4,  .col-md-6{
         width: 100%;
@@ -10,7 +119,9 @@
         margin: 0;
     } 
   
-  
+  div#site-menu-sidebar + div#site-cart-sidebar .cart-item .title {
+      color: #000;
+  }
   .addtocart-click { cursor: pointer; }
   
     #main .search-filter { 
@@ -37,20 +148,20 @@
     margin-right: 3px;
   }
   
-  .button-promise-bottom,
+  /*   .button-promise-bottom,
   #cart-open-button {
       display: none;
-  }
+  } */
 
   div#shopify-section-footer {
     display: block !important;
   }
 
   .footer-item--menus .footer-links {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 15px;
-}
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-column-gap: 15px;
+  }
 
 
     .footer-item__title {

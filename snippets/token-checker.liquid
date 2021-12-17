@@ -1,0 +1,27 @@
+<script type="text/javascript">
+
+  //without token redirect to the signin page
+  if(!localStorage.getItem('token')){
+
+    {% comment %} if(window.location.pathname != "/pages/sign-in"){
+      window.location.href = 'sign-in';
+    } {% endcomment %}
+
+
+    {% comment %} if(window.location.pathname != "/pages/sign-up"){
+      window.location.href = 'sign-up';
+    } {% endcomment %}
+
+    //window.location.href = 'sign-in';
+
+  }else{
+    
+    // if already dashboard page is open
+    if(window.location.pathname != "/pages/dashboard"){
+      window.location.href = 'dashboard';
+    }
+
+
+  }
+
+</script>

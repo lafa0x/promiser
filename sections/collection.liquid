@@ -467,10 +467,11 @@
 
 <script>
 
+  const locPath = window.location.pathname;
 
 
   $('div#shopify-section-collection .custom-toggling ul li').find('a').each(function() {
-     $(this).parent().toggleClass('active-link', $(this).attr('href') == loc);
+     $(this).parent().toggleClass('active-link', $(this).attr('href') == locPath);
   });
 
 

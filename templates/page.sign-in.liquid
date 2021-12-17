@@ -1,3 +1,5 @@
+{% render "token-checker" %}
+
 <div class="main-handling-login-form">
   <div class="row">
     <div class="first-sec-form">
@@ -12,29 +14,37 @@
       <h3>Enter Your Email and Password</h3>
     </div>  
   </div>
-  <div class="row">
-    <div class="fourth-sec">
-      <input type="email" placeholder="Email" name="" class="email-for-login generic-style">
-    </div>  
-  </div>
-  <div class="row">
-    <div class="fifth-sec">
-      <input id="password-field" type="password" class="form-control generic-style" name="password" placeholder="Password" value="">
-      <!-- <span toggle="#password-field" class="fas fa-eye fa-eye field-icon toggle-password click-me-show"></span> -->
-      <!-- <input type="password" placeholder="Password" name="" class="generic-style" id="password-field"> -->
-      <a href="#" class="click-me-show"><img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/show.png?v=1636024156" name="null" class="fas fa-eye fa-eye field-icon toggle-password click-me-show eye-show-hide sign-in-eye"  toggle="#password-field"></a>
+
+  <form id="form">
+        
+    <label class="error main-error"> </label>
+    <br>
+    <div class="row">
+      <div class="fourth-sec">
+        <input type="email" placeholder="Email" name="email" class="email-for-login generic-style">
+      </div>  
     </div>
-  </div>
-  <div class="row">
-    <div class="six-sec">
-      <p>Forgot your password?</p>
-    </div>  
-  </div>
-  <div class="row">
-    <div class="seven-sec">
-      <button type="submit" class="mr-jenkins-save-changes">Sign In</button>
+    <div class="row">
+      <div class="fifth-sec">
+        <input id="password-field" type="password" class="form-control generic-style" name="password" placeholder="Password" value="">
+        <!-- <span toggle="#password-field" class="fas fa-eye fa-eye field-icon toggle-password click-me-show"></span> -->
+        <!-- <input type="password" placeholder="Password" name="" class="generic-style" id="password-field"> -->
+        <a href="#" class="click-me-show"><img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/show.png?v=1636024156" name="null" class="fas fa-eye fa-eye field-icon toggle-password click-me-show eye-show-hide sign-in-eye"  toggle="#password-field"></a>
+      </div>
     </div>
-  </div>
+    <div class="row">
+      <div class="six-sec">
+        <p>Forgot your password?</p>
+      </div>  
+    </div>
+    <div class="row">
+      <div class="seven-sec">
+        <button type="submit" class="mr-jenkins-save-changes">Sign In</button>
+      </div>
+    </div>
+  </form>
+
+
   <div class="row">
     <div class="eight-sec">
       <button type="button" class="mr-jenkins-save-changes color-scheeme-fb"><i class="fab fa-facebook-f"></i>&nbsp;&nbsp;Continue With Facebook</button>
@@ -47,26 +57,93 @@
   </div>
   <div class="row">
     <div class="tenth-sec">
-      <h4 class="dont-acount">Don’t have an account?&nbsp;&nbsp;<a  href="#" class="sign-up-please">Sign Up</a></h4>
+      <h4 class="dont-acount">Don’t have an account?&nbsp;&nbsp;<a  href="/pages/sign-up" class="sign-up-please">Sign Up</a></h4>
     </div>
   </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+{% comment %} <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> {% endcomment %}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+
 <script type="text/javascript">
+
   jQuery(document).ready(function($){
 
-  $(".click-me-show").click(function() {
+    $(".click-me-show").click(function() {
+      e.preventDefault();
 
-    $(this).toggleClass("fa-eye fa-eye-slash");
-    var input = $($(this).attr("toggle"));
-    if (input.attr("type") == "password") {
-      input.attr("type", "text");
-      $(this).attr("src", "{{ 'eye_icons-03.png' | asset_url }}");
-    } else {
-      $(this).attr("src", "https://cdn.shopify.com/s/files/1/0575/8815/4557/files/show.png?v=1636024156");
-      input.attr("type", "password");
-      
-    }
-  });
+      $(this).toggleClass("fa-eye fa-eye-slash");
+      var input = $($(this).attr("toggle"));
+      if (input.attr("type") == "password") {
+        input.attr("type", "text");
+        $(this).attr("src", "{{ 'eye_icons-03.png' | asset_url }}");
+      } else {
+        $(this).attr("src", "https://cdn.shopify.com/s/files/1/0575/8815/4557/files/show.png?v=1636024156");
+        input.attr("type", "password");
+        
+      }
+    });
+
+    $("#form").validate({
+      rules: {
+        email: {
+          required: true,
+          email: true
+        },
+        password: {
+          required: true,
+        }
+      },
+      messages: {
+        email: {
+          required: "Please enter your email address",
+          email: "Please enter a valid email address"
+        },
+        password: {
+          required: "Please enter your password",
+        }
+      }
+    });
+
+    //Login Form Validation Using JQuery
+    $("form").submit(function(e) {
+
+      e.preventDefault();
+
+      //"_token": "{{ csrf_token() }}"
+
+      var email = $('.email-for-login').val();
+      var password = $('#password-field').val();
+
+        const formData = {
+            email: email,
+            password: password
+          };
+
+        $.ajax({
+          url: "https://guarded-badlands-26814.herokuapp.com/login",
+          type: "POST",
+          data: JSON.stringify(formData), 
+          contentType: "application/json",
+          success: function(data) {
+
+            $('.main-error').hide();
+            localStorage.setItem('token', data.token); 
+            window.location.href = "https://promiser.co/pages/dashboard";
+
+
+          },
+          error: function(data) {
+
+            $('.main-error').html("Invalid Email or Password").show();
+
+          }
+
+        });
+
+
+    });
+
   });
 </script>

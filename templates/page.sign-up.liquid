@@ -1,3 +1,5 @@
+{% render "token-checker" %}
+
 <div class="main-handling-login main-handling-login-form">
   <div class="row">
     <div class="first-sec-form">
@@ -12,41 +14,46 @@
       <h3>Enter the following information</h3>
     </div>  
   </div>
-  <div class="row">
-    <div class="fourth-sec">
-      <input type="text" placeholder="First Name" name="" class="email-for-login generic-style">
-    </div>  
-  </div>
-  <div class="row">
-    <div class="fourth-sec">
-      <input type="text" placeholder="Last Name" name="" class="email-for-login generic-style">
-    </div>  
-  </div>
-  <div class="row mb-40">
-    <div class="fourth-sec">
-      <input type="text" placeholder="Organization" name="" class="email-for-login generic-style">
-    </div>  
-  </div>
-  <div class="row">
-    <div class="fourth-sec">
-      <input type="email" placeholder="Email" name="" class="email-for-login generic-style">
-    </div>  
-  </div>
-  <div class="row">
-    <div class="fifth-sec">
-      <input id="password-field" type="password" class="form-control generic-style custom-pass-event" placeholder="Password" name="password" value="">
+
+  <form id="form">
+    <div class="row">
+      <div class="fourth-sec">
+        <input type="text" placeholder="First Name" name="firstName" class="email-for-login generic-style">
+      </div>  
     </div>
-  </div>
-  <div class="row">
-    <div class="fifth-sec">
-      <input id="password-field" type="password" class="form-control generic-style" placeholder="Re-enter Password" name="password" value="">
+    <div class="row">
+      <div class="fourth-sec">
+        <input type="text" placeholder="Last Name" name="lastName" class="email-for-login generic-style">
+      </div>  
     </div>
-  </div>
-  <div class="row">
-    <div class="seven-sec">
-      <button type="submit" class="mr-jenkins-save-changes">Sign In</button>
+    <div class="row mb-40">
+      <div class="fourth-sec">
+        <input type="text" placeholder="Organization" name="company" class="email-for-login generic-style">
+      </div>  
     </div>
-  </div>
+    <div class="row">
+      <div class="fourth-sec">
+        <input type="email" placeholder="Email" name="email" class="email-for-login generic-style">
+      </div>  
+    </div>
+    <div class="row">
+      <div class="fifth-sec">
+        <input id="password" type="password" class="form-control generic-style custom-pass-event" placeholder="Password" name="password" value="">
+      </div>
+    </div>
+    <div class="row">
+      <div class="fifth-sec">
+        <input id="confirm_password" type="password" class="form-control generic-style" placeholder="Re-enter Password" name="confirm_password">
+      </div>
+    </div>
+    <div class="row">
+      <div class="seven-sec">
+        <button type="submit" class="mr-jenkins-save-changes">Sign Up</button>
+      </div>
+    </div>
+  </form>
+
+
   <div class="row">
     <div class="eight-sec">
       <button type="button" class="mr-jenkins-save-changes color-scheeme-fb"><i class="fab fa-facebook-f"></i>&nbsp;&nbsp;Continue With Facebook</button>
@@ -59,7 +66,135 @@
   </div>
   <div class="row">
     <div class="tenth-sec">
-      <h4 class="dont-acount">Already have an account?&nbsp;&nbsp;<a  href="#" class="sign-up-please">Sign Ip</a></h4>
+      <h4 class="dont-acount">Already have an account?&nbsp;&nbsp;<a  href="/pages/sign-in" class="sign-up-please">Sign In</a></h4>
     </div>
   </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+
+
+<script type="text/javascript">
+
+
+  //Signup Form Using Ajax
+  jQuery(document).ready(function($){
+
+
+    $("#form").validate({
+      rules: {
+        firstName: {
+          required: true,
+          minlength: 3
+        },
+        lastName: {
+          required: true,
+          minlength: 3
+        },
+        email: {
+          required: true,
+          email: true
+        },
+        password: {
+          required: true,
+          minlength: 8
+        },
+        confirm_password: {
+          required: true,
+          minlength: 8,
+          equalTo: "#password"
+        },
+        company: {
+          required: true,
+          minlength: 3
+        }
+      },
+      messages: {
+        firstName: {
+          required: "Please enter your first name",
+          minlength: "Your first name must be at least 3 characters long"
+        },
+        lastName: {
+          required: "Please enter your last name",
+          minlength: "Your last name must be at least 3 characters long"
+        },
+        email: {
+          required: "Please enter your email address",
+          email: "Please enter a valid email address"
+        },
+        password: {
+          required: "Please enter your password",
+          minlength: "Your password must be at least 8 characters long"
+        },        
+        confirm_password: {
+          required: "Please enter your password",
+          minlength: "Your password must be at least 8 characters long",
+          equalTo: "Please enter the same password as above"
+        },
+        company: {
+          required: "Please enter your company name",
+          minlength: "Your company name must be at least 3 characters long"
+        }
+      }
+    });
+
+    $("#form").submit(function(event) {
+
+      event.preventDefault();
+
+      const formData =  {
+        'email' : $('#form input[name=email]').val(),
+        'password' : $('#form input[name=password]').val(),
+        'firstName' : $('#form input[name=firstName]').val(),
+        'lastName' : $('#form input[name=lastName]').val(),
+        'company' : $('#form input[name=company]').val()
+      };
+      
+      {% comment %} const formData = $(this).serialize(); {% endcomment %}
+
+      $.ajax({
+        type: 'POST',
+        url: "https://guarded-badlands-26814.herokuapp.com/register",
+        data: JSON.stringify(formData), 
+        contentType: "application/json",
+        dataType: 'json'
+      })
+      .done(function(response) {
+
+
+        //set token
+        localStorage.setItem('token', response.token);
+        window.location.href = 'dashboard';
+
+      })
+      .fail(function(err) {
+        {% comment %} $(formMessages).removeClass('success');
+        $(formMessages).addClass('error');
+        if (data.responseText !== '') {
+          $(formMessages).text(err.responseText);
+        } else {
+          $(formMessages).text('Oops! An error occured and your message could not be sent.');
+        }
+        $(formMessages).show(); {% endcomment %}
+
+        console.log(err);
+      }); 
+
+  
+
+
+
+    });
+
+
+
+  });
+
+
+
+
+
+
+
+</script>

@@ -1,6 +1,9 @@
+
 <div class="shopify-section section-w-margin section-w-mobile-padding" id="section-{{ page.title | handle }}">
+
+
   <div class="section-header five-tenths lap--full-width push-left-one-tenth lap--push-left-none">
-<!--     <h1 class="section-header__title h1">{{ page.title | escape }}</h1> -->
+    <!--     <h1 class="section-header__title h1">{{ page.title | escape }}</h1> -->
   </div>
   <div class="five-tenths lap--full-width push-left-one-tenth lap--push-left-none">
     <div class="rte">
@@ -9,7 +12,7 @@
 
     <form class="filter-form" action="search" autocomplete="off">
         <button type="submit"><img src="//cdn.shopify.com/s/files/1/0575/8815/4557/t/4/assets/search-icon.png?v=6764782664197292930
-                      //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/search-icon.png?42"></button>   <div class="search-cancel" onclick="document.getElementById('searchBox').value = ''">x</div>  <input type="text" placeholder="Search Bible Promise or Topic" name="search" class="search-a" id="searchBox" style="border: 2px solid rgb(121, 184, 187);"> <br>
+                      //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/search-icon.png?42"></button>   <div class="search-cancel" onclick="document.getElementById('searchBox').value = ''">x</div>  <input type="text" placeholder="Search Bible Promise or Topic" name="search" class="search-a1" id="searchBox1" style="border: 2px solid rgb(121, 184, 187);"> <br>
 
         <div class="form-switch">
             <label class="switch">
@@ -20,15 +23,15 @@
     </form>
     </div>
 
- <div class="study-info" id="info-about-btn">
+  <div class="study-info" id="info-about-btn">
         <span class="info-content">i</span>
-    </div>
+  </div>
 
-    
-  
 
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+{% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> {% endcomment %}
 <script>
   
   jQuery(function(){
@@ -93,30 +96,80 @@
   
   
    jQuery('.ctm-plan').click(function(e) {
-    e.preventDefault(); //prevent the link from being followed
-    jQuery('.ctm-main-menu').removeClass('ctm-menu-active');
-    jQuery('.ctm-plan-menu').addClass('ctm-menu-active');
-});
+      e.preventDefault(); //prevent the link from being followed
+      jQuery('.ctm-main-menu').removeClass('ctm-menu-active');
+      jQuery('.ctm-plan-menu').addClass('ctm-menu-active');
+  });
   
   jQuery('.ctm-shop').click(function(e) {
-    e.preventDefault(); //prevent the link from being followed
-    jQuery('.ctm-main-menu').removeClass('ctm-menu-active');
-    jQuery('.ctm-shop-menu').addClass('ctm-menu-active');
-});
-  
+      e.preventDefault(); //prevent the link from being followed
+      jQuery('.ctm-main-menu').removeClass('ctm-menu-active');
+      jQuery('.ctm-shop-menu').addClass('ctm-menu-active');
+  });
+    
    jQuery('.ctm-shop-menu .ctm-header').click(function(e) {
     e.preventDefault(); //prevent the link from being followed
-    jQuery('.ctm-shop-menu').removeClass('ctm-menu-active');
-    jQuery('.ctm-main-menu').addClass('ctm-menu-active');
-});
+      jQuery('.ctm-shop-menu').removeClass('ctm-menu-active');
+      jQuery('.ctm-main-menu').addClass('ctm-menu-active');
+  });
   
   jQuery('.ctm-plan-menu .ctm-header').click(function(e) {
-    e.preventDefault(); //prevent the link from being followed
-    jQuery('.ctm-plan-menu').removeClass('ctm-menu-active');
-    jQuery('.ctm-main-menu').addClass('ctm-menu-active');
-}); 
+      e.preventDefault(); //prevent the link from being followed
+      jQuery('.ctm-plan-menu').removeClass('ctm-menu-active');
+      jQuery('.ctm-main-menu').addClass('ctm-menu-active');
+  }); 
 </script>
-</div>
+
+
+<style> 
+
+  .main-player .player-container #pauseIcon {
+    display: none;
+  }  
+  
+  .main-player .player-container.play #playIcon {
+      display: none;
+  }
+
+  .main-player .player-container.play #pauseIcon {
+      display: block;
+  }
+  
+  .main-player .player-container.pause #playIcon {
+      display: block;
+  }  
+
+  .main-player .player-container.pause #pauseIcon {
+      display: none;
+  }  
+
+
+  .player-header .playButton:hover svg path {
+      fill: #716FA3;
+  }
+
+  .player-header .playButton:hover svg path {
+      fill: #716FA3;
+  }
+
+  .player-header svg path {
+      fill: #79B8BB;
+  }
+  .player-header svg {
+      transform: rotate(90deg);
+  }
+
+
+  .player-header.close svg {
+      transform: rotate(-90deg);
+  }
+
+</style> 
+
+{% comment %} </div>
+
+
+</div> {% endcomment %}
         <div class="row">
           <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/boxes.png?v=1635338972" class="box-img-setting" />
             <div class="col-md-12">
@@ -124,37 +177,396 @@
                 <h5 class="main-text pt-10 choose-topic">PROMISE PLAYLIST</h5>
             </div>
         </div>  
+{% comment %}         
     </div>
   </div>
-</div>
+</div> {% endcomment %}
+
 <section class="main-sec pb-30" style="margin-top: 0;">
+
     <div class="col-md-12">
       <div class="profile-kid">
-          <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/profile_1ceefde6-3b11-42f1-9469-983be1612196.png?v=1635936679" alt="" class="kid-img-setting">
+
+          <div class="avatar">
+            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M32 56C45.2548 56 56 45.2548 56 32C56 18.7452 45.2548 8 32 8C18.7452 8 8 18.7452 8 32C8 45.2548 18.7452 56 32 56ZM44.6 42.5583C44.6 38.2063 38.7418 37.0783 31.8 37.0783C24.8966 37.0783 19 38.1663 19 42.5199C19 46.872 24.8598 48 31.8 48C38.7034 48 44.6 46.912 44.6 42.5583ZM40.2704 24.4657C40.2704 19.7664 36.5026 16 31.8 16C27.099 16 23.3296 19.7664 23.3296 24.4657C23.3296 29.1649 27.099 32.933 31.8 32.933C36.5026 32.933 40.2704 29.1649 40.2704 24.4657Z" fill="url(#paint0_linear_2745_22903)"/>
+            <defs>
+            <linearGradient id="paint0_linear_2745_22903" x1="8" y1="8" x2="60.8778" y2="14.1654" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#79B8BB"/>
+            <stop offset="0.989583" stop-color="#8DADA0"/>
+            </linearGradient>
+            </defs>
+            </svg>
+          </div>
+
+          {% comment %} <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/profile_1ceefde6-3b11-42f1-9469-983be1612196.png?v=1635936679" alt="" class="kid-img-setting"> {% endcomment %}
           <p class="kid-text">Seepod Kids</p>
       </div>
     </div>
+
+
+    <div id="playlist"></div>
+
+    {% comment %} 
+    
     <div class="row">
         <div class="col-md-12">
-            <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/voice.jpg?v=1635334998" alt="" class="radio-setting">
+
+          <div class="main-player">
+
+            <div class="player-header">
+              <span> Luke 12:7 </span>
+
+              {% render 'theme-symbols', icon: 'arrow-chevron' %}
+
+            </div>
+
+            <div class="player-container">
+
+              <audio controls="controls" src="https://www.tutorialrepublic.com/examples/audio/birds.mp3">
+                Your browser does not support the audio element.
+              </audio>
+
+              <div id="playButton" class="btn__play">
+                {% render 'theme-symbols', icon: 'play-icon' %}
+              </div>
+
+              <div class="player-progress">
+                
+                <div class="player-progress-title"> 
+                  <span>Promise</span>
+                </div>
+
+                <div class="player-progress-bar">
+
+                  <div class="player-progress-bar-fill">
+                    {% render 'theme-symbols', icon: 'progress-bar' %}
+                  </div>
+
+                </div>
+
+                <div class="player-progress-timer"> 
+                  <span>02:47</span>
+                </div>
+
+              </div>
+
+              <div id="delButton" class="btn__del">
+                {% render 'theme-symbols', icon: 'remove-icon' %}
+              </div>
+
+
+            </div>
+          
+          </div>
+          
         </div>  
     </div>
+    
     <div class="row">
         <div class="col-md-12">
-            <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/voice.jpg?v=1635334998" alt="" class="radio-setting">
+
+          <div class="main-player">
+
+            <div class="player-header">
+              <span> Luke 12:7 </span>
+              {% render 'theme-symbols', icon: 'arrow-chevron' %}
+            </div>
+
+            <div class="player-container">
+
+              <div id="playButton" class="btn__play">
+                {% render 'theme-symbols', icon: 'play-icon' %}
+              </div>
+
+              <div class="player-progress">
+                
+                <div class="player-progress-title"> 
+                  <span>Promise</span>
+                </div>
+
+                <div class="player-progress-bar">
+
+                  <div class="player-progress-bar-fill">
+                 
+                    {% render 'theme-symbols', icon: 'progress-bar' %}
+
+                  </div>
+
+                </div>
+
+                <div class="player-progress-timer"> 
+                  <span>02:47</span>
+                </div>
+
+              </div>
+
+              <div id="delButton" class="btn__del">
+                {% render 'theme-symbols', icon: 'remove-icon' %}
+              </div>
+
+
+            </div>
+          
+          </div>
+
         </div>  
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/voice.jpg?v=1635334998" alt="" class="radio-setting">
-        </div>  
-    </div>
+    </div> 
+    
+    {% endcomment %}
+
+
+
 </section>
+
 <div class="bottom-section width-100 display-block p-20">
   <div class="bottom-buyitnow display-block text-cente custom-setting-for-this">
     <span class="area-setting color-changer"><i class="fa fa-play" aria-hidden="true"></i></span>
-    <h5 class="play-all color-changer">Play All Recorded Memory Verses <span class="end-float"><img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/share.png?v=1635267376" alt="" class="share-setting">
-</span>
-</h5>
+    <h5 class="play-all color-changer">
+        Play All Recorded Memory Verses 
+        <span class="end-float"><img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/share.png?v=1635267376" alt="" class="share-setting"></span>
+    </h5>
   </div>
 </div>
+
+
+<script>
+
+
+// This is necessary. Owl breaks without this.
+jQuery(document).ready(async function ($) {
+
+
+    const __root = "https://verses78.herokuapp.com/",
+        recordId = "",
+        userId = "",
+        topicId = "",
+        playlistId = "61a0ff34217fe724ed2dad45",
+        typename = "";
+
+    //multiple api routes for different functions
+    const api = {
+        getPlaylistItem: `${__root}/playlistone/${userId}/${topicId}/${typename}`,
+        getPlaylistItems: `${__root}/playlist/${playlistId}`,
+        getRecordItem: `${__root}/record/${recordId}`,
+        getTestimonyItems: `${__root}/testimony/${topicId}`
+    };
+
+function __mediaPlayer(){
+
+  //audio current time update with custom div jquery
+
+  var playerProgressBar = $(".player-progress-bar");
+  var playerProgressBarSvg = playerProgressBar.find("svg");
+
+
+  $(".main-player .player-header svg").each(function(index, el) {
+
+      $(el).on("click", function() {
+
+        $(this).parent().siblings().toggle("slow", function() {
+          // Animation complete.
+
+          const __wrapper = $(this).parent().parent();
+
+          if ( $(this).is( ".hide" ) ) {
+            __wrapper.find(".player-header").addClass("close");
+          }else{
+            __wrapper.find(".player-header").removeClass("close");
+          }
+
+          //console.log("toggle");
+
+        }).toggleClass( "hide" );        
+
+      });
+
+  });
+    
+  var playerProgressSvgAnimate = function (el) {
+    
+    this.__wrapper = el;
+    this.audioEl = el.find("audio");
+
+    //get time mintues and seconds from current audio time
+    var currentTime = audioEl.prop("currentTime");
+    var minutes = Math.floor(currentTime / 60);
+    var seconds = Math.floor(currentTime % 60);
+
+
+    this.playerProgressTimer = function (el) {
+
+      this.__wrapper
+
+    };
+
+
+    //get total time mintues and seconds from audio duration
+    var duration = audioEl.prop("duration");
+    var totalMinutes = Math.floor(duration / 60);
+    var totalSeconds = Math.floor(duration % 60);
+
+    //set current time to player-progress-timer
+    audioEl.on("timeupdate", function () {
+
+      playerProgressTimer(el);
+
+    });
+
+    var __pathArry = __wrapper.find(".player-progress-bar svg path"), 
+        count = 0;
+
+    var playerProgressSvgPathStroke = setInterval(function () {
+
+      __pathArry.length < count ? clearInterval(playerProgressSvgPathStroke) : count++;
+
+      //pathArry setAttributes
+      __pathArry.eq(count).attr({
+        "stroke": "url(#paint0_linear_1240_9887)",
+        "stroke-width": "1.5",
+        "stroke-linecap": "round"
+      }); 
+
+      
+    }, 100);
+
+
+  };
+
+  // playerProgesSvg with audio loop
+  $(".player-container .player-progress-timer").each(function (i, el) {
+
+    var __wrapper =  $(el).parent().parent();
+    const audioEl = __wrapper.find("audio");
+    //get total time mintues and seconds from audio in jquery 
+
+
+    //get total time mintues and seconds from audio duration
+    var duration = audioEl.prop("duration");
+    var totalMinutes = Math.floor(duration / 60);
+    var totalSeconds = Math.floor(duration % 60);
+
+    //set total timer to player-progress-timer
+    __wrapper.find(".player-progress-timer span").html(totalMinutes + ":" + totalSeconds);
+
+
+  });
+
+  $("#playButton svg").click(function () {
+
+
+    //audio connenct with progressBarprogressBar
+
+    const __wrapper = $(this).parent().parent(),
+          audio = $(this).parent().parent().find("audio");
+
+    if (__wrapper.hasClass("play")) {
+
+      __wrapper.removeClass("play");
+      __wrapper.addClass("pause");
+      audio.trigger("pause");
+
+
+      playerProgressSvgAnimate(__wrapper);
+
+    } else {
+      
+      var __pathArry = __wrapper.find(".player-progress-bar svg path");
+
+      __wrapper.removeClass("pause");
+      __wrapper.addClass("play");
+      audio.trigger("play");
+
+
+      //forloop syntax
+      for (var i = 0; i < __pathArry.length; i++) {
+
+        //pathArry setAttributes
+        __pathArry.eq(i).attr({
+          "stroke": "#716FA3"
+        });
+
+      }
+
+      clearInterval(playerProgressSvgAnimate);
+
+    }
+
+  });
+
+}    
+
+    //Make AJAX call to the PHP file/database query
+    $.ajax({
+        url: api.getPlaylistItems,
+        type: "GET",
+        beforeSend: function () {
+            // Show loading animation
+            $('.loader').show();
+        },
+        success: function (results) {
+
+            var _resultTemplate = '';
+
+            $.each(results[0].recordings, function (i, items) {
+
+                _resultTemplate += '<div class="row"><div class="col-md-12"><div class="main-player"><div class="player-header"><span>' + items.verse_info[0].verses + '</span><svg aria-hidden="true" focusable="false" role="presentation" width="10" height="17" viewBox="0 0 10 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.34021 0.579956L9.30017 8.4999L7.50018 10.4799L0.540221 2.55994L2.34021 0.579956Z" fill="#2914E5"/><path d="M0.540165 14.44L7.50012 6.52003L9.30011 8.49994L2.34015 16.42L0.540165 14.44Z" fill="#2914E5"/></svg></div>';
+                _resultTemplate += '<div class="player-container"><audio style="display:none;" controls="controls" src="' + items.recording + '">Your browser does not support the audio element.</audio>';
+                _resultTemplate += '<div id="playButton" class="btn__play"><svg id="playIcon" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M24 43.5C34.7696 43.5 43.5 34.7696 43.5 24C43.5 13.2304 34.7696 4.5 24 4.5C13.2304 4.5 4.5 13.2304 4.5 24C4.5 34.7696 13.2304 43.5 24 43.5Z" fill="url(#paint0_linear_4504_22949)"/> <path d="M29.2633 25.0814C27.2893 26.9223 25.0466 28.4522 22.6123 29.6184C22.2296 29.7801 21.8334 29.9079 21.4283 30.0004C21.2604 30.0045 21.0948 29.9615 20.95 29.8763C20.8053 29.7911 20.6873 29.6672 20.6093 29.5184C20.4817 29.116 20.3815 28.7054 20.3093 28.2894C20.122 26.8677 20.0381 25.4343 20.0583 24.0004C20.0344 22.5183 20.1287 21.0366 20.3403 19.5694C20.3903 19.2904 20.5363 18.6504 20.5793 18.5464C20.6583 18.3585 20.7996 18.2035 20.9793 18.1074C21.1168 18.0325 21.2718 17.9956 21.4283 18.0004C21.7802 18.0764 22.1248 18.1828 22.4583 18.3184C24.9458 19.4829 27.2361 21.0289 29.2463 22.9004C29.3673 23.0304 29.7013 23.3804 29.7563 23.4514C29.8754 23.6042 29.9418 23.7914 29.9454 23.9851C29.949 24.1787 29.8897 24.3683 29.7763 24.5254C29.7173 24.6004 29.3763 24.9624 29.2633 25.0814Z" fill="white" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/> <defs> <linearGradient id="paint0_linear_4504_22949" x1="4.5" y1="4.5" x2="47.4632" y2="9.50939" gradientUnits="userSpaceOnUse"> <stop stop-color="#79B8BB"/> <stop offset="0.989583" stop-color="#8DADA0"/> </linearGradient> </defs> </svg><svg id="pauseIcon" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 43.5C34.7696 43.5 43.5 34.7696 43.5 24C43.5 13.2304 34.7696 4.5 24 4.5C13.2304 4.5 4.5 13.2304 4.5 24C4.5 34.7696 13.2304 43.5 24 43.5Z" fill="url(#paint0_linear_1240_9943)"/><path fill-rule="evenodd" clip-rule="evenodd" d="M20 18C21.1046 18 22 18.8954 22 20V28C22 29.1046 21.1046 30 20 30C18.8954 30 18 29.1046 18 28V20C18 18.8954 18.8954 18 20 18ZM28 18C29.1046 18 30 18.8954 30 20V28C30 29.1046 29.1046 30 28 30C26.8954 30 26 29.1046 26 28V20C26 18.8954 26.8954 18 28 18Z" fill="white"/><defs><linearGradient id="paint0_linear_1240_9943" x1="4.5" y1="4.5" x2="47.4632" y2="9.50939" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient></defs></svg></div>';
+                _resultTemplate += '<div class="player-progress"><div class="player-progress-title"><span>' + items.verse_info[0].verses + '</span></div>';
+                _resultTemplate += '<div class="player-progress-bar"><div class="player-progress-bar-fill">';
+                _resultTemplate += '<svg id="progressBar"width="214" height="30" viewBox="0 0 214 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M5 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M9 11.5V18.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M13 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M21 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M17 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M25 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M29 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M33 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M37 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M41 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M45 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M49 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M53 11.5V18.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M57 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M61 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M65 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M69 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M73 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M77 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M81 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M85 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M89 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M93 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M97 11.5V18.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M101 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M109 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M105 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M113 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M117 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M121 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M125 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M129 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M133 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M137 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M141 11.5V18.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M145 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M149 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M153 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M157 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M161 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M165 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M169 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M173 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M177 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M181 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M185 11.5V18.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M189 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M197 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M193 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M201 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M205 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M213 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><path d="M209 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"/><defs><linearGradient id="paint0_linear_1240_9887" x1="1" y1="5.5" x2="2.11656" y2="5.50685" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient><linearGradient id="paint1_linear_1240_9887" x1="5" y1="7.5" x2="6.11653" y2="7.50868" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient><linearGradient id="paint2_linear_1240_9887" x1="9" y1="11.5" x2="10.1163" y2="11.5186" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient><linearGradient id="paint3_linear_1240_9887" x1="13" y1="7.5" x2="14.1165" y2="7.50868" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient><linearGradient id="paint4_linear_1240_9887" x1="21" y1="7.5" x2="22.1165" y2="7.50868" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient><linearGradient id="paint5_linear_1240_9887" x1="17" y1="5.5" x2="18.1166" y2="5.50685" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient><linearGradient id="paint6_linear_1240_9887" x1="25" y1="1.5" x2="26.1166" y2="1.50482" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient><linearGradient id="paint7_linear_1240_9887" x1="29" y1="5.5" x2="30.1166" y2="5.50685" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient><linearGradient id="paint8_linear_1240_9887" x1="33" y1="1.5" x2="34.1166" y2="1.50482" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient><linearGradient id="paint9_linear_1240_9887" x1="37" y1="7.5" x2="38.1165" y2="7.50868" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient><linearGradient id="paint10_linear_1240_9887" x1="41" y1="1.5" x2="42.1166" y2="1.50482" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient><linearGradient id="paint11_linear_1240_9887" x1="45" y1="5.5" x2="46.1166" y2="5.50685" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient><linearGradient id="paint12_linear_1240_9887" x1="49" y1="7.5" x2="50.1165" y2="7.50868" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient><linearGradient id="paint13_linear_1240_9887" x1="53" y1="11.5" x2="54.1163" y2="11.5186" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient><linearGradient id="paint14_linear_1240_9887" x1="57" y1="7.5" x2="58.1165" y2="7.50868" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient><linearGradient id="paint15_linear_1240_9887" x1="61" y1="5.5" x2="62.1166" y2="5.50685" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient><linearGradient id="paint16_linear_1240_9887" x1="65" y1="1.5" x2="66.1166" y2="1.50482" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient><linearGradient id="paint17_linear_1240_9887" x1="69" y1="1.5" x2="70.1166" y2="1.50482" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient><linearGradient id="paint18_linear_1240_9887" x1="73" y1="5.5" x2="74.1166" y2="5.50685" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient><linearGradient id="paint19_linear_1240_9887" x1="77" y1="1.5" x2="78.1166" y2="1.50482" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient><linearGradient id="paint20_linear_1240_9887" x1="81" y1="7.5" x2="82.1165" y2="7.50868" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient><linearGradient id="paint21_linear_1240_9887" x1="85" y1="1.5" x2="86.1166" y2="1.50482" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient><linearGradient id="paint22_linear_1240_9887" x1="89" y1="5.5" x2="90.1166" y2="5.50685" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient><linearGradient id="paint23_linear_1240_9887" x1="93" y1="7.5" x2="94.1165" y2="7.50868" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient><linearGradient id="paint24_linear_1240_9887" x1="97" y1="11.5" x2="98.1163" y2="11.5186" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient><linearGradient id="paint25_linear_1240_9887" x1="101" y1="7.5" x2="102.117" y2="7.50868" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient><linearGradient id="paint26_linear_1240_9887" x1="109" y1="7.5" x2="110.117" y2="7.50868" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient><linearGradient id="paint27_linear_1240_9887" x1="105" y1="5.5" x2="106.117" y2="5.50685" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"/><stop offset="0.989583" stop-color="#8DADA0"/></linearGradient></defs></svg></div>';
+                _resultTemplate += '</div><div class="player-progress-timer"><span> 02:47 </span></div></div><div id="delButton" class="btn__del"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M24.0956 12.0366C24.3282 12.0366 24.5392 12.141 24.706 12.3174C24.8615 12.5058 24.9398 12.7398 24.9171 12.987C24.9171 13.0686 24.2953 21.1565 23.9401 24.5608C23.7177 26.65 22.4084 27.9184 20.4443 27.9532C18.9341 27.988 17.4579 28 16.0044 28C14.4613 28 12.9522 27.988 11.4874 27.9532C9.58915 27.9064 8.27863 26.6152 8.06759 24.5608C7.70223 21.1445 7.09179 13.0686 7.08045 12.987C7.0691 12.7398 7.14626 12.5058 7.30284 12.3174C7.45715 12.141 7.67954 12.0366 7.91328 12.0366H24.0956ZM18.4088 4C19.4402 4 20.3616 4.74039 20.6282 5.79638L20.8188 6.67237C20.9731 7.38637 21.5745 7.89156 22.2666 7.89156H25.6683C26.1222 7.89156 26.5 8.27916 26.5 8.77235V9.22835C26.5 9.70954 26.1222 10.1091 25.6683 10.1091H6.33283C5.87784 10.1091 5.5 9.70954 5.5 9.22835V8.77235C5.5 8.27916 5.87784 7.89156 6.33283 7.89156H9.73449C10.4255 7.89156 11.0269 7.38637 11.1823 6.67357L11.3604 5.85518C11.6373 4.74039 12.5484 4 13.5911 4H18.4088Z" fill="url(#paint0_linear_2745_22875)"/> <defs> <linearGradient id="paint0_linear_2745_22875" x1="5.5" y1="-0.999988" x2="28.3167" y2="0.507757" gradientUnits="userSpaceOnUse"> <stop stop-color="#E37C62"/> <stop offset="1" stop-color="#DC5396"/> </linearGradient> </defs> </svg></div></div>';
+
+            }); 
+
+            $("#playlist").animate({'opacity': 0}, 10).html(_resultTemplate).animate({'opacity': 1}, 10);
+
+
+            __mediaPlayer();
+
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    }); 
+
+
+    {% comment %} $(".versions.carousel-wrap .owl-item a").each(function () {
+
+        if ($(this).hasClass("s-active")) {
+            $(this).removeClass("s-active");
+        }
+
+    }); {% endcomment %}
+
+    $('.loader').hide();
+
+    $(this).addClass('s-active');
+
+  
+  {% comment %} el.find(".player-progress-timer span").html(minutes + ":" + seconds); {% endcomment %}
+
+
+  
+{% comment %} 
+
+  window.theme = {
+
+
+    init: function () {
+      this.initSliders();
+    }
+  
+  }; 
+  
+{% endcomment %}
+
+  
+
+
+});
+
+
+
+</script >

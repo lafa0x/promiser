@@ -1,25 +1,15 @@
-
 <style>
 
-
   .template-page #main {
-        padding: 120px 0;
-    }
-
-  .study-info,
-  .main-filter .form-switch {
-    display: none;
+      padding: 120px 0;
   }
 
   div#shopify-section-header + .study-info-about + .search-filter {
       display: none !important;
   }
 
-
   .showFilter div#shopify-section-header + .study-info-about + .search-filter {
   }
-
-
 
   .showFilter div#shopify-section-header + .study-info-about + .search-filter .search-filter-link a {
       margin-bottom: 16px;
@@ -174,11 +164,17 @@
 
       .desktop-header-holder .study-info {
           position: static;
-          margin-top: 5px;
+          margin-top: 18px;
+      }
+
+      .desktop-header-holder .main-filter input[type=text] {
+          margin-bottom: -5px;
       }
 
       .desktop-header-holder .main-filter .form-switch {
-          padding: 8px 10px 0;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          padding: 20px 10px 0;
       }
 
       .custom-main-nav.desktoprr #custom-search-icon,
@@ -389,11 +385,11 @@
       </li>  
        {% endcomment %}
 
-      {% comment %} <li>   
+      <li>   
         <a href="/collections/all" class="custom-menu-link">
             <span class="ctm-text">  Shop  </span>
         </a> 
-      </li>  {% endcomment %}
+      </li> 
     </ul>
 
   </div>
@@ -440,7 +436,7 @@
           </a>
       </li> {{ routes.cart_url }} - Its in Search last time {% endcomment %}
       <li>
-          <a {% unless template == 'cart' or settings.cart_action == 'no-overlay' %} id="cart-open-button" aria-expanded="false" aria-controls="site-cart-sidebar" {% endunless %} class="menu-meta__link" href="/search?search=peace">
+          <a {% unless template == 'cart' or settings.cart_action == 'no-overlay' %} id="cart-open-button" aria-expanded="false" aria-controls="site-cart-sidebar" {% endunless %} class="menu-meta__link" href="/cart">
             <span id="cart-open-button" class="menu-meta__icon" aria-label="{{ 'general.menu.cart_title' | t }}" style="margin-top: -1px;">
               
               {% comment  %}
@@ -632,7 +628,7 @@
           
           {% endcomment %}
           
-          {% comment %} <li class="ctm-shop">
+          <li class="ctm-shop">
             <a href="/collections/all" class="custom-menu-link">
              
 
@@ -688,7 +684,7 @@
               <path d="M0.179928 12.5837C-0.0393503 12.3645 -0.0592847 12.0213 0.120125 11.7795L0.179928 11.7103L5.50761 6.3823L0.179928 1.05433C-0.0393503 0.835052 -0.0592847 0.491918 0.120125 0.25012L0.179928 0.180846C0.399206 -0.0384321 0.742341 -0.0583668 0.984139 0.121043L1.05341 0.180846L6.81812 5.94555C7.0374 6.16483 7.05733 6.50797 6.87792 6.74976L6.81812 6.81904L1.05341 12.5837C0.812207 12.8249 0.421134 12.8249 0.179928 12.5837Z" fill="#E2E1F5"/>
               </svg>
             </a>
-          </li> {% endcomment %}
+          </li>
           
           
           
@@ -867,6 +863,8 @@
           <li><a href="#">For You</a></li>
           <li><a href="#">For A Child</a></li>
           <li><a href="#">For A Friend</a></li>
+          <li><a href="#">For A Friend</a></li>
+
       </ul>
     </div>
   
@@ -896,6 +894,7 @@
       
      
       
+      <a href="/cart">
              <svg class="ctm-plans-svg" width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
         <mask id="path-1-inside-1_2531:13885" fill="white">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M10.0498 5C10.1836 4.69377 10.2578 4.35555 10.2578 4C10.2578 2.61929 9.13852 1.5 7.75781 1.5C6.3771 1.5 5.25781 2.61929 5.25781 4C5.25781 4.35555 5.33204 4.69377 5.46583 5H3.88383C3.80157 4.68038 3.75781 4.3453 3.75781 4C3.75781 1.79086 5.54867 0 7.75781 0C9.96695 0 11.7578 1.79086 11.7578 4C11.7578 4.3453 11.7141 4.68038 11.6318 5H10.0498Z"/>
@@ -919,17 +918,63 @@
         </defs>
         </svg>
 
+      </a>
 
       
     </div>
     
     <div class="ctm-plan-link">
-      	<ul>
-          <li><a href="#">Bottles</a></li>
-          <li><a href="#">Post Cards</a></li>
-          <li><a href="#">Stars</a></li>
-          <li><a href="#">Tees</a></li>
-      </ul>
+        <ul>
+          <li >
+          
+            <a href="/collections/promise-bottles">
+              BOTTLES
+            </a>            
+          </li>
+
+          
+          <li>
+          
+            <a href="/collections/promiseboxes">
+              BOXES
+            </a>            
+          </li>
+
+          
+          <li>
+          
+            <a href="/collections/promise-cards">
+              CARDS
+            </a>            
+          </li>
+
+          
+          <li>
+          
+            <a href="/collections/postcards">
+              POSTCARDS
+            </a>            
+          </li>
+
+          
+          <li>
+          
+            <a href="/collections/stars">
+              STARS
+            </a>            
+          </li>
+
+          
+          <li>
+          
+            <a href="/collections/promise-tees">
+              TEES
+            </a>            
+          </li>
+
+          
+          
+        </ul>
     </div>
   
   </div>
