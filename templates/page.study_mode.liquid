@@ -80,10 +80,6 @@
     background-image: url("data:image/svg+xml,%3Csvg width='119' height='135' viewBox='0 0 119 135' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg filter='url(%23filter0_f_0_1)'%3E%3Crect x='40' y='40' width='39' height='55' rx='19.5' fill='white' fill-opacity='0.46'%3E%3C/rect%3E%3C/g%3E%3Cpath d='M52.0053 50.2892L57.1489 45.1456H45.1401L43.4291 46.8601L46.8546 50.2892L45.1401 52.0037L41.7145 48.5746L40 46.8601L41.7145 45.1456L46.8546 40.002H79.4273L74.2907 45.1456H65.7216V67.431L60.5674 72.5746V45.1456H57.1489V70.8601L64 77.7182L67.4291 74.2892L69.1436 76.0037L65.7145 79.4328L60.5709 84.5729L57.1489 81.1648L52.0053 76.0212L48.5727 72.5746L52.0018 69.1456L52.0053 50.2892Z' fill='url(%23paint0_linear_0_1)'%3E%3C/path%3E%3Crect x='37' y='92' width='46' height='4' rx='2' fill='url(%23paint1_linear_0_1)'%3E%3C/rect%3E%3Cdefs%3E%3Cfilter id='filter0_f_0_1' x='0' y='0' width='119' height='135' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'%3E%3C/feFlood%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'%3E%3C/feBlend%3E%3CfeGaussianBlur stdDeviation='20' result='effect1_foregroundBlur_0_1'%3E%3C/feGaussianBlur%3E%3C/filter%3E%3ClinearGradient id='paint0_linear_0_1' x1='40.007' y1='60.5727' x2='336.583' y2='60.5727' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%234C6392'%3E%3C/stop%3E%3Cstop offset='0.33' stop-color='%2364B9BB'%3E%3C/stop%3E%3Cstop offset='0.66' stop-color='%23F58A43'%3E%3C/stop%3E%3Cstop offset='1' stop-color='%23ED4497'%3E%3C/stop%3E%3C/linearGradient%3E%3ClinearGradient id='paint1_linear_0_1' x1='37' y1='91.1667' x2='65.6145' y2='116.018' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23E37C62'%3E%3C/stop%3E%3Cstop offset='1' stop-color='%23DC5396'%3E%3C/stop%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
 }
 
-.record-section {
-    display: none;
-}
-
 
 {% comment %} .trust-logos > div:after {
     display: none;
@@ -1736,28 +1732,50 @@
                     <span>Affirmation Example</span>
                 </div>
               
-              	<div class="second-selection study-question record-section">
+              	<div class="second-selection study-question record-section mic">
                     
 					<img src="{{ 'record-img.png' | asset_img_url: '' }}
   //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/record-img.png?42" style="width: 48px !important;" />
                   	                  
                 </div>
               
-               <div class="second-selection study-question record-section">
-                    
+               <div class="second-selection study-question record-section main-player" style="display:none;">
+          {% comment %}          
 					<img src="{{ 'record-start.png' | asset_img_url: '' }}
   //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/record-start.png?42" />
-                  	                  
+            {% endcomment %}
+
+            <div class="player-container">
+            <audio controls=""><source src="" type="audio/mpeg">
+                Your browser does not support the audio element.</audio>
+
+                  <div class="btn__play playButton" style="display:none;">
+                    <svg id="pauseIcon" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 43.5C34.7696 43.5 43.5 34.7696 43.5 24C43.5 13.2304 34.7696 4.5 24 4.5C13.2304 4.5 4.5 13.2304 4.5 24C4.5 34.7696 13.2304 43.5 24 43.5Z" fill="url(#paint0_linear_1240_9943)"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M20 18C21.1046 18 22 18.8954 22 20V28C22 29.1046 21.1046 30 20 30C18.8954 30 18 29.1046 18 28V20C18 18.8954 18.8954 18 20 18ZM28 18C29.1046 18 30 18.8954 30 20V28C30 29.1046 29.1046 30 28 30C26.8954 30 26 29.1046 26 28V20C26 18.8954 26.8954 18 28 18Z" fill="white"></path><defs><linearGradient id="paint0_linear_1240_9943" x1="4.5" y1="4.5" x2="47.4632" y2="9.50939" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"></stop><stop offset="0.989583" stop-color="#8DADA0"></stop></linearGradient></defs>
+                    </svg>
+                  </div>
+                  <div class="player-progress" style="display:none;">
+                  <div class="player-progress-title"><span>Promise</span></div>
+                  <div class="player-progress-bar"><div class="player-progress-bar-fill">
+                    <svg id="progressBar" width="214" height="30" viewBox="0 0 214 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M5 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M9 11.5V18.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M13 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M21 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M17 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M25 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M29 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M33 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M37 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M41 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M45 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M49 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M53 11.5V18.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M57 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M61 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M65 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M69 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M73 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M77 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M81 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M85 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M89 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M93 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M97 11.5V18.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M101 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M109 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M105 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M113 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M117 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M121 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M125 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M129 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M133 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M137 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M141 11.5V18.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M145 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M149 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M153 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M157 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M161 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M165 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M169 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M173 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M177 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M181 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M185 11.5V18.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M189 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M197 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M193 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M201 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M205 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M213 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M209 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><defs><linearGradient id="paint0_linear_1240_9887" x1="1" y1="5.5" x2="2.11656" y2="5.50685" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"></stop><stop offset="0.989583" stop-color="#8DADA0"></stop></linearGradient></defs>
+                    </svg>
+                  </div>
                 </div>
+              </div>
+              <div id="delButton" class="btn__del" style="display:none;">
+                  <span class="tpt">0:00</span>
+              </div>
+            </div>
+
+            </div>
               
-              <div class="second-selection study-question record-section">
+              <div class="second-selection study-question record-section" style="display:none;">
                     
 					<img src="{{ 'record-delete.png' | asset_img_url: '' }}
   //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/record-delete.png?42" />
                   	                  
                 </div>
               
-              <div class="second-selection study-question record-section">
+              <div class="second-selection study-question record-section" style="display:none;">
                     
 					<img src="{{ 'record-play.png' | asset_img_url: '' }}
   //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/record-play.png?42" />
@@ -2121,9 +2139,15 @@
     <script src="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/owl.carousel.js"></script>
 
 <script>
-  
+
+
 // This is necessary. Owl breaks without this.
 jQuery(document).ready(async function($) {
+  
+  $('.record-section.mic img').on("click", function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    $(this).parent().next().show();
+  });
   
   const API_URL = 'https://promiser-bible-search.herokuapp.com/api/v1';
   
