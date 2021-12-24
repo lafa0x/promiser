@@ -1746,14 +1746,12 @@
             {% endcomment %}
 
             <div class="player-container">
-            <audio controls=""><source src="" type="audio/mpeg">
-                Your browser does not support the audio element.</audio>
+                <audio controls id="audio" style="display:none;"></audio>
 
-                  <div class="btn__play playButton" style="display:none;">
-                    <svg id="pauseIcon" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 43.5C34.7696 43.5 43.5 34.7696 43.5 24C43.5 13.2304 34.7696 4.5 24 4.5C13.2304 4.5 4.5 13.2304 4.5 24C4.5 34.7696 13.2304 43.5 24 43.5Z" fill="url(#paint0_linear_1240_9943)"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M20 18C21.1046 18 22 18.8954 22 20V28C22 29.1046 21.1046 30 20 30C18.8954 30 18 29.1046 18 28V20C18 18.8954 18.8954 18 20 18ZM28 18C29.1046 18 30 18.8954 30 20V28C30 29.1046 29.1046 30 28 30C26.8954 30 26 29.1046 26 28V20C26 18.8954 26.8954 18 28 18Z" fill="white"></path><defs><linearGradient id="paint0_linear_1240_9943" x1="4.5" y1="4.5" x2="47.4632" y2="9.50939" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"></stop><stop offset="0.989583" stop-color="#8DADA0"></stop></linearGradient></defs>
-                    </svg>
+                  <div class="btn__play recordButton">
+                    <img width="48" height="48" src="https://cdn.shopify.com/s/files/1/0575/8815/4557/t/16/assets/record-icon.png?v=1640352788" alt="" />
                   </div>
-                  <div class="player-progress" style="display:none;">
+                  <div class="player-progress">
                   <div class="player-progress-title"><span>Promise</span></div>
                   <div class="player-progress-bar"><div class="player-progress-bar-fill">
                     <svg id="progressBar" width="214" height="30" viewBox="0 0 214 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M5 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M9 11.5V18.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M13 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M21 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M17 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M25 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M29 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M33 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M37 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M41 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M45 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M49 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M53 11.5V18.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M57 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M61 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M65 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M69 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M73 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M77 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M81 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M85 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M89 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M93 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M97 11.5V18.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M101 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M109 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M105 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M113 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M117 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M121 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M125 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M129 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M133 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M137 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M141 11.5V18.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M145 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M149 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M153 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M157 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M161 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M165 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M169 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M173 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M177 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M181 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M185 11.5V18.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M189 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M197 7.5V22.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M193 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M201 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M205 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M213 5.5V24.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><path d="M209 1.5V28.5" stroke="#716FA3" stroke-width="1.5" stroke-linecap="round"></path><defs><linearGradient id="paint0_linear_1240_9887" x1="1" y1="5.5" x2="2.11656" y2="5.50685" gradientUnits="userSpaceOnUse"><stop stop-color="#79B8BB"></stop><stop offset="0.989583" stop-color="#8DADA0"></stop></linearGradient></defs>
@@ -1761,7 +1759,7 @@
                   </div>
                 </div>
               </div>
-              <div id="delButton" class="btn__del" style="display:none;">
+              <div id="delButton" class="btn__del">
                   <span class="tpt">0:00</span>
               </div>
             </div>
@@ -2137,7 +2135,9 @@
 <!-- javascript -->
     <script src="https://owlcarousel2.github.io/OwlCarousel2/assets/vendors/jquery.min.js"></script>
     <script src="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/owl.carousel.js"></script>
-
+    <script src="https://cdn.shopify.com/s/files/1/0575/8815/4557/t/16/assets/recorder.js?v=15471957714723597570"></script>
+    <script src="https://cdn.shopify.com/s/files/1/0575/8815/4557/t/16/assets/Fr.voice.js?v=3454625946436001837"></script>
+    
 <script>
 
 
@@ -2146,9 +2146,28 @@ jQuery(document).ready(async function($) {
   
   $('.record-section.mic img').on("click", function(e) {
     e.preventDefault(); //prevent the link from being followed
+    $(this).hide();
     $(this).parent().next().show();
+  
+    Fr.voice.record('', function(){
+      var analyser = Fr.voice.recorder.analyser;
+      var bufferLength = analyser.frequencyBinCount;
+      var dataArray = new Uint8Array(bufferLength);
+      analyser.getByteTimeDomainData(dataArray);
+
+      /*console.log(analyser);
+      console.log(bufferLength);
+      console.log(dataArray);*/
+    });
+
   });
   
+  $('.recordButton img').on("click", function(e) {
+    e.preventDefault(); //prevent the link from being followed
+    Fr.voice.pause();
+  });
+
+
   const API_URL = 'https://promiser-bible-search.herokuapp.com/api/v1';
   
   const urlParams = new URLSearchParams(window.location.search);
