@@ -1759,8 +1759,8 @@
                   </div>
                 </div>
               </div>
-              <div id="delButton" class="btn__del">
-                  <span class="tpt">0:00</span>
+              <div class="btn__del currentTime">
+                  <span>0:00</span>
               </div>
             </div>
 
@@ -2144,32 +2144,42 @@
 // This is necessary. Owl breaks without this.
 jQuery(document).ready(async function($) {
   
+  
   $('.record-section.mic img').on("click", function(e) {
-    e.preventDefault(); //prevent the link from being followed
+    e.preventDefault();
+    var __wrapper = $(this).parent().parent(); 
     $(this).hide();
     $(this).parent().next().show();
-  
+    
     Fr.voice.record('', function(){
       var analyser = Fr.voice.recorder.analyser;
       var bufferLength = analyser.frequencyBinCount;
-      var dataArray = new Uint8Array(bufferLength);
-      analyser.getByteTimeDomainData(dataArray);
+      //var dataArray = new Uint8Array(bufferLength);
+      //analyser.getByteTimeDomainData(dataArray);
+      //console.log(analyser);
 
-      /*console.log(analyser);
-      console.log(bufferLength);
-      console.log(dataArray);*/
+      updateTime = function() {
+        var currentTime = Fr.voice.recorder.analyser.context.currentTime
+        var currentMin = Math.floor(currentTime / 60);
+        var currentSec = Math.floor(currentTime % 60);
+        console.log(currentMin+" : "+currentSec)
+        if(currentSec < 10) {
+          var currentSec = "0"+currentSec;
+        }
+        __wrapper.find(".currentTime span").html(currentMin+":"+currentSec);
+      };
+      var stopTime = setInterval(updateTime, 200);
+
     });
-
   });
   
   $('.recordButton img').on("click", function(e) {
     e.preventDefault(); //prevent the link from being followed
-    Fr.voice.pause();
+    Fr.voice.stop();
+    //clearInterval(stopTime);
   });
 
-
-  const API_URL = 'https://promiser-bible-search.herokuapp.com/api/v1';
-  
+  const API_URL = 'https://promiser-bible-search.herokuapp.com/api/v1';  
   const urlParams = new URLSearchParams(window.location.search);
   const term = urlParams.get('search');
   const study = !!urlParams.get('study');
