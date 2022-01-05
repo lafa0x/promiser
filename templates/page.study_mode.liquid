@@ -1732,23 +1732,25 @@
                     <span>Affirmation Example</span>
                 </div>
               
-              	<div class="second-selection study-question record-section mic">
-                    
-					<img src="{{ 'record-img.png' | asset_img_url: '' }}
-  //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/record-img.png?42" style="width: 48px !important;" />
-                  	                  
+              	<div class="second-selection study-question record-section">
+                  <div class="mic">
+                    <figure>
+    					        <img src="{{ 'record-img.png' | asset_img_url: '' }}
+      //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/record-img.png?42" style="width: 48px !important;" />
+                    </figure>
+                  </div>
                 </div>
               
                <div class="second-selection study-question record-section main-player" style="display:none;">
-          {% comment %}          
-					<img src="{{ 'record-start.png' | asset_img_url: '' }}
-  //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/record-start.png?42" />
-            {% endcomment %}
+                  {% comment %}          
+        					<img src="{{ 'record-start.png' | asset_img_url: '' }}
+          //cdn.shopify.com/s/files/1/0000/0001/t/1/assets/record-start.png?42" />
+                  {% endcomment %}
 
             <div class="player-container">
                 <audio controls id="audio" style="display:none;"></audio>
 
-                  <div class="btn__play recordButton">
+                  <div class="btn__play mic">
                     <img width="48" height="48" src="https://cdn.shopify.com/s/files/1/0575/8815/4557/t/16/assets/record-icon.png?v=1640352788" alt="" />
                   </div>
                   <div class="player-progress">
@@ -2144,40 +2146,72 @@
 // This is necessary. Owl breaks without this.
 jQuery(document).ready(async function($) {
   
-  
-  $('.record-section.mic img').on("click", function(e) {
-    e.preventDefault();
-    var __wrapper = $(this).parent().parent(); 
-    $(this).hide();
-    $(this).parent().next().show();
+  function updateTime() {
+    var __wrapper2 = $(".record-section .mic img").parent().parent().parent().parent();
+    var currentTime = Fr.voice.recorder.analyser.context.currentTime
+    var currentMin = Math.floor(currentTime / 60);
+    var currentSec = Math.floor(currentTime % 60);
+    if(currentSec < 10) {
+      var currentSec = "0"+currentSec;
+    }
+    var ct = currentMin+":"+currentSec
+    __wrapper2.find(".currentTime span").html(ct);
+    var currentMin = currentSec = currentTime;
+    console.log(ct);
     
-    Fr.voice.record('', function(){
+    return ct;
+  }
+
+  var stopTime;
+  $('.record-section .mic img').on("click", function(e) {
+    e.preventDefault();
+    var __wrapper = $(this).parent().parent().parent().parent();
+    var recordWrapper = $(this).parent().parent().parent();
+
+    if(__wrapper.hasClass("recording")) {
+      __wrapper.removeClass("recording")
+      __wrapper.addClass("stop")
+      __wrapper.find('figure img').show();
+      __wrapper.find('.main-player').hide();
+      Fr.voice.stop();
+      console.log(e.id);
+      clearInterval(stopTime);
+
+
+      /*Fr.voice.exportMP3(function(url){
+        console.log(url)
+        $("#audio").attr("src", url);
+        $("#audio")[0].play();
+      }, "URL");*/
+
+
+    } else {
+      __wrapper.removeClass("stop")
+      __wrapper.addClass("recording")
+      __wrapper.find('figure img').hide();
+      recordWrapper.next().show();
+    
+    Fr.voice.record('', function(e){
+      console.log(e);
       var analyser = Fr.voice.recorder.analyser;
       var bufferLength = analyser.frequencyBinCount;
       //var dataArray = new Uint8Array(bufferLength);
       //analyser.getByteTimeDomainData(dataArray);
       //console.log(analyser);
 
-      updateTime = function() {
-        var currentTime = Fr.voice.recorder.analyser.context.currentTime
-        var currentMin = Math.floor(currentTime / 60);
-        var currentSec = Math.floor(currentTime % 60);
-        console.log(currentMin+" : "+currentSec)
-        if(currentSec < 10) {
-          var currentSec = "0"+currentSec;
-        }
-        __wrapper.find(".currentTime span").html(currentMin+":"+currentSec);
-      };
-      var stopTime = setInterval(updateTime, 200);
-
+      updateTime();
+      stopTime = setInterval(updateTime, 200);
     });
+
+    }
+
   });
   
-  $('.recordButton img').on("click", function(e) {
+  /*$('.recordButton img').on("click", function(e) {
     e.preventDefault(); //prevent the link from being followed
     Fr.voice.stop();
-    //clearInterval(stopTime);
-  });
+    clearInterval(stopTime);
+  });*/
 
   const API_URL = 'https://promiser-bible-search.herokuapp.com/api/v1';  
   const urlParams = new URLSearchParams(window.location.search);
