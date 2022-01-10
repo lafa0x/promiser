@@ -2065,6 +2065,22 @@
   .aff-audio-playlist .player-container .pauseIcon {
     display:none;
   }
+  .aff-audio-playlist .player-container.play .playIcon {
+      display: none;
+  }
+
+  .aff-audio-playlist .player-container.play .pauseIcon {
+      display: inline-block;
+  }
+  
+  .aff-audio-playlist .player-container.pause .playIcon {
+      display: inline-block;
+  }  
+
+  .aff-audio-playlist .player-container.pause .pauseIcon {
+      display: none;
+  }  
+
   .owl-carousel.first-selection {
   	padding-bottom: 20px;
   }
@@ -2135,7 +2151,7 @@
     <script src="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/owl.carousel.js"></script>
     <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
 
-<script type="text/javascript">
+<script>
 
 jQuery(document).ready(async function($) {
 //webkitURL is deprecated but nevertheless
@@ -2287,15 +2303,34 @@ function stopRecording() {
 var index = 0;
 function createDownloadLink(blob) {
   index += 1;
-  console.log(index);
 
   var url = URL.createObjectURL(blob);
   var au = document.createElement('audio');
   var li = document.createElement('li');
   var link = document.createElement('a');
 
+  const _params = $(this).parents('.owl-carousel .item a').attr("href").replace('?', '');
+  const _term  = _params.split('&')[0].split('=').pop();
+  if (_params.split('&')[1] != undefined ) {
+    _study   = _params.split('&')[1].split('=').pop();
+  }else {
+    _study   ="";
+  }
+
+  if (_params.split('&')[2] != undefined ){
+    _version = _params.split('&')[2].split('=').pop();
+  }else {
+    _version = "";
+  }
+
   //name of .wav file to use during upload and download (without extendion)
-  //var filename = new Date().toISOString();
+  var filename = new Date().toISOString();
+
+  console.log(_params);
+  console.log(_term);
+  console.log(filename+".wav");
+
+
 
   //add controls to the <audio> element
   //au.controls = true;
@@ -2338,7 +2373,7 @@ function createDownloadLink(blob) {
   //recordingsList.appendChild(li);
 
   var html='';
-  html += '<div class="player-container">';
+  html += '<div class="player-container" id="aff_playlist_'+index+'">';
   html += '<audio style="display:none;" controls><source src="'+url+'" type="audio/wav">Your browser does not support the audio element.</audio>';
   html += '<div class="btn__play playButton">';
 
@@ -2369,25 +2404,25 @@ html += '<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http
 html += '</div>';
 html += '</div>';
 
-$(".aff-audio-playlist").append(html);
+$(".aff-audio-playlist").prepend(html);
 $(".aff-audio-playlist").show();
 
  getDuration(url, function(duration) {
-    //console.log($(".player-progress-timer span.tpt").html());
     var __wrapper =  $(this).parent().parent();
     var totalMinutes = Math.floor(duration / 60);
     var totalSeconds = Math.floor(duration % 60);
     if(totalSeconds < 10) {
       totalSeconds = "0"+totalSeconds;
     }
-    console.log(totalMinutes + ":" + totalSeconds);
-      $(".player-progress-timer span.tpt"+index).html(totalMinutes + ":" + totalSeconds);
+    //console.log(totalMinutes + ":" + totalSeconds);
+      $("#aff_playlist_"+index+" .player-progress-timer span.tpt"+index).html(totalMinutes + ":" + totalSeconds);
       url='';      
   });
 
 }
 
-$(".playButton svg").on("click", function(e) {
+  $(document).on("click",".playButton svg", function(e) {
+  //$(".playButton svg").on("click", function(e) {
     e.preventDefault();
     console.log("play")
     
@@ -2464,7 +2499,7 @@ $(".playButton svg").on("click", function(e) {
       }
     }
 
-    clearInterval(playerProgressSvgAnimate);
+    //clearInterval(playerProgressSvgAnimate);
 
     }
 
