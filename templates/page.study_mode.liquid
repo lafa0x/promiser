@@ -2309,7 +2309,7 @@ function createDownloadLink(blob) {
   var li = document.createElement('li');
   var link = document.createElement('a');
 
-  const _params = $(this).parents('.owl-carousel .item a').attr("href").replace('?', '');
+  /*const _params = $(this).parents('.owl-carousel .item a').attr("href").replace('?', '');
   const _term  = _params.split('&')[0].split('=').pop();
   if (_params.split('&')[1] != undefined ) {
     _study   = _params.split('&')[1].split('=').pop();
@@ -2321,14 +2321,14 @@ function createDownloadLink(blob) {
     _version = _params.split('&')[2].split('=').pop();
   }else {
     _version = "";
-  }
+  }*/
 
   //name of .wav file to use during upload and download (without extendion)
   var filename = new Date().toISOString();
 
-  console.log(_params);
-  console.log(_term);
-  console.log(filename+".wav");
+  //console.log(_params);
+  //console.log(_term);
+  //console.log(filename+".wav");
 
 
 
