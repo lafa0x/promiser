@@ -127,12 +127,10 @@
           data: JSON.stringify(formData), 
           contentType: "application/json",
           success: function(data) {
-
             $('.main-error').hide();
             localStorage.setItem('token', data.token); 
+            localStorage.setItem('customerdata', JSON.stringify(data)); 
             window.location.href = "https://promiser.co/pages/dashboard";
-
-
           },
           error: function(data) {
 

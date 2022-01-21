@@ -58,6 +58,16 @@
     {{ 'theme-noscript.css' | asset_url | stylesheet_tag }}
   </noscript>
 
+  <script>
+    /*var templateName = "{{ template }}";
+    var getToken = localStorage.getItem("token");
+    if(!getToken && (templateName == 'page.dashboard' || templateName == 'page.dashboard-settings' || templateName == 'page.dashboard-profile' || templateName == 'page.dashboard-security' || templateName == 'page.dashboard-notifications' || templateName == 'page.peace-prayers' || templateName == 'page.peace-affirmations' || templateName == 'page.peace-promise')) {
+
+      window.location.href = "https://promiser.co/pages/sign-in";
+    
+    }*/
+  </script>
+  
 </head>
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template.name }} template-{{ template | replace: '.', ' ' | handle }} no-touchevents image-reveal--{{ settings.image_reveal }}">
 	
@@ -259,6 +269,15 @@
   }
     
   </script>
+
+<script>
+  var getToken = localStorage.getItem("token");
+  if(getToken) {
+    var currentUserData = localStorage.getItem('customerdata');
+    var userData = JSON.parse(currentUserData);
+    //console.log(userData);
+  } 
+</script>
 
 </body>
 </html>

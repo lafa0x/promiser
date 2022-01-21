@@ -128,6 +128,13 @@
     jQuery('.ctm-main-menu').addClass('ctm-menu-active');
 }); 
 </script>
+
+<style>
+h5.profile-area.logout-me {
+  top:-7px;
+  display:inline-block;
+}
+</style>
 </div>
   </div>
   <div class="row">
@@ -142,7 +149,7 @@
       <div class="col-md-12">
         <div class="back-to-dashboard">
           <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/point.png?v=1635951435" class="go-back-img">
-          <h5 class="back-to-dashboard-text">Back to Dashboard</h5>
+          <h5 class="back-to-dashboard-text"><a href="https://promiser.co/pages/dashboard">Back to Dashboard</a></h5>
         </div>
       </div>
     </div>
@@ -189,11 +196,24 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        <div class="tabbing-area my-custom-setted">
+        <div class="tabbing-area my-custom-setted custom-logout">
+        <a href="javascript:void(0);">
           <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/ic.png?v=1635951363" class="backup-logout">
           <h5 class="profile-area logout-me">Log Out</h5>
+        </a>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+$(".custom-logout a").click(function() {
+  var getToken = localStorage.getItem("token");
+  if(getToken) {
+    localStorage.removeItem('customerdata');
+    localStorage.removeItem('token');
+    window.location.href = "https://promiser.co/pages/sign-in";
+  }
+});
+</script>
