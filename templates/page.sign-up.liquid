@@ -70,17 +70,19 @@
     </div>
   </div>
 </div>
+<style>
+@media (min-width: 564px){ 
+.daterangepicker { width:340px; }
+}
+</style>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
-
-
 <script type="text/javascript">
 
 
   //Signup Form Using Ajax
   jQuery(document).ready(function($){
-
 
     $("#form").validate({
       rules: {
@@ -137,10 +139,11 @@
           minlength: "Your company name must be at least 3 characters long"
         }
       }
+      
     });
 
-    $("#form").submit(function(event) {
 
+    $("#form").submit(function(event) {
       event.preventDefault();
 
       const formData =  {
@@ -162,8 +165,8 @@
       })
       .done(function(response) {
 
-
         //set token
+        localStorage.setItem('customerdata', JSON.stringify(response)); 
         localStorage.setItem('token', response.token);
         window.location.href = 'dashboard';
 

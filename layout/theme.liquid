@@ -44,7 +44,8 @@
   <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
 
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"  crossorigin="anonymous"/>
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+  
   {{ content_for_header }}
   
   {%- if template == 'customers/addresses' -%}
@@ -59,13 +60,13 @@
   </noscript>
 
   <script>
-    /*var templateName = "{{ template }}";
+    var templateName = "{{ template }}";
     var getToken = localStorage.getItem("token");
     if(!getToken && (templateName == 'page.dashboard' || templateName == 'page.dashboard-settings' || templateName == 'page.dashboard-profile' || templateName == 'page.dashboard-security' || templateName == 'page.dashboard-notifications' || templateName == 'page.peace-prayers' || templateName == 'page.peace-affirmations' || templateName == 'page.peace-promise')) {
 
       window.location.href = "https://promiser.co/pages/sign-in";
     
-    }*/
+    }
   </script>
   
 </head>
@@ -267,17 +268,8 @@
       y.style.display = "block";
     }
   }
-    
-  </script>
-
-<script>
-  var getToken = localStorage.getItem("token");
-  if(getToken) {
-    var currentUserData = localStorage.getItem('customerdata');
-    var userData = JSON.parse(currentUserData);
-    //console.log(userData);
-  } 
 </script>
+
 
 </body>
 </html>

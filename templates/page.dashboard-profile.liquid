@@ -31,11 +31,12 @@
         </div>
     </div>
   </div>
+  <form id="edit_profile_form">
   <div class="row">
     <div class="col-md-12">
       <div class="mr-jenkins">
         <img src="https://cdn.shopify.com/s/files/1/0575/8815/4557/files/profile_1ceefde6-3b11-42f1-9469-983be1612196.png?v=1635936679" name="log" class="mr-jenkins-img">
-        <h4 class="mr-jenkins-text">Ms. Jenkins</h4>
+        <h4 class="mr-jenkins-text username"></h4>
       </div>
     </div>
   </div>
@@ -43,7 +44,7 @@
     <div class="col-md-12">
       <div class="email-area">
         <label class="email-for-mr-jenkins">Email</label>
-        <input type="email" name="email_for" class="scheme-setting email-text-field" placeholder="seepid@gmail.com">
+        <input type="email" name="email" id="email" class="scheme-setting email-text-field" placeholder="seepid@gmail.com">
       </div>
     </div>
   </div>
@@ -51,7 +52,7 @@
     <div class="col-md-12">
       <div class="email-area phone-of-mr-jenkins">
         <label class="email-for-mr-jenkins">Phone</label>
-        <input type="text" name="phone_for" class="scheme-setting phone-text-field" placeholder="+1 844 973 7246">
+        <input type="text" name="phone" id="phone" class="scheme-setting phone-text-field" placeholder="+1 844 973 7246">
       </div>
     </div>
   </div>
@@ -59,13 +60,14 @@
     <div class="col-md-12">
       <div class="email-area birthday-of-mr-jenkins">
         <label class="email-for-mr-jenkins">Birthday</label>
-        <input type="text" name="phone_for" class="scheme-setting bday-text-field" placeholder="September 17th, 1984">
+        <input type="text" name="dob" id="dob" class="scheme-setting bday-text-field" placeholder="September 17th, 1984">
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12">
       <div class="email-area button-of-mr-jenkins">
+        <input type="hidden" name="customer_id" id="customer_id" value="">
         <button type="submit" class="mr-jenkins-save-changes">Save Changes</button>
       </div>
     </div>
@@ -73,8 +75,157 @@
   <div class="row">
     <div class="col-md-12">
       <div class="email-area discard-of-mr-jenkins">
-        <a class="mr-jenkins-discard">Discard Changes</a>
+        <a href="javascript:void(0);" class="mr-jenkins-discard cancel">Discard Changes</a>
       </div>
     </div>
   </div>
+  </form>
 </div>
+<style>
+@media (min-width: 564px){
+.daterangepicker { width: 350px; }
+}
+</style>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+<script type="text/javascript">
+jQuery(document).ready(function($){
+  var getToken = localStorage.getItem("token");
+  if(getToken) {
+    var currentUserData = localStorage.getItem('customerdata');
+    var userData = JSON.parse(currentUserData);
+    var fullName = userData.firstName+" "+userData.lastName;
+    //console.log(userData);
+    $(".username").html(fullName);
+    $("#edit_profile_form #email").val(userData.email);
+  }
+
+  $("#edit_profile_form").validate({
+    rules: {
+      email: {
+        required: true,
+        email: true
+      },
+      phone: {
+        required: true
+        //minlength: 15
+      },
+      dob: {
+        required: true
+        //minlength: 10
+      }
+    },
+    messages: {
+      email: {
+        required: "Please enter your email address",
+        email: "Please enter a valid email address"
+      },
+      phone: {
+        required: "Please enter your phone number"
+        //minlength: "Your phone number must be at least 15 characters long"
+      },        
+      dob: {
+        required: "Please enter your DOB"
+        //minlength: "Your date of birth must be at least 10 characters long"
+      }
+    }
+  });
+
+  $('#edit_profile_form #phone').keypress(function (e) {
+    var charCode = (e.which) ? e.which : event.keyCode
+    //console.log(charCode);
+     if ( charCode == 43 || charCode == 32 ) {
+        return true;
+      } else {
+          if (String.fromCharCode(charCode).match(/[^0-9]/g)) {
+              event.preventDefault(); 
+          }   
+      }
+  }); 
+
+  $('#dob').daterangepicker({
+    autoUpdateInput: false,
+    singleDatePicker: true,
+    showDropdowns: true,
+    minYear: 1901,
+    maxYear: parseInt(moment().format('YYYY'),10)
+  }, function(start, end, label) {
+      $('#dob').val(start.format('MMMM D, YYYY'));
+  });
+  $('#dob').on('apply.daterangepicker', function(ev, picker) {
+    $(this).val(picker.startDate.format('MMMM D, YYYY'));
+  });
+
+  $(".discard-of-mr-jenkins .cancel").click(function() {
+    alert("Are you discard your changes?");
+    var getToken = localStorage.getItem("token");
+    if(getToken) {
+      var currentUserData = localStorage.getItem('customerdata');
+      var userData = JSON.parse(currentUserData);
+      var fullName = userData.firstName+" "+userData.lastName;
+      console.log(userData);
+      $("#edit_profile_form #email").val(userData.email);
+      $("#email-error").remove();
+      $(".username").html(fullName);
+    }
+  });
+
+
+    $("#edit_profile_form").submit(function(event) {
+
+      event.preventDefault();
+
+      var currentUserData = localStorage.getItem('customerdata');
+      var userData = JSON.parse(currentUserData);
+      var custID = userData.shopifyCustomerID;
+
+
+      const formData =  {
+        'email' : $('#form #email').val(),
+        'phone' : $('#form #phone').val()
+      };
+
+      /*$.ajax({
+      crossDomain: true,
+
+      dataType: 'jsonp',
+      url: 'https://a2ac61e87c82904abc84e30b7178c439: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@by-every-verse.myshopify.com/admin/api/2021-10/customers/custID.json', 
+      data: JSON.stringify(formData),
+      jsonpCallback: 'jsonOutput',
+      jsonp: 'callback',
+    });
+
+    function jsonOutput(data){
+       var status = JSON.parse(JSON.stringify(data.response.data));
+       console.log(status);
+    }*/
+
+      $.ajax({
+        crossDomain: true,
+        type: 'POST',
+        url: "https://a2ac61e87c82904abc84e30b7178c439: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@by-every-verse.myshopify.com/admin/api/2021-10/customers/custID.json",
+        data: JSON.stringify(formData), 
+        contentType: "application/json",
+        dataType: 'json'
+      })
+      .done(function(response) {
+        console.log(response);
+
+        //set token
+        //localStorage.setItem('token', response.token);
+        //window.location.href = 'dashboard';
+
+      })
+      .fail(function(err) {
+        console.log(err);
+      });
+
+    });
+
+
+  });
+</script>
