@@ -82,6 +82,7 @@
   </form>
 </div>
 <style>
+#edit_profile_form .email-area .error { color: #ffffff; }
 @media (min-width: 564px){
 .daterangepicker { width: 350px; }
 }
@@ -89,8 +90,8 @@
 
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<script type="text/javascript" src="{{ 'moment.min.js' | asset_url }}" ></script>
+<script type="text/javascript" src="{{ 'daterangepicker.min.js' | asset_url }}" ></script>
 
 <script type="text/javascript">
 jQuery(document).ready(function($){
@@ -210,7 +211,7 @@ jQuery(document).ready(function($){
         url: "https://a2ac61e87c82904abc84e30b7178c439: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@by-every-verse.myshopify.com/admin/api/2021-10/customers/custID.json",
         data: JSON.stringify(formData), 
         contentType: "application/json",
-        dataType: 'json'
+        dataType: 'jsonp'
       })
       .done(function(response) {
         console.log(response);
