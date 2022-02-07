@@ -48,19 +48,19 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <!--<div class="row">
     <div class="col-md-12">
       <div class="email-area phone-of-mr-jenkins">
         <label class="email-for-mr-jenkins">Phone</label>
         <input type="text" name="phone" id="phone" class="scheme-setting phone-text-field" placeholder="+1 844 973 7246">
       </div>
     </div>
-  </div>
+  </div>-->
   <div class="row">
     <div class="col-md-12">
       <div class="email-area birthday-of-mr-jenkins">
         <label class="email-for-mr-jenkins">Birthday</label>
-        <input type="text" name="dob" id="dob" class="scheme-setting bday-text-field" placeholder="September 17th, 1984">
+        <input type="date" name="birthday" id="birthday" class="scheme-setting bday-text-field" placeholder="September 17th, 1984" data-date="" data-date-format="MMMM DD, YYYY">
       </div>
     </div>
   </div>
@@ -79,6 +79,7 @@
       </div>
     </div>
   </div>
+  <p class="update-success" style="display:none; text-align:center;">Your Profile Data Successfully Updated<p>
   </form>
 </div>
 <style>
@@ -86,12 +87,35 @@
 @media (min-width: 564px){
 .daterangepicker { width: 350px; }
 }
+input#birthday {
+    position: relative;
+    /*width: 150px;
+    color: white;*/
+}
+
+input#birthday:before {
+    /*position: absolute;*/
+    content: attr(data-date);
+    /*display: inline-block;
+    color: #fff;*/
+}
+
+/*  input#birthday::-webkit-datetime-edit, input#birthday::-webkit-inner-spin-button, input#birthday::-webkit-clear-button {
+    display: none;
+}*/
+
+input#birthday::-webkit-calendar-picker-indicator {
+    position: absolute;
+    right: 15px;
+    color: black;
+    opacity: 1;
+    cursor: pointer;
+}
 </style>
 
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
 <script type="text/javascript" src="{{ 'moment.min.js' | asset_url }}" ></script>
-<script type="text/javascript" src="{{ 'daterangepicker.min.js' | asset_url }}" ></script>
 
 <script type="text/javascript">
 jQuery(document).ready(function($){
@@ -101,8 +125,11 @@ jQuery(document).ready(function($){
     var userData = JSON.parse(currentUserData);
     var fullName = userData.firstName+" "+userData.lastName;
     //console.log(userData);
+
     $(".username").html(fullName);
     $("#edit_profile_form #email").val(userData.email);
+    $("#edit_profile_form #birthday").val(userData.birthday);
+
   }
 
   $("#edit_profile_form").validate({
@@ -111,11 +138,11 @@ jQuery(document).ready(function($){
         required: true,
         email: true
       },
-      phone: {
+      /*phone: {
         required: true
         //minlength: 15
-      },
-      dob: {
+      },*/
+      birthday: {
         required: true
         //minlength: 10
       }
@@ -125,12 +152,12 @@ jQuery(document).ready(function($){
         required: "Please enter your email address",
         email: "Please enter a valid email address"
       },
-      phone: {
+      /*phone: {
         required: "Please enter your phone number"
         //minlength: "Your phone number must be at least 15 characters long"
-      },        
-      dob: {
-        required: "Please enter your DOB"
+      },*/        
+      birthday: {
+        required: "Please enter your Date Of Birth"
         //minlength: "Your date of birth must be at least 10 characters long"
       }
     }
@@ -148,18 +175,43 @@ jQuery(document).ready(function($){
       }
   }); 
 
-  $('#dob').daterangepicker({
+
+  /*$("input#birthday").on("change", function() {
+    this.setAttribute(
+        "data-date",
+        moment(this.value, "YYYY-MM-DD")
+        .format( this.getAttribute("data-date-format") )
+    )
+  }).trigger("change")*/
+
+  var dtToday = new Date();
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+    if(month < 10)
+        month = '0' + month.toString();
+    if(day < 10)
+        day = '0' + day.toString();
+    var maxDate = year + '-' + month + '-' + day;    
+    $('#birthday').attr('max', maxDate);
+
+
+  /*$('#birthday').daterangepicker({
     autoUpdateInput: false,
     singleDatePicker: true,
     showDropdowns: true,
     minYear: 1901,
     maxYear: parseInt(moment().format('YYYY'),10)
   }, function(start, end, label) {
-      $('#dob').val(start.format('MMMM D, YYYY'));
-  });
-  $('#dob').on('apply.daterangepicker', function(ev, picker) {
-    $(this).val(picker.startDate.format('MMMM D, YYYY'));
-  });
+      //$('#birthday').val(start.format('MMMM D, YYYY'));
+      $('#birthday').val(start.format('DD-MM-YY'));
+  });*/
+  /*$('#birthday').on('apply.daterangepicker', function(ev, picker) {
+    //$(this).val(picker.startDate.format('MMMM D, YYYY'));
+    $(this).val(picker.startDate.format('DD-MM-YY'));
+  });*/
+
+
 
   $(".discard-of-mr-jenkins .cancel").click(function() {
     alert("Are you discard your changes?");
@@ -168,62 +220,47 @@ jQuery(document).ready(function($){
       var currentUserData = localStorage.getItem('customerdata');
       var userData = JSON.parse(currentUserData);
       var fullName = userData.firstName+" "+userData.lastName;
-      console.log(userData);
+      //console.log(userData);
+      
       $("#edit_profile_form #email").val(userData.email);
-      $("#email-error").remove();
+      $("#edit_profile_form #birthday").val(userData.birthday);
+      $("#email-error, #birthday-error").remove();
       $(".username").html(fullName);
     }
   });
 
 
-    $("#edit_profile_form").submit(function(event) {
 
+    $("#edit_profile_form").submit(function(event) {
       event.preventDefault();
 
       var currentUserData = localStorage.getItem('customerdata');
       var userData = JSON.parse(currentUserData);
-      var custID = userData.shopifyCustomerID;
-
-
       const formData =  {
-        'email' : $('#form #email').val(),
-        'phone' : $('#form #phone').val()
+        'email' : $('#edit_profile_form #email').val(),
+        'birthday' : $('#edit_profile_form #birthday').val()
+        //'phone' : $('#edit_profile_form #phone').val()
       };
 
-      /*$.ajax({
-      crossDomain: true,
-
-      dataType: 'jsonp',
-      url: 'https://a2ac61e87c82904abc84e30b7178c439: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@by-every-verse.myshopify.com/admin/api/2021-10/customers/custID.json', 
-      data: JSON.stringify(formData),
-      jsonpCallback: 'jsonOutput',
-      jsonp: 'callback',
-    });
-
-    function jsonOutput(data){
-       var status = JSON.parse(JSON.stringify(data.response.data));
-       console.log(status);
-    }*/
-
       $.ajax({
-        crossDomain: true,
         type: 'POST',
-        url: "https://a2ac61e87c82904abc84e30b7178c439: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@by-every-verse.myshopify.com/admin/api/2021-10/customers/custID.json",
+        //url: "https://guarded-badlands-26814.herokuapp.com/updateProfile",
+        url: "https://signupapipromiser.herokuapp.com/updateProfile",
         data: JSON.stringify(formData), 
         contentType: "application/json",
-        dataType: 'jsonp'
+        dataType: 'json'
       })
       .done(function(response) {
-        console.log(response);
-
-        //set token
-        //localStorage.setItem('token', response.token);
-        //window.location.href = 'dashboard';
-
+        //console.log(response);
+        $(".mr-jenkins-save-changes").click();
+        localStorage.setItem('customerdata', JSON.stringify(response));
+        $(".update-success").show();
       })
       .fail(function(err) {
         console.log(err);
-      });
+      }); 
+
+     
 
     });
 

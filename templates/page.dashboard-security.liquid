@@ -67,6 +67,7 @@
       </div>
     </div>
   </div>
+  <p class="update-success" style="display:none; text-align:center;">Your New Password Successfully Updated<p>
   </form>
 </div>
 <style>
@@ -74,6 +75,8 @@
 </style> 
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+<!--<script type="text/javascript" src="https://lig-membres.imag.fr/donsez/cours/exemplescourstechnoweb/js_securehash/md5.js"></script>-->
+
 <script type="text/javascript">
 jQuery(document).ready(function($){
     $("#edit_security_form").validate({
@@ -126,6 +129,46 @@ jQuery(document).ready(function($){
         $("#current_password-error, #new_password-error, #confirm_new_password-error").remove();
         
       }
+    });
+
+    $("#edit_security_form").submit(function(event) {
+      event.preventDefault();
+
+      var currentUserData = localStorage.getItem('customerdata');
+      var userData = JSON.parse(currentUserData);
+      var email = userData.email;
+      var oldpassword = $("#edit_security_form #current_password").val();
+      var newpassword = $("#edit_security_form #new_password").val();      
+      
+
+      const formData =  {
+        'email': email,
+        'oldPassword': oldpassword,
+        'newPassword': newpassword
+      };
+
+      $.ajax({
+        type: 'POST',
+        //url: "https://guarded-badlands-26814.herokuapp.com/updatePassword",
+        url: "https://signupapipromiser.herokuapp.com/updatePassword",
+        data: JSON.stringify(formData),
+        contentType: "application/json",
+        dataType: 'json'
+      })
+      .done(function(response) {
+        //console.log(response);
+        $("#edit_security_form #current_password").val('');
+        $("#edit_security_form #new_password").val('');
+        $("#edit_security_form #confirm_new_password").val('');
+        localStorage.setItem('customerdata', JSON.stringify(response));
+        $(".update-success").show();
+      })
+      .fail(function(err) {
+        console.log(err);
+      }); 
+
+     
+
     });
 
 
