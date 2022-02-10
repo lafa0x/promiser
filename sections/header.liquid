@@ -744,11 +744,11 @@
               <span class="ctm-text"> Help </span>
             </a>
           </li>
-          {% comment %} 
+          
            <div class="ctm-space"></div>
           
-          <li>
-            <a href="#" class="custom-menu-link">
+          <li class="custom-login">
+            <a href="/pages/sign-in" class="custom-menu-link">
               
 
 	<svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -769,7 +769,14 @@
             </a>
           </li>
           
-           {% endcomment %}
+
+
+          <li class="custom-myaccount" style="display:none;">
+            <a href="/pages/dashboard" class="custom-menu-link">
+          <span class="ctm-text login-menu-color"> My Account </span>
+            </a>
+          </li>
+           
           
           
           
@@ -788,6 +795,7 @@
           </nav>
         {%- endunless -%}
 
+        {% comment %}
         {%- if shop.customer_accounts_enabled -%}
           <ul class="sidebar__menu sidebar--accounts">
             <li>
@@ -803,6 +811,7 @@
             </li>
           </ul>
         {%- endif -%}
+        {% endcomment %}
 
       </div>
 
